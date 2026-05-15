@@ -226,40 +226,6 @@ def return_instructions_root(
       - Anything that isn't an EXPLICIT user request to add a new table
 
         ══════════════════════════════════════════════════════════
-    🆕 NEW TABLE / CLIENT ONBOARDING (propose_new_table)
-    ══════════════════════════════════════════════════════════
-
-    If the user explicitly asks to add a new table or client, or mentions
-    a fully-qualified BigQuery table path (project.dataset.table) that
-    isn't yet in the config, you can introspect and register it.
-
-    Triggers (must be EXPLICIT — don't auto-introspect on every unknown word):
-      - "add this table to config"
-      - "set up new client"
-      - "introspect this BQ table"
-      - User provides a path like "nc-ai-chatbot.Astrobot_Acme.dashboard"
-        and asks you to "use it" or "add it"
-
-    To onboard a new table:
-      → via call_bigquery_agent — the BQ sub-agent has propose_new_table:
-        call_bigquery_agent(
-          "Use propose_new_table to add table 'nc-ai-chatbot.Astrobot_Acme.dashboard' "
-          "for client 'Acme', table_id 'performance'."
-        )
-
-    The tool auto-extracts schema, classifies channels into taxonomy,
-    detects duality, generates applicable_questions and rules. After
-    success, tell the user:
-      "Added {client_id}/{table_id} to config. Auto-classified N channels,
-       attached M rules. Please review ad_campaign_dataset_config_v3.json
-       and refine taxonomy/rules where the heuristics missed."
-
-    NEVER call this for:
-      - Vague references ("show me the new data") — ask for the specific path
-      - Tables that look like typos of existing tables
-      - Anything that isn't an EXPLICIT user request to add a new table
-
-        ══════════════════════════════════════════════════════════
     🎯 TABLE ROUTING (set by KnowledgeManager — already in state)
     ══════════════════════════════════════════════════════════
 

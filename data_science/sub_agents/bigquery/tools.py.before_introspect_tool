@@ -335,56 +335,6 @@ def propose_new_table(
     )
 
 
-
-
-def propose_new_table(
-    table_full_path: str,
-    client_id: str,
-    table_id: str = "performance",
-    client_description: str = "",
-) -> dict:
-    """
-    Introspect a BigQuery table and add it to the config.
-
-    Use when the user explicitly asks to add a new table or client,
-    e.g. "add table nc-ai-chatbot.Astrobot_Acme.dashboard for Acme",
-    or when KnowledgeManager doesn't recognize a table reference.
-
-    Args:
-      table_full_path: Fully-qualified BQ table path (project.dataset.table)
-      client_id: Client identifier (NPI / Venetian / Acme / ...)
-      table_id: Logical table id (performance / pacing / ...). Default: performance
-      client_description: Optional description for new clients
-
-    Returns:
-      {
-        "status": "added" | "exists" | "error",
-        "message": "<human-readable summary>",
-        "table_block": {...},   # the config block that was added/proposed
-        "backup_path": "..."     # location of backup before this write
-      }
-
-    Notes:
-      - This auto-populates structural fields AND semantic fields (taxonomy,
-        unification, rules, applicable_questions) using heuristics.
-      - Human is expected to review ad_campaign_dataset_config_v3.json after
-        this runs and refine the taxonomy/rules where the heuristics missed.
-      - Local-only feature: in Cloud Run deployment writes do not persist
-        across container restarts.
-    """
-    try:
-        from data_science.utils.bq_introspector import write_to_config_directly
-    except ImportError:
-        from utils.bq_introspector import write_to_config_directly
-
-    return write_to_config_directly(
-        table_full_path=table_full_path,
-        client_id=client_id,
-        table_id=table_id,
-        client_description=client_description,
-    )
-
-
 def get_database_settings() -> dict:
     """
     Load schema and 3 sample rows from BigQuery for LLM instruction context.
