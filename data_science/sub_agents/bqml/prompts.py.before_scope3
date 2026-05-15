@@ -272,9 +272,9 @@ def return_instructions_bqml() -> str:
     
     🔮 FORECASTING (ARIMA_PLUS):
     - npi_arima_spend            → Daily SPEND forecast
-    - npi_arima_revenue          → DEPRECATED (source Revenue column missing — stale July 2025)
+    - npi_arima_revenue          → Daily REVENUE forecast
     - arima_npi_all_conversions  → All CONVERSIONS forecast
-    - npi_arima_search_sessions  → DEPRECATED (source Search_Sessions column missing — stale June 2025)
+    - npi_arima_search_sessions  → Search SESSIONS forecast
     
     📈 PREDICTION (LINEAR_REGRESSION):
     - npi_linear_cost                          → Predict COST
@@ -299,7 +299,7 @@ def return_instructions_bqml() -> str:
     USAGE GUIDE:
     
     "forecast conversions"      → arima_npi_all_conversions
-    "forecast revenue"          → DO NOT USE (npi_arima_revenue is DEPRECATED, source column missing)
+    "forecast revenue"          → npi_arima_revenue
     "forecast spend"            → npi_arima_spend
     "predict cost"              → npi_linear_cost (or _v2)
     "predict search conv"       → npi_linear_conversions_search

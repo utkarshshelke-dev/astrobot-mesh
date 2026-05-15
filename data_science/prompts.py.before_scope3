@@ -625,12 +625,9 @@ def return_instructions_root(
     1. Check state.available_models_summary
     2. Match by keyword:
        - "conversions/transactions" → arima_npi_all_conversions
+       - "revenue" → npi_arima_revenue
        - "spend" → npi_arima_spend
-       # NOTE: revenue and search_sessions keyword routes removed —
-       # the underlying models (npi_arima_revenue, npi_arima_search_sessions)
-       # were trained on columns (Revenue, Search_Sessions) that no longer
-       # exist in vw_astrobot_npi_nc360_dashboard. Forecasts return stale
-       # 2025 dates. Re-enable only after retraining against valid columns.
+       - "search sessions" → npi_arima_search_sessions
        - "predict search conv" → npi_linear_conversions_search
        - "predict social conv" → npi_linear_conversions_social
        - "saturation" → npi_conversions_saturation
