@@ -79,7 +79,7 @@ TEST_SUITE_RELPATH = "data_science_tests/"
 TEST_GATE_IGNORE = "test_config_writer.py"
 
 #: Recognized structured-patch operations.
-_SUPPORTED_OPS = {"add_channel", "add_rule", "add_client", "add_table"}
+_SUPPORTED_OPS = {"add_channel", "add_rule", "add_client"}
 
 #: project.dataset.table — loose but catches obvious malformations.
 _TABLE_PATH_RE = re.compile(r"^[A-Za-z0-9_\-]+\.[A-Za-z0-9_\-]+\.[A-Za-z0-9_\-]+$")
@@ -243,23 +243,6 @@ def _apply_change(config: dict, change: dict) -> tuple[dict, str]:
 
         suffix = f" attached to {', '.join(attached)}" if attached else " (defined only)"
         diff = f"add_rule: '{rule_id}'{suffix}"
-        return new, diff
-
-    if op == "add_table":
-        client_id = change["client_id"]
-        table_block = change["table_block"]
-        dataset = _find_dataset(new, client_id)
-        if dataset is None:
-            raise ValueError(f"add_table: unknown client_id {client_id!r}")
-        table_id = table_block.get("table_id")
-        if not table_id:
-            raise ValueError("add_table: table_block missing 'table_id'")
-        if _find_table(dataset, table_id) is not None:
-            raise ValueError(
-                f"add_table: table_id {table_id!r} already exists for client {client_id!r}"
-            )
-        dataset.setdefault("tables", []).append(copy.deepcopy(table_block))
-        diff = f"add_table: '{table_id}' -> client '{client_id}'"
         return new, diff
 
     if op == "add_client":
