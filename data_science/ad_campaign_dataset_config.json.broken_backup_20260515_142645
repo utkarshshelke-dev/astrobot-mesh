@@ -1,0 +1,424 @@
+{
+  "_schema_version": "3.0",
+  "_description": "Multi-client, multi-table config. Each client can have multiple tables (performance, pacing, etc). Each table has its own rules, channel taxonomy, and applicable_questions for routing.",
+  "datasets": [
+    {
+      "client_id": "NPI",
+      "name": "Astrobot_NPI",
+      "description": "Nassau Paradise Island tourism advertiser. 10+ years multi-year data.",
+      "default_metric": "Conversions",
+      "default_lookback_months": 12,
+      "tables": [
+        {
+          "table_id": "performance",
+          "_purpose": "Daily channel-level spend, conversions, clicks, impressions",
+          "table_full_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+          "primary_metric": "Conversions",
+          "kpi_column": "Conversions",
+          "channel_column": "Channel",
+          "client_column": "Client",
+          "date_column": "Date",
+          "spend_column": "Cost",
+          "channel_taxonomy": {
+            "organic": [
+              "Organic Search",
+              "Organic Social",
+              "Organic Video",
+              "Direct",LATEST=$(ls -t ad_campaign_dataset_config_v3.json.before_auto_onboard_test_* 2>/dev/null | head -1)
+cp "$LATEST" ad_campaign_dataset_config_v3.json
+echo "Restored from $LATEST"
+              "Referral",
+              "Email"
+            ],
+            "paid": [
+              "Paid Social",
+              "Paid Search",
+              "Search",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max",
+              "Display",
+              "OTT",
+              "CTV",
+              "Linear TV",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print",
+              "Online Audio"
+            ],
+            "awareness": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Audio",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print"
+            ],
+            "direct_response": [
+              "Search",
+              "Paid Search",
+              "Email",
+              "Shopping"
+            ],
+            "mid_funnel": [
+              "Paid Social",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "tv": [
+              "Linear TV",
+              "CTV",
+              "OTT"
+            ],
+            "social": [
+              "Paid Social",
+              "Organic Social"
+            ],
+            "search": [
+              "Paid Search",
+              "Search",
+              "Organic Search"
+            ]
+          },
+          "channel_unification": {
+            "Paid Search": [
+              "Search",
+              "Paid Search"
+            ],
+            "Demand Gen + P-Max": [
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "Paid Social": [
+              "Paid Social"
+            ],
+            "Video/CTV/OTT/TV": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Video",
+              "Paid Video",
+              "Video"
+            ]
+          },
+          "duality": {
+            "has_duality": true,
+            "spend_rows_filter": "Cost > 0",
+            "conv_rows_filter": "Conversions > 0",
+            "note": "Spend rows have Conversions=0; conv rows have Cost=0. Use FULL OUTER JOIN."
+          },
+          "rules": [
+            "blended_cpa_use_unified_cte",
+            "ranking_use_unified_cte",
+            "channel_mix_use_unified_cte",
+            "volatility_use_cv_not_stddev",
+            "organic_efficiency_use_organic_filter",
+            "tv_halo_use_correlation",
+            "forecast_aggregate_to_weekly_for_chart",
+            "always_resolve_channel_terms_via_taxonomy"
+          ],
+          "applicable_questions": [
+            "channel performance",
+            "cpa",
+            "roas",
+            "channel ranking",
+            "channel mix",
+            "organic vs paid",
+            "organic efficiency",
+            "tv halo",
+            "channel synergy",
+            "volatility",
+            "forecast",
+            "correlation",
+            "lift analysis",
+            "direct conversions",
+            "awareness",
+            "direct response",
+            "lead driver"
+          ],
+          "bqml_models": {
+            "conversions_arima": "npi_arima_conversions",
+            "spend_arima": "npi_arima_spend",
+            "saturation": "npi_conversions_saturation"
+          }
+        },
+        {
+          "table_id": "pacing",
+          "_purpose": "Budget pacing, flights, forecasts, and burn-rate tracking at partner/geo/channel level",
+          "enabled": false,
+          "_enabled_note": "Set 'enabled': true once schema is verified in dev. Routing will recognize pacing questions but currently returns a friendly 'not available yet' message instead of executing SQL.",
+          "table_full_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_budget",
+          "primary_metric": "Budget_To_Date",
+          "kpi_column": "Budget_Total",
+          "channel_column": "GVMM_Channel",
+          "partner_column": "GVMM_Partner",
+          "geo_column": "Budget_Level1",
+          "client_column": "Client",
+          "date_column": "Date",
+          "spend_column": "Budget_To_Date",
+          "schema": {
+            "_note": "Verified schema from BQ as of 2026-05. 43 columns total.",
+            "dimensions": [
+              "Date",
+              "Client",
+              "Account",
+              "NC_Managed",
+              "Budget_Level1",
+              "Budget_Level2",
+              "Budget_Level3",
+              "Budget_Level4",
+              "Budget_Level5",
+              "Budget_Channel",
+              "Budget_Partner",
+              "GVMM_Channel",
+              "GVMM_Partner",
+              "Flag_In_Flight",
+              "Flight_Type",
+              "Budget_Flag",
+              "Start_Date",
+              "End_Date",
+              "Month_Start",
+              "Email_Alias",
+              "Marketing_Pod",
+              "Analytics_Pod",
+              "Marketing_Contact",
+              "Analytics_Contact",
+              "Lookup_Key",
+              "CX_Source_Load_Time"
+            ],
+            "metrics": [
+              "Budget",
+              "Budget_To_Date",
+              "Budget_Total",
+              "Budget_Remaining",
+              "Budget_MOP",
+              "Days_Complete",
+              "Days_Remaining",
+              "Spend_Per_Remaining_Days",
+              "Projected_Daily_Spend_Number_Of_Days",
+              "Projected_Daily_Spend",
+              "Projected_Daily_Spend_Yesterday",
+              "Projected_Daily_Spend_Last_3_Days",
+              "Projected_Daily_Spend_Last_7_Days",
+              "Forecast_Total",
+              "Forecast_Total_Yesterday",
+              "Forecast_Total_Last_3_Days",
+              "Forecast_Total_Last_7_Days",
+              "Lower_Bound",
+              "Upper_Bound"
+            ]
+          },
+          "channel_taxonomy": {
+            "organic": [],
+            "paid": [
+              "Search",
+              "Social",
+              "Demand Gen",
+              "Performance Max",
+              "OTT",
+              "Linear TV"
+            ],
+            "awareness": [
+              "OTT",
+              "Linear TV"
+            ],
+            "direct_response": [
+              "Search"
+            ],
+            "mid_funnel": [
+              "Social",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "tv": [
+              "Linear TV",
+              "OTT"
+            ],
+            "_note": "Pacing table uses GVMM_Channel (normalized). 'DEFAULT' = test/unmapped partners - exclude from analyses."
+          },
+          "duality": {
+            "has_duality": false,
+            "note": "Pacing table has one row per partner-day. No conversions in this table."
+          },
+          "rules": [
+            "pacing_use_days_remaining_for_projections",
+            "flag_status_check_first",
+            "ignore_default_channel_unless_explicit",
+            "use_GVMM_Channel_not_Budget_Channel_for_grouping",
+            "active_flights_only_unless_specified",
+            "use_forecast_total_for_projections"
+          ],
+          "flag_definitions": {
+            "No spend": "Budget_To_Date = 0",
+            "Pacing": "Projected forecast within Lower_Bound and Upper_Bound",
+            "Underpacing": "Projected forecast below Lower_Bound",
+            "Overpacing": "Projected forecast above Upper_Bound"
+          },
+          "applicable_questions": [
+            "pacing",
+            "budget remaining",
+            "flight status",
+            "burn rate",
+            "underpacing",
+            "overpacing",
+            "month-end forecast",
+            "geo budget",
+            "partner budget",
+            "days remaining",
+            "budget flag",
+            "projected spend",
+            "will we hit budget"
+          ]
+        }
+      ]
+    },
+    {
+      "client_id": "Venetian",
+      "name": "Astrobot_Venetian",
+      "description": "Venetian ENT OOH client",
+      "default_metric": "KPI",
+      "default_lookback_months": 12,
+      "tables": [
+        {
+          "table_id": "performance",
+          "table_full_path": "nc-ai-chatbot.Astrobot_Venetian.sample_astrobot_venetian_nc360_dashboard",
+          "primary_metric": "KPI",
+          "kpi_column": "KPI",
+          "channel_column": "Channel",
+          "client_column": "Client",
+          "date_column": "Date",
+          "spend_column": "Cost",
+          "channel_taxonomy": {
+            "organic": [
+              "Direct",
+              "Organic Search"
+            ],
+            "paid": [
+              "OOH",
+              "Paid Search",
+              "Display"
+            ],
+            "awareness": [
+              "OOH"
+            ],
+            "direct_response": [
+              "Paid Search"
+            ],
+            "mid_funnel": [],
+            "tv": []
+          },
+          "channel_unification": {},
+          "duality": {
+            "has_duality": false,
+            "note": "No channel duality observed."
+          },
+          "rules": [
+            "ranking_use_unified_cte",
+            "always_resolve_channel_terms_via_taxonomy"
+          ],
+          "applicable_questions": [
+            "ooh performance",
+            "channel ranking",
+            "kpi by channel"
+          ]
+        }
+      ]
+    },
+    {
+      "client_id": "WinnDixie",
+      "name": "Astrobot_WinnDixie",
+      "description": "Winn-Dixie SEG OTT/streaming campaign data",
+      "default_metric": "ViVs",
+      "default_lookback_months": 12,
+      "tables": [
+        {
+          "table_id": "performance",
+          "table_full_path": "nc-ai-chatbot.Astrobot_WinnDixie.sample_astrobot_wd_nc360_dashboard",
+          "primary_metric": "ViVs",
+          "kpi_column": "KPI",
+          "channel_column": "Channel",
+          "client_column": "Client",
+          "date_column": "Date",
+          "spend_column": "Cost",
+          "channel_taxonomy": {
+            "organic": [
+              "Direct"
+            ],
+            "paid": [
+              "OTT",
+              "CTV",
+              "Linear TV"
+            ],
+            "awareness": [
+              "OTT",
+              "CTV",
+              "Linear TV"
+            ],
+            "direct_response": [],
+            "mid_funnel": [],
+            "tv": [
+              "OTT",
+              "CTV",
+              "Linear TV"
+            ]
+          },
+          "channel_unification": {
+            "TV/CTV/OTT": [
+              "OTT",
+              "CTV",
+              "Linear TV"
+            ]
+          },
+          "duality": {
+            "has_duality": false,
+            "note": "Streaming-only client."
+          },
+          "rules": [
+            "ranking_use_unified_cte",
+            "always_resolve_channel_terms_via_taxonomy"
+          ],
+          "applicable_questions": [
+            "vivs",
+            "streaming performance",
+            "ott performance"
+          ]
+        }
+      ]
+    }
+  ],
+  "_global_rules": {
+    "all_tables": [
+      "always_filter_by_client",
+      "always_use_date_range_filter",
+      "never_select_star_without_limit",
+      "use_safe_divide_for_ratios"
+    ],
+    "rule_definitions": {
+      "blended_cpa_use_unified_cte": "For blended CPA, always use a CTE with unified channel mapping and FULL OUTER JOIN to handle Cost/Conversion duality",
+      "ranking_use_unified_cte": "For 'best/worst' channel rankings, use unified channel mapping CTE",
+      "channel_mix_use_unified_cte": "For peak/trough/period comparisons, use unified channel CTE",
+      "volatility_use_cv_not_stddev": "Volatility = Coefficient of Variation (STDDEV/AVG), not raw STDDEV. Use compute_channel_volatility() tool.",
+      "organic_efficiency_use_organic_filter": "'Organic efficiency' means % of conversions from organic_taxonomy channels, NOT total_conv/spend",
+      "tv_halo_use_correlation": "TV halo questions use Pearson correlation between TV spend and Search/Direct conversions",
+      "forecast_aggregate_to_weekly_for_chart": "Daily forecast arrays exceed chart limits; aggregate to weekly before charting",
+      "always_resolve_channel_terms_via_taxonomy": "When user mentions 'awareness', 'organic', 'paid', etc., look up the actual channel list from channel_taxonomy. Never guess.",
+      "pacing_use_days_remaining_for_projections": "For 'will we hit budget?' questions, use Forecast_Total_Last_7_Days \u00d7 Days_Remaining",
+      "flag_status_check_first": "Before reporting pacing, check Budget_Flag column for status",
+      "ignore_default_channel_unless_explicit": "GVMM_Channel='DEFAULT' is unmapped/test data; exclude unless user explicitly asks about test partners",
+      "use_GVMM_Channel_not_Budget_Channel_for_grouping": "When grouping pacing data, use GVMM_Channel (normalized) not Budget_Channel (raw)",
+      "active_flights_only_unless_specified": "By default filter Flag_In_Flight='In Flight'; users can override",
+      "use_forecast_total_for_projections": "For end-of-flight projections use Forecast_Total or Forecast_Total_Last_7_Days",
+      "always_filter_by_client": "Every query must include WHERE Client = @client_id",
+      "always_use_date_range_filter": "Never scan full table; always include WHERE Date >= ...",
+      "never_select_star_without_limit": "Use specific columns and LIMIT if exploratory",
+      "use_safe_divide_for_ratios": "Use SAFE_DIVIDE() to prevent divide-by-zero errors"
+    }
+  }
+}

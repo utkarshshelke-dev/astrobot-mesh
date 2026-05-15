@@ -114,8 +114,8 @@ class KnowledgeManager:
         except ImportError:
             from lib.channel_resolver import reset_config_cache, load_config_v3
         reset_config_cache()
-        self._config = load_config_v3()
-        return self._config
+        self._data = load_config_v3()
+        return self._data
 
     def list_clients(self) -> list[str]:
         """All client_ids registered in config."""

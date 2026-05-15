@@ -93,7 +93,6 @@ bigquery_agent = LlmAgent(
         tools.compute_channel_volatility,
         tools.get_channel_volatility_summary,
         tools.compute_saturation_curve,
-        tools.train_arima_model_bqml,
         tools.train_saturation_model_bqml,
         tools.propose_new_table,
         tools.propose_new_table,
