@@ -1,11 +1,3 @@
-cd ~/astrobot_mesh
-
-# First resolve the symlink permanently
-cp --dereference ad_campaign_dataset_config_v3.json /tmp/config_v3_real.json
-cp /tmp/config_v3_real.json ad_campaign_dataset_config_v3.json
-echo "Symlink resolved: $(ls -la ad_campaign_dataset_config_v3.json)"
-
-cat > Dockerfile << 'DOCKERFILE'
 FROM python:3.12-slim
 
 ENV PYTHONUNBUFFERED=1
@@ -45,16 +37,13 @@ RUN pip install \
       "fastapi" \
       "uvicorn[standard]"
 
-# Copy ONLY the data_science package (not everything)
 COPY data_science/ /workspace/data_science/
 
-# Copy the REAL config file (not symlink)
 COPY ad_campaign_dataset_config_v3.json /workspace/ad_campaign_dataset_config_v3.json
 
-# Verify it's there and has content
 RUN test -s /workspace/ad_campaign_dataset_config_v3.json && \
-    echo "✓ Config v3 found ($(wc -c < /workspace/ad_campaign_dataset_config_v3.json) bytes)" || \
-    (echo "❌ Config v3 missing or empty" && exit 1)
+    echo "Config v3 found ($(wc -c < /workspace/ad_campaign_dataset_config_v3.json) bytes)" || \
+    (echo "Config v3 missing or empty" && exit 1)
 
 EXPOSE 8080
 
