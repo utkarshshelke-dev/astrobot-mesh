@@ -103,20 +103,6 @@ class KnowledgeManager:
         """Raw config dict, for read-only inspection."""
         return self._config
 
-
-    def refresh_config(self):
-        """
-        Reload _v3.json from disk and reset all internal caches.
-        Called after agent-side config writes (auto-onboarding, propose_new_table).
-        """
-        try:
-            from data_science.lib.channel_resolver import reset_config_cache, load_config_v3
-        except ImportError:
-            from lib.channel_resolver import reset_config_cache, load_config_v3
-        reset_config_cache()
-        self._data = load_config_v3()
-        return self._data
-
     def list_clients(self) -> list[str]:
         """All client_ids registered in config."""
         return list_clients()

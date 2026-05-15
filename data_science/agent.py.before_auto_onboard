@@ -243,103 +243,6 @@ def _ac3_dry_run(sql: str) -> tuple[bool, str]:
 # CALLBACKS
 # ══════════════════════════════════════════════════════════════════════════════
 
-
-
-# ── Auto-onboarding helpers (local-only; Cloud Run filesystem is ephemeral) ──
-
-_AUTO_ONBOARD_NOISE_WORDS = frozenset({
-    "Date", "Channel", "Cost", "Conversions", "Click", "Clicks", "Impression",
-    "Impressions", "Revenue", "Spend", "Budget", "Total", "December", "November",
-    "October", "September", "August", "July", "June", "May", "April", "March",
-    "February", "January", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
-    "Saturday", "Sunday", "Q1", "Q2", "Q3", "Q4", "YTD", "MTD", "WTD", "Yesterday",
-    "Today", "Tomorrow", "Search", "Social", "Video", "Display", "Email", "Linear",
-    "CTV", "OTT", "OOH", "TV", "I", "ID", "URL", "API", "SQL", "BigQuery",
-    "Google", "Facebook", "Meta", "Bing", "Yahoo",
-})
-
-_AUTO_ONBOARD_INTENT_WORDS = frozenset({
-    "show", "pull", "get", "for", "about", "fetch", "display", "list",
-    "report", "analyze", "compare", "rank", "top", "data",
-})
-
-
-def _looks_like_client_name(word: str) -> bool:
-    """Conservative check: is this word a plausible client identifier?"""
-    if len(word) < 3:
-        return False
-    if word in _AUTO_ONBOARD_NOISE_WORDS:
-        return False
-    if not word[0].isupper():
-        return False
-    if not word.isalnum() and "-" not in word and "_" not in word:
-        return False
-    return True
-
-
-def _user_text_has_intent(text: str) -> bool:
-    """Did the user say something that suggests fetching/showing data?"""
-    text_lower = text.lower()
-    return any(w in text_lower.split() for w in _AUTO_ONBOARD_INTENT_WORDS)
-
-
-def _attempt_auto_onboard(user_text: str, state: dict) -> Optional[str]:
-    """
-    Try to auto-onboard an unknown client name from user text.
-    Returns the new client_id if successful, None otherwise.
-
-    Local-only — Cloud Run filesystem doesn't persist these writes.
-    Skipped silently in production. Used for dev demos.
-    """
-    if not _user_text_has_intent(user_text):
-        return None
-
-    # Pull capitalized words that aren't noise
-    candidates = []
-    for raw_word in user_text.split():
-        # Strip common punctuation
-        word = raw_word.strip(".,;:!?'\"()")
-        if _looks_like_client_name(word):
-            candidates.append(word)
-    if not candidates:
-        return None
-
-    # Cache previously-failed lookups for this session
-    failed = state.setdefault("_auto_onboard_failed", [])
-
-    for candidate in candidates:
-        if candidate in failed:
-            continue
-        try:
-            from .utils.bq_introspector import auto_onboard_client
-        except ImportError:
-            return None
-
-        try:
-            result = auto_onboard_client(candidate)
-        except Exception as e:
-            _logger.warning(f"Auto-onboard error for {candidate!r}: {e}")
-            failed.append(candidate)
-            continue
-
-        if result["status"] in ("added", "exists"):
-            _logger.info(
-                f"🆕 AUTO-ONBOARD: client {candidate!r} discovered "
-                f"({len(result.get('tables_added', []))} tables added)"
-            )
-            # Refresh KM cache so the new client is visible
-            if _KM_AVAILABLE and km is not None:
-                try:
-                    km.refresh_config()
-                except Exception as e:
-                    _logger.warning(f"KM refresh failed: {e}")
-            return candidate
-        else:
-            failed.append(candidate)
-
-    return None
-
-
 def before_agent_callback(
     callback_context: CallbackContext,
 ) -> Optional[types.Content]:
@@ -380,16 +283,6 @@ def before_agent_callback(
 
     # ── 3. Client detection & locking ──
     detected_cid = _detect_client_from_text(user_text)
-
-    # If no client detected and user seems to want data, try auto-onboarding (local-only)
-    if not detected_cid and user_text and not state.get("client_lock"):
-        try:
-            onboarded = _attempt_auto_onboard(user_text, state)
-            if onboarded:
-                detected_cid = onboarded
-                state["_auto_onboarded_this_request"] = onboarded
-        except Exception as e:
-            _logger.warning(f"Auto-onboard attempt failed: {e}")
 
     # AC-5 STATE LOCK CHECK — use callback_context.state directly (not ctx)
     locked_cid = state.get("client_lock") or state.get("LOCKED_CLIENT")
