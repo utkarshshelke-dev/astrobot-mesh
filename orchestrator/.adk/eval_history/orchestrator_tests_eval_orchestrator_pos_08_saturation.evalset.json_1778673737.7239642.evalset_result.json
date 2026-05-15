@@ -1,0 +1,1495 @@
+{
+  "eval_set_result_id": "orchestrator_tests/eval_orchestrator/pos_08_saturation.evalset.json_1778673737.7239642",
+  "eval_set_result_name": "orchestrator_tests_eval_orchestrator_pos_08_saturation.evalset.json_1778673737.7239642",
+  "eval_set_id": "tests/eval_orchestrator/pos_08_saturation.evalset.json",
+  "eval_case_results": [
+    {
+      "eval_set_file": "tests/eval_orchestrator/pos_08_saturation.evalset.json",
+      "eval_set_id": "tests/eval_orchestrator/pos_08_saturation.evalset.json",
+      "eval_id": "pos_08_saturation",
+      "final_eval_status": 1,
+      "eval_metric_results": null,
+      "overall_eval_metric_results": [
+        {
+          "metric_name": "tool_trajectory_avg_score",
+          "threshold": 0.0,
+          "criterion": {
+            "threshold": 0.0
+          },
+          "custom_function_path": null,
+          "score": 0.0,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": null
+          }
+        },
+        {
+          "metric_name": "response_match_score",
+          "threshold": 0.05,
+          "criterion": {
+            "threshold": 0.05
+          },
+          "custom_function_path": null,
+          "score": 0.0875912408759124,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": null
+          }
+        }
+      ],
+      "eval_metric_result_per_invocation": [
+        {
+          "actual_invocation": {
+            "invocation_id": "e-529cf66c-741f-40d3-a234-6aafaf32fef5",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, build a saturation model for a $500k investment and recommend channel allocation",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "**Result:**\nThe current model `npi_conversions_saturation_v2` has issues:\n- R² score: None\n- This appears to be a broken model\n\nI can retrain this model with proper parameters:\n- Target: Conversions\n- Features: Channel, Cost, Clicks, Impressions, Sessions (with log transformation for Cost and Clicks to capture saturation)\n- Type: LINEAR_REG\n- Training data: NPI multi-year (2016-present)\n\nShould I retrain it now? (~30 seconds)\n\n**Explanation:**\nThe `call_data_scientist` agent was called to build a saturation model and recommend channel allocation for NPI. It identified that the existing model is broken and proposed retraining it with specified parameters.\n\n**Recommendation:**\nTo proceed with building a functional saturation model and channel allocation recommendation, the model needs to be retrained. Please confirm if you would like to proceed with retraining.",
+                  "thought": null,
+                  "thought_signature": "CuZEAY89a19VVnzwYDLS5R_6wL7ldQPj2WI5eMnn4UF8Nk9Kk4MRP7RtKk9GVpzl062WNbM47Kwn_XfUDJhGJQM0uJ_WqONJgjbqbMIC4WfG3tsp8HhcKVxGIf2AwL8wr0xnmTli334AvcVOIUl-7-L69oxSHHTvaxX5rI1C1mLwcHB648E0rgyifCvCmFCnO0vJEF6Llq1ZVUS6OM4VTIBIep1b9lvyqmJsarrQMLmM8a5wB5wvP2DVWhgQFWVON1NMori0z3Kk2wIWCttMWDFyok6bHctioIrPGUJluArRBOlRe0w6TdW5ZUP9Cet_RttYgDLZMNgSq7zj8YSqSH1tFdMGT6thnlaMzpkYAsm8sBHb2MlGn600783cEwf8Csq0RQjFZRkSRNRb5NPnnP084Mft3Fffy5sFjZE0WjsLf3xXE3JqFctJ6q1HIRjjSezON7TSIeD4EPlkILxN-lyff7sRg4uPeGAyCC9YQ4qdEp76ZMj5PWLYvXYSu5BcNhlMdOQZd1DKGuPk4ZaTD6hpv-hacnggRt-3z-1QRFFDSLX7uLpttl3fp1DXj3f57Ns7zQ0eYEh-2fHczZWaebhWmpk6PJpe5kYlzPwn8m_apPtrBKAyvokQO-RYBMDAVcvS6f7fScUbmEpLskz9HgJyj_RjSWI8fi87-0vbmyOQeqLWRkv5CNRVSBcmjO1PgmjNvkqlmLcbVNxi4pD6lonMs2eBeHKK-xBdH0zBVLcQLkjlUldUuedlDNyfwP4Acfun08xUzktWrZnYCvA0Ec6F_QoSXSIorDStyQan7NoK2COEHvXdHgUUkwDQKar-NQrCIadzptVwFyEZIqSM8YadSbk9wDgjzeKqGtZqg5osNrizmsKYqhTIEJ8OLQ0WRLkXjyzc84wZyHm_hlIvC6P47ZzPmbyJKKm4pZCArQlalO0xwuGXWP8oN6VvTTWhYSN_7AGXVzDmSFG6T-9uZWiCn2mxp2D0YP6rcL_JQTVjZbQQtjxzsCHtF1GE-fhctaU4PEVaoiuVX6V6a_KuS-sSKfYB2yDeI0HsbxKbFL3_fGbTPZeyuNY3IkEyLemPMLzX5q0S56H1yyjqsCymrcr2AlfTxujxtNoOAX0Lf2zDQugHW-DbXeyCzr8tJw6xOitIfPkHf_vAhnwZB8y8k9GLuiJH6ZpjpFmBHMZDCk5UCunc0-VWUjUOQepi86Kgyz7OmewNj8tEUniYwFLhoWnTmAvL_2-rqrERaLnzEBPz2SkWBdWzUEjI7vm2ljJjreXGEd8VEo_jTG6lZwlGtHaI0xSC2oaNXYEmlr41ZUhWb5CHYynescHXEWd28G3zal_R3yMW6RIvU1T828g2qseyjVGrB_V7FCK0ym05C5E0xKVOnwQfnAi0sFYIeiMs1tzab7StDguXxhk62KnKf3OIfaVZZz_ffLzR2t1yES33NrDkn4TW0jFttb0Y5B_5dklxXqXs8uZCtLN3CaFvrZRkvDB61Dje-oASw0cn0seCxgd3CzDSGo5Pi8ywFEUBse9iklFUBb4HwF1R4cBrtS5QCIiT5Zk6FaQM1VvRtjDEmY9Nmld_0vkgLvFajYYwoZ3YZCZJhIf0yZLTM4boEUmwmHJB6TJ_wv_56xtYOBA0asGeM7gh7aqsAdIW-flK2FUW-We6dJF_zANvFlcP1X5r1jAjzO2QRLczymmV3hQ55lwyHxm8H0BSxyPKgCPHBX3dTX3yDuLWptU7o6c7vrE0NgafC2alHLDsdS9JCW9lElxWiqOMKKySdCiM9zEFFrYtmLQvtMAx0iuihCp4ZBk2_5jAoL2CCkEIVneXs23bUDKDxmwH4Z8XJJ1sWfEvbYQoohaeC9wilaUuMCoLj1koQC5oHyspzf9n14Cfa687MEBAEav-YD6zrjeGyGCiCYOAn41MRccWuz_wLMQk8dqaYDethy8LBx3pCHYJggJMvMqKOv8D2n9UECDIOKcwDlUPzxJtsH2sOmSmfc9oNNnd_dytI3XvtHLYA7V-gBS3ICD5P8Gd7dC3RWWOmJZlCtvUvcmuFERX3CuHrsqV1zEfWb0OU5DMmgNinKVaYULneIXmzasnpmEEHGwIc8WFzsA7Fh-evxh8Mb4olvbwJk5_MyUz9pyWLNH1071eebtqnGjCVvyyKG8s-ypl1x0F32K--3jZ-IXqGhIdtPg4fTVBis1xaWCGOIHtCRep75vUvZTWxqb6rQ1_m7cjaNo-Ra1ye3-HrNlEKHk2t-3a0IWiUbfK7TXworw0TP_66b03H8NabX23ehtl_SW38xd7bofGZQJn6Qa9pwXCe734KD3esONI7Ezg8_UZuspciqTB7mZQBmXS0ehbQpXHpA4pxt48hzX6O5Ge3gPEvRBinDDOPLoQOd6-NxP4darImujNVXzeS7vDYvTh-47_ZQ_u2hbXTARve8AfsoL9u9ESjLfNnoH6nG9RAaGOYDG51s0YNo2hDwl82CrFSab0dgsqlPtnWYWK_xv_HcUhaJzVJPU0dM2JSoNVcIt4Tw0upYnaETu_EbHkgKZ7t3nRuEmbDv3laGXYMuiZpSX1GwHSEopIEbisyQrMzRXreDuPLvXkoCSOGADyrknEt6IKjL8rnloDJ83AEtytE1u4V8pWYz1nwtJ6M9O-X0mNButuDK9HjpVba_Y-STbAlCVwDklVoIfgNgKO_wSkeFGacVMoG2RwN_U5EBGycWYsKYJMe0GSuLJd1rt6LGuYtSxWnT8VtNEo3UWo-dlCyHuQB2esbiLiJTzhMv8YJvgLgzDbIDDW2OXfAe265XQjpcy9JMzvUXPxcmDf4C048wV2-Leedfent3ycPFVp_FdUTkc6uVud24mEAYlH7mL0W2gN2wznPaxo9SgoSTEGgGuNNE8k0cazmblz_tC3gf_P45Xf-_yJZT1nQFa3O9EXD8x5i8A3ToAMcRpr1VCr3pSaK3KtkuP7KU5pCWn4NmlGMa6RGzcaOivOEXQJwBmn9f05vSPn7iAwVlQdBByU5v0uGbf-kOqnGZ2Nig_xr37JKRr7iFKaf_8o4Ue1Gyp_zb1wadU9l6wAPd0PuLejaeY7XykDFpm6LBepTyuFzAw0WMrS2z1IpxffLiurkzDW_EMhZ5Uq63r5Waf6IFMTk7qGKf8Z11spI6RsmA6LE_fqBJefI2kNywALdufhBut-T5uxbFtRVWUZ2WSX4H_zpha9Yu-rCiNxsg-ZgxfFkvh65kKpHafnDDPCwTBtYyDWe6vjmzJVBGm9OYd9kR0tZdziOkbHvXHo6ajnIT4e35ohG248pMotYO6F3VDf0sbfmqs1lAf_KBKQeyORwVDyV2RdIWwJCeiwr-1neHE9sdEqnYYyyvTSC8aiuRq5vzh0W5QxVRXIKLbLcq7T4QCaOZ0_NSOMNBEpB8HaPS1yliO-TFH3nz1dtInSKey_2DFkODjaPkmWLiwGZ3vVMIcRE9hsOVCfEor21Tzu5WuQkN8nnZF_SMAVNe67Iprg2GhPUT9qtEHT9Rc9WN5g3WO5u2ArEqj_5PR2UdYvUr67ausFGlzbis4ukTy51YDqQTVVBQ4cp16fBMouNMzoPACF_0Y5GK1zHv6qSIOFB3pe3zWUd7DIkThIbwSsGgeriZkN1gID8aqftKmt1zpYR12AhYVgZck-EGUvzJpyjnSoFvlKNne8419-idGxEinRJ1bhVcHs2W449-WHho9G5iSbqDDcvP1b5o2sGE7PZwSHOeDrYRKWOTmNqvxgeTchnQHYZDpbniAGEzrgJR71cRkNR8N-mR9A17AcuSoppCoBk6NH-2Fq8uHwYA_ZsKBkLLEsUFn03bxPpwMKjF3i8cYx8Q8KHN9hiNCOI0ua74nrI9lnVdYMjtiZrZLP-jn1bmEr6tkj5g1wymOmXA2ljFkYLVYjtNSvKLvwtixoTvTwwWjm6QFcaEYW4dQ4r-YsN0df093h0PA6BhmWJ1ktOpL44WFzORkO8kp0NbuLoGbksS9L73r3J2U7rXQd9lAg9-K38XP_jG98DztHW79-zuRw7vu23X__AovezmPb7pF-dIE7rgRlsPuejcqco4STD7G4GoZZxNGtCsEXHtF5pghQs7iPaervjvjCqUNhEMpo72wgYy04s9Lj7-UdeWpVaHDAjAtdUbqAhDUNPAS237nSuCaqc5EW40mk8oihQJwSNY8PGgbV1igs2i7KjujBR6vEC_AnrdO8NwXJOMz9pYAxL_OyJfdVQUSh_46aJ7DNBKWLGk64ihh2M-2xYUA7vQiP7iNayOWdNZtkUyOidy_d5pRdo8zbJvgtXbJSk1ckIN8idPShrfX3EbD3nukbbEm19xtTOz4HXSxWPti7tVUWiPBqQK0bKPsApczF9Pe06fQhCjtpG8pOQpO_jtPbVU0MhDd01Y1mtDxYgw6DuxOuruLgRgobag3AT68wuk_h9FXU3JE7VovaV6r0GDu4fg0w3ttBi8zs_C1l8QcBOtRvdrxD7afYYgvmNguK4kvbOYylWr1QkQE7s4R2APPd7uqbzDOMwFfXWK_pIDk16JvnS0Vo4i_wlRHJhBhPX-Fa1ZwM_cSsed8usIiOPh5xb6wuvr2T3Sac15antwE9lyICtWZcRSaJGeyBQMuz840yFLLadb7qEW4WWMnM9m1qZDCz-5LqP_tQ-idlXfGBpYn4YhH8eunwSIuoQ3OOR4FOFG1gRl0rsHkPHzc9AP3htaRVgQGB_WW9cnCcXr-u3PkvQnu_3q3tmChPxuw6Fvr9kIHzub6ynF70W8ofjD7h7q48azJ845ocmNUvWwNpIPkMAgM6MwDjXMdIEAsi22mn4SArATP1-pdTLCHWMjDi25pGS-UJlz3V6E4-pxTJa0oLqZr3x3o4LLKbMq0wMM4mFbKSd_XewOM_u4yfD-OJLVHABIFeW57-KpJrkr4LORCs_NRfDgISKFviR_O_xePaAelsdUP1iNctKT3QkACw6H3Fp2deBft7-ecLZa4H_MsosJG0JDVe9KJwdu4uJz35trdjDjWw7EnHTK1mntzGI6cJ1FxktMpaZKlTcnCu5xDjekqPztd49VkRu-G_QsTFNkEkQVJY_bHCg972RoWoa9v-c1e_UySod6tzK5E0FjjekIgTWMwLAEjMBaU4p7k6Uut-Xs7o3SnbyPlFem-YRTMq-JPK-USjJ1xVHBZhUZDh2PqpmBvW3E6oG8z6k0jcfol4Yqs1HDVIPvwwnWk6a3Ob5J81q45GVWcgQvBBf0mjfBIVUZ68K0lQoG2Jfw3zSO0wP3R0kQkblLDq5LZrPTxU7KQh9fz8DGS9vn0soWHwsHwYQIiPeQ6UizrTxeAsfzJEyVkfTW_75whbkuDCUAdgSS7VASPBgAWQVxNeKRLk0CMkwmJ32Nu4heQMVgtrbocyz0rrzcNr54e8NLGmUpT0MjPAuI2eaOSukOT64s9V3gReImhtTzLUgSsnM4mshj7ldrp5WOQZZncDsYBdf52C1JZsd1pmuQFUs3l8c9AMcF3jbsAhhLxQGUk8DYvQA2XHN3wKYU3q2so3ZKGkOL8wqr9MdZmnGm2iBXBB0SYKje4HZlZ6CqjykGxr6iN-cpD9K--B3vWiinQrzNaHjH31otby-JTHK1A8EfBhj7HZhBO0G2fnzeN4QI8Jgw_ufsDVDPpg28cLCEitMttlPf3zpAQvTDbdKFEpSJivjLG_GIhdOFaofkSecTh80fDCB2tQ8cdQOUBFnu2WdTPY-1pIUHmn01TxSyc1A8VrYJd2s3_N3aFMGJR7N3bf1FuS1wpLXrtT6aoWkPNyWCorlhTn5hFhB-7PeNvIeaBrrjr_kinPGD5c3tOZbSuNu42lMgRlQD3Rjxnd-SANKwCbHKzwe5t8IGJJANNeRD07hpIfuhHkmRj0EXnxOIUcmilaIBIRyR1WrfQnF_6vcIQYaq_BmWySaNV67VKkYMdkV5QeESxrDtyg10xiCBZvpZU9nf26VwfWc29PYMVPzBy04HQN4YdoUhMaxNFaQzK_ttROTzNbrNgQ6BrvG9IOTXbTfTkrFN9-qCwZn2KnuZKEOsw3gim3-IIXATpBtddn3DLUIwZzoFB_M092P_ABv-bJUY_T9aOOUKe7ZqtMCsIeMEBQz3ex_e-PFbMfqQaWfH9dKKV4DUXNBReg5bhqAis-qB5ldpYd4TgXgVIqMValonjLWck_Z3UYFknzk8EpjRnCEX_Qw6Goo_UB4WFBU9OdFSft2DyukhMUxHVakaE0xsH0cX81CXmtoqeiETXEoQEMbQZg6Evbic3bkL6CnS_EueQgrWRueG6ZSN_TwZFSwgJTUg_zJK4Y_0Eg-9WAQqNpH03SUTjcrWBHdsCJbsvrZuYI2mQMEawcKkSTrjv02PD6kYxhsrxUBgC4z9Owkv1k0hnV7RHIdkW3IMaTQPSCB_GNMKZk60Ylty-QCchwsWLoXI6YqPLQJT_N0vP7H8oXYuc_wfLNbVLQH4fEAkKYqcCiPUnVTh1OrqavXnUD_sGayMHxinnJIqDOAR_MNnxT3ao1Y2eW6opRbDGOUooDb8wy1uUEKyxnSFYS0rtYsj1G5aLPCdsSJrh9RgW2tFiscKPLv8Um4DWkcKpEPlcUDhDzcNgScdfg1So2PiKcSjmjKwDRpSkmpDQfKy8kRjKMpZAQwDms2rd3TiXvrBY2_zSgKbZ4lt2qrM0fUixemp51qmb1PJV91RPj8zn9eM3jyfPV1j9f7se3fwdY16alF0NYkgYquRX8idciMXhDmg9E1L7PJfhu3yG4XjIksCillZWIDWmSV-QU2mHaIW3WcW3wB3ZMzKaxfJPxkVJsAPjo6JahaXkRte5ed3Ifi3OYs_cZr7cJUtwjeNTOnWiEaH0msje_qeXDaplSJIPLybqLTi9_SZbiT75zMCxN6S1uukzPDRuNMVgfxb1ctXLdV8NaOxUKHK7EfRTCMae8WoKG6vZzMAUOP_ZTz0CiFjbAfQedDbX34x3twRGrjiXFwp8Wy9GlPb0BpiEwzf4TIz9nD6yt9ky_Afy5EG9iQ04e7bZsmFNhQO3xs-V8mOTKXJHYBy7hDBUYWnPD7Vvr3Eeg39UgmKGH7c3EYJktENiIiy3KbNvVdSY8_DrhxxXOF_WgBuwffy8IfSjhwP4cGyVCV3jJlUWXZD-Q_39dEhMeJdaRFiklHP9pSqfrFQUmu-lhs0bFFnrkFOhUBPxqcEq2NXW8PyFX6QSymr024n1EfXAlqoZOroddCe0WsF7StByLl1bTCLl5E3M7FiO8xHlnkiisJsh15MMUrh55P4CvRFk1hcR4DdU0weVu43cYPaET1juN5yMl7gif9Y-tzHXD_MereQtTY53VFeLo2At0K-RBEy4BoWTs_CYIkf-cF-VQ1SOJw-upidPeSu9M5SnNLaYHhqeBf13wqZUHQn0vHnn_lotv30qCRf44mKVmUnwNTEMhGdBqRVzEo1h92aI1-NYNuJyyCsxk6O1OznMUHw5tvNJWNCyMbRHM7H6sZC5-Q8cMuANNqniJDDzFQ_bPQiBGVPzb-gduopSZW0NSwRRjMu2QBzDbjZFtVmkEXy6V1IVKJEUsJNPKbTgJE0WQTEWN1B45DtyW_6UjheqUmhgSJsz2MAN3qBqgZIfhA9v_pOFsyZyo59khJVfGgAxdDevuMOYTYhhqiMcmzIjIBB_L-_HlkZmimIamWNcQ229asILxrhQmBjYi0DAzLdTdz05zP1dwa-DB45S_1qGunVDZ8_3If3cvbNJGDDk6f0l7Msh4saLRcAFbki5w22-ecdRihqTad0LXKWb0VXb9P6AZbIHNkBrdKmgeA_h4khArk3-0Izhd5R4N1LWHdhBEn7tAkHgW-PHW9w2GWFxZwtEl4ZlfdpLE8-DONxoT4_37SLMqxEwHLsnpzKONlTmfP7IDOIjwlOBCi8LPv5zIlPzd2HoyMDgAjtC8nmjLs649rPQQALI23AeL2-K-69EKGhoZ2m-V11BvYHTvS3pz39RKnJ1rrNF-5AwBXiR3S-3TQcfnyPiDkSO1Uii4moFc7SY_aOgRRAisrHTOTIGr1kwzc0wG5WyHYIpfZSHMw7ABNIVfhvyroUB6STtcTmpjsrSCoQD8xEqFx3FOWwl1yY2KAMH-v7l02ovCZqCRBXfsn5LVd4gDEQy9XZ8ZEU3V_Fgq1SsE7wSO2n6r6e39SafExCPwOTrZGEOMSKvgnrTs82rxSgB0Ox-UxxeH3mcgbK2AvBBwHTA0aKa7K7lQ5dvZEbdApXHfGyfdykg_pV4YDo5f9P7hi7WM-egVQHoCYisYHorZAQVw4afzML3h9WN9T3q6f49rYp69aNVy9MGmfn0AL_3QuKrAgwBj0D1uh-pW6uivtz0ZR33c31BsGvVMIBWB0Gq6lCyZ5O7l5NBTFcWn1sIpwKM1f3ze7F3b2mjBHNz2y9AArWc3aDoedhHpFomBVWwJn4ImGf6ZA2pGcZtyBibc3jURnQxx5O4CVv9AA9f0dmI0tMf5OZxKkU7KEYHO9haKVCLYOcjp2MwiA3qFaa0D2-QeLx6keFRpltWpakHAG1Hn-bvYOUMdJ4ZCe42BiNv3b_o3uiYtZOTmdi0wXgglwKEeVWVZVeLws3dhB7rCfYk7hsFhvcs53E_UR7f5_N1QwzF4vslrtbzcOBlLZfHO76-PC9cljuaiEFuhZsV4qgTGQtReqPVS1NvjNrw74ONdENE46-_g0dC2w5F-Dlud0ZlwtrXLJrs2wq5_Ka1NWah4e-7o0WCYQk7y3sUViEu12yZcQY-sLAjUHU2eMVmfM7gJViT4f5Gb0RU8pxGTldjukK4W3dTKY5JyEAB5nodd8KaZppUfFEg3qBZkPmy_oZ4mP_eP-UOrSz7Lg_JZ_8TjoKkJ7nLpTIkiCdT9DeDA9wsQH0uLZJeCIgOopTgDHKMcf8zVp3yalZaAhZHtCo5nj2CsPwKTduNjxYcx_VsHYt3-vG5kSP0_ShgIhgUkFjpoAYWWKxEwWauE9Ttn4v229wguCMXAI1wxQDjGsSHC_nL3ZLuVleKXjqMpqKRmIpbAINJNbamdtimp-Ww6OLv_zv0CIMLK9qJ8W-ddhOgz5uu3hq2ahhoMRVFrrb4Ue5R7lz-ub3ZKyT5YMyhUO3byFqacaeYvpalt9GaRk_wb0vikf30JmfgGc9Yr5Afvd7upBObhB1N30UGlYc_yX6c-29v94EiGfyHGealHPe6fH26gr2hjIbMYSbgZ4H68MOj7MNIDUlTKgGCkqcO7m-4urgZPIq2ArgYYtaghS9e9OrwBY3HOH38CmAXhWcu4xyVh99RBm3eXwhsugxRpyI7tYsvDvLOzJZRboyFSMxxtTaX-VANCRJGoyHCZTO9NfAEfOvxIAQjQwDblaPPMD9PWkUx6DdulnFhhxGK2Q1KGLCYsbPnkn8r-wBtPWlDj5mXiOdRiI3wtZpWzmJaSZ1KZosmN5yZmNx75E7ZUkTPbMjpXX9CDBw_0u8tLVoalLVB1iCbsv0ob9xmHGCvWsQtSUUIFLqMfhR_9BkUmlUNfo7n4IqKNOjhhGiQ9h0bZEICdsty4xvPRnFt8Tqd1gsMtjm_oDG1S8ff3Cr5axXVOfO7fpJqjNNh-EbKG7j5v6Wm6qCQxr3q8Z1vTSjcN_oBfIF48RlklVZXVfbfLD81LejlNItpMG-_iym60y0DPY-EnC6kfGnyaRGXFFI9iMten7HPXiO01D9cyS_amLL6omzzHt0MO0dS8_RWlZpWRmcG1j9lfVjcr3SFE_xZkMxagn808-OFfpgH8p038BPK1dMNhYJq7QDbea_y8pox8hOFA34i3VE1Y5WHL7Yrllp4vFCwMQLWVkMRelcTlhzv1N2q6TJFq6h0plaQan41Cdh9q-2ek9cnyL74eONsFlXQi-7cSPB0wBvJzlrIrQqBj-KoEsn31gO8Xd0QF3Cn7cDpLyCrgkit2Y1V58ugxlim43DOZCFwdNdLIjadhRueHsEApASAFmT3COfqvTdc3DavCnQxLFGVVtAK0170w6H_6d1_zESw_5qtMbAMP1jp9On3l3fhNWFMUnonK86NfR5GrU2nh7P2Y7gVcl4ygFpBNGoJFRdxx0TFJQJ8IzMcUyOYWIOS3Sk3YPwwtwk-FHQcQBWuNH3XzgLszH7evLC7T31DZ4IsnNZ9kNTWfsFtHjYGS3K9AweZEbLbElJscUfqnhFn2sgP930alt4bVLVSh_YHAiJr1jbQOw68ViZbFigIkomsb2VEzTdC5oskI2Cyar2abonOFaLh2nHOpDy5f9VhEv0qpNoK7m-PyPi1_EksM0C6JqslT1QeyYVjIvY-1aEsKNFPL2LR-9Z7cD7-XtROApH577TqkPpxEjQd-Fl_o4jsIk8p_SSQpEHUg1sq5e8GNcuAQ-dtmBKZNyunMzWcvper7p6x6JMtJRcVe5cCNxURaqUo9hfPGheOfAj1_40mtb2iSGzMYMaGHxDI0r55My_g_q-WIIPe-cOco8VQ75n8thsG5vnOOB9ojkVOr28Y6h9WIANQ9UIprWx39yKLNadR9ye-MhbCo4jLnBGPNpD0e0B_fwf6bd7ZresVXa0hLFHAoSPQKqWJmcVrGQAwXZkdojCZuZbj5OCJD2--ZMt6W2Hak2zMKw7b0Q23mAbB1RTmLWoKBsKvpsttFGlyXAE1kWAaDzkGKXeAPBD_1sCNiKX8US69iX1VQX1_eMEpqRTXpA3BpOwf9b4ZgcShpsKa31dQXIfU6sthqEX_Vo0c3TCWzwBCRvx44dbqX_U8pn0gAta7CJH1JSkFEd_X7iPOjbVlFSmcb1sqX9_Um4mFjQAMxQ46jUH04vUxLpOfy9VGD9q4azLKYDtyU4cEneVyEUEnJ7a8Xfle4jQol6ccB3NQIGqljj4eHwZCMBDnG2HcNSlMpOx_Tj7H8q-wzWwsaR99SBrBbV4_yBHpQhrHqrKrTIS1cPYXmPIpZPTL9G2GyJjqdQnQYbrsuEkbBcZj9vzpJpblXmK2YC2QRqPDBgDaunWplLCWQYHJLefn9BSqGGdqBxLfyIOxPwxOjXPoP3IDbpl9GdffDJHWlrkDthvxfH9RhepvLx9NqWM8n8U9sTL_YDw2_HzV-XWC9I4M85Q-rAWGd-cyjecbq88wSIz0pNxp9GxrU5TdhQJJ9J_yhYJ3Y8XmuZtF3Jr1OBapWjnasbj9hYrlhPRbJ0AKn-B-0eth-eeskObvrH-PzFs9fHlSDeHoX6phKkwXc_laCAXJZZhl4gxI9DT7M_Uwl5DfDmlEBmXDPjbt6wA_nYvqrMI0_sepDuSYl9xApzP-CKkSaw0_X4HHh5xnxZA7_L5WBAKzT_n5nsEooGZxFcI97jH-Y-kB8ReRjclGYn8Ps64rEVPhPQLeueImd2_wa4cOmuuLC55JPQsO9wQc-baU4H2YDJLE01ZCwgHY-ImD4RcbsJ-PtGQ6XhBgJinS2VWamL50AT4aqek5n65P8N7eBYV36remJ_FTA6iLaNkMSQA_sLJfqGa-3UWUg5lMHx1wT0lj3bN0m_fk5I823NbSOCs9_5-K61oFJcFsHQT_468_gcvXuIYPkgCBYAckWgc2ULnYfSt40ODBHuv1srcsqdHZEGsR2K0ETnRsZs1pH99OTQle8zQSBrH5i008qrJyOZaNq3JXzbE2JG9gDFNuxgWI0ZkC90o6XHncQGCVKAvYzsrATl9arBsci_XOTXQ==",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "invocation_events": [
+                {
+                  "author": "astrobot_orchestrator",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-11804792-33cc-4436-8f16-15cfeab175e2",
+                          "args": {
+                            "query": "Build a saturation model for NPI for a $500k investment and recommend channel allocation."
+                          },
+                          "name": "call_data_scientist",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "CpoFAY89a184f6EHFZOs5HMhblADPCUEa1MIpZi4Rbam3DaYr8-AAIlcHJqZvj7m-ItEE5g-cTGHQw0NInREy8DWzUOgOM-9BpZ0afNP4RDgwxzSi8EP7aLZnHHV-7TKSZRIC-OAeuLftcnyhjCQxVg_h3UTz-p72GlxDk9XrwcluHCSMHU4k0OULBpkW5iW4qnzUzAeD7Ku1Wko-IxmOaD1tqRXuQbf2ffuhHySDX7dn-rs0Maa-beXh3FxPO-esNNHotWSqMvGPVHBYUbPtRISXPGl5NVa-hh6_uq-ptKL_ToBWglkBNVeWoGy4rSFLwP8eNQI8u4CiKauZyByJP8cMxCpdZ6Ok1PmqI4u-HPC-VGOpMFf3inzwGvU0CcgtuI5G5qTqGy4bw82ZfIpYb9lwXdZgWBaaViZPbWuHFhbypq04vVJmgM-StdfZ61KiYcSqL85jSsF4Xgo67sJeQmQFLys3iYHzJj372xcI42QkdFbt25ujeP0ZMSAOyF2yInBnomjZRL2x7TjerO-WYpPcUH3WPf1gwmv6Sh-x6DYZ0CZmcNQQjyE5uQ4KSr1cWqK5KkpQ2cvBeGGUwGCtZw94B3UDvGXRIJiC9pridcJHTsMvu23mBZPkvBlcI4STwKUtSCarpFmR9faelq69ISiVe2ixIcjHKjjOpPmEC0rQRw4VF73rBHqSnOvIod9huNHDjiXQ7YNz4nEl-yNKX3xi7wzKq6POg_qa2nVrwpgz1YNqhXsAbjfFkDc3eZXu0y1UQW-QHSJ5TVHpfSOE7fBGUuwRg63vMO4OVsdnKWH8DIiJO4RK85Rs5b3_kjHwMh8z7L4hppgqfmkgqvSK1xZXmOjSi3iNPED08_37tP6lYbbVITpPA4bwlin",
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "astrobot_orchestrator",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-11804792-33cc-4436-8f16-15cfeab175e2",
+                          "name": "call_data_scientist",
+                          "response": {
+                            "result": "The current model `npi_conversions_saturation_v2` has issues:\n- R² score: None\n- This appears to be a broken model\n\nI can retrain this model with proper parameters:\n- Target: Conversions\n- Features: Channel, Cost, Clicks, Impressions, Sessions (with log transformation for Cost and Clicks to capture saturation)\n- Type: LINEAR_REG\n- Training data: NPI multi-year (2016-present)\n\nShould I retrain it now? (~30 seconds)"
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                }
+              ]
+            },
+            "creation_timestamp": 1778673707.0446188,
+            "rubrics": null,
+            "app_details": {
+              "agent_details": {
+                "astrobot_orchestrator": {
+                  "name": "astrobot_orchestrator",
+                  "instructions": "\n    You are Astro.bot — the central orchestrator for NetConversion's multi-agent\n    marketing analytics mesh. You serve three clients: NPI, Venetian ENT, and\n    Winn-Dixie (WinnDixie). Today's date: 2026-05-13.\n\n    You work for NetConversion (netconversion.com) — a marketing analytics company\n    sometimes abbreviated as 'NetConv' or 'NC'.\n\n    ══════════════════════════════════════════════════════════\n    YOUR ROLE\n    ══════════════════════════════════════════════════════════\n\n    You are a routing and coordination agent. You do NOT answer data questions\n    yourself — you classify the user's intent and delegate to the correct\n    specialist agent immediately, without asking clarifying questions.\n\n    You have access to six specialist agents:\n    1. call_data_scientist    — SQL queries, charts, BQML, forecasting, clustering\n    2. call_persona_aggregator — audience personas, segment analysis\n    3. call_economist         — macroeconomic context, market benchmarks\n    4. call_project_manager   — tasks, emails, project timelines\n    5. call_scheduler         — recurring reports, automated delivery\n    6. submit_feedback        — records thumbs up/down for RLHF\n\n    ══════════════════════════════════════════════════════════\n    VISUALIZATION RULES — CRITICAL, NEVER BREAK\n    ══════════════════════════════════════════════════════════\n\n    When user asks for ANY chart, plot, graph, or visualization:\n\n    STEP 1 — Call call_data_scientist IMMEDIATELY with the full request.\n             Include the chart type and metrics in the query.\n             Example: \"Plot daily spend, clicks, impressions and conversions\n             for NPI for the last 30 days as a line chart\"\n\n    STEP 2 — Return the chart result directly to the user.\n\n    NEVER:\n    - Ask the user what data they want before calling the agent\n    - Ask what time period before calling the agent\n    - Say \"preparing the chart\" or \"working on it\" or \"one moment\"\n    - Say \"the agent is generating\" — just call it and return the result\n    - Wait for confirmation before routing\n\n    ALWAYS:\n    - Call call_data_scientist immediately on ANY chart/plot/visualize request\n    - Include ALL context from the conversation in the query\n    - If the user already provided metrics and time period — use them directly\n    - If time period is missing — default to last 30 days\n    - If metrics are missing — default to spend, clicks, impressions\n\n    VISUALIZATION TRIGGER WORDS — route immediately, no questions:\n    \"chart\", \"plot\", \"graph\", \"visualize\", \"line chart\", \"bar chart\",\n    \"scatter\", \"trend\", \"show me a chart\", \"give me a chart\",\n    \"draw\", \"generate a chart\", \"create a chart\"\n\n    EXAMPLES — call immediately without asking:\n    \"give me a line chart\" → call_data_scientist(\"Plot spend, clicks,\n        impressions for NPI for last 30 days as a line chart\")\n    \"plot daily spend\" → call_data_scientist(\"Plot daily spend trend\n        for NPI as a line chart\")\n    \"show me a bar chart of channels\" → call_data_scientist(\"Create a\n        bar chart of total spend by channel for NPI\")\n\n    ══════════════════════════════════════════════════════════\n    ML / BQML ROUTING RULES — CALL IMMEDIATELY\n    ══════════════════════════════════════════════════════════\n\n    FORECASTING — call call_data_scientist immediately:\n    \"forecast\", \"predict spend\", \"ARIMA\", \"end of month\", \"project spend\"\n    → pass: \"Forecast [client] spend for next 14 days using ARIMA\"\n\n    ANOMALY DETECTION — call call_data_scientist immediately:\n    \"anomaly\", \"unusual spend\", \"spend spike\", \"outlier\", \"detect anomaly\"\n    → pass: \"Detect spend anomalies for [client] using z-score method\"\n\n    CLUSTERING — call call_data_scientist immediately:\n    \"cluster campaigns\", \"segment campaigns\", \"group similar\", \"K-means\"\n    → pass: \"Cluster [client] campaigns into groups based on performance\"\n\n    LINEAR REGRESSION — call call_data_scientist immediately:\n    \"what drives cost\", \"predict cost\", \"linear regression\", \"train a model\"\n    → pass: \"Train a linear regression model to predict Cost using\n             Clicks and Impressions for [client]\"\n\n    EVALUATE / PREDICT — call call_data_scientist immediately:\n    \"evaluate model\", \"R2 score\", \"MAE\", \"make predictions\"\n    → pass the full request directly to call_data_scientist\n\n    ══════════════════════════════════════════════════════════\n    ROUTING RULES — FOLLOW EXACTLY\n    ══════════════════════════════════════════════════════════\n\n    → call_data_scientist:\n      \"show / get / list / what is / how much / total / breakdown / compare\"\n      \"spend / clicks / impressions / cost / ViVs / conversions / sessions\"\n      \"by channel / by device / by campaign / by date / by geo\"\n      \"chart / plot / visualize / trend / forecast / predict / ARIMA\"\n      \"anomaly / outlier / cluster / segment / linear regression\"\n      \"pacing / CPA / channel efficiency / cost per click\"\n\n    → call_persona_aggregator:\n      \"persona / audience / segment / consumer profile / targeting segment\"\n      \"which persona / what persona / persona responds / persona aligns\"\n      \"HNW / Luxury Seeker / DINK / Legacy Family / Mallory / Maria / Carol\"\n      \"audience insight / targeting recommendation / creative alignment\"\n\n      ⚠️ MANDATORY: ANY question mentioning \"persona\" MUST call\n      call_persona_aggregator AFTER call_data_scientist.\n      NEVER answer persona questions yourself — always route to PA.\n\n    → call_economist:\n      \"market context / benchmark / industry / economic / macroeconomic\"\n      \"unemployment / CPI / inflation / fed funds / interest rate\"\n      \"consumer sentiment / FRED / BLS / NOAA / GDP\"\n      \"how does economy affect / market benchmark / industry average\"\n      \"tourism trends / travel sentiment / hotel rates / flight prices\"\n      \"grocery inflation / food prices / retail trends\" \n\n    → call_project_manager:\n      \"task / email / project / timeline / deadline / meeting\"\n\n    → call_scheduler:\n      \"schedule / automate / recurring / every week / every Monday\"\n      \"send me this report / set up a daily alert / automate this\"\n\n    → submit_feedback:\n      thumbs up → rating=1 / thumbs down → rating=-1\n\n    ══════════════════════════════════════════════════════════\n    MANDATORY ROUTING RULE — NON-NEGOTIABLE\n    ══════════════════════════════════════════════════════════\n\n    ALL analytics data MUST flow through this exact pipeline:\n\n    STEP 1: call_data_scientist → get raw data, SQL results, charts\n    STEP 2: Return result to orchestrator (Astro.bot)\n    STEP 3: ONLY THEN call_persona_aggregator if persona analysis needed\n\n    PERSONA AGENT NEVER gets called BEFORE data_scientist.\n    PERSONA AGENT receives the data_scientist result as context.\n\n    WHY: Persona agent needs real campaign data to do meaningful\n    persona analysis. Without data first, persona analysis is generic.\n\n    ══════════════════════════════════════════════════════════\n    COMPOUND QUERY HANDLING\n    ══════════════════════════════════════════════════════════\n\n    \"Analyse our audience persona and show performance by segment\"\n    → Step 1: call_data_scientist (get segment performance data)\n    → Step 2: call_persona_aggregator (analyse personas WITH that data)\n\n    \"Which persona responds best to CTV spend?\"\n    → Step 1: call_data_scientist(\"Get NPI CTV channel spend, impressions, conversions\")\n    → Step 2: call_persona_aggregator(\"NPI CTV spend is $1.4M with 62M impressions but\n              zero direct conversions — awareness play. Which NPI persona (HNW Luxury\n              Seeker, DINK Couple, Legacy Family) is most receptive to CTV awareness\n              campaigns? Should we increase CTV budget?\")\n\n    \"which persona aligns with our channel mix?\"\n    → Step 1: call_data_scientist(\"Get NPI channel mix by spend last quarter\")\n    → Step 2: call_persona_aggregator(\"Given NPI channel mix: [DS result summary] —\n              which persona does each channel target?\")\n\n    RULE: If user mentions 'persona' anywhere in the question —\n    you MUST call both call_data_scientist AND call_persona_aggregator.\n\n    \"How does our NPI spend compare to market benchmarks?\"\n    → Step 1: call_data_scientist (get NPI spend data)\n    → Step 2: call_economist (contextualise against market)\n\n    \"Forecast spend and alert me weekly\"\n    → Step 1: call_data_scientist (BQML forecast)\n    → Step 2: call_scheduler (set up weekly delivery)\n\n    \"Persona analysis with budget recommendation\"\n    → Step 1: call_data_scientist (saturation model + channel data)\n    → Step 2: call_persona_aggregator (which persona needs what budget)\n\n    NEVER call persona_aggregator without data from data_scientist first.\n    ALWAYS pass data_scientist results as context to persona_aggregator.\n\n    HOW TO PASS CONTEXT TO PERSONA AGGREGATOR:\n    After call_data_scientist returns, include the key findings in your\n    call_persona_aggregator query. Example:\n\n    call_data_scientist result: \"CTV spend $992k, Paid Social $965k, Search $660k\"\n    \n    Then call:\n    call_persona_aggregator(\n        \"Based on this NPI campaign data: CTV $992k, Paid Social $965k, Search $660k — \n         which NPI personas (HNW Luxury Seeker, DINK Couple, Legacy Family) \n         are most aligned with this channel mix and what does it mean for targeting?\"\n    )\n\n    The orchestrator synthesizes DS data + PA analysis into ONE final response.\n\n    ══════════════════════════════════════════════════════════\n    RESPONSE FORMAT\n    ══════════════════════════════════════════════════════════\n\n    **Result:**\n    Natural language summary of findings.\n    Tables: use markdown format — | Column | Column |\n    Numbers: 1,000,000 / 1,000.00 / $1,000.00 / -$500.00\n\n    **Explanation:**\n    Step-by-step explanation of which agents were called.\n\n    **Graph:** (if chart was generated)\n    Brief description of the chart.\n\n    **Recommendation:**\n    One concrete actionable insight.\n\n    ══════════════════════════════════════════════════════════\n    SECURITY RULES — NON-NEGOTIABLE\n    ══════════════════════════════════════════════════════════\n\n    CLIENT ISOLATION:\n    - The client_id is locked from the session context.\n    - NEVER aggregate data across clients.\n    - NEVER switch clients mid-session — if user asks for a different\n      client, tell them to start a new session.\n    - NEVER route without the locked client_id.\n\n    NEVER:\n    - Generate SQL yourself\n    - Generate Python yourself\n    - Ask clarifying questions before routing — just route immediately\n    - Say \"I cannot do that\" — route to the appropriate agent\n    - Allow cross-client data access\n\n    ALWAYS:\n    - Route immediately without asking permission\n    - Inject the locked client_id into every agent call\n    - End every substantive response with a recommendation\n\n    ══════════════════════════════════════════════════════════\n    CAPABILITIES GREETING (when user asks \"what can you do?\")\n    ══════════════════════════════════════════════════════════\n\n    I'm Astro.bot — your AI marketing analytics assistant from NetConversion.\n\n    For your client, I can:\n    📊 **Data & Analytics** — spend by channel/device/geo, campaign performance,\n       clicks, impressions, ViVs, conversions, pacing\n    📈 **Charts** — line charts, bar charts, scatter plots, trend visualisations\n    🤖 **ML & Forecasting** — spend forecasting (ARIMA), anomaly detection,\n       campaign clustering, cost prediction models\n    👥 **Audience Personas** — audience segment analysis and targeting insights\n    📰 **Market Context** — benchmark your performance against industry indicators\n    📋 **Project Management** — tasks, emails, timelines, project updates\n    🔔 **Scheduled Reports** — automate any analysis with recurring delivery\n\n    Just ask me anything about your campaigns!\n\n    ══════════════════════════════════════════════════════════\n    CRITICAL EXECUTION RULE — NEVER BREAK\n    ══════════════════════════════════════════════════════════\n\n    NEVER say \"I will retrieve\", \"I will generate\", \"preparing\",\n    \"working on it\", \"one moment\", \"let me get that\" BEFORE calling a tool.\n\n    The ONLY correct sequence is:\n    1. Receive user request\n    2. Call call_data_scientist IMMEDIATELY\n    3. Return the FULL result including charts\n\n    If the result contains a chart image — display it.\n    If the result contains a table — display it.\n    NEVER summarise or paraphrase — return the COMPLETE response.\n    NEVER send any message to the user before the tool call completes.\n    \n    ══════════════════════════════════════════════════════════\n    DUPLICATE PREVENTION\n    ══════════════════════════════════════════════════════════\n\n    If the user says ONLY \"yes\", \"ok\", \"okay\", \"sure\", \"go ahead\",\n    \"proceed\", \"do it\" — this means they confirmed the PREVIOUS request.\n    DO NOT call call_data_scientist again.\n    Simply acknowledge: \"Done! Here are the results above.\"\n    or ask: \"What would you like to do next?\"\n\n    NEVER repeat the same tool call twice in one session turn.\n    If you already have results in state — return them, don't re-fetch.\n\n    ══════════════════════════════════════════════════════════\n    ML REQUESTS — NEVER ASK, ALWAYS EXECUTE\n    ══════════════════════════════════════════════════════════\n\n    When user asks for ANY ML task — call call_data_scientist IMMEDIATELY.\n    NEVER ask:\n    - \"What features would you like to use?\"\n    - \"What model type do you want?\"\n    - \"How many clusters?\"\n    - \"Would you like me to train a model?\"\n    - \"Please specify...\"\n\n    ALWAYS pass the full request directly to call_data_scientist.\n    The data scientist agent selects features and model type automatically.\n\n    If user says \"2\" or \"yes\" or \"go ahead\" after being asked — \n    call call_data_scientist with the ORIGINAL request from the conversation,\n    adding \"automatically select features and train the model\" to the query.\n\n    EXAMPLE:\n    User: \"cluster NPI campaigns\"\n    WRONG: \"What features would you like to use?\"\n    RIGHT: call_data_scientist(\"Cluster NPI campaigns using KMEANS with 4 clusters.\n           Auto-select features: Cost, Clicks, Impressions, Conversions grouped\n           by Campaign and Channel. Train model npi_campaign_clusters in\n           astrobot_bqml_models, predict clusters, plot scatter chart,\n           explain each cluster.\")\n\n\n    RESPONSE RULES — CRITICAL:\n    NEVER say:\n    - \"I have submitted a request... please wait\"\n    - \"Please wait while I process\"\n    - \"I will provide results as soon as available\"\n\n    ALWAYS:\n    - Call the tool and return the ACTUAL results in the same response\n    - If call_data_scientist returns data — show it immediately\n    - Never narrate what you are doing — just do it and return results\n\n\n    ══════════════════════════════════════════════════════════\n    CRITICAL — CALL call_data_scientist EXACTLY ONCE\n    ══════════════════════════════════════════════════════════\n\n    NEVER call call_data_scientist more than once per user message.\n    One call handles everything: SQL + chart + ML in a single response.\n    If the first call returns a result — STOP. Do not call again.\n    If the first call returns empty — return what you have, do not retry.\n\n\n\n    ══════════════════════════════════════════════════════════\n    WAIT FOR COMPLETE RESULT — NEVER RESPOND EARLY\n    ══════════════════════════════════════════════════════════\n\n    NEVER send a response to the user while a tool is still running.\n    NEVER say \"generating\", \"working on it\", \"the agent is creating\".\n    ALWAYS wait for call_data_scientist to return the FULL result.\n    ONLY respond AFTER the tool call is complete and has returned data.\n\n    If call_data_scientist returns a result with a chart — show it.\n    If call_data_scientist returns a table — show it.\n    NEVER respond before the tool finishes.\n\n    \n\nYou are an agent. Your internal name is \"astrobot_orchestrator\".",
+                  "tool_declarations": [
+                    {
+                      "retrieval": null,
+                      "computer_use": null,
+                      "file_search": null,
+                      "google_search": null,
+                      "google_maps": null,
+                      "code_execution": null,
+                      "enterprise_web_search": null,
+                      "function_declarations": [
+                        {
+                          "description": "\n    Routes analytics requests to the Data Scientist Agent.\n    Uses sub_agent transfer — same session as orchestrator, charts render inline.\n\n    Args:\n        query:        Natural language analytics question or request.\n        tool_context: ADK tool context (carries session state).\n    ",
+                          "name": "call_data_scientist",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "query": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "query"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "\n    Routes project management requests to the Project Manager Agent (§4.2).\n    Use for: tasks, emails, project timelines, team correspondence.\n    All operations strictly partitioned by client_id.\n\n    Args:\n        pm_request:   Natural language project management request.\n        tool_context: ADK tool context.\n    ",
+                          "name": "call_project_manager",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "pm_request": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "pm_request"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "\n    Routes persona analysis to the Persona Aggregator Agent (§3).\n    Uses remote Cloud Run endpoint if PA_AGENT_ENDPOINT is set.\n\n    Clients and personas:\n      NPI:       HNW Luxury Seeker, DINK Couple, Legacy Family\n      Venetian:  9 personas (Affluent, Group Planner, Gourmet, etc.)\n      WinnDixie: Mallory, Maria, Carol, Amy\n    ",
+                          "name": "call_persona_aggregator",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "persona_request": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "persona_request"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "\n    Routes macroeconomic context requests to the Economist Agent.\n    Use for: market benchmarks, economic indicators, industry context,\n    FRED data, unemployment, CPI, consumer sentiment, Fed funds rate.\n\n    Args:\n        economic_request: Natural language economic data request.\n        tool_context:     ADK tool context.\n    ",
+                          "name": "call_economist",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "economic_request": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "economic_request"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "Submit thumbs up (rating=1) or thumbs down (rating=-1) feedback.",
+                          "name": "submit_feedback",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "rating": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "INTEGER"
+                              },
+                              "comment": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "rating",
+                              "comment"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        }
+                      ],
+                      "google_search_retrieval": null,
+                      "parallel_ai_search": null,
+                      "url_context": null,
+                      "mcp_servers": null
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_invocation": {
+            "invocation_id": "d31ff12c-2f74-4920-bd25-daf98679d6a2",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, build a saturation model for a $500k investment and recommend channel allocation",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "NPI saturation model budget allocation channel Paid Search Performance Max recommendation",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "tool_uses": [],
+              "tool_responses": [],
+              "intermediate_responses": []
+            },
+            "creation_timestamp": 1778673707.0394537,
+            "rubrics": null,
+            "app_details": null
+          },
+          "eval_metric_results": [
+            {
+              "metric_name": "tool_trajectory_avg_score",
+              "threshold": 0.0,
+              "criterion": {
+                "threshold": 0.0
+              },
+              "custom_function_path": null,
+              "score": 0.0,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": null
+              }
+            },
+            {
+              "metric_name": "response_match_score",
+              "threshold": 0.05,
+              "criterion": {
+                "threshold": 0.05
+              },
+              "custom_function_path": null,
+              "score": 0.0875912408759124,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": null
+              }
+            }
+          ]
+        }
+      ],
+      "session_id": "___eval___session___117d0232-2b5e-4e0c-87e3-412e7733999d",
+      "session_details": {
+        "id": "___eval___session___117d0232-2b5e-4e0c-87e3-412e7733999d",
+        "app_name": "orchestrator",
+        "user_id": "eval_user",
+        "state": {
+          "session_start_time": 1778673707.0441594,
+          "turn_count": 1,
+          "session_id": "session_1778673707",
+          "user_id": "user",
+          "client_id": "NPI",
+          "client_lock": "NPI",
+          "turn_start_time": 1778673707.0442057,
+          "LOCKED_CLIENT": "NPI",
+          "__llm_request_key__": "d914261a-f355-40d8-905d-0b0feec11169",
+          "agent_card_skills_injected": true,
+          "session_tokens_in": 9093,
+          "session_tokens_out": 229,
+          "tools_called_this_turn": 0,
+          "current_skill": "nl2sql",
+          "last_tool_query": "Build a saturation model for NPI for a $500k investment and recommend channel allocation.",
+          "database_settings": {},
+          "_sql_retry_count": 0,
+          "_seen_hashes": [],
+          "_chart_steps_done": 0,
+          "_multi_step_mode": false,
+          "_last_user_question": "[Client: NPI] Build a saturation model for NPI for a $500k investment and recommend channel allocation.",
+          "routed_table_id": "performance",
+          "routed_table_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+          "table_enabled": true,
+          "channel_column": "Channel",
+          "kpi_column": "Conversions",
+          "client_column": "Client",
+          "channel_taxonomy": {
+            "organic": [
+              "Organic Search",
+              "Organic Social",
+              "Organic Video",
+              "Direct",
+              "Referral",
+              "Email"
+            ],
+            "paid": [
+              "Paid Social",
+              "Paid Search",
+              "Search",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max",
+              "Display",
+              "OTT",
+              "CTV",
+              "Linear TV",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print",
+              "Online Audio"
+            ],
+            "awareness": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Audio",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print"
+            ],
+            "direct_response": [
+              "Search",
+              "Paid Search",
+              "Email",
+              "Shopping"
+            ],
+            "mid_funnel": [
+              "Paid Social",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "tv": [
+              "Linear TV",
+              "CTV",
+              "OTT"
+            ],
+            "social": [
+              "Paid Social",
+              "Organic Social"
+            ],
+            "search": [
+              "Paid Search",
+              "Search",
+              "Organic Search"
+            ]
+          },
+          "duality": {
+            "has_duality": true,
+            "spend_rows_filter": "Cost > 0",
+            "conv_rows_filter": "Conversions > 0",
+            "note": "Spend rows have Conversions=0; conv rows have Cost=0. Use FULL OUTER JOIN."
+          },
+          "unification_map": {
+            "Paid Search": [
+              "Search",
+              "Paid Search"
+            ],
+            "Demand Gen + P-Max": [
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "Paid Social": [
+              "Paid Social"
+            ],
+            "Video/CTV/OTT/TV": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Video",
+              "Paid Video",
+              "Video"
+            ]
+          },
+          "applicable_rules": [
+            "always_filter_by_client",
+            "always_use_date_range_filter",
+            "never_select_star_without_limit",
+            "use_safe_divide_for_ratios",
+            "blended_cpa_use_unified_cte",
+            "ranking_use_unified_cte",
+            "channel_mix_use_unified_cte",
+            "volatility_use_cv_not_stddev",
+            "organic_efficiency_use_organic_filter",
+            "tv_halo_use_correlation",
+            "forecast_aggregate_to_weekly_for_chart",
+            "always_resolve_channel_terms_via_taxonomy"
+          ],
+          "matched_keywords": [],
+          "routing_confidence": "default",
+          "available_models_summary": "📋 Available models for NPI (27 total):\nLocation: `nc-ai-chatbot.astrobot_bqml_models.<model_name>`\n\n🔮 FORECASTING (ARIMA_PLUS):\n  • arima_npi_all_conversions\n  • npi_arima_conversions\n  • npi_arima_revenue\n  • npi_arima_search_sessions\n  • npi_arima_spend\n\n🌳 BOOSTED TREE (BOOSTED_TREE_REGRESSOR):\n  • npi_boosted_conversions\n  • npi_boosted_conversions_daily\n\n🔵 CLUSTERING (KMEANS):\n  • npi_campaign_clusters\n\n📈 LINEAR PREDICTION (LINEAR_REGRESSION):\n  • npi_conversions_by_channel_impact\n  • npi_conversions_saturation\n  • npi_conversions_saturation_agg\n  • npi_conversions_saturation_aggregated\n  • npi_conversions_saturation_daily\n  • npi_conversions_saturation_v2\n  • npi_linear_conversions_demand_gen\n  • npi_linear_conversions_performance_max\n  • npi_linear_conversions_search\n  • npi_linear_conversions_social\n  • npi_linear_cost\n  • npi_linear_cost_v2\n  • npi_social_conversions_cost_linear_reg\n  • npi_social_search_conversions_lr\n  • npi_total_conversions_vs_spend_lr\n  • npi_transactions_saturation\n  • npi_transactions_saturation_agg\n  • npi_transactions_saturation_v2\n\n🎯 CLASSIFICATION (LOGISTIC_REGRESSION):\n  • npi_campaign_classifier\n\nUSAGE: Use EXACT names above. If a needed model is missing,\noffer to train a new one with CREATE OR REPLACE MODEL syntax.",
+          "_models_listed_for": "NPI",
+          "_last_bq_hash": "",
+          "last_ds_response": "The current model `npi_conversions_saturation_v2` has issues:\n- R² score: None\n- This appears to be a broken model\n\nI can retrain this model with proper parameters:\n- Target: Conversions\n- Features: Channel, Cost, Clicks, Impressions, Sessions (with log transformation for Cost and Clicks to capture saturation)\n- Type: LINEAR_REG\n- Training data: NPI multi-year (2016-present)\n\nShould I retrain it now? (~30 seconds)",
+          "last_ds_query": "Build a saturation model for NPI for a $500k investment and recommend channel allocation.",
+          "last_skill_used": "nl2sql",
+          "tool_result_this_turn": true,
+          "last_exchange": {
+            "query": "Build a saturation model for NPI for a $500k investment and recommend channel allocation.",
+            "response": "The current model `npi_conversions_saturation_v2` has issues:\n- R² score: None\n- This appears to be a broken model\n\nI can retrain this model with proper parameters:\n- Target: Conversions\n- Features: Channel, Cost, Clicks, Impressions, Sessions (with log transformation for Cost and Clicks to capture saturation)\n- Type: LINEAR_REG\n- Training data: NPI multi-year (2016-present)\n\nShould I retrain it now? (~30 seconds)",
+            "client_id": "NPI",
+            "session_id": "session_1778673707",
+            "turn": 1,
+            "duration_s": 30.67,
+            "skill": "nl2sql"
+          }
+        },
+        "events": [
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, build a saturation model for a $500k investment and recommend channel allocation",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-529cf66c-741f-40d3-a234-6aafaf32fef5",
+            "author": "user",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {},
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "aac3458e-cd01-434e-add3-0e9583482756",
+            "timestamp": 1778673707.043851
+          },
+          {
+            "model_version": null,
+            "content": null,
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-529cf66c-741f-40d3-a234-6aafaf32fef5",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "session_start_time": 1778673707.0441594,
+                "turn_count": 1,
+                "session_id": "session_1778673707",
+                "user_id": "user",
+                "client_id": "NPI",
+                "client_lock": "NPI",
+                "turn_start_time": 1778673707.0442057,
+                "LOCKED_CLIENT": "NPI"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "d2d92c2d-3e47-4810-b764-11fef27dc1a9",
+            "timestamp": 1778673707.0444868
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-11804792-33cc-4436-8f16-15cfeab175e2",
+                    "args": {
+                      "query": "Build a saturation model for NPI for a $500k investment and recommend channel allocation."
+                    },
+                    "name": "call_data_scientist",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "CpoFAY89a184f6EHFZOs5HMhblADPCUEa1MIpZi4Rbam3DaYr8-AAIlcHJqZvj7m-ItEE5g-cTGHQw0NInREy8DWzUOgOM-9BpZ0afNP4RDgwxzSi8EP7aLZnHHV-7TKSZRIC-OAeuLftcnyhjCQxVg_h3UTz-p72GlxDk9XrwcluHCSMHU4k0OULBpkW5iW4qnzUzAeD7Ku1Wko-IxmOaD1tqRXuQbf2ffuhHySDX7dn-rs0Maa-beXh3FxPO-esNNHotWSqMvGPVHBYUbPtRISXPGl5NVa-hh6_uq-ptKL_ToBWglkBNVeWoGy4rSFLwP8eNQI8u4CiKauZyByJP8cMxCpdZ6Ok1PmqI4u-HPC-VGOpMFf3inzwGvU0CcgtuI5G5qTqGy4bw82ZfIpYb9lwXdZgWBaaViZPbWuHFhbypq04vVJmgM-StdfZ61KiYcSqL85jSsF4Xgo67sJeQmQFLys3iYHzJj372xcI42QkdFbt25ujeP0ZMSAOyF2yInBnomjZRL2x7TjerO-WYpPcUH3WPf1gwmv6Sh-x6DYZ0CZmcNQQjyE5uQ4KSr1cWqK5KkpQ2cvBeGGUwGCtZw94B3UDvGXRIJiC9pridcJHTsMvu23mBZPkvBlcI4STwKUtSCarpFmR9faelq69ISiVe2ixIcjHKjjOpPmEC0rQRw4VF73rBHqSnOvIod9huNHDjiXQ7YNz4nEl-yNKX3xi7wzKq6POg_qa2nVrwpgz1YNqhXsAbjfFkDc3eZXu0y1UQW-QHSJ5TVHpfSOE7fBGUuwRg63vMO4OVsdnKWH8DIiJO4RK85Rs5b3_kjHwMh8z7L4hppgqfmkgqvSK1xZXmOjSi3iNPED08_37tP6lYbbVITpPA4bwlin",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "0ceb2b1f-da4d-4598-adaa-00ecc4059586"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 3645
+                }
+              ],
+              "cached_content_token_count": 3645,
+              "candidates_token_count": 26,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 26
+                }
+              ],
+              "prompt_token_count": 4405,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 4405
+                }
+              ],
+              "thoughts_token_count": 134,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 4565,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.784432264474722,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-529cf66c-741f-40d3-a234-6aafaf32fef5",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "0ceb2b1f-da4d-4598-adaa-00ecc4059586",
+                "agent_card_skills_injected": true,
+                "session_tokens_in": 4405,
+                "session_tokens_out": 26
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": [],
+            "branch": null,
+            "id": "c1889c7d-c060-4bba-bfe7-f5d0648ef763",
+            "timestamp": 1778673707.1105807
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-11804792-33cc-4436-8f16-15cfeab175e2",
+                    "name": "call_data_scientist",
+                    "response": {
+                      "result": "The current model `npi_conversions_saturation_v2` has issues:\n- R² score: None\n- This appears to be a broken model\n\nI can retrain this model with proper parameters:\n- Target: Conversions\n- Features: Channel, Cost, Clicks, Impressions, Sessions (with log transformation for Cost and Clicks to capture saturation)\n- Type: LINEAR_REG\n- Training data: NPI multi-year (2016-present)\n\nShould I retrain it now? (~30 seconds)"
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-529cf66c-741f-40d3-a234-6aafaf32fef5",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "tools_called_this_turn": 1,
+                "current_skill": "nl2sql",
+                "last_tool_query": "Build a saturation model for NPI for a $500k investment and recommend channel allocation.",
+                "database_settings": {},
+                "client_lock": "NPI",
+                "client_id": "NPI",
+                "_sql_retry_count": 0,
+                "_seen_hashes": [],
+                "_chart_steps_done": 0,
+                "_multi_step_mode": false,
+                "_last_user_question": "[Client: NPI] Build a saturation model for NPI for a $500k investment and recommend channel allocation.",
+                "LOCKED_CLIENT": "NPI",
+                "routed_table_id": "performance",
+                "routed_table_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+                "table_enabled": true,
+                "channel_column": "Channel",
+                "kpi_column": "Conversions",
+                "client_column": "Client",
+                "channel_taxonomy": {
+                  "organic": [
+                    "Organic Search",
+                    "Organic Social",
+                    "Organic Video",
+                    "Direct",
+                    "Referral",
+                    "Email"
+                  ],
+                  "paid": [
+                    "Paid Social",
+                    "Paid Search",
+                    "Search",
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max",
+                    "Display",
+                    "OTT",
+                    "CTV",
+                    "Linear TV",
+                    "Online Video",
+                    "Paid Video",
+                    "Video",
+                    "OOH",
+                    "Print",
+                    "Online Audio"
+                  ],
+                  "awareness": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT",
+                    "Online Audio",
+                    "Online Video",
+                    "Paid Video",
+                    "Video",
+                    "OOH",
+                    "Print"
+                  ],
+                  "direct_response": [
+                    "Search",
+                    "Paid Search",
+                    "Email",
+                    "Shopping"
+                  ],
+                  "mid_funnel": [
+                    "Paid Social",
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max"
+                  ],
+                  "tv": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT"
+                  ],
+                  "social": [
+                    "Paid Social",
+                    "Organic Social"
+                  ],
+                  "search": [
+                    "Paid Search",
+                    "Search",
+                    "Organic Search"
+                  ]
+                },
+                "duality": {
+                  "has_duality": true,
+                  "spend_rows_filter": "Cost > 0",
+                  "conv_rows_filter": "Conversions > 0",
+                  "note": "Spend rows have Conversions=0; conv rows have Cost=0. Use FULL OUTER JOIN."
+                },
+                "unification_map": {
+                  "Paid Search": [
+                    "Search",
+                    "Paid Search"
+                  ],
+                  "Demand Gen + P-Max": [
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max"
+                  ],
+                  "Paid Social": [
+                    "Paid Social"
+                  ],
+                  "Video/CTV/OTT/TV": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT",
+                    "Online Video",
+                    "Paid Video",
+                    "Video"
+                  ]
+                },
+                "applicable_rules": [
+                  "always_filter_by_client",
+                  "always_use_date_range_filter",
+                  "never_select_star_without_limit",
+                  "use_safe_divide_for_ratios",
+                  "blended_cpa_use_unified_cte",
+                  "ranking_use_unified_cte",
+                  "channel_mix_use_unified_cte",
+                  "volatility_use_cv_not_stddev",
+                  "organic_efficiency_use_organic_filter",
+                  "tv_halo_use_correlation",
+                  "forecast_aggregate_to_weekly_for_chart",
+                  "always_resolve_channel_terms_via_taxonomy"
+                ],
+                "matched_keywords": [],
+                "routing_confidence": "default",
+                "available_models_summary": "📋 Available models for NPI (27 total):\nLocation: `nc-ai-chatbot.astrobot_bqml_models.<model_name>`\n\n🔮 FORECASTING (ARIMA_PLUS):\n  • arima_npi_all_conversions\n  • npi_arima_conversions\n  • npi_arima_revenue\n  • npi_arima_search_sessions\n  • npi_arima_spend\n\n🌳 BOOSTED TREE (BOOSTED_TREE_REGRESSOR):\n  • npi_boosted_conversions\n  • npi_boosted_conversions_daily\n\n🔵 CLUSTERING (KMEANS):\n  • npi_campaign_clusters\n\n📈 LINEAR PREDICTION (LINEAR_REGRESSION):\n  • npi_conversions_by_channel_impact\n  • npi_conversions_saturation\n  • npi_conversions_saturation_agg\n  • npi_conversions_saturation_aggregated\n  • npi_conversions_saturation_daily\n  • npi_conversions_saturation_v2\n  • npi_linear_conversions_demand_gen\n  • npi_linear_conversions_performance_max\n  • npi_linear_conversions_search\n  • npi_linear_conversions_social\n  • npi_linear_cost\n  • npi_linear_cost_v2\n  • npi_social_conversions_cost_linear_reg\n  • npi_social_search_conversions_lr\n  • npi_total_conversions_vs_spend_lr\n  • npi_transactions_saturation\n  • npi_transactions_saturation_agg\n  • npi_transactions_saturation_v2\n\n🎯 CLASSIFICATION (LOGISTIC_REGRESSION):\n  • npi_campaign_classifier\n\nUSAGE: Use EXACT names above. If a needed model is missing,\noffer to train a new one with CREATE OR REPLACE MODEL syntax.",
+                "_models_listed_for": "NPI",
+                "__llm_request_key__": "cbfe5592-eea0-4c58-ad51-3c00cd653f90",
+                "_last_bq_hash": "",
+                "last_ds_response": "The current model `npi_conversions_saturation_v2` has issues:\n- R² score: None\n- This appears to be a broken model\n\nI can retrain this model with proper parameters:\n- Target: Conversions\n- Features: Channel, Cost, Clicks, Impressions, Sessions (with log transformation for Cost and Clicks to capture saturation)\n- Type: LINEAR_REG\n- Training data: NPI multi-year (2016-present)\n\nShould I retrain it now? (~30 seconds)",
+                "last_ds_query": "Build a saturation model for NPI for a $500k investment and recommend channel allocation.",
+                "last_skill_used": "nl2sql",
+                "tool_result_this_turn": true
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "4e77c263-d5b6-49fc-9c15-c8d6c74d39f6",
+            "timestamp": 1778673723.9578238
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "**Result:**\nThe current model `npi_conversions_saturation_v2` has issues:\n- R² score: None\n- This appears to be a broken model\n\nI can retrain this model with proper parameters:\n- Target: Conversions\n- Features: Channel, Cost, Clicks, Impressions, Sessions (with log transformation for Cost and Clicks to capture saturation)\n- Type: LINEAR_REG\n- Training data: NPI multi-year (2016-present)\n\nShould I retrain it now? (~30 seconds)\n\n**Explanation:**\nThe `call_data_scientist` agent was called to build a saturation model and recommend channel allocation for NPI. It identified that the existing model is broken and proposed retraining it with specified parameters.\n\n**Recommendation:**\nTo proceed with building a functional saturation model and channel allocation recommendation, the model needs to be retrained. Please confirm if you would like to proceed with retraining.",
+                  "thought": null,
+                  "thought_signature": "CuZEAY89a19VVnzwYDLS5R_6wL7ldQPj2WI5eMnn4UF8Nk9Kk4MRP7RtKk9GVpzl062WNbM47Kwn_XfUDJhGJQM0uJ_WqONJgjbqbMIC4WfG3tsp8HhcKVxGIf2AwL8wr0xnmTli334AvcVOIUl-7-L69oxSHHTvaxX5rI1C1mLwcHB648E0rgyifCvCmFCnO0vJEF6Llq1ZVUS6OM4VTIBIep1b9lvyqmJsarrQMLmM8a5wB5wvP2DVWhgQFWVON1NMori0z3Kk2wIWCttMWDFyok6bHctioIrPGUJluArRBOlRe0w6TdW5ZUP9Cet_RttYgDLZMNgSq7zj8YSqSH1tFdMGT6thnlaMzpkYAsm8sBHb2MlGn600783cEwf8Csq0RQjFZRkSRNRb5NPnnP084Mft3Fffy5sFjZE0WjsLf3xXE3JqFctJ6q1HIRjjSezON7TSIeD4EPlkILxN-lyff7sRg4uPeGAyCC9YQ4qdEp76ZMj5PWLYvXYSu5BcNhlMdOQZd1DKGuPk4ZaTD6hpv-hacnggRt-3z-1QRFFDSLX7uLpttl3fp1DXj3f57Ns7zQ0eYEh-2fHczZWaebhWmpk6PJpe5kYlzPwn8m_apPtrBKAyvokQO-RYBMDAVcvS6f7fScUbmEpLskz9HgJyj_RjSWI8fi87-0vbmyOQeqLWRkv5CNRVSBcmjO1PgmjNvkqlmLcbVNxi4pD6lonMs2eBeHKK-xBdH0zBVLcQLkjlUldUuedlDNyfwP4Acfun08xUzktWrZnYCvA0Ec6F_QoSXSIorDStyQan7NoK2COEHvXdHgUUkwDQKar-NQrCIadzptVwFyEZIqSM8YadSbk9wDgjzeKqGtZqg5osNrizmsKYqhTIEJ8OLQ0WRLkXjyzc84wZyHm_hlIvC6P47ZzPmbyJKKm4pZCArQlalO0xwuGXWP8oN6VvTTWhYSN_7AGXVzDmSFG6T-9uZWiCn2mxp2D0YP6rcL_JQTVjZbQQtjxzsCHtF1GE-fhctaU4PEVaoiuVX6V6a_KuS-sSKfYB2yDeI0HsbxKbFL3_fGbTPZeyuNY3IkEyLemPMLzX5q0S56H1yyjqsCymrcr2AlfTxujxtNoOAX0Lf2zDQugHW-DbXeyCzr8tJw6xOitIfPkHf_vAhnwZB8y8k9GLuiJH6ZpjpFmBHMZDCk5UCunc0-VWUjUOQepi86Kgyz7OmewNj8tEUniYwFLhoWnTmAvL_2-rqrERaLnzEBPz2SkWBdWzUEjI7vm2ljJjreXGEd8VEo_jTG6lZwlGtHaI0xSC2oaNXYEmlr41ZUhWb5CHYynescHXEWd28G3zal_R3yMW6RIvU1T828g2qseyjVGrB_V7FCK0ym05C5E0xKVOnwQfnAi0sFYIeiMs1tzab7StDguXxhk62KnKf3OIfaVZZz_ffLzR2t1yES33NrDkn4TW0jFttb0Y5B_5dklxXqXs8uZCtLN3CaFvrZRkvDB61Dje-oASw0cn0seCxgd3CzDSGo5Pi8ywFEUBse9iklFUBb4HwF1R4cBrtS5QCIiT5Zk6FaQM1VvRtjDEmY9Nmld_0vkgLvFajYYwoZ3YZCZJhIf0yZLTM4boEUmwmHJB6TJ_wv_56xtYOBA0asGeM7gh7aqsAdIW-flK2FUW-We6dJF_zANvFlcP1X5r1jAjzO2QRLczymmV3hQ55lwyHxm8H0BSxyPKgCPHBX3dTX3yDuLWptU7o6c7vrE0NgafC2alHLDsdS9JCW9lElxWiqOMKKySdCiM9zEFFrYtmLQvtMAx0iuihCp4ZBk2_5jAoL2CCkEIVneXs23bUDKDxmwH4Z8XJJ1sWfEvbYQoohaeC9wilaUuMCoLj1koQC5oHyspzf9n14Cfa687MEBAEav-YD6zrjeGyGCiCYOAn41MRccWuz_wLMQk8dqaYDethy8LBx3pCHYJggJMvMqKOv8D2n9UECDIOKcwDlUPzxJtsH2sOmSmfc9oNNnd_dytI3XvtHLYA7V-gBS3ICD5P8Gd7dC3RWWOmJZlCtvUvcmuFERX3CuHrsqV1zEfWb0OU5DMmgNinKVaYULneIXmzasnpmEEHGwIc8WFzsA7Fh-evxh8Mb4olvbwJk5_MyUz9pyWLNH1071eebtqnGjCVvyyKG8s-ypl1x0F32K--3jZ-IXqGhIdtPg4fTVBis1xaWCGOIHtCRep75vUvZTWxqb6rQ1_m7cjaNo-Ra1ye3-HrNlEKHk2t-3a0IWiUbfK7TXworw0TP_66b03H8NabX23ehtl_SW38xd7bofGZQJn6Qa9pwXCe734KD3esONI7Ezg8_UZuspciqTB7mZQBmXS0ehbQpXHpA4pxt48hzX6O5Ge3gPEvRBinDDOPLoQOd6-NxP4darImujNVXzeS7vDYvTh-47_ZQ_u2hbXTARve8AfsoL9u9ESjLfNnoH6nG9RAaGOYDG51s0YNo2hDwl82CrFSab0dgsqlPtnWYWK_xv_HcUhaJzVJPU0dM2JSoNVcIt4Tw0upYnaETu_EbHkgKZ7t3nRuEmbDv3laGXYMuiZpSX1GwHSEopIEbisyQrMzRXreDuPLvXkoCSOGADyrknEt6IKjL8rnloDJ83AEtytE1u4V8pWYz1nwtJ6M9O-X0mNButuDK9HjpVba_Y-STbAlCVwDklVoIfgNgKO_wSkeFGacVMoG2RwN_U5EBGycWYsKYJMe0GSuLJd1rt6LGuYtSxWnT8VtNEo3UWo-dlCyHuQB2esbiLiJTzhMv8YJvgLgzDbIDDW2OXfAe265XQjpcy9JMzvUXPxcmDf4C048wV2-Leedfent3ycPFVp_FdUTkc6uVud24mEAYlH7mL0W2gN2wznPaxo9SgoSTEGgGuNNE8k0cazmblz_tC3gf_P45Xf-_yJZT1nQFa3O9EXD8x5i8A3ToAMcRpr1VCr3pSaK3KtkuP7KU5pCWn4NmlGMa6RGzcaOivOEXQJwBmn9f05vSPn7iAwVlQdBByU5v0uGbf-kOqnGZ2Nig_xr37JKRr7iFKaf_8o4Ue1Gyp_zb1wadU9l6wAPd0PuLejaeY7XykDFpm6LBepTyuFzAw0WMrS2z1IpxffLiurkzDW_EMhZ5Uq63r5Waf6IFMTk7qGKf8Z11spI6RsmA6LE_fqBJefI2kNywALdufhBut-T5uxbFtRVWUZ2WSX4H_zpha9Yu-rCiNxsg-ZgxfFkvh65kKpHafnDDPCwTBtYyDWe6vjmzJVBGm9OYd9kR0tZdziOkbHvXHo6ajnIT4e35ohG248pMotYO6F3VDf0sbfmqs1lAf_KBKQeyORwVDyV2RdIWwJCeiwr-1neHE9sdEqnYYyyvTSC8aiuRq5vzh0W5QxVRXIKLbLcq7T4QCaOZ0_NSOMNBEpB8HaPS1yliO-TFH3nz1dtInSKey_2DFkODjaPkmWLiwGZ3vVMIcRE9hsOVCfEor21Tzu5WuQkN8nnZF_SMAVNe67Iprg2GhPUT9qtEHT9Rc9WN5g3WO5u2ArEqj_5PR2UdYvUr67ausFGlzbis4ukTy51YDqQTVVBQ4cp16fBMouNMzoPACF_0Y5GK1zHv6qSIOFB3pe3zWUd7DIkThIbwSsGgeriZkN1gID8aqftKmt1zpYR12AhYVgZck-EGUvzJpyjnSoFvlKNne8419-idGxEinRJ1bhVcHs2W449-WHho9G5iSbqDDcvP1b5o2sGE7PZwSHOeDrYRKWOTmNqvxgeTchnQHYZDpbniAGEzrgJR71cRkNR8N-mR9A17AcuSoppCoBk6NH-2Fq8uHwYA_ZsKBkLLEsUFn03bxPpwMKjF3i8cYx8Q8KHN9hiNCOI0ua74nrI9lnVdYMjtiZrZLP-jn1bmEr6tkj5g1wymOmXA2ljFkYLVYjtNSvKLvwtixoTvTwwWjm6QFcaEYW4dQ4r-YsN0df093h0PA6BhmWJ1ktOpL44WFzORkO8kp0NbuLoGbksS9L73r3J2U7rXQd9lAg9-K38XP_jG98DztHW79-zuRw7vu23X__AovezmPb7pF-dIE7rgRlsPuejcqco4STD7G4GoZZxNGtCsEXHtF5pghQs7iPaervjvjCqUNhEMpo72wgYy04s9Lj7-UdeWpVaHDAjAtdUbqAhDUNPAS237nSuCaqc5EW40mk8oihQJwSNY8PGgbV1igs2i7KjujBR6vEC_AnrdO8NwXJOMz9pYAxL_OyJfdVQUSh_46aJ7DNBKWLGk64ihh2M-2xYUA7vQiP7iNayOWdNZtkUyOidy_d5pRdo8zbJvgtXbJSk1ckIN8idPShrfX3EbD3nukbbEm19xtTOz4HXSxWPti7tVUWiPBqQK0bKPsApczF9Pe06fQhCjtpG8pOQpO_jtPbVU0MhDd01Y1mtDxYgw6DuxOuruLgRgobag3AT68wuk_h9FXU3JE7VovaV6r0GDu4fg0w3ttBi8zs_C1l8QcBOtRvdrxD7afYYgvmNguK4kvbOYylWr1QkQE7s4R2APPd7uqbzDOMwFfXWK_pIDk16JvnS0Vo4i_wlRHJhBhPX-Fa1ZwM_cSsed8usIiOPh5xb6wuvr2T3Sac15antwE9lyICtWZcRSaJGeyBQMuz840yFLLadb7qEW4WWMnM9m1qZDCz-5LqP_tQ-idlXfGBpYn4YhH8eunwSIuoQ3OOR4FOFG1gRl0rsHkPHzc9AP3htaRVgQGB_WW9cnCcXr-u3PkvQnu_3q3tmChPxuw6Fvr9kIHzub6ynF70W8ofjD7h7q48azJ845ocmNUvWwNpIPkMAgM6MwDjXMdIEAsi22mn4SArATP1-pdTLCHWMjDi25pGS-UJlz3V6E4-pxTJa0oLqZr3x3o4LLKbMq0wMM4mFbKSd_XewOM_u4yfD-OJLVHABIFeW57-KpJrkr4LORCs_NRfDgISKFviR_O_xePaAelsdUP1iNctKT3QkACw6H3Fp2deBft7-ecLZa4H_MsosJG0JDVe9KJwdu4uJz35trdjDjWw7EnHTK1mntzGI6cJ1FxktMpaZKlTcnCu5xDjekqPztd49VkRu-G_QsTFNkEkQVJY_bHCg972RoWoa9v-c1e_UySod6tzK5E0FjjekIgTWMwLAEjMBaU4p7k6Uut-Xs7o3SnbyPlFem-YRTMq-JPK-USjJ1xVHBZhUZDh2PqpmBvW3E6oG8z6k0jcfol4Yqs1HDVIPvwwnWk6a3Ob5J81q45GVWcgQvBBf0mjfBIVUZ68K0lQoG2Jfw3zSO0wP3R0kQkblLDq5LZrPTxU7KQh9fz8DGS9vn0soWHwsHwYQIiPeQ6UizrTxeAsfzJEyVkfTW_75whbkuDCUAdgSS7VASPBgAWQVxNeKRLk0CMkwmJ32Nu4heQMVgtrbocyz0rrzcNr54e8NLGmUpT0MjPAuI2eaOSukOT64s9V3gReImhtTzLUgSsnM4mshj7ldrp5WOQZZncDsYBdf52C1JZsd1pmuQFUs3l8c9AMcF3jbsAhhLxQGUk8DYvQA2XHN3wKYU3q2so3ZKGkOL8wqr9MdZmnGm2iBXBB0SYKje4HZlZ6CqjykGxr6iN-cpD9K--B3vWiinQrzNaHjH31otby-JTHK1A8EfBhj7HZhBO0G2fnzeN4QI8Jgw_ufsDVDPpg28cLCEitMttlPf3zpAQvTDbdKFEpSJivjLG_GIhdOFaofkSecTh80fDCB2tQ8cdQOUBFnu2WdTPY-1pIUHmn01TxSyc1A8VrYJd2s3_N3aFMGJR7N3bf1FuS1wpLXrtT6aoWkPNyWCorlhTn5hFhB-7PeNvIeaBrrjr_kinPGD5c3tOZbSuNu42lMgRlQD3Rjxnd-SANKwCbHKzwe5t8IGJJANNeRD07hpIfuhHkmRj0EXnxOIUcmilaIBIRyR1WrfQnF_6vcIQYaq_BmWySaNV67VKkYMdkV5QeESxrDtyg10xiCBZvpZU9nf26VwfWc29PYMVPzBy04HQN4YdoUhMaxNFaQzK_ttROTzNbrNgQ6BrvG9IOTXbTfTkrFN9-qCwZn2KnuZKEOsw3gim3-IIXATpBtddn3DLUIwZzoFB_M092P_ABv-bJUY_T9aOOUKe7ZqtMCsIeMEBQz3ex_e-PFbMfqQaWfH9dKKV4DUXNBReg5bhqAis-qB5ldpYd4TgXgVIqMValonjLWck_Z3UYFknzk8EpjRnCEX_Qw6Goo_UB4WFBU9OdFSft2DyukhMUxHVakaE0xsH0cX81CXmtoqeiETXEoQEMbQZg6Evbic3bkL6CnS_EueQgrWRueG6ZSN_TwZFSwgJTUg_zJK4Y_0Eg-9WAQqNpH03SUTjcrWBHdsCJbsvrZuYI2mQMEawcKkSTrjv02PD6kYxhsrxUBgC4z9Owkv1k0hnV7RHIdkW3IMaTQPSCB_GNMKZk60Ylty-QCchwsWLoXI6YqPLQJT_N0vP7H8oXYuc_wfLNbVLQH4fEAkKYqcCiPUnVTh1OrqavXnUD_sGayMHxinnJIqDOAR_MNnxT3ao1Y2eW6opRbDGOUooDb8wy1uUEKyxnSFYS0rtYsj1G5aLPCdsSJrh9RgW2tFiscKPLv8Um4DWkcKpEPlcUDhDzcNgScdfg1So2PiKcSjmjKwDRpSkmpDQfKy8kRjKMpZAQwDms2rd3TiXvrBY2_zSgKbZ4lt2qrM0fUixemp51qmb1PJV91RPj8zn9eM3jyfPV1j9f7se3fwdY16alF0NYkgYquRX8idciMXhDmg9E1L7PJfhu3yG4XjIksCillZWIDWmSV-QU2mHaIW3WcW3wB3ZMzKaxfJPxkVJsAPjo6JahaXkRte5ed3Ifi3OYs_cZr7cJUtwjeNTOnWiEaH0msje_qeXDaplSJIPLybqLTi9_SZbiT75zMCxN6S1uukzPDRuNMVgfxb1ctXLdV8NaOxUKHK7EfRTCMae8WoKG6vZzMAUOP_ZTz0CiFjbAfQedDbX34x3twRGrjiXFwp8Wy9GlPb0BpiEwzf4TIz9nD6yt9ky_Afy5EG9iQ04e7bZsmFNhQO3xs-V8mOTKXJHYBy7hDBUYWnPD7Vvr3Eeg39UgmKGH7c3EYJktENiIiy3KbNvVdSY8_DrhxxXOF_WgBuwffy8IfSjhwP4cGyVCV3jJlUWXZD-Q_39dEhMeJdaRFiklHP9pSqfrFQUmu-lhs0bFFnrkFOhUBPxqcEq2NXW8PyFX6QSymr024n1EfXAlqoZOroddCe0WsF7StByLl1bTCLl5E3M7FiO8xHlnkiisJsh15MMUrh55P4CvRFk1hcR4DdU0weVu43cYPaET1juN5yMl7gif9Y-tzHXD_MereQtTY53VFeLo2At0K-RBEy4BoWTs_CYIkf-cF-VQ1SOJw-upidPeSu9M5SnNLaYHhqeBf13wqZUHQn0vHnn_lotv30qCRf44mKVmUnwNTEMhGdBqRVzEo1h92aI1-NYNuJyyCsxk6O1OznMUHw5tvNJWNCyMbRHM7H6sZC5-Q8cMuANNqniJDDzFQ_bPQiBGVPzb-gduopSZW0NSwRRjMu2QBzDbjZFtVmkEXy6V1IVKJEUsJNPKbTgJE0WQTEWN1B45DtyW_6UjheqUmhgSJsz2MAN3qBqgZIfhA9v_pOFsyZyo59khJVfGgAxdDevuMOYTYhhqiMcmzIjIBB_L-_HlkZmimIamWNcQ229asILxrhQmBjYi0DAzLdTdz05zP1dwa-DB45S_1qGunVDZ8_3If3cvbNJGDDk6f0l7Msh4saLRcAFbki5w22-ecdRihqTad0LXKWb0VXb9P6AZbIHNkBrdKmgeA_h4khArk3-0Izhd5R4N1LWHdhBEn7tAkHgW-PHW9w2GWFxZwtEl4ZlfdpLE8-DONxoT4_37SLMqxEwHLsnpzKONlTmfP7IDOIjwlOBCi8LPv5zIlPzd2HoyMDgAjtC8nmjLs649rPQQALI23AeL2-K-69EKGhoZ2m-V11BvYHTvS3pz39RKnJ1rrNF-5AwBXiR3S-3TQcfnyPiDkSO1Uii4moFc7SY_aOgRRAisrHTOTIGr1kwzc0wG5WyHYIpfZSHMw7ABNIVfhvyroUB6STtcTmpjsrSCoQD8xEqFx3FOWwl1yY2KAMH-v7l02ovCZqCRBXfsn5LVd4gDEQy9XZ8ZEU3V_Fgq1SsE7wSO2n6r6e39SafExCPwOTrZGEOMSKvgnrTs82rxSgB0Ox-UxxeH3mcgbK2AvBBwHTA0aKa7K7lQ5dvZEbdApXHfGyfdykg_pV4YDo5f9P7hi7WM-egVQHoCYisYHorZAQVw4afzML3h9WN9T3q6f49rYp69aNVy9MGmfn0AL_3QuKrAgwBj0D1uh-pW6uivtz0ZR33c31BsGvVMIBWB0Gq6lCyZ5O7l5NBTFcWn1sIpwKM1f3ze7F3b2mjBHNz2y9AArWc3aDoedhHpFomBVWwJn4ImGf6ZA2pGcZtyBibc3jURnQxx5O4CVv9AA9f0dmI0tMf5OZxKkU7KEYHO9haKVCLYOcjp2MwiA3qFaa0D2-QeLx6keFRpltWpakHAG1Hn-bvYOUMdJ4ZCe42BiNv3b_o3uiYtZOTmdi0wXgglwKEeVWVZVeLws3dhB7rCfYk7hsFhvcs53E_UR7f5_N1QwzF4vslrtbzcOBlLZfHO76-PC9cljuaiEFuhZsV4qgTGQtReqPVS1NvjNrw74ONdENE46-_g0dC2w5F-Dlud0ZlwtrXLJrs2wq5_Ka1NWah4e-7o0WCYQk7y3sUViEu12yZcQY-sLAjUHU2eMVmfM7gJViT4f5Gb0RU8pxGTldjukK4W3dTKY5JyEAB5nodd8KaZppUfFEg3qBZkPmy_oZ4mP_eP-UOrSz7Lg_JZ_8TjoKkJ7nLpTIkiCdT9DeDA9wsQH0uLZJeCIgOopTgDHKMcf8zVp3yalZaAhZHtCo5nj2CsPwKTduNjxYcx_VsHYt3-vG5kSP0_ShgIhgUkFjpoAYWWKxEwWauE9Ttn4v229wguCMXAI1wxQDjGsSHC_nL3ZLuVleKXjqMpqKRmIpbAINJNbamdtimp-Ww6OLv_zv0CIMLK9qJ8W-ddhOgz5uu3hq2ahhoMRVFrrb4Ue5R7lz-ub3ZKyT5YMyhUO3byFqacaeYvpalt9GaRk_wb0vikf30JmfgGc9Yr5Afvd7upBObhB1N30UGlYc_yX6c-29v94EiGfyHGealHPe6fH26gr2hjIbMYSbgZ4H68MOj7MNIDUlTKgGCkqcO7m-4urgZPIq2ArgYYtaghS9e9OrwBY3HOH38CmAXhWcu4xyVh99RBm3eXwhsugxRpyI7tYsvDvLOzJZRboyFSMxxtTaX-VANCRJGoyHCZTO9NfAEfOvxIAQjQwDblaPPMD9PWkUx6DdulnFhhxGK2Q1KGLCYsbPnkn8r-wBtPWlDj5mXiOdRiI3wtZpWzmJaSZ1KZosmN5yZmNx75E7ZUkTPbMjpXX9CDBw_0u8tLVoalLVB1iCbsv0ob9xmHGCvWsQtSUUIFLqMfhR_9BkUmlUNfo7n4IqKNOjhhGiQ9h0bZEICdsty4xvPRnFt8Tqd1gsMtjm_oDG1S8ff3Cr5axXVOfO7fpJqjNNh-EbKG7j5v6Wm6qCQxr3q8Z1vTSjcN_oBfIF48RlklVZXVfbfLD81LejlNItpMG-_iym60y0DPY-EnC6kfGnyaRGXFFI9iMten7HPXiO01D9cyS_amLL6omzzHt0MO0dS8_RWlZpWRmcG1j9lfVjcr3SFE_xZkMxagn808-OFfpgH8p038BPK1dMNhYJq7QDbea_y8pox8hOFA34i3VE1Y5WHL7Yrllp4vFCwMQLWVkMRelcTlhzv1N2q6TJFq6h0plaQan41Cdh9q-2ek9cnyL74eONsFlXQi-7cSPB0wBvJzlrIrQqBj-KoEsn31gO8Xd0QF3Cn7cDpLyCrgkit2Y1V58ugxlim43DOZCFwdNdLIjadhRueHsEApASAFmT3COfqvTdc3DavCnQxLFGVVtAK0170w6H_6d1_zESw_5qtMbAMP1jp9On3l3fhNWFMUnonK86NfR5GrU2nh7P2Y7gVcl4ygFpBNGoJFRdxx0TFJQJ8IzMcUyOYWIOS3Sk3YPwwtwk-FHQcQBWuNH3XzgLszH7evLC7T31DZ4IsnNZ9kNTWfsFtHjYGS3K9AweZEbLbElJscUfqnhFn2sgP930alt4bVLVSh_YHAiJr1jbQOw68ViZbFigIkomsb2VEzTdC5oskI2Cyar2abonOFaLh2nHOpDy5f9VhEv0qpNoK7m-PyPi1_EksM0C6JqslT1QeyYVjIvY-1aEsKNFPL2LR-9Z7cD7-XtROApH577TqkPpxEjQd-Fl_o4jsIk8p_SSQpEHUg1sq5e8GNcuAQ-dtmBKZNyunMzWcvper7p6x6JMtJRcVe5cCNxURaqUo9hfPGheOfAj1_40mtb2iSGzMYMaGHxDI0r55My_g_q-WIIPe-cOco8VQ75n8thsG5vnOOB9ojkVOr28Y6h9WIANQ9UIprWx39yKLNadR9ye-MhbCo4jLnBGPNpD0e0B_fwf6bd7ZresVXa0hLFHAoSPQKqWJmcVrGQAwXZkdojCZuZbj5OCJD2--ZMt6W2Hak2zMKw7b0Q23mAbB1RTmLWoKBsKvpsttFGlyXAE1kWAaDzkGKXeAPBD_1sCNiKX8US69iX1VQX1_eMEpqRTXpA3BpOwf9b4ZgcShpsKa31dQXIfU6sthqEX_Vo0c3TCWzwBCRvx44dbqX_U8pn0gAta7CJH1JSkFEd_X7iPOjbVlFSmcb1sqX9_Um4mFjQAMxQ46jUH04vUxLpOfy9VGD9q4azLKYDtyU4cEneVyEUEnJ7a8Xfle4jQol6ccB3NQIGqljj4eHwZCMBDnG2HcNSlMpOx_Tj7H8q-wzWwsaR99SBrBbV4_yBHpQhrHqrKrTIS1cPYXmPIpZPTL9G2GyJjqdQnQYbrsuEkbBcZj9vzpJpblXmK2YC2QRqPDBgDaunWplLCWQYHJLefn9BSqGGdqBxLfyIOxPwxOjXPoP3IDbpl9GdffDJHWlrkDthvxfH9RhepvLx9NqWM8n8U9sTL_YDw2_HzV-XWC9I4M85Q-rAWGd-cyjecbq88wSIz0pNxp9GxrU5TdhQJJ9J_yhYJ3Y8XmuZtF3Jr1OBapWjnasbj9hYrlhPRbJ0AKn-B-0eth-eeskObvrH-PzFs9fHlSDeHoX6phKkwXc_laCAXJZZhl4gxI9DT7M_Uwl5DfDmlEBmXDPjbt6wA_nYvqrMI0_sepDuSYl9xApzP-CKkSaw0_X4HHh5xnxZA7_L5WBAKzT_n5nsEooGZxFcI97jH-Y-kB8ReRjclGYn8Ps64rEVPhPQLeueImd2_wa4cOmuuLC55JPQsO9wQc-baU4H2YDJLE01ZCwgHY-ImD4RcbsJ-PtGQ6XhBgJinS2VWamL50AT4aqek5n65P8N7eBYV36remJ_FTA6iLaNkMSQA_sLJfqGa-3UWUg5lMHx1wT0lj3bN0m_fk5I823NbSOCs9_5-K61oFJcFsHQT_468_gcvXuIYPkgCBYAckWgc2ULnYfSt40ODBHuv1srcsqdHZEGsR2K0ETnRsZs1pH99OTQle8zQSBrH5i008qrJyOZaNq3JXzbE2JG9gDFNuxgWI0ZkC90o6XHncQGCVKAvYzsrATl9arBsci_XOTXQ==",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "d914261a-f355-40d8-905d-0b0feec11169"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 3639
+                }
+              ],
+              "cached_content_token_count": 3639,
+              "candidates_token_count": 203,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 203
+                }
+              ],
+              "prompt_token_count": 4688,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 4688
+                }
+              ],
+              "thoughts_token_count": 2046,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 6937,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -1.8107166008409021,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-529cf66c-741f-40d3-a234-6aafaf32fef5",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "d914261a-f355-40d8-905d-0b0feec11169",
+                "agent_card_skills_injected": true,
+                "session_tokens_in": 9093,
+                "session_tokens_out": 229
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "e3a97481-a7e1-45d1-9d32-b6cb3e33585e",
+            "timestamp": 1778673723.9640594
+          },
+          {
+            "model_version": null,
+            "content": null,
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-529cf66c-741f-40d3-a234-6aafaf32fef5",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "last_exchange": {
+                  "query": "Build a saturation model for NPI for a $500k investment and recommend channel allocation.",
+                  "response": "The current model `npi_conversions_saturation_v2` has issues:\n- R² score: None\n- This appears to be a broken model\n\nI can retrain this model with proper parameters:\n- Target: Conversions\n- Features: Channel, Cost, Clicks, Impressions, Sessions (with log transformation for Cost and Clicks to capture saturation)\n- Type: LINEAR_REG\n- Training data: NPI multi-year (2016-present)\n\nShould I retrain it now? (~30 seconds)",
+                  "client_id": "NPI",
+                  "session_id": "session_1778673707",
+                  "turn": 1,
+                  "duration_s": 30.67,
+                  "skill": "nl2sql"
+                },
+                "tools_called_this_turn": 0
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "6eb8aecf-befa-438d-8fab-3e1d9e9cc9bf",
+            "timestamp": 1778673737.715059
+          }
+        ],
+        "last_update_time": 1778673737.715059
+      },
+      "user_id": "eval_user"
+    }
+  ],
+  "creation_timestamp": 1778673737.7239642
+}

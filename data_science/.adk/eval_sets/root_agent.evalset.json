@@ -1,0 +1,214 @@
+{
+  "eval_set_id": "root_agent_eval_v1",
+  "name": "Root Agent (astrobot_mesh/agent.py) Eval",
+  "description": "Tests that the root orchestrator routes correctly to analytics, bigquery, alloydb, and bqml sub-agents, handles ambiguous queries, and surfaces date disambiguation.",
+  "eval_cases": [
+    {
+      "eval_id": "root_001_spend_to_analytics",
+      "conversation": [
+        {
+          "invocation_id": "inv_root_001",
+          "user_content": {
+            "parts": [{ "text": "What was our total ad spend last month?" }],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{ "text": "Total ad spend for L1M was $X across all channels. Would you like a breakdown by channel, device, or geo?" }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_root_001_a",
+                "name": "analytics_agent",
+                "args": { "query": "total ad spend last month", "date_flag": "L1M" }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "root_002_date_ambiguity_escalation",
+      "conversation": [
+        {
+          "invocation_id": "inv_root_002",
+          "user_content": {
+            "parts": [{ "text": "What was the revenue last year?" }],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{ "text": "Before I pull that — by 'last year' do you mean:\n• L12M: trailing 12 months\n• CY2024: full calendar year 2024\n• FY2024: your fiscal year 2024\n• BY2024: your business year 2024?" }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_root_002_a",
+                "name": "analytics_agent",
+                "args": { "query": "revenue last year", "date_flag": "AMBIGUOUS" }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "root_003_raw_data_to_bigquery",
+      "conversation": [
+        {
+          "invocation_id": "inv_root_003",
+          "user_content": {
+            "parts": [{ "text": "Pull the raw impressions and clicks for campaign ID 12345 for last week." }],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{ "text": "Raw data for campaign 12345 (L7D): [impressions, clicks, CTR table from BigQuery]." }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_root_003_a",
+                "name": "bigquery_agent",
+                "args": { "campaign_id": "12345", "metrics": ["impressions", "clicks"], "date_flag": "L7D" }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "root_004_metadata_to_alloydb",
+      "conversation": [
+        {
+          "invocation_id": "inv_root_004",
+          "user_content": {
+            "parts": [{ "text": "What campaigns are currently active?" }],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{ "text": "Active campaigns as of today: [Campaign list from AlloyDB with name, channel, budget, flight dates]." }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_root_004_a",
+                "name": "alloydb_agent",
+                "args": { "query": "active campaigns", "status_filter": "active" }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "root_005_forecast_to_bqml",
+      "conversation": [
+        {
+          "invocation_id": "inv_root_005",
+          "user_content": {
+            "parts": [{ "text": "Forecast our spend for next month." }],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{ "text": "Spend forecast for next 30 days (ARIMA_PLUS): $X projected spend with ±$X confidence interval. Trend: [up/flat/down] vs L30D." }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_root_005_a",
+                "name": "bqml_agent",
+                "args": { "model_type": "ARIMA_PLUS", "target": "spend", "horizon_days": 30 }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "root_006_multi_agent_stoplight",
+      "conversation": [
+        {
+          "invocation_id": "inv_root_006",
+          "user_content": {
+            "parts": [{ "text": "Give me the weekly stoplight report." }],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{ "text": "Weekly Stoplight (L7D):\n🟢 Spend pacing: on track\n🟡 ROAS: slightly below target\n🔴 CPA: above threshold on Paid Social\n🟢 Data freshness: all channels current\n🟢 Creative health: no fatigue signals" }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_root_006_a",
+                "name": "analytics_agent",
+                "args": { "report_type": "stoplight", "date_flag": "L7D" }
+              },
+              {
+                "id": "tu_root_006_b",
+                "name": "bigquery_agent",
+                "args": { "query_type": "data_freshness_check" }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "root_007_ambiguous_no_tool",
+      "conversation": [
+        {
+          "invocation_id": "inv_root_007",
+          "user_content": {
+            "parts": [{ "text": "How are we doing?" }],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{ "text": "I can pull several views — which would you like?\n• Spend pacing vs budget\n• ROAS / CPA by channel\n• Creative performance\n• Weekly stoplight report" }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "root_008_cross_dataset",
+      "conversation": [
+        {
+          "invocation_id": "inv_root_008",
+          "user_content": {
+            "parts": [{ "text": "Join campaign spend with revenue data and show ROAS by campaign." }],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{ "text": "Cross-dataset ROAS by campaign (L30D): [table using cross_dataset_relations config — spend from BigQuery joined with revenue from AlloyDB]." }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_root_008_a",
+                "name": "bigquery_agent",
+                "args": { "query_type": "cross_dataset_join", "config": "cross_dataset_relations.json", "date_flag": "L30D" }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_04_anomaly",
+    "data": [
+      {
+        "query": "For NPI, detect any unusual spend patterns or anomalies last 6 months",
+        "reference": "NPI anomaly detection spend unusual spike outlier channel",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

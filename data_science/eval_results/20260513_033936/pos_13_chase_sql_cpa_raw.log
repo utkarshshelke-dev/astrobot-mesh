@@ -1,0 +1,122 @@
+2026-05-13 04:06:10,557 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-13 04:06:18,192 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 04:06:18,193 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 04:06:18,193 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 04:06:18,196 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 04:06:18,196 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 04:06:18,197 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 04:06:18,197 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 04:06:18,198 - INFO - agent.py:339 - 📍 KM routed 'For NPI, what is the blended CPA by channel over t...' → table=performance (confidence=low)
+2026-05-13 04:06:18,624 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 04:06:18,624 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 04:06:18,825 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 04:06:21,896 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 04:06:21,896 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 04:06:21,897 - INFO - agent.py:489 - Tokens: In=7716, Out=95
+2026-05-13 04:06:21,899 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 04:06:21,899 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 04:06:22,014 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 04:06:24,287 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 04:06:25,403 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 04:06:29,118 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 04:06:30,945 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 04:06:34,226 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 04:06:34,229 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 04:06:34,229 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 04:06:34,229 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 04:06:34,229 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 04:06:34,331 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 04:06:38,394 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 04:06:38,395 - INFO - agent.py:489 - Tokens: In=8465, Out=287
+2026-05-13 04:06:38,397 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 04:06:38,397 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 04:06:38,397 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 04:06:38,397 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 04:06:38,401 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 04:06:38,404 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_13_chase_sql_cpa.evalset.json_1778645198.4043171.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_13_chase_sql_cpa.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_13_chase_sql_cpa.evalset.json
+Eval Id: pos_13_chase_sql_cpa
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.07692307692307693, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+--------------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                   | expected_response        | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+==========================+==========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, what is the     | CPA cost per acquisition | **Result:**  **Blended    |                       | id='adk-1aae28e9-51e1-4ff | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | blended CPA by           | channel NPI              | CPA by Channel            |                       | 9-aa67-                   | 0.0                         | 0.07692307692307693    |
+|    | channel over the last 90 | SAFE_DIVIDE ranked       | (Last 90 Days) for NPI**  |                       | 2309ab00522b'             |                             |                        |
+|    | days ranked              |                          | | Channel                 |                       | args={'query':            |                             |                        |
+|    | best to worst            |                          | | CPA         |           |                       | "\nSELECT\n               |                             |                        |
+|    |                          |                          | |:----------------|------ |                       | Channel,\n                |                             |                        |
+|    |                          |                          | ------:| |                |                       | SAFE_DIVIDE(SUM(Cost),    |                             |                        |
+|    |                          |                          | Cross-network   | $0.00   |                       | SUM(Conversions)) AS      |                             |                        |
+|    |                          |                          | | | Paid                  |                       | CPA\n  FROM\n             |                             |                        |
+|    |                          |                          | Other      | $0.00        |                       | `npi-dwh.conversionomics. |                             |                        |
+|    |                          |                          | | | Organic               |                       | performance`\n            |                             |                        |
+|    |                          |                          | Search  | $0.00       | | |                       | WHERE\n    Client =       |                             |                        |
+|    |                          |                          | Direct                    |                       | 'NPI'\n    AND Date       |                             |                        |
+|    |                          |                          | | $0.00       | | Email   |                       | >=                        |                             |                        |
+|    |                          |                          | |                         |                       | DATE_SUB(CURRENT_DATE(),  |                             |                        |
+|    |                          |                          | $0.00       | | Referral  |                       | INTERVAL 90               |                             |                        |
+|    |                          |                          | | $0.00                   |                       | DAY)\n  GROUP BY\n        |                             |                        |
+|    |                          |                          | | | Organic Social  |     |                       | Channel\n  ORDER          |                             |                        |
+|    |                          |                          | $0.00       | |           |                       | BY\n    CPA ASC\n"}       |                             |                        |
+|    |                          |                          | Paid Search     | $0.00   |                       | name='call_bigquery_agent |                             |                        |
+|    |                          |                          | | |                       |                       | '                         |                             |                        |
+|    |                          |                          | Unassigned      | $0.00   |                       | partial_args=None         |                             |                        |
+|    |                          |                          | | |                       |                       | will_continue=None        |                             |                        |
+|    |                          |                          | Organic Video   | $0.00   |                       |                           |                             |                        |
+|    |                          |                          | | |                       |                       |                           |                             |                        |
+|    |                          |                          | Organic Shopping| $0.00   |                       |                           |                             |                        |
+|    |                          |                          | | | Paid                  |                       |                           |                             |                        |
+|    |                          |                          | Social     | $3.00        |                       |                           |                             |                        |
+|    |                          |                          | |                         |                       |                           |                             |                        |
+|    |                          |                          | **Explanation:** 1. The   |                       |                           |                             |                        |
+|    |                          |                          | BigQuery agent            |                       |                           |                             |                        |
+|    |                          |                          | was called to retrieve    |                       |                           |                             |                        |
+|    |                          |                          | the blended CPA           |                       |                           |                             |                        |
+|    |                          |                          | for each channel for NPI  |                       |                           |                             |                        |
+|    |                          |                          | over the last             |                       |                           |                             |                        |
+|    |                          |                          | 90 days. 2. The CPA was   |                       |                           |                             |                        |
+|    |                          |                          | calculated as             |                       |                           |                             |                        |
+|    |                          |                          | `SUM(Cost) /              |                       |                           |                             |                        |
+|    |                          |                          | SUM(Conversions)`. 3.     |                       |                           |                             |                        |
+|    |                          |                          | Channels with a CPA of    |                       |                           |                             |                        |
+|    |                          |                          | `null`                    |                       |                           |                             |                        |
+|    |                          |                          | (indicating no cost or no |                       |                           |                             |                        |
+|    |                          |                          | conversions)              |                       |                           |                             |                        |
+|    |                          |                          | were excluded from the    |                       |                           |                             |                        |
+|    |                          |                          | results. 4. The           |                       |                           |                             |                        |
+|    |                          |                          | results are ranked from   |                       |                           |                             |                        |
+|    |                          |                          | the lowest CPA            |                       |                           |                             |                        |
+|    |                          |                          | (best) to the highest CPA |                       |                           |                             |                        |
+|    |                          |                          | (worst).                  |                       |                           |                             |                        |
++----+--------------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_16_capabilities",
+    "data": [
+      {
+        "query": "What can you do?",
+        "reference": "analytics charts forecast persona ML clustering anomaly BigQuery campaigns",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

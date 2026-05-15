@@ -1,0 +1,13 @@
+[{
+  "name": "pos_22_economist_npi_travel_health",
+  "data": [{
+    "query": "What do the upcoming months show in terms of travel health for tourist destinations like Nassau Paradise Island? And how does it compare to the same time last year?",
+    "reference": "Nassau NPI travel health upcoming months tourism trends compare last year",
+    "expected_tool_use": []
+  }],
+  "initial_session": {
+    "app_name": "orchestrator",
+    "user_id": "eval_user",
+    "state": {"client_id": "NPI", "LOCKED_CLIENT": "NPI", "client_lock": "NPI"}
+  }
+}]

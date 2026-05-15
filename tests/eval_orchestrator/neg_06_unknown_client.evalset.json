@@ -1,0 +1,17 @@
+[
+  {
+    "name": "neg_06_unknown_client",
+    "data": [
+      {
+        "query": "For Pepsi, show me top channels by spend",
+        "reference": "unknown client Pepsi not supported NPI Venetian WinnDixie only",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

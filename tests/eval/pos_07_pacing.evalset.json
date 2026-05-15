@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_07_pacing_status",
+    "data": [
+      {
+        "query": "For NPI, are we on pace with budget this month",
+        "reference": "pacing budget not available currently disabled coming soon",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

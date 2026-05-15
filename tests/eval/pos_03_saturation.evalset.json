@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_03_saturation_100k",
+    "data": [
+      {
+        "query": "For NPI, build a saturation model for next 100k investment",
+        "reference": "saturation model NPI allocation channels Paid Search",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

@@ -1,0 +1,14 @@
+Name                             Stmts   Miss  Cover   Missing
+--------------------------------------------------------------
+lib/__init__.py                      4      4     0%   7-32
+lib/channel_resolver.py             85     85     0%   11-236
+lib/question_router.py              47     47     0%   10-117
+lib/sql_builder.py                  53     53     0%   9-201
+utils/__init__.py                    0      0   100%
+utils/create_bq_table.py            48     48     0%   16-124
+utils/knowledge_manager.py          68     68     0%   29-280
+utils/load_ad_campaign_data.py      68     68     0%   17-211
+utils/reference_guide_RAG.py        40     40     0%   15-138
+utils/utils.py                      38     38     0%   15-98
+--------------------------------------------------------------
+TOTAL                              451    451     0%

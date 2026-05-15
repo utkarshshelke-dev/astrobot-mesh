@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_01_top_channels",
+    "data": [
+      {
+        "query": "For NPI, show top 5 channels by spend last quarter as a bar chart",
+        "reference": "top 5 channels NPI bar chart spend CTV Paid Social Search",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

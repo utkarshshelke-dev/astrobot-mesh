@@ -1,0 +1,304 @@
+2026-05-12 16:56:42,775 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 16:56:49,525 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 16:56:49,525 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 16:56:49,526 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 16:56:49,528 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 16:56:49,528 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 16:56:49,529 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 16:56:49,529 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 16:56:49,530 - INFO - agent.py:392 - 📍 KM routed 'For NPI, channel mix shift peak months Nov Dec com...' → table=performance (confidence=low)
+2026-05-12 16:56:50,181 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 16:56:50,181 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 16:56:50,365 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:56:53,327 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:56:53,327 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 16:56:53,328 - INFO - agent.py:561 - Tokens: In=7716, Out=56
+2026-05-12 16:56:53,329 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 16:56:53,330 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 16:56:53,439 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:56:57,372 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:57:00,888 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:57:09,510 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:57:09,513 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 16:57:09,513 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 16:57:09,513 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 16:57:09,513 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 16:57:09,614 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:57:13,709 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:57:13,711 - INFO - agent.py:561 - Tokens: In=9834, Out=633
+2026-05-12 16:57:13,712 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 16:57:13,713 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 16:57:13,815 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:57:13,815 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-12 16:57:21,035 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:57:21,036 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 16:57:21,036 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 16:57:22,095 - INFO - tools.py:927 - Chart rendered: Cost Mix Shift: Peak (Nov/Dec) vs. Trough (Jan-Oct) (80582 bytes)
+2026-05-12 16:57:22,095 - INFO - tools.py:936 - Saved chart: chart_1778605042_65e0d3.png v0
+2026-05-12 16:57:22,236 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:57:26,796 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:57:26,798 - INFO - agent.py:561 - Tokens: In=10593, Out=798
+2026-05-12 16:57:26,799 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 16:57:26,800 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 16:57:26,905 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:57:26,905 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-12 16:57:48,176 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:57:48,178 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 16:57:48,178 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 16:57:48,188 - ERROR - tools.py:929 - Chart rendering failed: shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (24,) and arg 1 with shape (0,).
+2026-05-12 16:57:48,289 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:58:15,889 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:58:15,891 - INFO - agent.py:561 - Tokens: In=11478, Out=663
+2026-05-12 16:58:15,893 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 16:58:15,893 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 16:58:15,997 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:58:15,998 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-12 16:58:20,914 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:58:20,916 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 16:58:20,916 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 16:58:21,395 - INFO - tools.py:927 - Chart rendered: Conversion Mix Shift: Peak (Nov/Dec) vs. Trough (Jan-Oct) (63722 bytes)
+2026-05-12 16:58:21,396 - INFO - tools.py:936 - Saved chart: chart_1778605101_be67c7.png v0
+2026-05-12 16:58:21,502 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:58:24,893 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:58:24,895 - INFO - agent.py:561 - Tokens: In=16841, Out=290
+2026-05-12 16:58:24,898 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 16:58:24,898 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 16:58:24,898 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 16:58:24,898 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 16:58:24,903 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 16:58:24,908 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_04_peak_trough.evalset.json_1778605104.9085736.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.4, 'response_match_score': 0.15} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_04_peak_trough.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_04_peak_trough.evalset.json
+Eval Id: pos_04_peak_trough
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: FAILED, Score: 0.0, Threshold: 0.4
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.08372093023255814, Threshold: 0.15
+---------------------------------------------------------------------
+Invocation Details:
++----+-------------------------+-------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                  | expected_response       | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=========================+=========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, channel mix    | peak trough channel mix | **Result:**  The channel  |                       | id='adk-2aace21d-140a-4a7 | Status: FAILED, Score:      | Status: FAILED, Score: |
+|    | shift peak months       | bar charts cost         | mix shift for             |                       | a-925f-                   | 0.0                         | 0.08372093023255814    |
+|    | Nov Dec compared trough | conversion percentage   | NPI during peak months    |                       | 96587dd97c34'             |                             |                        |
+|    | months 2 bar            |                         | (Nov/Dec)                 |                       | args={'query': 'For NPI,  |                             |                        |
+|    | charts cost percent     |                         | compared to trough months |                       | provide the channel mix   |                             |                        |
+|    | conversion              |                         | (Jan-Oct) has             |                       | shift for peak            |                             |                        |
+|    | attribution             |                         | been visualized in two    |                       | months (Nov/Dec) compared |                             |                        |
+|    |                         |                         | bar charts: one           |                       | to trough                 |                             |                        |
+|    |                         |                         | for cost percentage and   |                       | months (Jan-Oct),         |                             |                        |
+|    |                         |                         | one for                   |                       | including cost            |                             |                        |
+|    |                         |                         | conversion attribution    |                       | percentage and conversion |                             |                        |
+|    |                         |                         | percentage.               |                       | attribution               |                             |                        |
+|    |                         |                         | **Explanation:** 1. The   |                       | percentage. Use the pre-  |                             |                        |
+|    |                         |                         | BigQuery agent            |                       | built SQL                 |                             |                        |
+|    |                         |                         | was called to retrieve    |                       | pattern for seasonal      |                             |                        |
+|    |                         |                         | the channel mix           |                       | comparison (peak vs       |                             |                        |
+|    |                         |                         | data for NPI,             |                       | trough).'} name='call_big |                             |                        |
+|    |                         |                         | specifically comparing    |                       | query_agent'              |                             |                        |
+|    |                         |                         | the                       |                       | partial_args=None         |                             |                        |
+|    |                         |                         | cost and conversion       |                       | will_continue=None        |                             |                        |
+|    |                         |                         | percentages during        |                       | id='adk-                  |                             |                        |
+|    |                         |                         | peak months (November and |                       | ad0643ad-5375-4681-9535-5 |                             |                        |
+|    |                         |                         | December)                 |                       | be817b542b6'              |                             |                        |
+|    |                         |                         | against trough months     |                       | args={'analysis_request': |                             |                        |
+|    |                         |                         | (January to               |                       | 'chart_type:              |                             |                        |
+|    |                         |                         | October). 2. The data     |                       | "bar", title: "Cost Mix   |                             |                        |
+|    |                         |                         | returned included         |                       | Shift: Peak               |                             |                        |
+|    |                         |                         | the percentage            |                       | (Nov/Dec) vs. Trough      |                             |                        |
+|    |                         |                         | distribution of cost and  |                       | (Jan-Oct)", data:         |                             |                        |
+|    |                         |                         | conversions across        |                       | {categories: ["Paid       |                             |                        |
+|    |                         |                         | various channels for      |                       | Social", "Search",        |                             |                        |
+|    |                         |                         | both periods. 3. The      |                       | "Demand Gen",             |                             |                        |
+|    |                         |                         | analytics agent           |                       | "Performance Max",        |                             |                        |
+|    |                         |                         | then generated two bar    |                       | "Organic Social",         |                             |                        |
+|    |                         |                         | charts. The first         |                       | "Display", "Referral",    |                             |                        |
+|    |                         |                         | chart illustrates the     |                       | "Print", "Unassigned",    |                             |                        |
+|    |                         |                         | "Cost Mix Shift:          |                       | "Paid Search",            |                             |                        |
+|    |                         |                         | Peak (Nov/Dec) vs. Trough |                       | "Organic Video", "Paid    |                             |                        |
+|    |                         |                         | (Jan-Oct)",               |                       | Video", "OOH",            |                             |                        |
+|    |                         |                         | showing how the cost      |                       | "Video", "Organic         |                             |                        |
+|    |                         |                         | allocation across         |                       | Shopping", "Linear        |                             |                        |
+|    |                         |                         | channels changes between  |                       | TV", "CTV", "OTT",        |                             |                        |
+|    |                         |                         | these periods.            |                       | "Online Audio",           |                             |                        |
+|    |                         |                         | 4. For the second chart,  |                       | "Direct", "Email", "Paid  |                             |                        |
+|    |                         |                         | "Conversion Mix           |                       | Other",                   |                             |                        |
+|    |                         |                         | Shift: Peak (Nov/Dec) vs. |                       | "Organic Search", "Cross- |                             |                        |
+|    |                         |                         | Trough (Jan-              |                       | network"],                |                             |                        |
+|    |                         |                         | Oct)", a data filtering   |                       | series: {"Peak            |                             |                        |
+|    |                         |                         | step was                  |                       | (Nov/Dec)":               |                             |                        |
+|    |                         |                         | performed to remove       |                       | [47.635610209824186,      |                             |                        |
+|    |                         |                         | channels that had         |                       | 28.917286036492929,       |                             |                        |
+|    |                         |                         | zero conversion           |                       | 20.551508891672331,       |                             |                        |
+|    |                         |                         | percentages in both peak  |                       | 2.8955948620083318,       |                             |                        |
+|    |                         |                         | and trough periods. This  |                       | 0.0, 0.0, 0.0, 0.0, 0.0,  |                             |                        |
+|    |                         |                         | ensured data              |                       | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         | integrity and prevented a |                       | 0.0, 0.0, 0.0, 0.0, 0.0,  |                             |                        |
+|    |                         |                         | shape mismatch            |                       | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         | error during chart        |                       | 0.0, 0.0, 0.0, 0.0],      |                             |                        |
+|    |                         |                         | rendering. The chart      |                       | "Trough (Jan-Oct)":       |                             |                        |
+|    |                         |                         | now accurately displays   |                       | [31.323570028309593,      |                             |                        |
+|    |                         |                         | the conversion            |                       | 22.322696646591616,       |                             |                        |
+|    |                         |                         | attribution percentage    |                       | 12.063820099056793,       |                             |                        |
+|    |                         |                         | across relevant           |                       | 1.5246056137552861,       |                             |                        |
+|    |                         |                         | channels for both         |                       | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         | periods.  **Graph:** *    |                       | 0.17847387773214388, 0.0, |                             |                        |
+|    |                         |                         | Cost Mix Shift: Peak      |                       | 0.51840778032810642, 0.0, |                             |                        |
+|    |                         |                         | (Nov/Dec) vs.             |                       | 0.0,                      |                             |                        |
+|    |                         |                         | Trough (Jan-Oct) *        |                       | 2.7068646663146869,       |                             |                        |
+|    |                         |                         | Conversion Mix            |                       | 0.39879030226721279,      |                             |                        |
+|    |                         |                         | Shift: Peak (Nov/Dec) vs. |                       | 0.0, 4.269776705813177,   |                             |                        |
+|    |                         |                         | Trough (Jan-              |                       | 19.381355857038841,       |                             |                        |
+|    |                         |                         | Oct)                      |                       | 3.5429881215051728,       |                             |                        |
+|    |                         |                         |                           |                       | 1.7686503012673911, 0.0,  |                             |                        |
+|    |                         |                         |                           |                       | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         |                           |                       | 0.0]}}}'} name='call_anal |                             |                        |
+|    |                         |                         |                           |                       | ytics_agent'              |                             |                        |
+|    |                         |                         |                           |                       | partial_args=None         |                             |                        |
+|    |                         |                         |                           |                       | will_continue=None id=    |                             |                        |
+|    |                         |                         |                           |                       | 'adk-551791c2-723d-4f34-a |                             |                        |
+|    |                         |                         |                           |                       | 109-                      |                             |                        |
+|    |                         |                         |                           |                       | 2516113d8e1a'             |                             |                        |
+|    |                         |                         |                           |                       | args={'analysis_request': |                             |                        |
+|    |                         |                         |                           |                       | 'chart_type: "bar",       |                             |                        |
+|    |                         |                         |                           |                       | title: "Conversion        |                             |                        |
+|    |                         |                         |                           |                       | Mix Shift: Peak (Nov/Dec) |                             |                        |
+|    |                         |                         |                           |                       | vs. Trough                |                             |                        |
+|    |                         |                         |                           |                       | (Jan-Oct)", data:         |                             |                        |
+|    |                         |                         |                           |                       | {categories: ["Paid       |                             |                        |
+|    |                         |                         |                           |                       | Social", "Search",        |                             |                        |
+|    |                         |                         |                           |                       | "Demand Gen",             |                             |                        |
+|    |                         |                         |                           |                       | "Performance Max",        |                             |                        |
+|    |                         |                         |                           |                       | "Organic Social",         |                             |                        |
+|    |                         |                         |                           |                       | "Display", "Referral",    |                             |                        |
+|    |                         |                         |                           |                       | "Print",                  |                             |                        |
+|    |                         |                         |                           |                       | "Unassigned", "Paid       |                             |                        |
+|    |                         |                         |                           |                       | Search", "Organic         |                             |                        |
+|    |                         |                         |                           |                       | Video", "Paid Video",     |                             |                        |
+|    |                         |                         |                           |                       | "OOH", "Video",           |                             |                        |
+|    |                         |                         |                           |                       | "Organic Shopping",       |                             |                        |
+|    |                         |                         |                           |                       | "Linear TV", "CTV",       |                             |                        |
+|    |                         |                         |                           |                       | "OTT", "Online Audio",    |                             |                        |
+|    |                         |                         |                           |                       | "Direct",                 |                             |                        |
+|    |                         |                         |                           |                       | "Email", "Paid Other",    |                             |                        |
+|    |                         |                         |                           |                       | "Organic Search",         |                             |                        |
+|    |                         |                         |                           |                       | "Cross-network"], series: |                             |                        |
+|    |                         |                         |                           |                       | {"Peak                    |                             |                        |
+|    |                         |                         |                           |                       | (Nov/Dec)":               |                             |                        |
+|    |                         |                         |                           |                       | [24.031798816821404, 0.0, |                             |                        |
+|    |                         |                         |                           |                       | 0.0, 0.0,                 |                             |                        |
+|    |                         |                         |                           |                       | 27.664471102040235,       |                             |                        |
+|    |                         |                         |                           |                       | 0.0017840449293875019,    |                             |                        |
+|    |                         |                         |                           |                       | 0.33861172759774782, 0.0, |                             |                        |
+|    |                         |                         |                           |                       | 16.508481349594309,       |                             |                        |
+|    |                         |                         |                           |                       | 15.471594436634293,       |                             |                        |
+|    |                         |                         |                           |                       | 0.0017840449293875019,    |                             |                        |
+|    |                         |                         |                           |                       | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         |                           |                       | 0.0, 0.0, 0.0, 0.0, 0.0,  |                             |                        |
+|    |                         |                         |                           |                       | 0.519870692423518,        |                             |                        |
+|    |                         |                         |                           |                       | 0.049953258022850049,     |                             |                        |
+|    |                         |                         |                           |                       | 2.3645731494101945,       |                             |                        |
+|    |                         |                         |                           |                       | 3.6023435214192432,       |                             |                        |
+|    |                         |                         |                           |                       | 9.4447338561774341],      |                             |                        |
+|    |                         |                         |                           |                       | "Trough (Jan-Oct)":       |                             |                        |
+|    |                         |                         |                           |                       | [32.951178874480888, 0.0, |                             |                        |
+|    |                         |                         |                           |                       | 0.0, 0.0,                 |                             |                        |
+|    |                         |                         |                           |                       | 15.686587660570359,       |                             |                        |
+|    |                         |                         |                           |                       | 0.0032051901976441854,    |                             |                        |
+|    |                         |                         |                           |                       | 0.4055670838019082, 0.0,  |                             |                        |
+|    |                         |                         |                           |                       | 10.32043612691448,        |                             |                        |
+|    |                         |                         |                           |                       | 16.5364604200457,         |                             |                        |
+|    |                         |                         |                           |                       | 0.0014368093989439452,    |                             |                        |
+|    |                         |                         |                           |                       | 0.094221539430747167,     |                             |                        |
+|    |                         |                         |                           |                       | 0.0, 0.0,                 |                             |                        |
+|    |                         |                         |                           |                       | 0.00022104759983753003,   |                             |                        |
+|    |                         |                         |                           |                       | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         |                           |                       | 0.0, 0.46801303075601042, |                             |                        |
+|    |                         |                         |                           |                       | 0.18777993606198176,      |                             |                        |
+|    |                         |                         |                           |                       | 4.16055792414199,         |                             |                        |
+|    |                         |                         |                           |                       | 3.0489095445590513,       |                             |                        |
+|    |                         |                         |                           |                       | 16.135424812040462]}}}'}  |                             |                        |
+|    |                         |                         |                           |                       | name='call_analytics_agen |                             |                        |
+|    |                         |                         |                           |                       | t'                        |                             |                        |
+|    |                         |                         |                           |                       | partial_args=None         |                             |                        |
+|    |                         |                         |                           |                       | will_continue=None id=    |                             |                        |
+|    |                         |                         |                           |                       | 'adk-e1c28fa2-c4f2-4642-9 |                             |                        |
+|    |                         |                         |                           |                       | d39-                      |                             |                        |
+|    |                         |                         |                           |                       | 04b4a86a0b56'             |                             |                        |
+|    |                         |                         |                           |                       | args={'analysis_request': |                             |                        |
+|    |                         |                         |                           |                       | 'chart_type: "bar",       |                             |                        |
+|    |                         |                         |                           |                       | title: "Conversion        |                             |                        |
+|    |                         |                         |                           |                       | Mix Shift: Peak (Nov/Dec) |                             |                        |
+|    |                         |                         |                           |                       | vs. Trough                |                             |                        |
+|    |                         |                         |                           |                       | (Jan-Oct)", data:         |                             |                        |
+|    |                         |                         |                           |                       | {categories: ["Paid       |                             |                        |
+|    |                         |                         |                           |                       | Social", "Organic         |                             |                        |
+|    |                         |                         |                           |                       | Social", "Display",       |                             |                        |
+|    |                         |                         |                           |                       | "Referral", "Unassigned", |                             |                        |
+|    |                         |                         |                           |                       | "Paid Search",            |                             |                        |
+|    |                         |                         |                           |                       | "Organic Video", "Paid    |                             |                        |
+|    |                         |                         |                           |                       | Video", "Organic          |                             |                        |
+|    |                         |                         |                           |                       | Shopping", "Direct",      |                             |                        |
+|    |                         |                         |                           |                       | "Email", "Paid            |                             |                        |
+|    |                         |                         |                           |                       | Other", "Organic Search", |                             |                        |
+|    |                         |                         |                           |                       | "Cross-                   |                             |                        |
+|    |                         |                         |                           |                       | network"], series: {"Peak |                             |                        |
+|    |                         |                         |                           |                       | (Nov/Dec)":               |                             |                        |
+|    |                         |                         |                           |                       | [24.031798816821404,      |                             |                        |
+|    |                         |                         |                           |                       | 27.664471102040235,       |                             |                        |
+|    |                         |                         |                           |                       | 0.0017840449293875019,    |                             |                        |
+|    |                         |                         |                           |                       | 0.33861172759774782,      |                             |                        |
+|    |                         |                         |                           |                       | 16.508481349594309,       |                             |                        |
+|    |                         |                         |                           |                       | 15.471594436634293,       |                             |                        |
+|    |                         |                         |                           |                       | 0.0017840449293875019,    |                             |                        |
+|    |                         |                         |                           |                       | 0.0, 0.0,                 |                             |                        |
+|    |                         |                         |                           |                       | 0.519870692423518,        |                             |                        |
+|    |                         |                         |                           |                       | 0.049953258022850049,     |                             |                        |
+|    |                         |                         |                           |                       | 2.3645731494101945,       |                             |                        |
+|    |                         |                         |                           |                       | 3.6023435214192432,       |                             |                        |
+|    |                         |                         |                           |                       | 9.4447338561774341],      |                             |                        |
+|    |                         |                         |                           |                       | "Trough (Jan-Oct)":       |                             |                        |
+|    |                         |                         |                           |                       | [32.951178874480888,      |                             |                        |
+|    |                         |                         |                           |                       | 15.686587660570359,       |                             |                        |
+|    |                         |                         |                           |                       | 0.0032051901976441854,    |                             |                        |
+|    |                         |                         |                           |                       | 0.4055670838019082,       |                             |                        |
+|    |                         |                         |                           |                       | 10.32043612691448,        |                             |                        |
+|    |                         |                         |                           |                       | 16.5364604200457,         |                             |                        |
+|    |                         |                         |                           |                       | 0.0014368093989439452,    |                             |                        |
+|    |                         |                         |                           |                       | 0.094221539430747167,     |                             |                        |
+|    |                         |                         |                           |                       | 0.00022104759983753003,   |                             |                        |
+|    |                         |                         |                           |                       | 0.46801303075601042,      |                             |                        |
+|    |                         |                         |                           |                       | 0.18777993606198176,      |                             |                        |
+|    |                         |                         |                           |                       | 4.16055792414199,         |                             |                        |
+|    |                         |                         |                           |                       | 3.0489095445590513,       |                             |                        |
+|    |                         |                         |                           |                       | 16.135424812040462]}}}'}  |                             |                        |
+|    |                         |                         |                           |                       | name='call_analytics_agen |                             |                        |
+|    |                         |                         |                           |                       | t'                        |                             |                        |
+|    |                         |                         |                           |                       | partial_args=None         |                             |                        |
+|    |                         |                         |                           |                       | will_continue=None        |                             |                        |
++----+-------------------------+-------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

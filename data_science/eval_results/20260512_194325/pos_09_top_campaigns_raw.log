@@ -1,0 +1,141 @@
+2026-05-12 19:59:06,463 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 19:59:13,805 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 19:59:13,805 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 19:59:13,806 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 19:59:13,810 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 19:59:13,810 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 19:59:13,811 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 19:59:13,811 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 19:59:13,812 - INFO - agent.py:392 - 📍 KM routed 'For NPI, list the top 10 campaigns by spend last 3...' → table=performance (confidence=default)
+2026-05-12 19:59:14,269 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 19:59:14,269 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 19:59:14,493 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 19:59:17,252 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 19:59:17,253 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 19:59:17,256 - INFO - agent.py:561 - Tokens: In=7712, Out=38
+2026-05-12 19:59:17,259 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 19:59:17,259 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 19:59:17,399 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 19:59:19,257 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 19:59:19,373 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 19:59:23,051 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 19:59:25,333 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 19:59:29,479 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 19:59:29,481 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 19:59:29,481 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 19:59:29,481 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 19:59:29,481 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 19:59:29,582 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 19:59:31,856 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 19:59:31,857 - INFO - agent.py:561 - Tokens: In=8431, Out=515
+2026-05-12 19:59:31,859 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 19:59:31,859 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 19:59:31,859 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 19:59:31,859 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 19:59:31,863 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 19:59:31,866 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_09_top_campaigns.evalset.json_1778615971.8665037.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_09_top_campaigns.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_09_top_campaigns.evalset.json
+Eval Id: pos_09_top_campaigns
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.07582938388625593, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+--------------------------+----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                   | expected_response    | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+==========================+======================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, list the top 10 | top 10 campaigns NPI | **Result:**  Here are the |                       | id='adk-051a33e4-aca9-43b | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | campaigns by             | spend last 30 days   | top 10                    |                       | d-b696-                   | 0.0                         | 0.07582938388625593    |
+|    | spend last 30 days       |                      | campaigns by spend for    |                       | a8bc03b14c64'             |                             |                        |
+|    |                          |                      | NPI for the last          |                       | args={'query': 'For NPI,  |                             |                        |
+|    |                          |                      | 30 days:  | Campaign      |                       | list the top 10 campaigns |                             |                        |
+|    |                          |                      | | Spend        |          |                       | by spend for              |                             |                        |
+|    |                          |                      | |:---------------------   |                       | the last 30 days. Include |                             |                        |
+|    |                          |                      | ------------------------- |                       | Campaign and              |                             |                        |
+|    |                          |                      | ---------------           |                       | Cost. Order by Cost       |                             |                        |
+|    |                          |                      | ---------|-------------:| |                       | descending.'}             |                             |                        |
+|    |                          |                      | |                         |                       | name='call_bigquery_agent |                             |                        |
+|    |                          |                      | enb_awr_ott_mlt_usa_pmk_a |                       | '                         |                             |                        |
+|    |                          |                      | ll_tar_nc \|              |                       | partial_args=None         |                             |                        |
+|    |                          |                      | Luxury Travel Intenders - |                       | will_continue=None        |                             |                        |
+|    |                          |                      | Top Markets |             |                       |                           |                             |                        |
+|    |                          |                      | $200,934.71  | |          |                       |                           |                             |                        |
+|    |                          |                      | enb_int_soc_mlt_usa_pmk_a |                       |                           |                             |                        |
+|    |                          |                      | ll_tar_fbk [us            |                       |                           |                             |                        |
+|    |                          |                      | - top, down, & remaining  |                       |                           |                             |                        |
+|    |                          |                      | markets -                 |                       |                           |                             |                        |
+|    |                          |                      | intenders] | $139,486.97  |                       |                           |                             |                        |
+|    |                          |                      | | |                       |                       |                           |                             |                        |
+|    |                          |                      | enb_awr_dmg_mlt_usa_top_a |                       |                           |                             |                        |
+|    |                          |                      | ll_tar_gds                |                       |                           |                             |                        |
+|    |                          |                      | [Demand Gen - Top Markets |                       |                           |                             |                        |
+|    |                          |                      | - Final] |                |                       |                           |                             |                        |
+|    |                          |                      | $106,419.17  | |          |                       |                           |                             |                        |
+|    |                          |                      | enb_awr_ooh_brd_usa_pmk_a |                       |                           |                             |                        |
+|    |                          |                      | ll_non_amz                |                       |                           |                             |                        |
+|    |                          |                      | | $96,285.36   | |        |                       |                           |                             |                        |
+|    |                          |                      | enb_awr_ott_mlt_usa_pmk_a |                       |                           |                             |                        |
+|    |                          |                      | ll_tar_nc \|              |                       |                           |                             |                        |
+|    |                          |                      | Luxury Travel Intenders - |                       |                           |                             |                        |
+|    |                          |                      | Growth Markets            |                       |                           |                             |                        |
+|    |                          |                      | | $75,994.39   | |        |                       |                           |                             |                        |
+|    |                          |                      | enb_awr_ott_mlt_usa_pmk_a |                       |                           |                             |                        |
+|    |                          |                      | ll_tar_nc \|              |                       |                           |                             |                        |
+|    |                          |                      | Luxury Travel Intenders - |                       |                           |                             |                        |
+|    |                          |                      | Emerging                  |                       |                           |                             |                        |
+|    |                          |                      | Markets | $44,493.60   |  |                       |                           |                             |                        |
+|    |                          |                      | | NPI Data                |                       |                           |                             |                        |
+|    |                          |                      | Driven NYC Core TV 2026   |                       |                           |                             |                        |
+|    |                          |                      | | $28,723.55   | |        |                       |                           |                             |                        |
+|    |                          |                      | enb_int_soc_mlt_usa_pmk_a |                       |                           |                             |                        |
+|    |                          |                      | ll_tar_fbk [us            |                       |                           |                             |                        |
+|    |                          |                      | - opportunity markets -   |                       |                           |                             |                        |
+|    |                          |                      | intenders] - no           |                       |                           |                             |                        |
+|    |                          |                      | hhi layer | $20,020.17    |                       |                           |                             |                        |
+|    |                          |                      | | |                       |                       |                           |                             |                        |
+|    |                          |                      | enb_cnv_soc_rmk_usa_non_a |                       |                           |                             |                        |
+|    |                          |                      | ll_tar_fbk [us            |                       |                           |                             |                        |
+|    |                          |                      | - remarketing]            |                       |                           |                             |                        |
+|    |                          |                      | |                         |                       |                           |                             |                        |
+|    |                          |                      | $17,115.21   | |          |                       |                           |                             |                        |
+|    |                          |                      | enb_int_soc_mlt_usa_pmk_a |                       |                           |                             |                        |
+|    |                          |                      | ll_tar_fbk                |                       |                           |                             |                        |
+|    |                          |                      | [airline - intent         |                       |                           |                             |                        |
+|    |                          |                      | audience]       |         |                       |                           |                             |                        |
+|    |                          |                      | $16,020.73   |            |                       |                           |                             |                        |
+|    |                          |                      | **Explanation:** The top  |                       |                           |                             |                        |
+|    |                          |                      | 10 campaigns by spend for |                       |                           |                             |                        |
+|    |                          |                      | NPI over the              |                       |                           |                             |                        |
+|    |                          |                      | last 30 days were         |                       |                           |                             |                        |
+|    |                          |                      | retrieved from the        |                       |                           |                             |                        |
+|    |                          |                      | database. The campaigns   |                       |                           |                             |                        |
+|    |                          |                      | are listed in             |                       |                           |                             |                        |
+|    |                          |                      | descending order of their |                       |                           |                             |                        |
+|    |                          |                      | spend.                    |                       |                           |                             |                        |
++----+--------------------------+----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

@@ -1,0 +1,1655 @@
+{
+  "eval_set_result_id": "orchestrator_tests/eval_orchestrator/pos_05_persona_ctv.evalset.json_1778654900.2692344",
+  "eval_set_result_name": "orchestrator_tests_eval_orchestrator_pos_05_persona_ctv.evalset.json_1778654900.2692344",
+  "eval_set_id": "tests/eval_orchestrator/pos_05_persona_ctv.evalset.json",
+  "eval_case_results": [
+    {
+      "eval_set_file": "tests/eval_orchestrator/pos_05_persona_ctv.evalset.json",
+      "eval_set_id": "tests/eval_orchestrator/pos_05_persona_ctv.evalset.json",
+      "eval_id": "pos_05_persona_ctv",
+      "final_eval_status": 1,
+      "eval_metric_results": null,
+      "overall_eval_metric_results": [
+        {
+          "metric_name": "tool_trajectory_avg_score",
+          "threshold": 0.0,
+          "criterion": {
+            "threshold": 0.0
+          },
+          "custom_function_path": null,
+          "score": 0.0,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": null
+          }
+        },
+        {
+          "metric_name": "response_match_score",
+          "threshold": 0.05,
+          "criterion": {
+            "threshold": 0.05
+          },
+          "custom_function_path": null,
+          "score": 0.10476190476190478,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": null
+          }
+        }
+      ],
+      "eval_metric_result_per_invocation": [
+        {
+          "actual_invocation": {
+            "invocation_id": "e-a806e135-1d7f-4340-a394-c36490bbe72b",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, which persona responds best to our CTV spend?",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "**Result:**\n\nFor NPI's CTV spend, the **High-Net-Worth Luxury Seeker** persona is most receptive to awareness campaigns. While CTV effectively generates impressions (13,725,182 for $309,308.44 spend), the absence of direct conversions aligns with the HNW Luxury Seeker's long consideration phase and focus on brand building rather than immediate booking.\n\nThe DINK Couple persona is also inspired by CTV content, but the lack of conversions indicates that the current CTV strategy isn't optimized for their shorter booking window and desire for immediate next steps.\n\n**Explanation:**\n1.  `call_data_scientist` was used to retrieve NPI's CTV channel spend, impressions, and conversions for the last 30 days.\n2.  `call_persona_aggregator` was then called with the CTV performance data to determine which NPI persona (HNW Luxury Seeker, DINK Couple, Legacy Family) is most receptive to CTV awareness campaigns.\n\n**Recommendation:**\nContinue to leverage CTV for brand awareness targeting the HNW Luxury Seeker, focusing on aspirational content that builds desire and brand prestige. For the DINK Couple, if CTV is used, implement aggressive and immediate retargeting strategies on social media and display platforms within 24-48 hours of CTV exposure to guide them towards conversion.",
+                  "thought": null,
+                  "thought_signature": "CtoGAY89a1-TUAuElkH5rmCV1Kj6Xyxdqd70MViJdR3MdakTN-_WrbpcB4uhKk6EA79Fb0wv5P4zjddhJAqNwN2M9GsdJrIvCjEcya725ORsM0kGo3sAiF84m3kcV0M2tspPQcIkU3vTSxKIVeW26yfLCgGGufoKz19jfuuQMxJ4yeScv3W34yrAkkrud5YY6MTwZCkTFjmfVhKsqftpQnsEkZZ1FRItoTCXMBg9SRhesO-J-XrZ1fgEiAE0upZou_Zq0qs8nz0jtT9N4W7ePx9D3Ez0kT-TKd3OjJFQzw9UVup7lUh8I4K5YTadQ1B3-A6P24HJSjIM_4zGZeAO7YTKTv-oz2Pb6PCgQ8o2YihBFOEecYJriwFd_bSF7oqP6sAXQBSipBSDvR_GXjevksTsTXXvL0w-MEZBdhh3TXp9tZKW2lT14Tl9ActM2TZK5S3YiuKmtqI6BhWbrWpJ5tazsQi3DoE9D2HmjT5f2zf_CqpHx6nBFJRQeUU_bpmgGoXmU8_Uz0_RCo0sLb-TVV8V2kWLPn-jzlyarVm3v3BKwJ3aoedbF_OQor3XYZjHovsx_BG0t2KZD_QPcPAdVnT4iAuOvn6MKs2MB3YlqSW0yfGujIE6FF9vA67Ogv2jaCLK9ml6uJgUjsovEVTMfTjvhE9MycseBU1bZwjPKD3zyNpXV_yl8sm__8Vvg91NqevKpbZUnIlAqc1hrfht3ViHhkiGAuasRzl1Su3_C2X0EMYZ4kXKvDvyW8FPveHxusRRCpX7enYA6EqAaChqX9OR4Vuj82ZEKvTxB2koHxonYiNkBHNDXJBKDXyZooAp0OONGzH5AbZcj8k1FG1o0kwIPOlegFsMNZZHgNMQGhXkkJFmWl0p1Y2GezBmnLMJyykxFeuqrZcjGd0V_rMWqHAVH04djFxyqAlBYYUSHysR7zK8lKlRdsMewiyIysNHTkrC3BWSEu3yIDBAEF5hmn_idscQL_wmuxCHT3OXEHb17LB85xRUHRDJTnb3ZQ5Zq7qp7kTq_NV48p6qVV9MhXJMXrIVVYoiZxvSPBwiO7yH7SgawXzMHIaBubkGxytQDqtpv1sE3tpGtWXVaEGPKQIfQc-ZtsZbnyd20D2VCIapOkK1GOKezLJayULS",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "invocation_events": [
+                {
+                  "author": "astrobot_orchestrator",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-9c13da85-d61d-4805-b7dd-5052934ac8c8",
+                          "args": {
+                            "query": "Get NPI CTV channel spend, impressions, and conversions for the last 30 days."
+                          },
+                          "name": "call_data_scientist",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "CroGAY89a19B7CV9T9x4RGX65uoxqYAnlw9rrFxOXYG_ojjWBF0yg0kIa97A1qwXufuwvwhnuRgiFIOJSkgfQnPkITQgyDtWb3Jr7IrLAoUIQ1fNyaAT4eX4ng36OG84o2arQNylmxCAiDMS5uYZShk8tCme04AUfiVvPAs2dI1plkB2f2q-kh_10dXmGYxiZ1pGgc2XocSzOcDP2mvscd-PAWUBnFOUI8NwJ9g27Yfm3vdvgisBsTpZrmb445uk608jHyupJVNc9qf1wI5GJUMsJOueczdD037J6yFlFBaXSqZ-Nuf0CH3NS0NV4PTdZDSPXR28sdc_QngYt__3Ng487fJsCImLwpiF341x5ptZqp85UimAOVnbRajxBhtuaxaO8VEf-JDY8Ma5TLwbE8Ztf5JQrF_R3Z5ou2SP6KNUvVnine04Wjy0YDLGJPRxE1GktNpHTbNYR_4v8hZDN5FgeItE7KitIfuxrmwleJl1R4NJ0eDdPx7UsuhGpZ3Ju4GBiTzh7Q0nqlqf8rft4OJm5MVLqlYnKUKwVaZOQAfW8LJ-xIRbMev_YfuZyNriycqJVkNgN4rPFtZXQr6MUKaJWy8nDUzyz7j8bHTqwlDUwciQuwjODdkeIGGoj2KH0D1-ACVudZ8KgGiWu6emffto-HMPmIJ3kfjYL-0BKpmTwU3JhzjMdimXeZfSs61KxLlM0PGfyb5JGZvl77VSHmMdggE06v8JhDpCFGf4Bupjv8ny6DX18YG03PhqT8-EE1XDmxXqQtzbn3vrSjnniB9u03oyNvjM1LTcWoHJIqegTYQisId_IQE9gRaXvUyg1jvFYhfye4b8hfh2qYFZq2bco04aubFaPy_Xh--9c4yJyFgSMBTGmf0EKtSlkksZEPxmW_dLwPwfwMTSRDbFosz3LPrDiLfq97OghzI7-TxiWfMJLJJ779GVqE7cD6M-udNSbcWSjTIioyuSCnV3ZhA5lXyayV7eQMCP16JCI8LyBjAnJVQ9ZCiuqVOYBeWG2kuxExeQjRllTtXMsGVNSIAySXfKf-2rHKVbH4QFAy3wHhxgpq3BDg9-RKbD82n4c3tbn22QZML90tjQSg==",
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "astrobot_orchestrator",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-9c13da85-d61d-4805-b7dd-5052934ac8c8",
+                          "name": "call_data_scientist",
+                          "response": {
+                            "result": "**Result:**\n\n**NPI CTV Channel Performance (Last 30 Days)**\n\n| Metric      | Value        |\n|:------------|-------------:|\n| Spend       | $309,308.44  |\n| Impressions | 13,725,182   |\n| Conversions | 0            |\n\n**Explanation:**\n1. Retrieved the sum of Cost, Impressions, and Conversions for the 'CTV' channel for the last 30 days for the NPI client."
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                },
+                {
+                  "author": "astrobot_orchestrator",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-9c3ed926-f556-4d08-94af-291a761513cc",
+                          "args": {
+                            "persona_request": "Based on NPI's CTV campaign data for the last 30 days: Spend $309,308.44, Impressions 13,725,182, and 0 Conversions — which NPI persona (HNW Luxury Seeker, DINK Couple, Legacy Family) is most receptive to CTV awareness campaigns?"
+                          },
+                          "name": "call_persona_aggregator",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "CpUFAY89a1-L5_saDC8Y9E4HusGMEadGd7x0dWIK-XfraFnZ1jixQzTrdDvyNQrwgIPTafbSDjgmySirqXknDs978MuAfCjJCkag06CHK2bzYY9YuxVeOxZ-PoRwUCPXNBfZbzMb2ELphe0Xvmk_fSwSYjtGEhIRBbyFbuRC231DaAik9z-KmvvUHTlwU7_lNjR57pigNKR92HLYvQNESZiTE1oGliamdZt7puUEwhEB01Ev9JKDnHmEokHgF5P8v2Bl8HADNA_f7gJy0J9lFA6MJBzGfAQMQZbveQsYJEqmZ7_uUOAO0YloPKAHpgAdjxztQGjV26LSyiq66u7ANXhDrsAbG540PWxor_t7l4qKWMtusAXSmZ88XTYfkYUM6V8KKWvMXHL3yCziUXkoqniF-QLbzg2WD1Lz3G1VPyNMXMdzP1NxvJOpCeUmh8CzRDZlSaJTdodJcHJfRfDxsEAnOfugRvLs4qXRywNeAt79NYD6zZQgUSOr3JdcDgFAqExzVg4ydCneUbBGtpihdNOvLMTw7EP9fTJEmhMSbHQuzGb_eIqh4ZUW-Av4crSCzUxrseeKvdzkdf3vbDymN7e1FDPMo_FdsspcmtgRk1S0eeQ7CksuWWiO7xOssJYvsMytfM9HahB8NakO1te4U4dkRV_iXrazXJsu0nwi0BjPOykSdKmok_27T51ZKSFb3DSPvDdteILDDIkfDXL_dnLIF-8ujMUmvv4HcMNebEUS_3x1otjzn0QnuSGBc5NeRX2rXlS6Rk5B0QaVIGnSOvuOH5SSuIBJ3IKs-jx3Xi_5zKJaAoqPnHYXxSckwjOsQr1j4OPT1olk7MO6c1A5t9EZaIuW2eLWAvinck-K01vWFFwvgvz1zw==",
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "astrobot_orchestrator",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-9c3ed926-f556-4d08-94af-291a761513cc",
+                          "name": "call_persona_aggregator",
+                          "response": {
+                            "result": "As the High-Net-Worth Luxury Seeker, I find CTV awareness campaigns to be quite effective for my segment, *especially* when the goal is brand building and inspiration rather than immediate conversion.\n\nGiven the data (high spend, high impressions, 0 conversions), it strongly suggests that the campaign served its purpose for *awareness*. My segment has a long booking window (45-90 days, or even longer for premium suites) and a highly considered purchase journey. We don't click on an ad and immediately book a luxury vacation from a CTV ad; we add it to our mental shortlist, then perhaps discuss it with our travel advisor, research further, and eventually book through preferred channels.\n\nTherefore, the **High-Net-Worth Luxury Seeker** is the *most receptive* persona to CTV *awareness* campaigns in this scenario. The DINK Couple and Legacy Family might be more prone to direct response on certain platforms or shorter consideration phases for some packages, whereas for us, the CTV ad is the start of a much longer, multi-touchpoint journey.\n\n---\n\n**1) Persona verdict:** Strong fit (for awareness-focused CTV campaigns)\n\n**2) Key motivations:**\n*   To discover exclusive, aspirational destinations and experiences that align with my sophisticated lifestyle.\n*   To be inspired and entertained by high-quality content that subtly introduces potential bespoke travel opportunities.\n\n**3) Likely objections:**\n*   An ad that feels intrusive, overly commercial, or not tailored to a luxury aesthetic.\n*   A campaign that attempts to push for immediate, direct conversion rather than building desire and brand prestige.\n\n**4) Best angles:**\n*   **\"Curated Escapes, Unrivalled Serenity\":** Emphasize the bespoke nature, privacy, and tranquility of the experience.\n*   **\"Your Next Chapter of Luxury Unfolds\":** Focus on the aspirational, life-enriching aspect of the destination, speaking to future planning.\n*   **\"Where Elevated Service Meets Pristine Beauty\":** Highlight the seamless, exceptional service synonymous with properties like The Ocean Club and Rosewood.\n\n**5) Recommended channels:**\n*   **CTV/OTT (Premium Streaming Platforms):** High-quality, immersive video environment perfect for showcasing the grandeur and elegance of NPI. Reaches our segment in a relaxed, receptive state.\n*   **High-End Print/Digital Publications (e.g., *Robb Report*, *Departures*, *Architectural Digest*):** Associating NPI with other luxury brands and content that we actively consume.\n\n**6) Booking window guidance + retarget cadence:**\n*   **Booking Window:** Initial consideration can span 45-90 days, but for premium suites and peak seasons, the planning and booking process can extend to 6-12 months.\n*   **Retarget Cadence:** Following initial CTV exposure, a long-term, multi-channel retargeting strategy is crucial. This should involve displaying aspirational imagery and soft calls to action across high-end digital display networks, targeted social platforms (LinkedIn, Instagram), and potentially bespoke email series over the course of several months (e.g., monthly check-ins for the first 3 months, then quarterly).\n\n**7) One example headline + one CTA (luxury tone — no discounts):**\n*   **Headline:** \"Nassau Paradise Island: Your Legacy of Luxury Awaits.\"\n*   **CTA:** \"Discover Our Signature Experiences.\"\nAs the DINK Couple persona, I see CTV awareness campaigns as a great way to catch our eye, especially with visually stunning content. We're looking for inspiration for our next quick getaway, so seeing beautiful destinations and exciting experiences on a big screen definitely gets us thinking. However, the 0 conversions on the CTV platform itself tells me the follow-through isn't quite there for *us*. We have a shorter booking window and are quick to jump to Instagram or Google to research *immediately* after seeing something inspiring. If the HNW Luxury Seeker has a much longer consideration phase, pure awareness with no immediate conversion expectation makes more sense for them. For us, awareness needs to lead to a very quick, easy next step on other platforms.\n\n---\n\n1)  **Persona verdict:** Partial\n\n2)  **Vibe score:** 7/10 - CTV is fantastic for showcasing the aesthetic and experiential aspects we crave, but 0 conversions suggest a missed opportunity for guiding our immediate next steps.\n\n3)  **Best creative directions (3 bullets):**\n    *   **Vibrant Nightlife & Adult-Only Zones:** Showcase couples enjoying chic bars, live music, and sophisticated adult-only pool scenes. *Format: Reels/TikTok/UGC. Hook: \"Your next date night just got an island upgrade.\"*\n    *   **Mixology & Culinary Adventures:** Highlight unique, craft cocktails and gourmet dining experiences in Insta-worthy settings. *Format: Reels/TikTok/UGC. Hook: \"Sip, savor, and escape: Where every hour is golden.\"*\n    *   **\"Insta-worthy\" Excursions & Relaxation:** Feature couples on exciting excursions (like swimming with pigs) juxtaposed with luxurious, serene beach relaxation. *Format: Reels/TikTok/UGC. Hook: \"Passport ready? Your grid is calling.\"*\n\n4)  **Offer framing (2 bullets):**\n    *   Position as exclusive access to the hottest adult-centric experiences and amenities, curated for couples who love to live it up.\n    *   Frame the trip as a \"luxury long-weekend escape\" or \"your next adventure together,\" emphasizing the effortless, stress-free nature perfect for spontaneous planners.\n\n5)  **Objections + fixes (2 pairs):**\n    *   **Objection:** \"Is it worth the splurge for just a long weekend?\" **Fix:** Frame as an investment in quality couple time, a vital mental reset, and unforgettable memories that fit perfectly into a 3-4 day escape.\n    *   **Objection:** \"Will it be too family-oriented?\" **Fix:** Explicitly highlight adult-only areas, pools, sophisticated nightlife, and experiences tailored specifically for couples seeking a mature atmosphere.\n\n6)  **Timing:**\n    *   **15-30 day flighting:** Continue consistent messaging during this window, leveraging CTV for aspirational content that sparks immediate interest.\n    *   **Retarget cadence:** Implement aggressive retargeting immediately on social media (Instagram, TikTok) and display ads within 24-48 hours of CTV exposure. This retargeting should showcase specific experiences, \"long weekend packages,\" or direct links to explore adult-only offerings. Follow up with email nurture sequences within 3-5 days.\n\n7)  **One IG/TikTok caption + one CTA + 5 hashtags:**\n    *   **Caption:** \"Dreaming of a spontaneous escape with your favorite person? 🥂 Unwind, explore, and create unforgettable memories on Nassau Paradise Island. Adult-only vibes, world-class cocktails, and breathtaking sunsets await. Who's in?\"\n    *   **CTA:** \"Tap to plan your next long weekend.\"\n    *   **Hashtags:** #NassauParadiseIsland #DINKLife #CoupleGoals #LuxuryTravel #AdultsOnlyGetaway\nA) Executive Recommendation\nFocus CTV awareness spend primarily on the **HNW Luxury Seeker** segment. With 0 conversions, the campaign effectively served its purpose for awareness among HNW individuals who have a long consideration phase. While CTV inspires DINKs, the lack of immediate follow-through means it's not optimized for their shorter booking window without substantial changes.\n\nB) Persona Scorecard\n\n*   **HNW Luxury Seeker:**\n    *   Verdict: Strong fit (for awareness-focused CTV)\n    *   Top Driver: Brand building and inspiration for long-term, highly considered luxury purchases.\n    *   Top Risk: Ads feeling intrusive or pushing for immediate, direct conversion.\n*   **DINK Couple:**\n    *   Verdict: Partial fit (good for inspiration, but poor for direct conversion without immediate follow-through)\n    *   Top Driver: Visually stunning content showcasing vibrant, adult-centric experiences for quick getaways.\n    *   Top Risk: 0 conversions due to lack of immediate, easy next steps on other platforms after CTV exposure.\n\nC) What to Change\n1.  **Creative Framing:** For DINKs, explicitly showcase adult-only amenities, nightlife, and \"Insta-worthy\" excursions to maximize inspiration.\n2.  **Retargeting Strategy:** Implement aggressive, immediate retargeting for DINKs on social media (Instagram/TikTok) and display within 24-48 hours of CTV exposure.\n3.  **HNW Message Reinforcement:** Ensure HNW CTV creative maintains a focus on aspirational brand building without any direct conversion pressure.\n\nD) Variants\n\n*   **HNW Luxury Seeker:**\n    *   Headline: \"Nassau Paradise Island: Your Legacy of Luxury Awaits.\"\n    *   CTA: \"Discover Our Signature Experiences.\"\n*   **DINK Couple:**\n    *   Headline: \"Your next date night just got an island upgrade.\"\n    *   CTA: \"Tap to plan your next long weekend.\"\n\nE) Timing Guidance\n*   **HNW Luxury Seeker:** Booking window: 45-90+ days. Retarget Cadence: Long-term, multi-channel (monthly/quarterly) after initial CTV exposure.\n*   **DINK Couple:** Booking window: 15-30 days. Retarget Cadence: Aggressive, immediate retargeting within 24-48 hours post-CTV on social/display.\n\nF) Confidence: High. The 0 conversions strongly support the HNW's long consideration phase for awareness-focused CTV.\n\nG) Handoff Payload\n```json\n{\n  \"primary_target\": \"HNW Luxury Seeker\",\n  \"campaign_goal\": \"Brand Awareness & Aspiration Building\",\n  \"channel_focus\": \"CTV (awareness), supported by high-end digital/print retargeting for HNW; immediate social/display retargeting for DINK if included.\",\n  \"key_action\": \"Optimize CTV creative for HNW's aspirational focus; establish distinct, immediate retargeting flows for DINKs if they are also targeted via CTV.\"\n}\n```"
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                }
+              ]
+            },
+            "creation_timestamp": 1778654822.8794832,
+            "rubrics": null,
+            "app_details": {
+              "agent_details": {
+                "astrobot_orchestrator": {
+                  "name": "astrobot_orchestrator",
+                  "instructions": "\n    You are Astro.bot — the central orchestrator for NetConversion's multi-agent\n    marketing analytics mesh. You serve three clients: NPI, Venetian ENT, and\n    Winn-Dixie (WinnDixie). Today's date: 2026-05-13.\n\n    You work for NetConversion (netconversion.com) — a marketing analytics company\n    sometimes abbreviated as 'NetConv' or 'NC'.\n\n    ══════════════════════════════════════════════════════════\n    YOUR ROLE\n    ══════════════════════════════════════════════════════════\n\n    You are a routing and coordination agent. You do NOT answer data questions\n    yourself — you classify the user's intent and delegate to the correct\n    specialist agent immediately, without asking clarifying questions.\n\n    You have access to six specialist agents:\n    1. call_data_scientist    — SQL queries, charts, BQML, forecasting, clustering\n    2. call_persona_aggregator — audience personas, segment analysis\n    3. call_economist         — macroeconomic context, market benchmarks\n    4. call_project_manager   — tasks, emails, project timelines\n    5. call_scheduler         — recurring reports, automated delivery\n    6. submit_feedback        — records thumbs up/down for RLHF\n\n    ══════════════════════════════════════════════════════════\n    VISUALIZATION RULES — CRITICAL, NEVER BREAK\n    ══════════════════════════════════════════════════════════\n\n    When user asks for ANY chart, plot, graph, or visualization:\n\n    STEP 1 — Call call_data_scientist IMMEDIATELY with the full request.\n             Include the chart type and metrics in the query.\n             Example: \"Plot daily spend, clicks, impressions and conversions\n             for NPI for the last 30 days as a line chart\"\n\n    STEP 2 — Return the chart result directly to the user.\n\n    NEVER:\n    - Ask the user what data they want before calling the agent\n    - Ask what time period before calling the agent\n    - Say \"preparing the chart\" or \"working on it\" or \"one moment\"\n    - Say \"the agent is generating\" — just call it and return the result\n    - Wait for confirmation before routing\n\n    ALWAYS:\n    - Call call_data_scientist immediately on ANY chart/plot/visualize request\n    - Include ALL context from the conversation in the query\n    - If the user already provided metrics and time period — use them directly\n    - If time period is missing — default to last 30 days\n    - If metrics are missing — default to spend, clicks, impressions\n\n    VISUALIZATION TRIGGER WORDS — route immediately, no questions:\n    \"chart\", \"plot\", \"graph\", \"visualize\", \"line chart\", \"bar chart\",\n    \"scatter\", \"trend\", \"show me a chart\", \"give me a chart\",\n    \"draw\", \"generate a chart\", \"create a chart\"\n\n    EXAMPLES — call immediately without asking:\n    \"give me a line chart\" → call_data_scientist(\"Plot spend, clicks,\n        impressions for NPI for last 30 days as a line chart\")\n    \"plot daily spend\" → call_data_scientist(\"Plot daily spend trend\n        for NPI as a line chart\")\n    \"show me a bar chart of channels\" → call_data_scientist(\"Create a\n        bar chart of total spend by channel for NPI\")\n\n    ══════════════════════════════════════════════════════════\n    ML / BQML ROUTING RULES — CALL IMMEDIATELY\n    ══════════════════════════════════════════════════════════\n\n    FORECASTING — call call_data_scientist immediately:\n    \"forecast\", \"predict spend\", \"ARIMA\", \"end of month\", \"project spend\"\n    → pass: \"Forecast [client] spend for next 14 days using ARIMA\"\n\n    ANOMALY DETECTION — call call_data_scientist immediately:\n    \"anomaly\", \"unusual spend\", \"spend spike\", \"outlier\", \"detect anomaly\"\n    → pass: \"Detect spend anomalies for [client] using z-score method\"\n\n    CLUSTERING — call call_data_scientist immediately:\n    \"cluster campaigns\", \"segment campaigns\", \"group similar\", \"K-means\"\n    → pass: \"Cluster [client] campaigns into groups based on performance\"\n\n    LINEAR REGRESSION — call call_data_scientist immediately:\n    \"what drives cost\", \"predict cost\", \"linear regression\", \"train a model\"\n    → pass: \"Train a linear regression model to predict Cost using\n             Clicks and Impressions for [client]\"\n\n    EVALUATE / PREDICT — call call_data_scientist immediately:\n    \"evaluate model\", \"R2 score\", \"MAE\", \"make predictions\"\n    → pass the full request directly to call_data_scientist\n\n    ══════════════════════════════════════════════════════════\n    ROUTING RULES — FOLLOW EXACTLY\n    ══════════════════════════════════════════════════════════\n\n    → call_data_scientist:\n      \"show / get / list / what is / how much / total / breakdown / compare\"\n      \"spend / clicks / impressions / cost / ViVs / conversions / sessions\"\n      \"by channel / by device / by campaign / by date / by geo\"\n      \"chart / plot / visualize / trend / forecast / predict / ARIMA\"\n      \"anomaly / outlier / cluster / segment / linear regression\"\n      \"pacing / CPA / channel efficiency / cost per click\"\n\n    → call_persona_aggregator:\n      \"persona / audience / segment / consumer profile / targeting segment\"\n      \"which persona / what persona / persona responds / persona aligns\"\n      \"HNW / Luxury Seeker / DINK / Legacy Family / Mallory / Maria / Carol\"\n      \"audience insight / targeting recommendation / creative alignment\"\n\n      ⚠️ MANDATORY: ANY question mentioning \"persona\" MUST call\n      call_persona_aggregator AFTER call_data_scientist.\n      NEVER answer persona questions yourself — always route to PA.\n\n    → call_economist:\n      \"market context / benchmark / industry / economic / macroeconomic\"\n\n    → call_project_manager:\n      \"task / email / project / timeline / deadline / meeting\"\n\n    → call_scheduler:\n      \"schedule / automate / recurring / every week / every Monday\"\n      \"send me this report / set up a daily alert / automate this\"\n\n    → submit_feedback:\n      thumbs up → rating=1 / thumbs down → rating=-1\n\n    ══════════════════════════════════════════════════════════\n    MANDATORY ROUTING RULE — NON-NEGOTIABLE\n    ══════════════════════════════════════════════════════════\n\n    ALL analytics data MUST flow through this exact pipeline:\n\n    STEP 1: call_data_scientist → get raw data, SQL results, charts\n    STEP 2: Return result to orchestrator (Astro.bot)\n    STEP 3: ONLY THEN call_persona_aggregator if persona analysis needed\n\n    PERSONA AGENT NEVER gets called BEFORE data_scientist.\n    PERSONA AGENT receives the data_scientist result as context.\n\n    WHY: Persona agent needs real campaign data to do meaningful\n    persona analysis. Without data first, persona analysis is generic.\n\n    ══════════════════════════════════════════════════════════\n    COMPOUND QUERY HANDLING\n    ══════════════════════════════════════════════════════════\n\n    \"Analyse our audience persona and show performance by segment\"\n    → Step 1: call_data_scientist (get segment performance data)\n    → Step 2: call_persona_aggregator (analyse personas WITH that data)\n\n    \"Which persona responds best to CTV spend?\"\n    → Step 1: call_data_scientist(\"Get NPI CTV channel spend, impressions, conversions\")\n    → Step 2: call_persona_aggregator(\"NPI CTV spend is $1.4M with 62M impressions but\n              zero direct conversions — awareness play. Which NPI persona (HNW Luxury\n              Seeker, DINK Couple, Legacy Family) is most receptive to CTV awareness\n              campaigns? Should we increase CTV budget?\")\n\n    \"which persona aligns with our channel mix?\"\n    → Step 1: call_data_scientist(\"Get NPI channel mix by spend last quarter\")\n    → Step 2: call_persona_aggregator(\"Given NPI channel mix: [DS result summary] —\n              which persona does each channel target?\")\n\n    RULE: If user mentions 'persona' anywhere in the question —\n    you MUST call both call_data_scientist AND call_persona_aggregator.\n\n    \"How does our NPI spend compare to market benchmarks?\"\n    → Step 1: call_data_scientist (get NPI spend data)\n    → Step 2: call_economist (contextualise against market)\n\n    \"Forecast spend and alert me weekly\"\n    → Step 1: call_data_scientist (BQML forecast)\n    → Step 2: call_scheduler (set up weekly delivery)\n\n    \"Persona analysis with budget recommendation\"\n    → Step 1: call_data_scientist (saturation model + channel data)\n    → Step 2: call_persona_aggregator (which persona needs what budget)\n\n    NEVER call persona_aggregator without data from data_scientist first.\n    ALWAYS pass data_scientist results as context to persona_aggregator.\n\n    HOW TO PASS CONTEXT TO PERSONA AGGREGATOR:\n    After call_data_scientist returns, include the key findings in your\n    call_persona_aggregator query. Example:\n\n    call_data_scientist result: \"CTV spend $992k, Paid Social $965k, Search $660k\"\n    \n    Then call:\n    call_persona_aggregator(\n        \"Based on this NPI campaign data: CTV $992k, Paid Social $965k, Search $660k — \n         which NPI personas (HNW Luxury Seeker, DINK Couple, Legacy Family) \n         are most aligned with this channel mix and what does it mean for targeting?\"\n    )\n\n    The orchestrator synthesizes DS data + PA analysis into ONE final response.\n\n    ══════════════════════════════════════════════════════════\n    RESPONSE FORMAT\n    ══════════════════════════════════════════════════════════\n\n    **Result:**\n    Natural language summary of findings.\n    Tables: use markdown format — | Column | Column |\n    Numbers: 1,000,000 / 1,000.00 / $1,000.00 / -$500.00\n\n    **Explanation:**\n    Step-by-step explanation of which agents were called.\n\n    **Graph:** (if chart was generated)\n    Brief description of the chart.\n\n    **Recommendation:**\n    One concrete actionable insight.\n\n    ══════════════════════════════════════════════════════════\n    SECURITY RULES — NON-NEGOTIABLE\n    ══════════════════════════════════════════════════════════\n\n    CLIENT ISOLATION:\n    - The client_id is locked from the session context.\n    - NEVER aggregate data across clients.\n    - NEVER switch clients mid-session — if user asks for a different\n      client, tell them to start a new session.\n    - NEVER route without the locked client_id.\n\n    NEVER:\n    - Generate SQL yourself\n    - Generate Python yourself\n    - Ask clarifying questions before routing — just route immediately\n    - Say \"I cannot do that\" — route to the appropriate agent\n    - Allow cross-client data access\n\n    ALWAYS:\n    - Route immediately without asking permission\n    - Inject the locked client_id into every agent call\n    - End every substantive response with a recommendation\n\n    ══════════════════════════════════════════════════════════\n    CAPABILITIES GREETING (when user asks \"what can you do?\")\n    ══════════════════════════════════════════════════════════\n\n    I'm Astro.bot — your AI marketing analytics assistant from NetConversion.\n\n    For your client, I can:\n    📊 **Data & Analytics** — spend by channel/device/geo, campaign performance,\n       clicks, impressions, ViVs, conversions, pacing\n    📈 **Charts** — line charts, bar charts, scatter plots, trend visualisations\n    🤖 **ML & Forecasting** — spend forecasting (ARIMA), anomaly detection,\n       campaign clustering, cost prediction models\n    👥 **Audience Personas** — audience segment analysis and targeting insights\n    📰 **Market Context** — benchmark your performance against industry indicators\n    📋 **Project Management** — tasks, emails, timelines, project updates\n    🔔 **Scheduled Reports** — automate any analysis with recurring delivery\n\n    Just ask me anything about your campaigns!\n\n    ══════════════════════════════════════════════════════════\n    CRITICAL EXECUTION RULE — NEVER BREAK\n    ══════════════════════════════════════════════════════════\n\n    NEVER say \"I will retrieve\", \"I will generate\", \"preparing\",\n    \"working on it\", \"one moment\", \"let me get that\" BEFORE calling a tool.\n\n    The ONLY correct sequence is:\n    1. Receive user request\n    2. Call call_data_scientist IMMEDIATELY\n    3. Return the FULL result including charts\n\n    If the result contains a chart image — display it.\n    If the result contains a table — display it.\n    NEVER summarise or paraphrase — return the COMPLETE response.\n    NEVER send any message to the user before the tool call completes.\n    \n    ══════════════════════════════════════════════════════════\n    DUPLICATE PREVENTION\n    ══════════════════════════════════════════════════════════\n\n    If the user says ONLY \"yes\", \"ok\", \"okay\", \"sure\", \"go ahead\",\n    \"proceed\", \"do it\" — this means they confirmed the PREVIOUS request.\n    DO NOT call call_data_scientist again.\n    Simply acknowledge: \"Done! Here are the results above.\"\n    or ask: \"What would you like to do next?\"\n\n    NEVER repeat the same tool call twice in one session turn.\n    If you already have results in state — return them, don't re-fetch.\n\n    ══════════════════════════════════════════════════════════\n    ML REQUESTS — NEVER ASK, ALWAYS EXECUTE\n    ══════════════════════════════════════════════════════════\n\n    When user asks for ANY ML task — call call_data_scientist IMMEDIATELY.\n    NEVER ask:\n    - \"What features would you like to use?\"\n    - \"What model type do you want?\"\n    - \"How many clusters?\"\n    - \"Would you like me to train a model?\"\n    - \"Please specify...\"\n\n    ALWAYS pass the full request directly to call_data_scientist.\n    The data scientist agent selects features and model type automatically.\n\n    If user says \"2\" or \"yes\" or \"go ahead\" after being asked — \n    call call_data_scientist with the ORIGINAL request from the conversation,\n    adding \"automatically select features and train the model\" to the query.\n\n    EXAMPLE:\n    User: \"cluster NPI campaigns\"\n    WRONG: \"What features would you like to use?\"\n    RIGHT: call_data_scientist(\"Cluster NPI campaigns using KMEANS with 4 clusters.\n           Auto-select features: Cost, Clicks, Impressions, Conversions grouped\n           by Campaign and Channel. Train model npi_campaign_clusters in\n           astrobot_bqml_models, predict clusters, plot scatter chart,\n           explain each cluster.\")\n\n\n    RESPONSE RULES — CRITICAL:\n    NEVER say:\n    - \"I have submitted a request... please wait\"\n    - \"Please wait while I process\"\n    - \"I will provide results as soon as available\"\n\n    ALWAYS:\n    - Call the tool and return the ACTUAL results in the same response\n    - If call_data_scientist returns data — show it immediately\n    - Never narrate what you are doing — just do it and return results\n\n\n    ══════════════════════════════════════════════════════════\n    CRITICAL — CALL call_data_scientist EXACTLY ONCE\n    ══════════════════════════════════════════════════════════\n\n    NEVER call call_data_scientist more than once per user message.\n    One call handles everything: SQL + chart + ML in a single response.\n    If the first call returns a result — STOP. Do not call again.\n    If the first call returns empty — return what you have, do not retry.\n\n\n\n    ══════════════════════════════════════════════════════════\n    WAIT FOR COMPLETE RESULT — NEVER RESPOND EARLY\n    ══════════════════════════════════════════════════════════\n\n    NEVER send a response to the user while a tool is still running.\n    NEVER say \"generating\", \"working on it\", \"the agent is creating\".\n    ALWAYS wait for call_data_scientist to return the FULL result.\n    ONLY respond AFTER the tool call is complete and has returned data.\n\n    If call_data_scientist returns a result with a chart — show it.\n    If call_data_scientist returns a table — show it.\n    NEVER respond before the tool finishes.\n\n    \n\nYou are an agent. Your internal name is \"astrobot_orchestrator\".",
+                  "tool_declarations": [
+                    {
+                      "retrieval": null,
+                      "computer_use": null,
+                      "file_search": null,
+                      "google_search": null,
+                      "google_maps": null,
+                      "code_execution": null,
+                      "enterprise_web_search": null,
+                      "function_declarations": [
+                        {
+                          "description": "\n    Routes analytics requests to the Data Scientist Agent.\n    Uses sub_agent transfer — same session as orchestrator, charts render inline.\n\n    Args:\n        query:        Natural language analytics question or request.\n        tool_context: ADK tool context (carries session state).\n    ",
+                          "name": "call_data_scientist",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "query": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "query"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "\n    Routes project management requests to the Project Manager Agent (§4.2).\n    Use for: tasks, emails, project timelines, team correspondence.\n    All operations strictly partitioned by client_id.\n\n    Args:\n        pm_request:   Natural language project management request.\n        tool_context: ADK tool context.\n    ",
+                          "name": "call_project_manager",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "pm_request": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "pm_request"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "\n    Routes persona analysis to the Persona Aggregator Agent (§3).\n    Uses remote Cloud Run endpoint if PA_AGENT_ENDPOINT is set.\n\n    Clients and personas:\n      NPI:       HNW Luxury Seeker, DINK Couple, Legacy Family\n      Venetian:  9 personas (Affluent, Group Planner, Gourmet, etc.)\n      WinnDixie: Mallory, Maria, Carol, Amy\n    ",
+                          "name": "call_persona_aggregator",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "persona_request": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "persona_request"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "Submit thumbs up (rating=1) or thumbs down (rating=-1) feedback.",
+                          "name": "submit_feedback",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "rating": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "INTEGER"
+                              },
+                              "comment": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "rating",
+                              "comment"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        }
+                      ],
+                      "google_search_retrieval": null,
+                      "parallel_ai_search": null,
+                      "url_context": null,
+                      "mcp_servers": null
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_invocation": {
+            "invocation_id": "3fa61e26-bb94-457a-ae91-af136362b368",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, which persona responds best to our CTV spend?",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "NPI persona CTV HNW Luxury Seeker DINK Legacy Family awareness targeting",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "tool_uses": [],
+              "tool_responses": [],
+              "intermediate_responses": []
+            },
+            "creation_timestamp": 1778654822.875715,
+            "rubrics": null,
+            "app_details": null
+          },
+          "eval_metric_results": [
+            {
+              "metric_name": "tool_trajectory_avg_score",
+              "threshold": 0.0,
+              "criterion": {
+                "threshold": 0.0
+              },
+              "custom_function_path": null,
+              "score": 0.0,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": null
+              }
+            },
+            {
+              "metric_name": "response_match_score",
+              "threshold": 0.05,
+              "criterion": {
+                "threshold": 0.05
+              },
+              "custom_function_path": null,
+              "score": 0.10476190476190478,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": null
+              }
+            }
+          ]
+        }
+      ],
+      "session_id": "___eval___session___13ade820-94b0-4ecf-a2ca-919ff5e6349b",
+      "session_details": {
+        "id": "___eval___session___13ade820-94b0-4ecf-a2ca-919ff5e6349b",
+        "app_name": "orchestrator",
+        "user_id": "eval_user",
+        "state": {
+          "session_start_time": 1778654822.8791142,
+          "turn_count": 1,
+          "session_id": "session_1778654822",
+          "user_id": "user",
+          "client_id": "NPI",
+          "client_lock": "NPI",
+          "turn_start_time": 1778654822.8791347,
+          "LOCKED_CLIENT": "NPI",
+          "__llm_request_key__": "c8ce8f43-e00b-45f1-86fa-85901b4011bd",
+          "agent_card_skills_injected": true,
+          "session_tokens_in": 15872,
+          "session_tokens_out": 399,
+          "tools_called_this_turn": 0,
+          "current_skill": "nl2sql",
+          "last_tool_query": "Get NPI CTV channel spend, impressions, and conversions for the last 30 days.",
+          "database_settings": {},
+          "_sql_retry_count": 0,
+          "_seen_hashes": [],
+          "_chart_steps_done": 0,
+          "_multi_step_mode": false,
+          "_last_user_question": "[Client: NPI] Get NPI CTV channel spend, impressions, and conversions for the last 30 days.",
+          "routed_table_id": "performance",
+          "routed_table_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+          "table_enabled": true,
+          "channel_column": "Channel",
+          "kpi_column": "Conversions",
+          "client_column": "Client",
+          "channel_taxonomy": {
+            "organic": [
+              "Organic Search",
+              "Organic Social",
+              "Organic Video",
+              "Direct",
+              "Referral",
+              "Email"
+            ],
+            "paid": [
+              "Paid Social",
+              "Paid Search",
+              "Search",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max",
+              "Display",
+              "OTT",
+              "CTV",
+              "Linear TV",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print",
+              "Online Audio"
+            ],
+            "awareness": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Audio",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print"
+            ],
+            "direct_response": [
+              "Search",
+              "Paid Search",
+              "Email",
+              "Shopping"
+            ],
+            "mid_funnel": [
+              "Paid Social",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "tv": [
+              "Linear TV",
+              "CTV",
+              "OTT"
+            ],
+            "social": [
+              "Paid Social",
+              "Organic Social"
+            ],
+            "search": [
+              "Paid Search",
+              "Search",
+              "Organic Search"
+            ]
+          },
+          "duality": {
+            "has_duality": true,
+            "spend_rows_filter": "Cost > 0",
+            "conv_rows_filter": "Conversions > 0",
+            "note": "Spend rows have Conversions=0; conv rows have Cost=0. Use FULL OUTER JOIN."
+          },
+          "unification_map": {
+            "Paid Search": [
+              "Search",
+              "Paid Search"
+            ],
+            "Demand Gen + P-Max": [
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "Paid Social": [
+              "Paid Social"
+            ],
+            "Video/CTV/OTT/TV": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Video",
+              "Paid Video",
+              "Video"
+            ]
+          },
+          "applicable_rules": [
+            "always_filter_by_client",
+            "always_use_date_range_filter",
+            "never_select_star_without_limit",
+            "use_safe_divide_for_ratios",
+            "blended_cpa_use_unified_cte",
+            "ranking_use_unified_cte",
+            "channel_mix_use_unified_cte",
+            "volatility_use_cv_not_stddev",
+            "organic_efficiency_use_organic_filter",
+            "tv_halo_use_correlation",
+            "forecast_aggregate_to_weekly_for_chart",
+            "always_resolve_channel_terms_via_taxonomy"
+          ],
+          "matched_keywords": [],
+          "routing_confidence": "default",
+          "available_models_summary": "📋 Available models for NPI (27 total):\nLocation: `nc-ai-chatbot.astrobot_bqml_models.<model_name>`\n\n🔮 FORECASTING (ARIMA_PLUS):\n  • arima_npi_all_conversions\n  • npi_arima_conversions\n  • npi_arima_revenue\n  • npi_arima_search_sessions\n  • npi_arima_spend\n\n🌳 BOOSTED TREE (BOOSTED_TREE_REGRESSOR):\n  • npi_boosted_conversions\n  • npi_boosted_conversions_daily\n\n🔵 CLUSTERING (KMEANS):\n  • npi_campaign_clusters\n\n📈 LINEAR PREDICTION (LINEAR_REGRESSION):\n  • npi_conversions_by_channel_impact\n  • npi_conversions_saturation\n  • npi_conversions_saturation_agg\n  • npi_conversions_saturation_aggregated\n  • npi_conversions_saturation_daily\n  • npi_conversions_saturation_v2\n  • npi_linear_conversions_demand_gen\n  • npi_linear_conversions_performance_max\n  • npi_linear_conversions_search\n  • npi_linear_conversions_social\n  • npi_linear_cost\n  • npi_linear_cost_v2\n  • npi_social_conversions_cost_linear_reg\n  • npi_social_search_conversions_lr\n  • npi_total_conversions_vs_spend_lr\n  • npi_transactions_saturation\n  • npi_transactions_saturation_agg\n  • npi_transactions_saturation_v2\n\n🎯 CLASSIFICATION (LOGISTIC_REGRESSION):\n  • npi_campaign_classifier\n\nUSAGE: Use EXACT names above. If a needed model is missing,\noffer to train a new one with CREATE OR REPLACE MODEL syntax.",
+          "_models_listed_for": "NPI",
+          "_last_bq_hash": "",
+          "_retry_count": 0,
+          "bigquery_query_result": "The sum of Cost for the 'CTV' channel for the last 30 days is 309308.44, Impressions is 13725182, and Conversions is 0.",
+          "last_bq_result": "The sum of Cost for the 'CTV' channel for the last 30 days is 309308.44, Impressions is 13725182, and Conversions is 0.",
+          "last_ds_response": "**Result:**\n\n**NPI CTV Channel Performance (Last 30 Days)**\n\n| Metric      | Value        |\n|:------------|-------------:|\n| Spend       | $309,308.44  |\n| Impressions | 13,725,182   |\n| Conversions | 0            |\n\n**Explanation:**\n1. Retrieved the sum of Cost, Impressions, and Conversions for the 'CTV' channel for the last 30 days for the NPI client.",
+          "last_ds_query": "Get NPI CTV channel spend, impressions, and conversions for the last 30 days.",
+          "last_skill_used": "nl2sql",
+          "tool_result_this_turn": true,
+          "last_exchange": {
+            "query": "Get NPI CTV channel spend, impressions, and conversions for the last 30 days.",
+            "response": "**Result:**\n\n**NPI CTV Channel Performance (Last 30 Days)**\n\n| Metric      | Value        |\n|:------------|-------------:|\n| Spend       | $309,308.44  |\n| Impressions | 13,725,182   |\n| Conversions | 0            |\n\n**Explanation:**\n1. Retrieved the sum of Cost, Impressions, and Conversions for the 'CTV' channel for the last 30 days for the NPI client.",
+            "client_id": "NPI",
+            "session_id": "session_1778654822",
+            "turn": 1,
+            "duration_s": 77.36,
+            "skill": "nl2sql"
+          }
+        },
+        "events": [
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, which persona responds best to our CTV spend?",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a806e135-1d7f-4340-a394-c36490bbe72b",
+            "author": "user",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {},
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "9558ec41-65b7-4312-b4a3-10c91ad1e701",
+            "timestamp": 1778654822.87885
+          },
+          {
+            "model_version": null,
+            "content": null,
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a806e135-1d7f-4340-a394-c36490bbe72b",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "session_start_time": 1778654822.8791142,
+                "turn_count": 1,
+                "session_id": "session_1778654822",
+                "user_id": "user",
+                "client_id": "NPI",
+                "client_lock": "NPI",
+                "turn_start_time": 1778654822.8791347,
+                "LOCKED_CLIENT": "NPI"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "4854a3e9-39e6-442e-a373-402ecfabd7f5",
+            "timestamp": 1778654822.879345
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-9c13da85-d61d-4805-b7dd-5052934ac8c8",
+                    "args": {
+                      "query": "Get NPI CTV channel spend, impressions, and conversions for the last 30 days."
+                    },
+                    "name": "call_data_scientist",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "CroGAY89a19B7CV9T9x4RGX65uoxqYAnlw9rrFxOXYG_ojjWBF0yg0kIa97A1qwXufuwvwhnuRgiFIOJSkgfQnPkITQgyDtWb3Jr7IrLAoUIQ1fNyaAT4eX4ng36OG84o2arQNylmxCAiDMS5uYZShk8tCme04AUfiVvPAs2dI1plkB2f2q-kh_10dXmGYxiZ1pGgc2XocSzOcDP2mvscd-PAWUBnFOUI8NwJ9g27Yfm3vdvgisBsTpZrmb445uk608jHyupJVNc9qf1wI5GJUMsJOueczdD037J6yFlFBaXSqZ-Nuf0CH3NS0NV4PTdZDSPXR28sdc_QngYt__3Ng487fJsCImLwpiF341x5ptZqp85UimAOVnbRajxBhtuaxaO8VEf-JDY8Ma5TLwbE8Ztf5JQrF_R3Z5ou2SP6KNUvVnine04Wjy0YDLGJPRxE1GktNpHTbNYR_4v8hZDN5FgeItE7KitIfuxrmwleJl1R4NJ0eDdPx7UsuhGpZ3Ju4GBiTzh7Q0nqlqf8rft4OJm5MVLqlYnKUKwVaZOQAfW8LJ-xIRbMev_YfuZyNriycqJVkNgN4rPFtZXQr6MUKaJWy8nDUzyz7j8bHTqwlDUwciQuwjODdkeIGGoj2KH0D1-ACVudZ8KgGiWu6emffto-HMPmIJ3kfjYL-0BKpmTwU3JhzjMdimXeZfSs61KxLlM0PGfyb5JGZvl77VSHmMdggE06v8JhDpCFGf4Bupjv8ny6DX18YG03PhqT8-EE1XDmxXqQtzbn3vrSjnniB9u03oyNvjM1LTcWoHJIqegTYQisId_IQE9gRaXvUyg1jvFYhfye4b8hfh2qYFZq2bco04aubFaPy_Xh--9c4yJyFgSMBTGmf0EKtSlkksZEPxmW_dLwPwfwMTSRDbFosz3LPrDiLfq97OghzI7-TxiWfMJLJJ779GVqE7cD6M-udNSbcWSjTIioyuSCnV3ZhA5lXyayV7eQMCP16JCI8LyBjAnJVQ9ZCiuqVOYBeWG2kuxExeQjRllTtXMsGVNSIAySXfKf-2rHKVbH4QFAy3wHhxgpq3BDg9-RKbD82n4c3tbn22QZML90tjQSg==",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "20b53929-03a3-4c5d-9140-02a711817ed9"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 3647
+                }
+              ],
+              "cached_content_token_count": 3647,
+              "candidates_token_count": 25,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 25
+                }
+              ],
+              "prompt_token_count": 4241,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 4241
+                }
+              ],
+              "thoughts_token_count": 195,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 4461,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.8010897064208984,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a806e135-1d7f-4340-a394-c36490bbe72b",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "20b53929-03a3-4c5d-9140-02a711817ed9",
+                "agent_card_skills_injected": true,
+                "session_tokens_in": 4241,
+                "session_tokens_out": 25
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": [],
+            "branch": null,
+            "id": "3158a70d-58ce-41fa-8923-924ea37734ef",
+            "timestamp": 1778654822.948833
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-9c13da85-d61d-4805-b7dd-5052934ac8c8",
+                    "name": "call_data_scientist",
+                    "response": {
+                      "result": "**Result:**\n\n**NPI CTV Channel Performance (Last 30 Days)**\n\n| Metric      | Value        |\n|:------------|-------------:|\n| Spend       | $309,308.44  |\n| Impressions | 13,725,182   |\n| Conversions | 0            |\n\n**Explanation:**\n1. Retrieved the sum of Cost, Impressions, and Conversions for the 'CTV' channel for the last 30 days for the NPI client."
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a806e135-1d7f-4340-a394-c36490bbe72b",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "tools_called_this_turn": 1,
+                "current_skill": "nl2sql",
+                "last_tool_query": "Get NPI CTV channel spend, impressions, and conversions for the last 30 days.",
+                "database_settings": {},
+                "client_lock": "NPI",
+                "client_id": "NPI",
+                "_sql_retry_count": 0,
+                "_seen_hashes": [],
+                "_chart_steps_done": 0,
+                "_multi_step_mode": false,
+                "_last_user_question": "[Client: NPI] Get NPI CTV channel spend, impressions, and conversions for the last 30 days.",
+                "LOCKED_CLIENT": "NPI",
+                "routed_table_id": "performance",
+                "routed_table_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+                "table_enabled": true,
+                "channel_column": "Channel",
+                "kpi_column": "Conversions",
+                "client_column": "Client",
+                "channel_taxonomy": {
+                  "organic": [
+                    "Organic Search",
+                    "Organic Social",
+                    "Organic Video",
+                    "Direct",
+                    "Referral",
+                    "Email"
+                  ],
+                  "paid": [
+                    "Paid Social",
+                    "Paid Search",
+                    "Search",
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max",
+                    "Display",
+                    "OTT",
+                    "CTV",
+                    "Linear TV",
+                    "Online Video",
+                    "Paid Video",
+                    "Video",
+                    "OOH",
+                    "Print",
+                    "Online Audio"
+                  ],
+                  "awareness": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT",
+                    "Online Audio",
+                    "Online Video",
+                    "Paid Video",
+                    "Video",
+                    "OOH",
+                    "Print"
+                  ],
+                  "direct_response": [
+                    "Search",
+                    "Paid Search",
+                    "Email",
+                    "Shopping"
+                  ],
+                  "mid_funnel": [
+                    "Paid Social",
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max"
+                  ],
+                  "tv": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT"
+                  ],
+                  "social": [
+                    "Paid Social",
+                    "Organic Social"
+                  ],
+                  "search": [
+                    "Paid Search",
+                    "Search",
+                    "Organic Search"
+                  ]
+                },
+                "duality": {
+                  "has_duality": true,
+                  "spend_rows_filter": "Cost > 0",
+                  "conv_rows_filter": "Conversions > 0",
+                  "note": "Spend rows have Conversions=0; conv rows have Cost=0. Use FULL OUTER JOIN."
+                },
+                "unification_map": {
+                  "Paid Search": [
+                    "Search",
+                    "Paid Search"
+                  ],
+                  "Demand Gen + P-Max": [
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max"
+                  ],
+                  "Paid Social": [
+                    "Paid Social"
+                  ],
+                  "Video/CTV/OTT/TV": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT",
+                    "Online Video",
+                    "Paid Video",
+                    "Video"
+                  ]
+                },
+                "applicable_rules": [
+                  "always_filter_by_client",
+                  "always_use_date_range_filter",
+                  "never_select_star_without_limit",
+                  "use_safe_divide_for_ratios",
+                  "blended_cpa_use_unified_cte",
+                  "ranking_use_unified_cte",
+                  "channel_mix_use_unified_cte",
+                  "volatility_use_cv_not_stddev",
+                  "organic_efficiency_use_organic_filter",
+                  "tv_halo_use_correlation",
+                  "forecast_aggregate_to_weekly_for_chart",
+                  "always_resolve_channel_terms_via_taxonomy"
+                ],
+                "matched_keywords": [],
+                "routing_confidence": "default",
+                "available_models_summary": "📋 Available models for NPI (27 total):\nLocation: `nc-ai-chatbot.astrobot_bqml_models.<model_name>`\n\n🔮 FORECASTING (ARIMA_PLUS):\n  • arima_npi_all_conversions\n  • npi_arima_conversions\n  • npi_arima_revenue\n  • npi_arima_search_sessions\n  • npi_arima_spend\n\n🌳 BOOSTED TREE (BOOSTED_TREE_REGRESSOR):\n  • npi_boosted_conversions\n  • npi_boosted_conversions_daily\n\n🔵 CLUSTERING (KMEANS):\n  • npi_campaign_clusters\n\n📈 LINEAR PREDICTION (LINEAR_REGRESSION):\n  • npi_conversions_by_channel_impact\n  • npi_conversions_saturation\n  • npi_conversions_saturation_agg\n  • npi_conversions_saturation_aggregated\n  • npi_conversions_saturation_daily\n  • npi_conversions_saturation_v2\n  • npi_linear_conversions_demand_gen\n  • npi_linear_conversions_performance_max\n  • npi_linear_conversions_search\n  • npi_linear_conversions_social\n  • npi_linear_cost\n  • npi_linear_cost_v2\n  • npi_social_conversions_cost_linear_reg\n  • npi_social_search_conversions_lr\n  • npi_total_conversions_vs_spend_lr\n  • npi_transactions_saturation\n  • npi_transactions_saturation_agg\n  • npi_transactions_saturation_v2\n\n🎯 CLASSIFICATION (LOGISTIC_REGRESSION):\n  • npi_campaign_classifier\n\nUSAGE: Use EXACT names above. If a needed model is missing,\noffer to train a new one with CREATE OR REPLACE MODEL syntax.",
+                "_models_listed_for": "NPI",
+                "__llm_request_key__": "0f68bfb9-627e-46c9-ae13-37383bc4754d",
+                "_last_bq_hash": "",
+                "_retry_count": 0,
+                "bigquery_query_result": "The sum of Cost for the 'CTV' channel for the last 30 days is 309308.44, Impressions is 13725182, and Conversions is 0.",
+                "last_bq_result": "The sum of Cost for the 'CTV' channel for the last 30 days is 309308.44, Impressions is 13725182, and Conversions is 0.",
+                "last_ds_response": "**Result:**\n\n**NPI CTV Channel Performance (Last 30 Days)**\n\n| Metric      | Value        |\n|:------------|-------------:|\n| Spend       | $309,308.44  |\n| Impressions | 13,725,182   |\n| Conversions | 0            |\n\n**Explanation:**\n1. Retrieved the sum of Cost, Impressions, and Conversions for the 'CTV' channel for the last 30 days for the NPI client.",
+                "last_ds_query": "Get NPI CTV channel spend, impressions, and conversions for the last 30 days.",
+                "last_skill_used": "nl2sql",
+                "tool_result_this_turn": true
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "94265c67-ac6e-4e3b-b398-36d40405ba77",
+            "timestamp": 1778654844.5017824
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-9c3ed926-f556-4d08-94af-291a761513cc",
+                    "args": {
+                      "persona_request": "Based on NPI's CTV campaign data for the last 30 days: Spend $309,308.44, Impressions 13,725,182, and 0 Conversions — which NPI persona (HNW Luxury Seeker, DINK Couple, Legacy Family) is most receptive to CTV awareness campaigns?"
+                    },
+                    "name": "call_persona_aggregator",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "CpUFAY89a1-L5_saDC8Y9E4HusGMEadGd7x0dWIK-XfraFnZ1jixQzTrdDvyNQrwgIPTafbSDjgmySirqXknDs978MuAfCjJCkag06CHK2bzYY9YuxVeOxZ-PoRwUCPXNBfZbzMb2ELphe0Xvmk_fSwSYjtGEhIRBbyFbuRC231DaAik9z-KmvvUHTlwU7_lNjR57pigNKR92HLYvQNESZiTE1oGliamdZt7puUEwhEB01Ev9JKDnHmEokHgF5P8v2Bl8HADNA_f7gJy0J9lFA6MJBzGfAQMQZbveQsYJEqmZ7_uUOAO0YloPKAHpgAdjxztQGjV26LSyiq66u7ANXhDrsAbG540PWxor_t7l4qKWMtusAXSmZ88XTYfkYUM6V8KKWvMXHL3yCziUXkoqniF-QLbzg2WD1Lz3G1VPyNMXMdzP1NxvJOpCeUmh8CzRDZlSaJTdodJcHJfRfDxsEAnOfugRvLs4qXRywNeAt79NYD6zZQgUSOr3JdcDgFAqExzVg4ydCneUbBGtpihdNOvLMTw7EP9fTJEmhMSbHQuzGb_eIqh4ZUW-Av4crSCzUxrseeKvdzkdf3vbDymN7e1FDPMo_FdsspcmtgRk1S0eeQ7CksuWWiO7xOssJYvsMytfM9HahB8NakO1te4U4dkRV_iXrazXJsu0nwi0BjPOykSdKmok_27T51ZKSFb3DSPvDdteILDDIkfDXL_dnLIF-8ujMUmvv4HcMNebEUS_3x1otjzn0QnuSGBc5NeRX2rXlS6Rk5B0QaVIGnSOvuOH5SSuIBJ3IKs-jx3Xi_5zKJaAoqPnHYXxSckwjOsQr1j4OPT1olk7MO6c1A5t9EZaIuW2eLWAvinck-K01vWFFwvgvz1zw==",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "294ebfc2-b46f-40e8-ba17-6b566e3ab5ae"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 4557
+                }
+              ],
+              "cached_content_token_count": 4557,
+              "candidates_token_count": 84,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 84
+                }
+              ],
+              "prompt_token_count": 4580,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 4580
+                }
+              ],
+              "thoughts_token_count": 169,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 4833,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.2764776320684524,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a806e135-1d7f-4340-a394-c36490bbe72b",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "294ebfc2-b46f-40e8-ba17-6b566e3ab5ae",
+                "agent_card_skills_injected": true,
+                "session_tokens_in": 8821,
+                "session_tokens_out": 109
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": [],
+            "branch": null,
+            "id": "175d5be0-70d9-4270-8a78-a79c2218ca1d",
+            "timestamp": 1778654844.5094695
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-9c3ed926-f556-4d08-94af-291a761513cc",
+                    "name": "call_persona_aggregator",
+                    "response": {
+                      "result": "As the High-Net-Worth Luxury Seeker, I find CTV awareness campaigns to be quite effective for my segment, *especially* when the goal is brand building and inspiration rather than immediate conversion.\n\nGiven the data (high spend, high impressions, 0 conversions), it strongly suggests that the campaign served its purpose for *awareness*. My segment has a long booking window (45-90 days, or even longer for premium suites) and a highly considered purchase journey. We don't click on an ad and immediately book a luxury vacation from a CTV ad; we add it to our mental shortlist, then perhaps discuss it with our travel advisor, research further, and eventually book through preferred channels.\n\nTherefore, the **High-Net-Worth Luxury Seeker** is the *most receptive* persona to CTV *awareness* campaigns in this scenario. The DINK Couple and Legacy Family might be more prone to direct response on certain platforms or shorter consideration phases for some packages, whereas for us, the CTV ad is the start of a much longer, multi-touchpoint journey.\n\n---\n\n**1) Persona verdict:** Strong fit (for awareness-focused CTV campaigns)\n\n**2) Key motivations:**\n*   To discover exclusive, aspirational destinations and experiences that align with my sophisticated lifestyle.\n*   To be inspired and entertained by high-quality content that subtly introduces potential bespoke travel opportunities.\n\n**3) Likely objections:**\n*   An ad that feels intrusive, overly commercial, or not tailored to a luxury aesthetic.\n*   A campaign that attempts to push for immediate, direct conversion rather than building desire and brand prestige.\n\n**4) Best angles:**\n*   **\"Curated Escapes, Unrivalled Serenity\":** Emphasize the bespoke nature, privacy, and tranquility of the experience.\n*   **\"Your Next Chapter of Luxury Unfolds\":** Focus on the aspirational, life-enriching aspect of the destination, speaking to future planning.\n*   **\"Where Elevated Service Meets Pristine Beauty\":** Highlight the seamless, exceptional service synonymous with properties like The Ocean Club and Rosewood.\n\n**5) Recommended channels:**\n*   **CTV/OTT (Premium Streaming Platforms):** High-quality, immersive video environment perfect for showcasing the grandeur and elegance of NPI. Reaches our segment in a relaxed, receptive state.\n*   **High-End Print/Digital Publications (e.g., *Robb Report*, *Departures*, *Architectural Digest*):** Associating NPI with other luxury brands and content that we actively consume.\n\n**6) Booking window guidance + retarget cadence:**\n*   **Booking Window:** Initial consideration can span 45-90 days, but for premium suites and peak seasons, the planning and booking process can extend to 6-12 months.\n*   **Retarget Cadence:** Following initial CTV exposure, a long-term, multi-channel retargeting strategy is crucial. This should involve displaying aspirational imagery and soft calls to action across high-end digital display networks, targeted social platforms (LinkedIn, Instagram), and potentially bespoke email series over the course of several months (e.g., monthly check-ins for the first 3 months, then quarterly).\n\n**7) One example headline + one CTA (luxury tone — no discounts):**\n*   **Headline:** \"Nassau Paradise Island: Your Legacy of Luxury Awaits.\"\n*   **CTA:** \"Discover Our Signature Experiences.\"\nAs the DINK Couple persona, I see CTV awareness campaigns as a great way to catch our eye, especially with visually stunning content. We're looking for inspiration for our next quick getaway, so seeing beautiful destinations and exciting experiences on a big screen definitely gets us thinking. However, the 0 conversions on the CTV platform itself tells me the follow-through isn't quite there for *us*. We have a shorter booking window and are quick to jump to Instagram or Google to research *immediately* after seeing something inspiring. If the HNW Luxury Seeker has a much longer consideration phase, pure awareness with no immediate conversion expectation makes more sense for them. For us, awareness needs to lead to a very quick, easy next step on other platforms.\n\n---\n\n1)  **Persona verdict:** Partial\n\n2)  **Vibe score:** 7/10 - CTV is fantastic for showcasing the aesthetic and experiential aspects we crave, but 0 conversions suggest a missed opportunity for guiding our immediate next steps.\n\n3)  **Best creative directions (3 bullets):**\n    *   **Vibrant Nightlife & Adult-Only Zones:** Showcase couples enjoying chic bars, live music, and sophisticated adult-only pool scenes. *Format: Reels/TikTok/UGC. Hook: \"Your next date night just got an island upgrade.\"*\n    *   **Mixology & Culinary Adventures:** Highlight unique, craft cocktails and gourmet dining experiences in Insta-worthy settings. *Format: Reels/TikTok/UGC. Hook: \"Sip, savor, and escape: Where every hour is golden.\"*\n    *   **\"Insta-worthy\" Excursions & Relaxation:** Feature couples on exciting excursions (like swimming with pigs) juxtaposed with luxurious, serene beach relaxation. *Format: Reels/TikTok/UGC. Hook: \"Passport ready? Your grid is calling.\"*\n\n4)  **Offer framing (2 bullets):**\n    *   Position as exclusive access to the hottest adult-centric experiences and amenities, curated for couples who love to live it up.\n    *   Frame the trip as a \"luxury long-weekend escape\" or \"your next adventure together,\" emphasizing the effortless, stress-free nature perfect for spontaneous planners.\n\n5)  **Objections + fixes (2 pairs):**\n    *   **Objection:** \"Is it worth the splurge for just a long weekend?\" **Fix:** Frame as an investment in quality couple time, a vital mental reset, and unforgettable memories that fit perfectly into a 3-4 day escape.\n    *   **Objection:** \"Will it be too family-oriented?\" **Fix:** Explicitly highlight adult-only areas, pools, sophisticated nightlife, and experiences tailored specifically for couples seeking a mature atmosphere.\n\n6)  **Timing:**\n    *   **15-30 day flighting:** Continue consistent messaging during this window, leveraging CTV for aspirational content that sparks immediate interest.\n    *   **Retarget cadence:** Implement aggressive retargeting immediately on social media (Instagram, TikTok) and display ads within 24-48 hours of CTV exposure. This retargeting should showcase specific experiences, \"long weekend packages,\" or direct links to explore adult-only offerings. Follow up with email nurture sequences within 3-5 days.\n\n7)  **One IG/TikTok caption + one CTA + 5 hashtags:**\n    *   **Caption:** \"Dreaming of a spontaneous escape with your favorite person? 🥂 Unwind, explore, and create unforgettable memories on Nassau Paradise Island. Adult-only vibes, world-class cocktails, and breathtaking sunsets await. Who's in?\"\n    *   **CTA:** \"Tap to plan your next long weekend.\"\n    *   **Hashtags:** #NassauParadiseIsland #DINKLife #CoupleGoals #LuxuryTravel #AdultsOnlyGetaway\nA) Executive Recommendation\nFocus CTV awareness spend primarily on the **HNW Luxury Seeker** segment. With 0 conversions, the campaign effectively served its purpose for awareness among HNW individuals who have a long consideration phase. While CTV inspires DINKs, the lack of immediate follow-through means it's not optimized for their shorter booking window without substantial changes.\n\nB) Persona Scorecard\n\n*   **HNW Luxury Seeker:**\n    *   Verdict: Strong fit (for awareness-focused CTV)\n    *   Top Driver: Brand building and inspiration for long-term, highly considered luxury purchases.\n    *   Top Risk: Ads feeling intrusive or pushing for immediate, direct conversion.\n*   **DINK Couple:**\n    *   Verdict: Partial fit (good for inspiration, but poor for direct conversion without immediate follow-through)\n    *   Top Driver: Visually stunning content showcasing vibrant, adult-centric experiences for quick getaways.\n    *   Top Risk: 0 conversions due to lack of immediate, easy next steps on other platforms after CTV exposure.\n\nC) What to Change\n1.  **Creative Framing:** For DINKs, explicitly showcase adult-only amenities, nightlife, and \"Insta-worthy\" excursions to maximize inspiration.\n2.  **Retargeting Strategy:** Implement aggressive, immediate retargeting for DINKs on social media (Instagram/TikTok) and display within 24-48 hours of CTV exposure.\n3.  **HNW Message Reinforcement:** Ensure HNW CTV creative maintains a focus on aspirational brand building without any direct conversion pressure.\n\nD) Variants\n\n*   **HNW Luxury Seeker:**\n    *   Headline: \"Nassau Paradise Island: Your Legacy of Luxury Awaits.\"\n    *   CTA: \"Discover Our Signature Experiences.\"\n*   **DINK Couple:**\n    *   Headline: \"Your next date night just got an island upgrade.\"\n    *   CTA: \"Tap to plan your next long weekend.\"\n\nE) Timing Guidance\n*   **HNW Luxury Seeker:** Booking window: 45-90+ days. Retarget Cadence: Long-term, multi-channel (monthly/quarterly) after initial CTV exposure.\n*   **DINK Couple:** Booking window: 15-30 days. Retarget Cadence: Aggressive, immediate retargeting within 24-48 hours post-CTV on social/display.\n\nF) Confidence: High. The 0 conversions strongly support the HNW's long consideration phase for awareness-focused CTV.\n\nG) Handoff Payload\n```json\n{\n  \"primary_target\": \"HNW Luxury Seeker\",\n  \"campaign_goal\": \"Brand Awareness & Aspiration Building\",\n  \"channel_focus\": \"CTV (awareness), supported by high-end digital/print retargeting for HNW; immediate social/display retargeting for DINK if included.\",\n  \"key_action\": \"Optimize CTV creative for HNW's aspirational focus; establish distinct, immediate retargeting flows for DINKs if they are also targeted via CTV.\"\n}\n```"
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a806e135-1d7f-4340-a394-c36490bbe72b",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "tools_called_this_turn": 2,
+                "current_skill": "nl2sql"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "c50ba1db-60ef-4e39-ab7b-3748db5e9a7e",
+            "timestamp": 1778654895.667003
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "**Result:**\n\nFor NPI's CTV spend, the **High-Net-Worth Luxury Seeker** persona is most receptive to awareness campaigns. While CTV effectively generates impressions (13,725,182 for $309,308.44 spend), the absence of direct conversions aligns with the HNW Luxury Seeker's long consideration phase and focus on brand building rather than immediate booking.\n\nThe DINK Couple persona is also inspired by CTV content, but the lack of conversions indicates that the current CTV strategy isn't optimized for their shorter booking window and desire for immediate next steps.\n\n**Explanation:**\n1.  `call_data_scientist` was used to retrieve NPI's CTV channel spend, impressions, and conversions for the last 30 days.\n2.  `call_persona_aggregator` was then called with the CTV performance data to determine which NPI persona (HNW Luxury Seeker, DINK Couple, Legacy Family) is most receptive to CTV awareness campaigns.\n\n**Recommendation:**\nContinue to leverage CTV for brand awareness targeting the HNW Luxury Seeker, focusing on aspirational content that builds desire and brand prestige. For the DINK Couple, if CTV is used, implement aggressive and immediate retargeting strategies on social media and display platforms within 24-48 hours of CTV exposure to guide them towards conversion.",
+                  "thought": null,
+                  "thought_signature": "CtoGAY89a1-TUAuElkH5rmCV1Kj6Xyxdqd70MViJdR3MdakTN-_WrbpcB4uhKk6EA79Fb0wv5P4zjddhJAqNwN2M9GsdJrIvCjEcya725ORsM0kGo3sAiF84m3kcV0M2tspPQcIkU3vTSxKIVeW26yfLCgGGufoKz19jfuuQMxJ4yeScv3W34yrAkkrud5YY6MTwZCkTFjmfVhKsqftpQnsEkZZ1FRItoTCXMBg9SRhesO-J-XrZ1fgEiAE0upZou_Zq0qs8nz0jtT9N4W7ePx9D3Ez0kT-TKd3OjJFQzw9UVup7lUh8I4K5YTadQ1B3-A6P24HJSjIM_4zGZeAO7YTKTv-oz2Pb6PCgQ8o2YihBFOEecYJriwFd_bSF7oqP6sAXQBSipBSDvR_GXjevksTsTXXvL0w-MEZBdhh3TXp9tZKW2lT14Tl9ActM2TZK5S3YiuKmtqI6BhWbrWpJ5tazsQi3DoE9D2HmjT5f2zf_CqpHx6nBFJRQeUU_bpmgGoXmU8_Uz0_RCo0sLb-TVV8V2kWLPn-jzlyarVm3v3BKwJ3aoedbF_OQor3XYZjHovsx_BG0t2KZD_QPcPAdVnT4iAuOvn6MKs2MB3YlqSW0yfGujIE6FF9vA67Ogv2jaCLK9ml6uJgUjsovEVTMfTjvhE9MycseBU1bZwjPKD3zyNpXV_yl8sm__8Vvg91NqevKpbZUnIlAqc1hrfht3ViHhkiGAuasRzl1Su3_C2X0EMYZ4kXKvDvyW8FPveHxusRRCpX7enYA6EqAaChqX9OR4Vuj82ZEKvTxB2koHxonYiNkBHNDXJBKDXyZooAp0OONGzH5AbZcj8k1FG1o0kwIPOlegFsMNZZHgNMQGhXkkJFmWl0p1Y2GezBmnLMJyykxFeuqrZcjGd0V_rMWqHAVH04djFxyqAlBYYUSHysR7zK8lKlRdsMewiyIysNHTkrC3BWSEu3yIDBAEF5hmn_idscQL_wmuxCHT3OXEHb17LB85xRUHRDJTnb3ZQ5Zq7qp7kTq_NV48p6qVV9MhXJMXrIVVYoiZxvSPBwiO7yH7SgawXzMHIaBubkGxytQDqtpv1sE3tpGtWXVaEGPKQIfQc-ZtsZbnyd20D2VCIapOkK1GOKezLJayULS",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "c8ce8f43-e00b-45f1-86fa-85901b4011bd"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 4663
+                }
+              ],
+              "cached_content_token_count": 4663,
+              "candidates_token_count": 290,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 290
+                }
+              ],
+              "prompt_token_count": 7051,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 7051
+                }
+              ],
+              "thoughts_token_count": 200,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 7541,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.21273509058459053,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a806e135-1d7f-4340-a394-c36490bbe72b",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "c8ce8f43-e00b-45f1-86fa-85901b4011bd",
+                "agent_card_skills_injected": true,
+                "session_tokens_in": 15872,
+                "session_tokens_out": 399
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "4267ecb0-50da-4542-89f3-0d6494a5b793",
+            "timestamp": 1778654895.6737833
+          },
+          {
+            "model_version": null,
+            "content": null,
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-a806e135-1d7f-4340-a394-c36490bbe72b",
+            "author": "astrobot_orchestrator",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "last_exchange": {
+                  "query": "Get NPI CTV channel spend, impressions, and conversions for the last 30 days.",
+                  "response": "**Result:**\n\n**NPI CTV Channel Performance (Last 30 Days)**\n\n| Metric      | Value        |\n|:------------|-------------:|\n| Spend       | $309,308.44  |\n| Impressions | 13,725,182   |\n| Conversions | 0            |\n\n**Explanation:**\n1. Retrieved the sum of Cost, Impressions, and Conversions for the 'CTV' channel for the last 30 days for the NPI client.",
+                  "client_id": "NPI",
+                  "session_id": "session_1778654822",
+                  "turn": 1,
+                  "duration_s": 77.36,
+                  "skill": "nl2sql"
+                },
+                "tools_called_this_turn": 0
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "163dba1f-2f5f-48f4-a1cf-5fbc7852cf0e",
+            "timestamp": 1778654900.2407389
+          }
+        ],
+        "last_update_time": 1778654900.2407389
+      },
+      "user_id": "eval_user"
+    }
+  ],
+  "creation_timestamp": 1778654900.2692344
+}

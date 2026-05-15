@@ -1,0 +1,706 @@
+{
+  "eval_set_id": "eval_set_3",
+  "name": "eval_set_3",
+  "eval_cases": [
+    {
+      "eval_id": "What_was_the_total_ad_spend_last_yearHow_does",
+      "conversation": [
+        {
+          "invocation_id": "e-1902499f-90be-4240-9380-e9ae58d43623",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was the total ad spend last year?\nHow does the bot define last year? \nIt should offer L12Months or full calendar year of 2024.\nWe have lots of date flags in GVMM, calendar/fiscal/business should all be in consideration\n"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Please specify which client: NPI, Venetian, or WinnDixie.",
+                "thought_signature": "Cp4CAY89a1-6yTGUWtbLRPQqIM4PjUAJA1THaSjgr7J1cqIk76kzSZvGyOOizlHq_pjcz_vh6LvrO0ZzVX6QE_J2Jy3q8GCO8GWiDtT1tEfBR4Q3r_gW27wRHR9_JesnWQit1Z-lRW9zdPmg2byksj1yqk-_4M4PuwXvoNMOeTjghrcFeOnnMsQoJ_sRhzeyGfZZto4oTvzPjgu7ke-NDsqywgh4-bKFDtlNht2A92-PKBOaph9bjNlJGFsdMFNngBHwrUahpOJLDg9F7iLFrOJVruoIHglZ7YAkAqOzyoYZrUI-6bZZsrVhX9p12j5Hdn43gQ7EFd7Dt-r8Y4J0r0pdaCeQiDElfB4ETEB0vNr5JOlsGnkCg0051Ar6hjdIkQ=="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1778070537.9375546
+        },
+        {
+          "invocation_id": "e-20e9fc9d-bdb0-42ed-884a-d0ee8bae6f0d",
+          "user_content": {
+            "parts": [
+              {
+                "text": "NPI"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The NPI dataset only contains data from June 1, 2025, to June 30, 2025. Therefore, I cannot provide data for \"last year\" as a full calendar year or the last 12 months.\n\nHowever, I can tell you the total ad spend for June 2025. Would you like me to proceed with that?",
+                "thought_signature": "Cp4CAY89a18cWdOQf3VcdNGQpIZ2waYa0gUcOoLJwdYSxK5MVmjB8XouVpSbxnf139b8o36fkSKj28SKDvnAZue1z6zVfasSOch_pgTIKscjXzAaa66ss0PBOf6JBm6eCbgUlcBHkt3SmdLn3L8yICFyE_AWjb_5dxygv8hCrTDx2TFgJiBbaUbbaKa7hwC_RQKYknH5lumwTxA5_RyUVtfDkwXp5-S1zLtUm64GLRYrcOoWFmm-6o73xR3NiuXBBFeKOCftYG3P8J5I4apRDnQ3zS0tphdMlKgIhTZqdM1rjMYjcr_xTPqlIUH8IL25VtMUNPSwRCVx2YIeXbnIDR9t7JmKHXWn7WAnIb8YsEH46bF134xDzZq7Ck2ZreLjRw=="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-698415ba-79b3-4831-8fdf-7286286cde66",
+                        "args": {
+                          "query": "SELECT MIN(Date), MAX(Date) FROM `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard` WHERE Client = \"NPI\""
+                        },
+                        "name": "call_bigquery_agent"
+                      },
+                      "thought_signature": "Cs0FAY89a18lRaJDbrbb3-itPqbox6lMEZ7Y9QsgQvbC0PMdEqBos93-19zcQeSOMmzO1a5AKuyZbb6uRNUL0s9IZUrmNnOMPDRiUXlllYtuXa8J8tXQsQ82v5UOzMhwzepl77FCgCpzxY7CzN8Os1a9OxJ1xslAec4dAA0X5Cwb1L3A0IvNWtYTzvRLZqmDhXIHIgAVZxb6nOwtZvXOb1A4lWhKYyZ5inyOFpn3vCEXbE5B6wZPORvS5UQgIZflYcdx3sLiuwCji5W-4uA2Xqc-A-pwtihwI8ctwMs5OUe3mi74huaWBsdQvt5nMukMabRc0aOKv77n2WnURvbE5Zvghbrj41nEDyn8nmmM-Ahzec_K_w9P0O5QEN2wr9II7zu_GuASuEMt1VGpBfkpOK9hC084ZhuGX4Y2M2HCfPWbCrqTtlOW5v69OjjbWffXmatTrDhlHeAUjFASURoZRqIiRxIQx4VotJyIVqLbNLYMTlRL2Wwz7Wk_UK_JtEoevDXRpnk85dpr1pU2HIitZ4d7CEsJJvvoO3U3YGli_BNMd4XI0M8CKSbz7Yt5g3vMctyGQqO1kCYP9s1WR26FxkbkMe8UU4eT8N-cC2X2ZM2bWzWUfAPjhXaIV_SPmtUdqsg3nE3kKFMG6ZvbG5hNeCOLLiqC95869OIE4AtihJfKl-FwYyGSrDTjLs72yVO2dacCOd8D9LZG_zXYd4Uoo5QO4QEnYXEp78X91IcKT6LPXw7it9e-kex1Z4JmrtQbG6Lx9ZpdXLqOmSgvnvCaVoNBIn9Cm7j9rv6Ui0YD8DxwFUjsid1BKDicyNs-jvfS_GHOP_9el99xE3xB1L9qX2GyGF1bsBe6TiRBnpzpon9Ewj_LZ8J5eCSbLqP9sb85Gn4NomvTw692SVzAhep2jqqgie2CdlHDZscffAOKENxACf50sMi3xX0zyCKNKX0h"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-698415ba-79b3-4831-8fdf-7286286cde66",
+                        "name": "call_bigquery_agent",
+                        "response": {
+                          "result": "The NPI dataset contains data from 2025-06-01 to 2025-06-30. How can I help you with this data?"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778070546.1129873
+        },
+        {
+          "invocation_id": "e-8b9a2dbb-296c-4f44-b091-98dc16023c7d",
+          "user_content": {
+            "parts": [
+              {
+                "text": "yes"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "**Result:**\n\n| Metric        | Value     |\n|:--------------|----------:|\n| Total Ad Spend| $4,634.45 |\n\n**Explanation:**\n1. The NPI dataset only contains data for June 2025.\n2. The total ad spend for NPI in June 2025 was calculated.",
+                "thought_signature": "CrYBAY89a1_fTnhtDOAqr0A9pVOq-LaTujNfOs99RFGWLb4luUz_j3AUlMqKkLC4TYJFZ6IEmWN9J_KevQzLrrDGzzSxsppxuts0iQET_pbsw_0yd9BRFdys7X2f-LJ66fp3abaaaALX69eu9m6V3ShgiaqcT-2WyUaHAr3zOrnVozQCctWG_u-d5e0xB2d_bi6mi07RLF-EvwKW2hy-ikZ--qvUR6DRHlrBEWf5f7obmvDd9D4tTFU="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-e376cb87-7571-4723-98be-32632c88f293",
+                        "args": {
+                          "query": "SELECT SUM(Cost) FROM `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard` WHERE Client = \"NPI\" AND Date BETWEEN '2025-06-01' AND '2025-06-30'"
+                        },
+                        "name": "call_bigquery_agent"
+                      },
+                      "thought_signature": "CrsBAY89a18upOWdc7XAw6tDcaxpQ-mJS95P5KMz2spDIImM0-iVyqYDYoGDCqbUNNVsyiYIjf47H2fjVoKgU6rZU-TIAnMbxRphNW29iMFosY_1koXrTv6qSqcsS7Porj3YM9wKee3zh6-CrxvOoP9G-sMOFdcXGIJ0ADLBIjO6rEQGy_sPKx2Q5fFpquAg8zQPMnrL5mac-d7wHCn5BOfd8aSiGxRC1UrMVNy_uqyoGF4BpE3FeiM-dRsxPw=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-e376cb87-7571-4723-98be-32632c88f293",
+                        "name": "call_bigquery_agent",
+                        "response": {
+                          "result": "The total cost for NPI from June 1st to June 30th, 2025 is $4,634.45."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778070567.0448527
+        }
+      ],
+      "session_input": {
+        "app_name": "data_science",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1778070596.742201
+    },
+    {
+      "eval_id": "What_was_the_total_ad_spend_last_yearHow_does_1",
+      "conversation": [
+        {
+          "invocation_id": "e-1902499f-90be-4240-9380-e9ae58d43623",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was the total ad spend last year?\nHow does the bot define last year? \nIt should offer L12Months or full calendar year of 2024.\nWe have lots of date flags in GVMM, calendar/fiscal/business should all be in consideration\n"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Please specify which client: NPI, Venetian, or WinnDixie.",
+                "thought_signature": "Cp4CAY89a1-6yTGUWtbLRPQqIM4PjUAJA1THaSjgr7J1cqIk76kzSZvGyOOizlHq_pjcz_vh6LvrO0ZzVX6QE_J2Jy3q8GCO8GWiDtT1tEfBR4Q3r_gW27wRHR9_JesnWQit1Z-lRW9zdPmg2byksj1yqk-_4M4PuwXvoNMOeTjghrcFeOnnMsQoJ_sRhzeyGfZZto4oTvzPjgu7ke-NDsqywgh4-bKFDtlNht2A92-PKBOaph9bjNlJGFsdMFNngBHwrUahpOJLDg9F7iLFrOJVruoIHglZ7YAkAqOzyoYZrUI-6bZZsrVhX9p12j5Hdn43gQ7EFd7Dt-r8Y4J0r0pdaCeQiDElfB4ETEB0vNr5JOlsGnkCg0051Ar6hjdIkQ=="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {},
+          "creation_timestamp": 1778070537.9375546
+        },
+        {
+          "invocation_id": "e-20e9fc9d-bdb0-42ed-884a-d0ee8bae6f0d",
+          "user_content": {
+            "parts": [
+              {
+                "text": "NPI"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "The NPI dataset only contains data from June 1, 2025, to June 30, 2025. Therefore, I cannot provide data for \"last year\" as a full calendar year or the last 12 months.\n\nHowever, I can tell you the total ad spend for June 2025. Would you like me to proceed with that?",
+                "thought_signature": "Cp4CAY89a18cWdOQf3VcdNGQpIZ2waYa0gUcOoLJwdYSxK5MVmjB8XouVpSbxnf139b8o36fkSKj28SKDvnAZue1z6zVfasSOch_pgTIKscjXzAaa66ss0PBOf6JBm6eCbgUlcBHkt3SmdLn3L8yICFyE_AWjb_5dxygv8hCrTDx2TFgJiBbaUbbaKa7hwC_RQKYknH5lumwTxA5_RyUVtfDkwXp5-S1zLtUm64GLRYrcOoWFmm-6o73xR3NiuXBBFeKOCftYG3P8J5I4apRDnQ3zS0tphdMlKgIhTZqdM1rjMYjcr_xTPqlIUH8IL25VtMUNPSwRCVx2YIeXbnIDR9t7JmKHXWn7WAnIb8YsEH46bF134xDzZq7Ck2ZreLjRw=="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-698415ba-79b3-4831-8fdf-7286286cde66",
+                        "args": {
+                          "query": "SELECT MIN(Date), MAX(Date) FROM `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard` WHERE Client = \"NPI\""
+                        },
+                        "name": "call_bigquery_agent"
+                      },
+                      "thought_signature": "Cs0FAY89a18lRaJDbrbb3-itPqbox6lMEZ7Y9QsgQvbC0PMdEqBos93-19zcQeSOMmzO1a5AKuyZbb6uRNUL0s9IZUrmNnOMPDRiUXlllYtuXa8J8tXQsQ82v5UOzMhwzepl77FCgCpzxY7CzN8Os1a9OxJ1xslAec4dAA0X5Cwb1L3A0IvNWtYTzvRLZqmDhXIHIgAVZxb6nOwtZvXOb1A4lWhKYyZ5inyOFpn3vCEXbE5B6wZPORvS5UQgIZflYcdx3sLiuwCji5W-4uA2Xqc-A-pwtihwI8ctwMs5OUe3mi74huaWBsdQvt5nMukMabRc0aOKv77n2WnURvbE5Zvghbrj41nEDyn8nmmM-Ahzec_K_w9P0O5QEN2wr9II7zu_GuASuEMt1VGpBfkpOK9hC084ZhuGX4Y2M2HCfPWbCrqTtlOW5v69OjjbWffXmatTrDhlHeAUjFASURoZRqIiRxIQx4VotJyIVqLbNLYMTlRL2Wwz7Wk_UK_JtEoevDXRpnk85dpr1pU2HIitZ4d7CEsJJvvoO3U3YGli_BNMd4XI0M8CKSbz7Yt5g3vMctyGQqO1kCYP9s1WR26FxkbkMe8UU4eT8N-cC2X2ZM2bWzWUfAPjhXaIV_SPmtUdqsg3nE3kKFMG6ZvbG5hNeCOLLiqC95869OIE4AtihJfKl-FwYyGSrDTjLs72yVO2dacCOd8D9LZG_zXYd4Uoo5QO4QEnYXEp78X91IcKT6LPXw7it9e-kex1Z4JmrtQbG6Lx9ZpdXLqOmSgvnvCaVoNBIn9Cm7j9rv6Ui0YD8DxwFUjsid1BKDicyNs-jvfS_GHOP_9el99xE3xB1L9qX2GyGF1bsBe6TiRBnpzpon9Ewj_LZ8J5eCSbLqP9sb85Gn4NomvTw692SVzAhep2jqqgie2CdlHDZscffAOKENxACf50sMi3xX0zyCKNKX0h"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-698415ba-79b3-4831-8fdf-7286286cde66",
+                        "name": "call_bigquery_agent",
+                        "response": {
+                          "result": "The NPI dataset contains data from 2025-06-01 to 2025-06-30. How can I help you with this data?"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778070546.1129873
+        },
+        {
+          "invocation_id": "e-8b9a2dbb-296c-4f44-b091-98dc16023c7d",
+          "user_content": {
+            "parts": [
+              {
+                "text": "yes"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "**Result:**\n\n| Metric        | Value     |\n|:--------------|----------:|\n| Total Ad Spend| $4,634.45 |\n\n**Explanation:**\n1. The NPI dataset only contains data for June 2025.\n2. The total ad spend for NPI in June 2025 was calculated.",
+                "thought_signature": "CrYBAY89a1_fTnhtDOAqr0A9pVOq-LaTujNfOs99RFGWLb4luUz_j3AUlMqKkLC4TYJFZ6IEmWN9J_KevQzLrrDGzzSxsppxuts0iQET_pbsw_0yd9BRFdys7X2f-LJ66fp3abaaaALX69eu9m6V3ShgiaqcT-2WyUaHAr3zOrnVozQCctWG_u-d5e0xB2d_bi6mi07RLF-EvwKW2hy-ikZ--qvUR6DRHlrBEWf5f7obmvDd9D4tTFU="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-e376cb87-7571-4723-98be-32632c88f293",
+                        "args": {
+                          "query": "SELECT SUM(Cost) FROM `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard` WHERE Client = \"NPI\" AND Date BETWEEN '2025-06-01' AND '2025-06-30'"
+                        },
+                        "name": "call_bigquery_agent"
+                      },
+                      "thought_signature": "CrsBAY89a18upOWdc7XAw6tDcaxpQ-mJS95P5KMz2spDIImM0-iVyqYDYoGDCqbUNNVsyiYIjf47H2fjVoKgU6rZU-TIAnMbxRphNW29iMFosY_1koXrTv6qSqcsS7Porj3YM9wKee3zh6-CrxvOoP9G-sMOFdcXGIJ0ADLBIjO6rEQGy_sPKx2Q5fFpquAg8zQPMnrL5mac-d7wHCn5BOfd8aSiGxRC1UrMVNy_uqyoGF4BpE3FeiM-dRsxPw=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-e376cb87-7571-4723-98be-32632c88f293",
+                        "name": "call_bigquery_agent",
+                        "response": {
+                          "result": "The total cost for NPI from June 1st to June 30th, 2025 is $4,634.45."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778070567.0448527
+        },
+        {
+          "invocation_id": "e-28ea490f-2064-430b-99c6-b8b70fd9767b",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was the revenue last year?\nBreak it out by month, by channel?\nChannel, region/geo, \n"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "**Result:**\n\nThe revenue for all channels and geos in June 2025 is 0.\n\n**Explanation:**\n1. The NPI dataset only contains data for June 2025.\n2. The query for revenue by channel and geo for June 2025 returned zero for all rows.\n3. For NPI, the `Revenue` column is often zero. The `Conversions` column is typically the meaningful KPI.\n\nI will now retrieve the total conversions by channel and geo for June 2025 instead.",
+                "thought_signature": "CsEDAY89a1-x89QOBRmD4u8woDTLmYRaBPOjHnHQNbRbGMJBGX_p7aMn9wo1UvEcvwsBNGuWEqKvG-zDTP9EucuQVXmy6jkQ-cQIKdc3W-pshzRR8nBLyosDaMAIg579wyrHY8Vo7dVCPRXO_vgV-fwQEwIUGbIR-cu5_5V_OuKkVCUbLvYSsdvOq9W5TfqIOqdnkv0wirnultBpP_lS-0esApXMLCAfT4geCHq_GuCXr6vR1a-c93MeOg-rQNN5720Tk4jq3-OpE8oVi1taaHlUmMk3FNn6eSpSZDcpJ6ReCjvqq8jvfwomi2Rqc1PaSqH4rrattpOiQlKAk4dMl4B7mTmmgpnXMva48r7lRdLOZXuzS49WU88ogfgHhrEG_M4NCuwSfWoKEl7mohw_aSFd12iF6hQRPaHX2jpBy8KJURYp2zcNMNSkx76Ug3_hRyIgKJS1IMQMmuE4oaKjz-Unfmq8OLVYTjEMfbG4eQGwJuT6kGzhLGUBLmVD6nTRuo1lEmWAOWlMjt7El-H1HSAn7l1EWRGMAgpVsw4s_MytRfJGE4t0AFmGB-fMbVXSbqCys-hKhIIl7jr-9nyXWqrxMJg="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-75798e3c-0b7d-4f95-9789-dd7547b3c86a",
+                        "args": {
+                          "query": "SELECT Channel, Geo, SUM(Revenue) AS Total_Revenue FROM `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard` WHERE Client = \"NPI\" AND Date BETWEEN '2025-06-01' AND '2025-06-30' GROUP BY Channel, Geo ORDER BY Channel, Geo"
+                        },
+                        "name": "call_bigquery_agent"
+                      },
+                      "thought_signature": "CrsDAY89a1-hejj7_yM6GOybd407yKkCq14vFSp_WcOmrR47UKkYvhvJJLFy5MX_cee13VRFXclcK3x36bVvUnpC_umi4uYVbd0n4Sbpg2lo9BV6qyjxZUzSS-uTq4ZUogJIj6K-JawpoJTa6u6oh8JaDzJzDuzKzlPpGlPZx65RzwMim3UnQgugLwd8D9JKFOMR0d_JaHRhUhKxIQKYN6xP4uybZLmCpxBxhrBYMOGI5j2KLdR1SCjW0C5A44kZ2DhSOtJxat0DsgoYk67Ib1OqYicuAoZDxXzKcIJLeqjDu4haYKDZkC0dySiQxQG8khWuNYPZbE4c-BamLLHyEky5aDRXsvIkIna32AAC_NV7wmjjY8LrhK3QkezPAQUfPgj0T6XzdNqO1E7Vt7wbTBdtPaThg_KS9-dR64REs1aRPWJIaC4dWOaLXrUn5hA3b7UpSV55c0Js79hbhK9clHhU4lXRBBdd3WRYHUSeQxMIi7vbvMdXtnyKusDA44T0jrn-PM4u4EQtchOTzOIAaoi7IwlHpx2ZAaEtCdmO6q3uQuS4howJX9JE1Lu8LiuvIeglw2TSJ0-3x-63xjw="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-75798e3c-0b7d-4f95-9789-dd7547b3c86a",
+                        "name": "call_bigquery_agent",
+                        "response": {
+                          "result": "As expected, the `Total_Revenue` for all channels and geos is 0.\n\nIf you'd like to analyze performance, I can provide data on `Conversions` by Channel and Geo for the same period. Would you like me to do that?"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778070612.011943
+        },
+        {
+          "invocation_id": "e-0718d4f2-1c1f-46b6-b30e-88e8839303e1",
+          "user_content": {
+            "parts": [
+              {
+                "text": "yes"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "**Result:**\n\n**NPI Conversions by Channel and Geo (June 2025)**\n\n| Channel         | Geo           | Total_Conversions |\n|:----------------|:--------------|------------------:|\n| DEFAULT         | DEFAULT       | 142               |\n| Demand Gen      | Canada        | 40                |\n| Demand Gen      | DEFAULT       | 0                 |\n| Demand Gen      | International | 0                 |\n| Demand Gen      | USA           | 134               |\n| Display         | DEFAULT       | 3                 |\n| Hotel           | DEFAULT       | 2                 |\n| OTT             | DEFAULT       | 0                 |\n| Online Video    | DEFAULT       | 0                 |\n| Online Video    | USA           | 0                 |\n| Performance Max | DEFAULT       | 6                 |\n| Performance Max | USA           | 19                |\n| Search          | Canada        | 124               |\n| Search          | DEFAULT       | 1                 |\n| Search          | International | 0                 |\n| Search          | USA           | 488               |\n| Social          | Canada        | 0                 |\n| Social          | DEFAULT       | 133               |\n| Social          | International | 0                 |\n| Social          | USA           | 1524              |\n\n**Explanation:**\n1.  The NPI dataset only contains data for June 2025, so a \"last year\" analysis by month is not possible.\n2.  The `Revenue` column for NPI was found to be all zeros. As per the data recovery rules, `Conversions` was used as the primary KPI instead.\n3.  The table above shows the total conversions for June 2025, broken down by Channel and Geo.\n4.  Social in the USA had the highest number of conversions, followed by Search in the USA. Several channels and geos had 0 conversions during this period.",
+                "thought_signature": "CsQEAY89a1-2PELEWEUyrRmyEJ_5wpwwkduVpav_IGIiPg_8QHzOfiu6nb548eg4z5PuCDiGObEYNMJvYGIUGumBtdzaohjuKtW9pSba89fQcvGQIuCSrKNiORacR8jFWHwDJEDAkPgyoIm4k97Q7xAVTWjZLe6rewToJMaZJ3ZGWiipz948aK6W0PI1NryQ8Oy0y6k6VO2lAcqPsyy_5Rj_Orgi4P0WOyVlariIyQwDd118pY0HdBKh_DsPoTufFQwgoEZfTw5_dsYTFfV8nBMFYlKMNH9rY1MAnFKlNtBHN6x1ulyagOfqkKAg5pt-fSJlatQPzccbNwsJ4aKRwmrnkosJdoBLHCY8J8p1NlWZ4bvDDoyiUq5q6r-yk6qK_XzX-gDz5QLC0hQfTV65v4IyPkFanoWepxJ3CBtdsLDpcSKiW0Jt5ah4BFeIy_zyUgnN_mnRYbNYWBX8UPCuAsX17jvnsCkKJ_X4EeiI_tQKctDHaN4wGtpudGY_S0dg2K8oVKSxGw-vWqfN0cTXSFvKJEmvXDvKrrIk0_n-mFDRsx6JoWrejigCmB_4GW1X6c1yfXyjduhTZz2utaPBnY3_Hi9n3MQZhekhG8Jfwz507Jeg0ybZVsDyIV0_osq2Qs5dWQz3u6ifm1-U2VlI4jxNCjUA1HhG_poBDZt8CJ4VwyPgBHXrbF_9hU62dqWLpqH3n3N4dVFSqiUeO3fJIM9fl2FrBamXhAiMJad-Ki1IClGht57x6SBMSAacxZAJY6fjtWcoHA=="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-cc2b6058-2733-43ee-9d01-d82fbd9e20c7",
+                        "args": {
+                          "query": "SELECT Channel, Geo, SUM(Conversions) AS Total_Conversions FROM `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard` WHERE Client = \"NPI\" AND Date BETWEEN '2025-06-01' AND '2025-06-30' GROUP BY Channel, Geo ORDER BY Channel, Geo"
+                        },
+                        "name": "call_bigquery_agent"
+                      },
+                      "thought_signature": "Cu4BAY89a18MrCGeQrILSODTn_fagjGnTi70q2jsHZdvMTIwk4FVSwc3mBv__xzitYA6-b8uvKPr2lWaJabuhNQ13-jpexH1b3ytXbKh3tLrl0Ov8Gq2VtTAT758p_0kJI6bhy7YMhsl0CWmQCqsidHXrJIP9yBV3ZNk6AoijlUsFEKCYceHcShDTe0ZkyaoQ6R0br5phZcno3waUAFJDDKnBI8d_GmXo0pkoX1_KlLXZufviqvSlgGysLsHInSp4VwYYWzF0lzeVsWRKdsxKM23DxyMim-G3YDYR3arkASFyfl22kVxB3umWoczaqbXHQ=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-cc2b6058-2733-43ee-9d01-d82fbd9e20c7",
+                        "name": "call_bigquery_agent",
+                        "response": {
+                          "result": "Here are the total conversions by Channel and Geo for NPI from June 1st to June 30th, 2025:\n\n| Channel         | Geo           | Total_Conversions |\n|:----------------|:--------------|:------------------|\n| DEFAULT         | DEFAULT       | 142               |\n| Demand Gen      | Canada        | 40                |\n| Demand Gen      | DEFAULT       | 0                 |\n| Demand Gen      | International | 0                 |\n| Demand Gen      | USA           | 134               |\n| Display         | DEFAULT       | 3                 |\n| Hotel           | DEFAULT       | 2                 |\n| OTT             | DEFAULT       | 0                 |\n| Online Video    | DEFAULT       | 0                 |\n| Online Video    | USA           | 0                 |\n| Performance Max | DEFAULT       | 6                 |\n| Performance Max | USA           | 19                |\n| Search          | Canada        | 124               |\n| Search          | DEFAULT       | 1                 |\n| Search          | International | 0                 |\n| Search          | USA           | 488               |\n| Social          | Canada        | 0                 |\n| Social          | DEFAULT       | 133               |\n| Social          | International | 0                 |\n| Social          | USA           | 1524              |\n\nIt looks like Social in the USA had the highest number of conversions, followed by Search in the USA. Several channels and geos had 0 conversions during this period."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778070636.1271427
+        },
+        {
+          "invocation_id": "e-b8090b8e-f5f9-4456-b127-fa61fde5faf6",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Any creative with big spend but weak CTR/CVR (kill or fix)? \nWhat is weakest CTR/CVR by creative?\nTop 10 CVR/CTR/kpi?\n"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "**Result:**\n\nI am unable to perform the requested analysis by individual creative.\n\n**Explanation:**\n1.  The NPI dataset for June 2025 shows that the `Creative` column is not populated with distinct values; all data is categorized under 'NA'.\n2.  This means I cannot identify specific creatives with high spend but weak CTR/CVR, nor can I list the top 10 creatives by these metrics.\n\nWould you like me to perform a similar analysis (e.g., identifying campaigns or channels with high spend but weak CTR/CVR) instead?",
+                "thought_signature": "CrUGAY89a1_M8mrnJJWoWJ3AODdhOuEqey4jN9zuY9tSubddtjrXsXdP7cn4mO4Drr4ASzgc0cWDm_YoOAqpCfJJAm1jQovhLkeDVgCWAxy6S6RYWpJpuAsLIR4JFSlxp3OWsLKULZv1boSc_fRpapwpAqIWJyFNHoLoNuPCyfue6M2Yt9kYiNFkoOqLbG8bzhmr0wHoqWmrYPwniscMHv_lM0Exl6o5jYopD98SXMzwxOnX4QhaNeKIJL7fsr-mPOticIx7RCQMqOHwq37Oje5rOkdgkAULB0PLMLPAD2rANEBtv64YvvEgoutmJpDqjOAeZRzvaBdyne3uU1sdFj_EGNaQ8j6X_Stvj74PMK_CsrsG04_h3W5Lbu5T7FAdxlllXvjhDngP4ppqe-_g239VsTEwtEkNRDRZt7i3hGiqRwV4XvPql6iVcYSByoLKXN-OJdM729ccjzT3LIBwr7aqXFjGG4MTCSATjKY_QikqEaoefmmXIW0DdwCWPtOv_Jnmo9OlqIorwdfffR1Z4kNMlpe4vkBv8LaaM1HLBQZZXhPgs7OwYj5MUPOGJ-HJbV1Se_oRz4EVvksOaeSXl3kLujEHpN7U_cyrfRKDg2i8_zrJhL1PdsZHRvZi3M9RM2VAN3X4vAr76kJcbqgeeS-1lRyGCGqlQDe1TOBdK7S3Q2fgvHRZ8AecfNTXmtn5l6_cYOUzVOxofpaZaqrO0p_hQemGAiQpO80obdP5t3d2pSRd69995k5DfiyBnrbdte1Pc9teKY2VIGKEwSXFLIR7PLT2oGABBGOdhVXi_xgr3TW5wfaZmXgOGNfUFavOgBAgJ-REWyESE50fYngYS7jRLMds2MrGMaadL6TuKn7bjgjmhknQX6vIfaWsPgoutZUvBp5B2yNJMuW377LRDmwIkQgBg88hTGO3FMkYT6Fs5y2bzEs3WpeRFUBmLR_ALMeC3Avy3JdFpZR8WQNpUGQJucIdJt0EznnsBsO9wpFx6jgtaNVkqA78hH-byItC-NgIbfVt8oPOdqbo1lYDL9x-5mxFPIKXY9dJ9K3JsqbN-maH_KRQyUbrnPvbqNbGiJZkFp_pUp8="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-0a6c575a-c9c2-49ce-af5b-d4ce7affbc75",
+                        "args": {
+                          "query": "SELECT Creative, SUM(Cost) AS Total_Spend, SUM(Clicks) AS Total_Clicks, SUM(Impressions) AS Total_Impressions, SUM(Conversions) AS Total_Conversions FROM `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard` WHERE Client = \"NPI\" AND Date BETWEEN '2025-06-01' AND '2025-06-30' GROUP BY Creative HAVING Total_Impressions > 0 AND Total_Clicks > 0 ORDER BY Total_Spend DESC"
+                        },
+                        "name": "call_bigquery_agent"
+                      },
+                      "thought_signature": "CsoIAY89a1-UBuhU5JBH2tFw9mYXcMYRYdOwlS6ua54Cjv7K1Tij5H8CnYHqYiSNhlqJYXdJEDFyIK3kqgRIMQIIShbSB1DJuRWvTvb5WaDaqOiTsrOAk3RaqJaJ6m9IDvlIAprIp0pTASrcH_NR9KHSqrzpizB3dwT2UcRKYM0RkUg9DQ44FRndITmMGWFq6HcqeQi907Gb08w3NMqebhmBV5U5FG9u7CdWtwMedPfm-E_CPDyBoexTVW1flybIrgVHkTRtAj6qvhB_kTGR1zla7N7RfGJa7yerWwGwrZMZl8BCR-26TPIShh1DfvMOcxWEPVA7I4N9U7RGNH16HzGWr6fFbq_GCQ7F23aLAU4oVTtFXh4Ku23BkGFooGsvoyihMm1blIjXrF7vh-XDycB8fvfxv0wS1rNpShMV3L9TXpjJIDZ6nFS09ftVi9fOND-Ei3KpGdFnMS4iWv9cNbWwQMvrwX52JoO-nEzIjrjN5PP3aF5E3UcCzgDi1H5y_267UfHej7I-x71BISmUTIowbqgnyiGjXaw8l13VkWFTk4QWhd67eces_lf5GMekR_2c-eEIXrCPxrv0DPQLZrdpdR_qNBpSTGFKGU5Nt5Um8Fq1WZchaN8io51AnftQPGa69yGc-aHiM0L2OaqL-QLLFpUERhnm1GlqchchdQyH0NpfORs5DLMx533vZUoukzw7DY24fAjM9D-zbYqjNIifP6n1jHcXZsCDQQ6JVBxMZTwsezhNLd6H6PPYxn8ks3Wt0ffggye969ubutQQyeQkyrvNgu0lc8DQBocNX98lz933hveH2SrKc92iJnvws9gWSfjrukP-RBvxwkzuZAAIMeyM64KKKJCkcQzSlQ5QqjCo2pfU-FovQ2B4J8Mgwnsc2UFswuXQNOr5yQnPgIr3bZ7DrlKIMBRBlqaC9Ywtx_T5A2zC5g6zTS7gJ44s1kSBLUkTuB6i4gFs9FhugEoBx3Dgd_SwtkLenkn4XwHCRPVHgcarnDgS1VSyKk-daL2Fx8ozlzz7dRLb77g1PH3mqgyZho-uCIDj7QJ1RpmN-hfhkbYMoJiqcVDMCTIgKxg5jjZq802XuTtWUmn6VwT8MFPWZjR-ia6fdGbzyCXnXHz99NKrdCDOTH70-ddpgxtQOaOujIpS_GbMFTrglRGmOODziJVCrx4JHLEFiho62t3gLzZ6Qd7Jk0ugFcBXUWmB6TojNQRvby-Lng1lxS76MXwPkFJRrsjFYIwbQlXgmc6uHvW_9ERhpvYBtryjWUQpxU5Ee7AF41vzZS8yniVkpX_nQf9AQYHqLA1LUMc4jOmog8lUPRH5KvBcFgYCTfrtLexg233E_-E6FctxcM1RCAioTQP9FV8reM3zrHIcKA9Zyv0HnDKN2RrQLlcheWHkvZOKtLE38cOA0THsiIZKxPdwY5dOhBUyf4jJzaHsn9teqHB1EZdah733"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-0a6c575a-c9c2-49ce-af5b-d4ce7affbc75",
+                        "name": "call_bigquery_agent",
+                        "response": {
+                          "result": "The total spend for all creatives (categorized as 'NA') from June 1st to June 30th, 2025, was $4,634.45. This generated 10,916 clicks, 206,400 impressions, and 2,616 conversions."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778070685.1320271
+        },
+        {
+          "invocation_id": "e-9f710579-5d1e-4b9d-acc6-76a51a5468f8",
+          "user_content": {
+            "parts": [
+              {
+                "text": "okay"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "**Result:**\n\n**Campaigns with Big Spend but Weak CTR/CVR (June 2025)**\n\n| Campaign                                                              | Total Spend | CTR   | CVR   | Total Conversions |\n|:----------------------------------------------------------------------|------------:|:------|:------|------------------:|\n| enb_int_soc_mlt_usa_non_all_tar_fbk [us - asc]                        | $785.42     | 1.54% | 0.00% | 0                 |\n| enb_cnv_src_brd_usa_non_all_obs_gds [US - Brand - Bahamas/NPI] - Consolidated | $540.73     | 12.03%| 0.00% | 0                 |\n| enb_int_soc_mlt_usa_pmk_all_tar_fbk_[us - remaining markets - intenders] | $526.46     | 2.17% | 0.00% | 0                 |\n| enb_cnv_pmx_mlt_usa_pmk_all_tar_gds [Performance Max - NPI Linkouts] | $347.01     | 4.89% | 0.00% | 0                 |\n| enb_awr_soc_mlt_can_top_all_tar_fbk [can - top markets - awareness] - eviv | $247.30     | 5.86% | 0.00% | 0                 |\n| enb_awr_soc_mlt_usa_top_all_tar_fbk [us - top markets - awareness] - eviv | $223.01     | 12.85%| 0.00% | 0                 |\n| enb_awr_dmg_mlt_canada_top_all_tar_gds [CAN - Top Markets - Demand Gen] | $191.50     | 5.89% | 0.00% | 0                 |\n| enb_int_src_ctg_canada_pmk_all_obs_gds [CAN - Category - All Inclusive] | $121.25     | 6.65% | 0.00% | 0                 |\n| enb_int_soc_mlt_can_top_all_tar_fbk [can- top markets - intenders] - | $120.20     | 1.83% | 0.00% | 0                 |\n| enb_cnv_src_brd_usa_non_all_obs_gds [US - Brand - Getting Here] | $119.45     | 7.45% | 0.00% | 0                 |\n| enb_awr_soc_mlt_usa_pmk_all_tar_fbk [us - down markets - awareness] nov. launch | $117.74     | 10.99%| 0.00% | 0                 |\n\n**Weakest CTR by Campaign (June 2025)**\n\n| Campaign                                          | CTR   |\n|:--------------------------------------------------|:------|\n| zzzenb_awr_dmg_mlt_usa_top_all_tar_gds [Demand Gen - Top Markets] | 0.07% |\n\n**Weakest CVR by Campaign (June 2025)**\n\n| Campaign                                                              | CVR   |\n|:----------------------------------------------------------------------|:------|\n| enb_int_soc_mlt_usa_non_all_tar_fbk [us - asc]                        | 0.00% |\n| enb_cnv_src_brd_usa_non_all_obs_gds [US - Brand - Bahamas/NPI] - Consolidated | 0.00% |\n| enb_int_soc_mlt_usa_pmk_all_tar_fbk_[us - remaining markets - intenders] | 0.00% |\n| enb_cnv_pmx_mlt_usa_pmk_all_tar_gds [Performance Max - NPI Linkouts] | 0.00% |\n| enb_awr_soc_mlt_can_top_all_tar_fbk [can - top markets - awareness] - eviv | 0.00% |\n| enb_awr_soc_mlt_usa_top_all_tar_fbk [us - top markets - awareness] - eviv | 0.00% |\n| enb_awr_dmg_mlt_canada_top_all_tar_gds [CAN - Top Markets - Demand Gen] | 0.00% |\n| enb_int_src_ctg_canada_pmk_all_obs_gds [CAN - Category - All Inclusive] | 0.00% |\n| enb_int_soc_mlt_can_top_all_tar_fbk [can- top markets - intenders] - | 0.00% |\n| enb_cnv_src_brd_usa_non_all_obs_gds [US - Brand - Getting Here] | 0.00% |\n| ... and 28 more rows | |\n\n**Top 10 CVR by Campaign (June 2025)**\n\n| Campaign                                                              | CVR    | Total Conversions |\n|:----------------------------------------------------------------------|:-------|------------------:|\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - deals - bahamas/npi] - new | 757.14%| 53                |\n| enb_cnv_src_brd_usa_non_all_obs_bng [us - brand - getting here] | 100.00%| 4                 |\n| enb_int_soc_mlt_usa_pmk_na_all_tar_fbk [us - down markets - intenders] | 85.26% | 700               |\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - getting here] | 14.81% | 4                 |\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - bahamas] | 6.25%  | 3                 |\n| enb_cnv_src_brd_usa_non_all_obs_bng [us - brand - accommodations/vacations - bahamas/npi] - new | 5.71%  | 2                 |\n| enb_int_src_ctg_usa_non_all_obs_bng [us - category - all inclusive - beach-island] | 5.41%  | 2                 |\n| enb_int_src_ctg_usa_non_all_obs_bng [us - category - top vacations] | 5.26%  | 1                 |\n| enb_int_src_ctg_usa_non_na_all_obs_bng [us - category - top vacations] | 0.43%  | 1                 |\n| enb_int_soc_mlt_usa_non_all_tar_fbk [us - asc]                        | 0.00%  | 0                 |\n\n**Top 10 CTR by Campaign (June 2025)**\n\n| Campaign                                                              | CTR    | Total Conversions |\n|:----------------------------------------------------------------------|:-------|------------------:|\n| enb_int_src_ctg_usa_non_na_all_obs_bng [us - category - top vacations] | 35.66% | 1                 |\n| enb_awr_soc_mlt_usa_top_all_tar_fbk [airline - awareness audience] eviv | 20.71% | 0                 |\n| enb_int_soc_mlt_usa_pmk_na_all_tar_fbk [us - down markets - intenders] | 18.57% | 700               |\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - getting here] | 15.52% | 4                 |\n| enb_cnv_src_brd_canada_pmk_all_obs_gds [canada - Brand - Getting Here] | 14.43% | 0                 |\n| enb_cnv_src_brd_canada_pmk_all_obs_gds [canada - Brand - Bahamas/NPI] | 13.75% | 0                 |\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - bahamas] | 12.97% | 3                 |\n| enb_awr_soc_mlt_usa_top_all_tar_fbk [us - top markets - awareness] - eviv | 12.85% | 0                 |\n| enb_cnv_src_brd_usa_non_all_obs_gds [US - Brand - Bahamas/NPI] - Consolidated | 12.03% | 0                 |\n| enb_awr_soc_mlt_usa_pmk_all_tar_fbk [us - down markets - awareness] nov. launch | 10.99% | 0                 |\n\n**Top 10 Conversions (KPI) by Campaign (June 2025)**\n\n| Campaign                                                              | Total Conversions | CVR    |\n|:----------------------------------------------------------------------|------------------:|:-------|\n| enb_int_soc_mlt_usa_pmk_na_all_tar_fbk [us - down markets - intenders] | 700               | 85.26% |\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - deals - bahamas/npi] - new | 53                | 757.14%|\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - getting here] | 4                 | 14.81% |\n| enb_cnv_src_brd_usa_non_all_obs_bng [us - brand - getting here] | 4                 | 100.00%|\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - bahamas] | 3                 | 6.25%  |\n| enb_cnv_src_brd_usa_non_all_obs_bng [us - brand - accommodations/vacations - bahamas/npi] - new | 2                 | 5.71%  |\n| enb_int_src_ctg_usa_non_all_obs_bng [us - category - all inclusive - beach-island] | 2                 | 5.41%  |\n| enb_int_src_ctg_usa_non_na_all_obs_bng [us - category - top vacations] | 1                 | 0.43%  |\n| enb_int_src_ctg_usa_non_all_obs_bng [us - category - top vacations] | 1                 | 5.26%  |\n| enb_int_soc_mlt_usa_non_all_tar_fbk [us - asc]                        | 0                 | 0.00%  |\n\n**Explanation:**\n1.  The analysis was performed on NPI campaign data for June 2025, as this is the only available data.\n2.  \"Big spend\" campaigns were defined as those in the top 25% of total spend (campaigns with spend >= $117.74).\n3.  \"Weak CTR/CVR\" was identified as campaigns with 0% CVR (as many campaigns had no conversions) or those in the bottom 25% of CTR among the \"big spend\" campaigns.\n4.  Several high-spend campaigns show 0% CVR, indicating they are not driving conversions despite significant investment. These campaigns are highlighted in the \"Campaigns with Big Spend but Weak CTR/CVR\" table.\n5.  The tables for \"Weakest CTR/CVR by Campaign\" and \"Top 10 CVR/CTR/KPI by Campaign\" provide further insights into campaign performance.\n6.  It's important to note that a CVR of 757.14% for \"enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - deals - bahamas/npi] - new\" with 53 conversions suggests a very high conversion rate relative to clicks, which might warrant further investigation to understand the underlying factors.",
+                "thought_signature": "CpOyAQGPPWtfWGiAvD43FzXsKtUc-czJcq7D37_00432nnU2JiqYYKkJsITI-yQbH3s0aklCA15qyf7ZTUsU_snHKJdWZvPhEshWOUoCCcwri0thbQdoXUHzVPoPswJBPEywcjk1Z8xVJMFSulrqG5dlepSC0cAjRF_0s71Waj-wjQhFrlvT5WCNbejgC7AkjrXkmXDY-Sc0Xqa8nwNz8ZS8Ew_0ACWYlhzxboul-ivtEwhzHzxnj-VqJh2NMyKEvA17kMYUVddhB9OVtajgjA7050O7YmjbkFlmCJXB89Znv0TdOiGzS44W617H23uy4HIF05bHiTnNYC9HxlZS3pUjluSRU0jQFFGCGkWEnrAw1M_5tPFfGr-rDS9N9_UPqU8rDuvKeHF9xBGrawBHK5ZwoagHVjrxoYxdF0MPscim43S8qgdg_BzJiXnzpzfWI3eFo0Ue8xTgC9XmXLJc1tfWFVCGDVM1EPOUnJc7jn5cDVeDNa_7SSzUtNiRtLejX_8HMqeZEmxqz_H0r2QxYDhbpTB5jseHLPye8y8MDW4N5DH-wfTgZw5tyhMaREXNCxRfxZ--3LowOoqo0ZzPxm-AuOzJSzpygf2mKGHIa6PPc4o4kniAl_gzgu2XQ5Khf3qH41ZaREr04ZhIIEKbJaxhcNfyw1aVBgWlEXHXftGvnSiqutIgljmu3fr9ijGMWQC7Vk4B4EaD9fuI6QbRxzhFH4b00Mk36PykUCECIgP8BXZwor8JCJRrzsT_NGcRz6fzvK8f4pM70y4le2Wn3Kt8ju9dVSDx-ZrvbvwNbtjKfLCyb0Nayzo1AMB0wGvZ9JuzDHRwdGZqy-ahUNS3stv00aeOj-GOJ8CPwGNs9i8u3FBbiO6HByeBW7Zec0Xuw9XeZ79mAslMmY007ik5rdYfmJ8BQRfbtpluIM_gSocseeUdVPEJqis9S2xDMrUWBwOV5clvpI75ADV-UcngWI4CQrT5e64hLj0hp63GiCea9s9wr2AdwNTyZ_m4tDmRV8H0rLvmGlNDNnovTXDmPxLV8ZzOLRcrhIVnHIG39hGcJhl2nAz5CTep85qDQDRfb2fcRrAC6pZX4j7MVVHlsNTUiyw8RI0Vll3-ZHEb_Hc2C4zX8oUtLB7n5Pj3dOGGyhyi6oQLor1Pe9uEBRxppROYHidDT4NDHfd4msgD7qDl5Ie_-5b8mdIFn4xl8G4m7LW8Du0SiPC9hdZk1qYBJWv6qz-gXG7b_8hYqL8FemJht_di1Jz-iyG00Ty7kwKSqfUSUu_JpBiQ28oxlTqX3LOslZWZRg49CSiCitHjUILcmy8yybHBa42aVjJcHK9iHSatNddNci_LFeH6c83t3kM5KGZeWXxguxgYY2UhV_QH2YttEjAYZgumjx7WE--DClXBvzM1aP0Q904kbwoD1i4iTOi96VIXI0dRpD0GF6TWK5Su1JHpM3zsCpG3dspNchsWQJkVnZelgXtUY1qzrVmcSejuF1oPzDytf3nSwZNW1x_kk6y1erJZ3NMLBtvWdGiDJLDcZ9q2rti8mVAq4s1ccNzErSBTQQF69DVWs9-QuN_P884ZpOqx96QbknHPbUXsRwq2u0N6jHMqOhIs5VBfOgheQZCSbGj1VJthCZIWRtFNG0_8SpIYOQ9heTKn8THRn9WmCMNBruH0R4Y1QqxBX_X-6Sw3hg-wzs7TlMbpnyrHF8OXAjMpxA4o0AOZRg8UDcJzH13Dr_SjfYAF0dn96rGAjmwbJVqVtz6vkcdINH3KwnQafBOZaQR0sj12kOQrp4Gn7hTq7aNXCs9jDJOgQrLWxNgGe2HQffbva71gZM4Apn8jDfAMMnKkmm__woiUIvBB7B_I9e2Ro9Iw6jgXgSbrV5frBpU5001TmjGa0v5JtP6yMMjHRGqUkvDvjhLfVGbQH_YbvEt4WsvGN0vNOYcVcxbwI7MqO-T9XeuyUBXWdFIcvaYVxQrDNHRzUCvSH4MstFJbYQcZMwj3c2c2O0Nm3jsKF6Ko-yYTLGJNqGGc2Kl8p2G7CbVYfS7lhKv4OcKVAY7vdjjBcBFN-r8ZmBdmGKUvuDJqW4P9xvQkTBq33IK_flgkoUGZdvlYV57gspj2BeXLxhSaBoCi8Tpq0-dxutOSeHU2pf7-wiSXCTLHZxxAKceXAMrGucBgguEsm40g1TQtPSvDmdXa40pqzvzP2xRTb9qzLn5-HktZhpndTh4-UIz1EsFMBg8rOzxetN0Bg_EtLtiAsJC5-fYbexJXfsiBZc7oMeZQGzrL92cOdLikCWX9QQxJza2ZYon7kSKDOfDhc_vZrkKI0evcp7VNvoxnoLod3dY2rcbVa5aRUIGAFIB9LToJS1WjuzlXxpgSpH97m8zOykTNUGbFx1PgiJvJ_sO_pMfF_4Vfa7pGpxjQyvWfn-omCJkKWUiZgxnWixbZSQ9ZYjKjlsS4k_bWnTKPYHOXaGiJRIM20GLAOPQd2ADwPoZ95U0odEdbmQljdCQOaX7UDqLc7QmGG2yRHL2xwGAFCq2r4focyIASFupscl5tJi7atmuTlay-H_WmnIQQn572NxhsVbgYHWHfVvoQdEDdFSv_xkrxblUh4tCF8S7PMAUhYuanviD4p4Somdi2tFBL7_4UdYfUoMkYGylDOcYfkJwaoAJtpuHzqlIKfHfwkU66_oOVGG3S5w9Z_GxNRtpf5cFJ359pX9Y138fW0S84rw_0wow9ZWFs6k0tqhTkWfDBwHjD7WUR7IZxfu5IMlbU4qAEczGCrgs0dwyS8qpKl34ZqD7v-qXKi3Rzl4HWFOfBheRuJ8uW9xMRV04YdSdIQI5fWY7TdaCEYbSbUg8f3IzWzvGE9jrCjeFhXVZha-n7L947Kje8_2GcISktETrWgE6QW_2M3AuqbGSOPSxIo_M1niIjD3I0h7kFMTCYG0AGQwAv__B76ilm7girX9H-aav6N6ISyYCS8bFyV53d7gsAHoFDbsuwyYru0IamhlP6bvlYf_M-wTRQ5ruihht4G4QpiTGbE18dVyya1U8JpkcUQzzYT89OdDzfp1uCmaqYHi85pSGGx1t3o7oK3O6I0efghtWS3mhNg7l8BcSpuhUQjYi4uGyptgcJn23qVC3JtNFeUK7Fgm46n-4YLwuv2dvkPTlFgXnEwafiCUKj3fzVzzkAEpiR8vhWMLAKpGnLgXdh7_VhRGDaoHHYQX8JfJOlcyroaTEVBefmpvLSGaYqQF-8JO6DevPOKYF2A0fBe-4i9aq_JgZKYaC_YiK95_c7aDkVnDYQc1TqjdPbB57S4kjIbvBoOWJppsdagQNPjcCrPDPViH7IHhFQrB2Z33YjpRKasjMdcfrgQt-lRQi97wyHUnB3oF4u1XU71lvL60TT_FnavH5kSrvdWZVti_CgHwWlpcmVlOrfL2uJf3ZKWWJk0kboeDPq2F1TPFe-69wowG31C1V-9RJJegELJOjGL7qr6aoodQmcSva89NL4TA2HQyMvHXQLSxZcpqP-j79mDkoDU6rpchy-RyVPEBXKlNfXjhLz4WpdNO0VEWcaTeGzubH_C8H2Su9WGg3z1AKa0msPFdTxp-wiQFDF4_POCvln_c44qRVzeyrN1Wnbjsae4TRJpSYo_bOtb7YbZ3ag3x-Pzbye1H6kYfxJiyAz5Cm81qeTKdl1fGFI8hmXTMLiyPn0g12BmvdryKCmieB4B7oUa5SoPAdYPU9h_829gNWFdY4vFtpptoGqI0CNOYTdiXpxDGgL62XY0z1GvfOP7aThCF5siZefad_94sBxLWpZXFrws4oEwYzra2rRv32_PnsmBWGCM3ijJMConQ8RrZ1JcJAWRAB4bUcSlwBP5IJj0I8Gd6pPtPio7PkGW-xR2GT0aciTJJFsIRbD5sqT0YG0cw6tIDdXw7w5TrjbIwDj4l8tcXkWf8j0O7YsW-mnVvbnQnZtNXenAMQ0E7nHPyY4kmqC_NgFkFhIjEUur8KYMNKd5zuXe5_H3mku5GVZ41grt8NxbZfzv0ow4yWE3ZHlqD4AXBWSfA31EJsJmuVaBAbOr9JdDpH6qIcruW1WpKIcXjaFVQ6MiMhjjEOMbueXmhJsH9dFa8HuHRNPcPXvQ_2N2Meh8DXOpHIRIMDuBIyoLimsqkehg8xZqBeiKhVfHC8PHCC4kjYTs9ExqmWe2iV2egzch7Jk6PWgBGzujfT8jINdZq7FsYcaqnnHP6l602PcxevvK5CAHs51MIijiSOrSz8oNk2k4pejQoUiW3_kIoV_ooyDXnZoiJHsnoE1JsrmRnP-NlJcUi0xf0iEgbGpiNmPn1Ddda6YDoYTHdRJ_71KYgNiZXEh-FCSjrw1OAscNLgFWySNEMI8MbacJo3Cftb6OExRaOSROnSIpGr3-D8fx4xws9HrHmwHEVWZAvotLmj9U_xbxDaGZ_vVTXQc2EDUiUME3Yf5PMKeqEJ1NPCjxrDjibMCHUxlmLvAOK_wrFwMRgXn8sXn1CwogsKCVsZxFLyb_mpq37BtF8RTQSa0cNHI68Hrt5f11bw_yGY_OSQH_3w36kmbhBA1Mg6hq6x887CL7DV1YSIdi7DID62s8esObK1r8mKVtvPb5Jo4wcYtH78JpIBl8BgvfTyhx2VskO1GRPyK_94vNKKtvoV5YKBLv6515t6l8pL80hmg7tI8TjGJJcCbWFQprUEma00vKy6BMPcztqJ68tJ3C4rNNTNjmJdFZb7-1Sp6QTNZRUi81G0zDqO-ep2lCDq0cMvk0VbrdvpCn17WNGHDRaOfmeER61LzafpP72qCoaW__wSMo23EyX6MCjM2au0bjTbadB5OOdHcPV4DeRgO_yo3p3k4tEXHLTMnmT7_eQpgCkQc9xxj5CmXqwc48H6npSHRrZmH0gYRuyoE7erdeCDESxfWKRbvxFNHmnN3GJIktP7vVGyQ_dSA-YcmLvtMbpXQ4ucaQzD1MPJgGOqN0KgkVj4KNsq3gn9WNo0iYIj4yhSkZ1FLDNcCbJQGnWLKGynmJjTrlbiYUouOKE8xraWetx6ZRsqc8PSidPYmFrY7Gu9DMPYIuDtnXbNdjxiYFOhAl54hAIT-o2Oa9l2MSLTxHueTNKEiLbxr4PvCV0_N5GED1TZGQbsMsxX20Hn7z4ZvDoZ6atnQff3UQWnlakY7KKl4Sa06hXPul9MB1Pb7xNb9GGx_TspvlOkqvG1B3GHxTyNFCr7rxST-ZoIYtkA73VyTg9HQX4DX-kYVyxDYy8d20c2uuhavJ7DIOeLz26aQN0UbNbt_pObr8iBVPzqvLK3frYrFC8yTnsniLXkIaNg30e0NiywX6-KSuduwobBtacQdNvcK16UHQrbYQ8N9QqaG7DiIcIy6ow8X_p0VFvZH9_pT9wUUh2CKTCvz2FPgXpjxlUHuyIibG-RQxb_QIjdL-f8OaxXg4JcGbuu_Jt16CetwEWi6AtuJB5MLuVEOkrVZh0tXn6reXbmJzPP0bd3MuQJjUOQS0-QhlQNgnQJdkt7Hri9tkdiPxErr6IJTvlEcojC_Er95nO2ObSz6HKzaJMYqwt9yKeOwqG8BQzOA6kzEiQhdofco37Yga3DQqoMUr5f_Mo3kg1oLq0Fe9g44w9GvoXem-bcn3WQcDzxC68TFbnhdPmMJqGMQnGYETsAQUceLYsQ8cgI7Xf7Y1DOhqa6nSL7OlI7WB_wMfctQSOM09k5heoF5aW9ZDPba3S2KL8ffqO5KlKJ9Skr2NSB9ZOLuNg-xRmjt_DO1So-8QOlpagl-HNE3IWXsJbftkRPsrphbpexdtZZCavXh9J5E2tq_1hXj-jvm_U8d0FVmJISQtSTDzp8uVNuZxIpySJI4Su7nQfdzI6_LFrFlR6Lybg_5jUN_mFSBScdLHQKFdK_hbYnMpCnuGwfhRXo2HcDlJwKc-U8M06PkafedzXR8ZPyj7hhjZYsvxC4YgQ1oX9MzNoIVa4ePubqZpYvY8L-T0PvjvXV8XdzCvGBH3isHot723k9OaAtg3bRF10hYKdFDMnnu_OXymWzdewPCfwVAz-plyexTM91_CUt4_Xvk5KKiCLKWsMszKUt0cu9qIB1MXmVmmsHhmhZn320e7In9AP8WhUhyBgtAxOYvwsheptW6mVWJn4SYgmgv3FS1b3k0jTGpF80yCIcJtdPkMonDn1Q4hmXrrUmVs5ysJmjlgCVaJEtbQ1ZdU31BdOEY_BkgFk8IJAAMOKgq96bc0hrXPW7_YAtgjiq_zeXOdjJbsPw_ol0P_vPnClaHqh7GN5IAPywQ1SZeeFDQuIy07gXG3mv1QEvJ7X0-rJvWN8bHaGMS3Vzf-LBfVVqIL2_DR0oBg5PP2Zvj5iDGPD9-5LqMheM3host6GQXPSG57gPHTP0_jJNh65GRQ3lG0jOdmosIfLAdu13GNBYR4W9OtvptqW3cTyeNP5FdQ3QohQeUWCLBirI7N444WNguMMFN8JG8GWCPHhXPq5x5foOXdVdlnf3UqR168B9xDJGRKryFRod4PoQFKa39GPNvnWnCXKskOBJlmM8X5xVUwcSKI0HQyD92P1CL78ly0ftDsXBWJE-XG8Z6SUBpwKZe6kO-X-u8yM9irSSzmalVQ2EI3SRPAbSjkaYj2Gm9w11VA909d8nqRG9kw-gFXGokHT4WbKCLqdO2azFFDWvjZX3XCJYkdAstX5rP1lmP4oCYfuAu4JU0FW14hJ9LxXINB80IMuuVS-lemHIKmfbmXLNdxspnqehgC86IfBSAWvRNJZGQnp5SUkXvxogaW-0b-NZGxUpVkuxn143BBj--I1fRqXh5gXnUqy-9siis8xcQmiP4FNYezb58f-TPLrIt_jsMtoyb5dVvLVAj93Dz9WB-TdLUdgRS8t6fJ_jlEFe4tlhazEsUdWBD-wCBOSJqPiwpLyzQUjbncuZO_7Mbk_VQBNIkYwG--xsVxN1R-GF0SS5na04xsSmPtRi6ZSKxUUB-XD_cXd6KFtzDQiiah899_9crLo7WORa62VOPH_Y7aAYQvz2lUZNGFBk2NqNk8aoqpDCsbb0ENACg2QXYVgHlGI-03KRwrerispB-S287Thx9X2C7uKdRK5uxMYPbgHlhC9ndUvWsUJyED9qJEB9fhDk-IovbYlyp5GSH1q2uP1p5Gx1hK2IbBcZTZVfszYpYNvWGAAry9iJzhukQDiQByIUr1zImab_utQEj4SLAACjqKg7ZJ2-w7RFs7FXvUS8exJKntGRcRmaV3ZcMvrMdaiLp1qrNXDZF-2Vd4yuEhj34fyfAhJfEgUDDORuGXug8lzoGt4n6iTCFyxX5aNIlKMNIEclJHimZQ22EURKXjFqgfQ-GZlZ2msere7v6sahHQP200A-n00JDMxMtgEInY0ADQjz5AZRwyG7XD-W2IBkWbnvhWnB3rzW66m887niLG3CIRDbUUf0E4f3WUJsOP81oYuNk6MD2KvjG9dmbd3CCqG_0p4aVkdqyDTjx825jBw7Ki_nzaNYsILJnK6JA8YnaCuTQwjJmCu3MHdeagfvLayptTqZfId85dmXnlw3ITANacmjRfjCgvfvenGwZzN773ufsiFgh5Hj426kEBUENMVnbOfquCtGdPKaItp5Tg3VOzj_a9PHWBZBfc_C4EnkXOsA-lp9vUmPgXz6PT39Y0YCoImBU_W4arbwfshBsG7IdhlKPqnoGEhnoIWfMVAwrVXLMkj9TSAUbLuk1kW2_0kGOSF14fgE0jJ92r2H2zmCQdWp2PeVnDVO0rDFmaf6QQOXZ1AUkboqtYb7nwDTzdlcSdFqp2Bb7HeVgj8pvw_vuZ9UgS8QR3J4X8fdTE0HLYLnC0d0Af7klP-sBM80iW0fJrqk1iQus0mZAX7R2SkETsKV-EPt5HX_O3p4A4x1GAcnC9hMgVBJIHxeMOFoIJf78qrONb_wzUkAG_6LBAiYZrC-Kom1SbXlZQ5Ox6ggMGjkhCxNj68ZBHmvJlQnIJjAEYoTN64DWo9dCqSFuRNIr6EtToj0-UY58OBHcfGOA62vKgB54kP_bvVlo1obWFJ2EVPgJRN-jxOwo8gxBQHQZkRz1xJWiL-AIzgxsptENni2kxdChKjOL6NChgRf6P1MLrQLHKLRo6ilTPojuiIu7kjz7R2VnSovowRGuv_6zM_PbsahQzjEOY8IUjH6yces9xRZOoRdW1g4XCDv7o_y0nSmpC2Y9q99rRBcIAWA4_nLvUE8Ve6ryVSpyodDWH4HdnHlIesX1mBYQagyDx6k5QM_H4Js_XZhqN2qsJ-6EEMcvOeCCWmK2QEEhsype2EAKGmcvnnf49v6poHALEHL6y10LVGd8FfDcaYZrfIV0MHpKQwhDcAglDWO3NOnGCBbfoNRJDO4uQ7CaoQWJIQz99XwAOeF_TQdme961Luz_C4kAknd_TuBM54XSOZbgJEgARQZGa6h2eGO0gdLzoc4V8qqBQoly2Rtr-PvHMZLnNfLfK1HyyxtPwmE5TgUDnJXXi_C8tidz9zZIxe9F82s5ocKHgmJBjuBMB0MK98K7I7myGwtGvli13uc1DSrd24OxeyO6VHSYRFiqxm6ylCh4J4fnocn_-GWKUQ68gvLtGQfnf2J8pgl67FQE0oojad5vUdIGwFgCvycrz2zLrT_tB0lAwp-MaL0G8sItkhlc-dQ8qfuIiRgfAOECUzR-iQAmIliTj_LtV0BxN5Srh5AruS1HyZ_78qPbTgZEjF5ch8NcAZXAFQEJ1mSAVLIHozyJCc5wEXs1pLBrtFz35vr48ReylYjwBul3tQ7rgxaet3I3bzon61ny32bIBzo4ww0oK3SFqVaKthWHt-ERGG0i2erQ5-fi2M0ORw-YgYSOF2ombNpQ2YqdnOoFV_3XoSw4-Hlbh51U89WBnNj3AqjH_Pp0YKHXOE4Le-p0rtgjgfXR9hbnOf8Zq32zWwFRN3Em9-IcfmZpTE_Bnl7jbMU9XUce3sTjfiqU_tyKypnk4ZLt2H9s37KEyxbRtATV4OzSt7rS-kFht4fs2Vu_AlkIDGq65GZo05SP3hfXmQpNqWIiVbhqvfU64KkxdfcJWviCEjW-ohspeWZghjO5wPOjyPqx9NNc71DXHhxTq-j8PXBgAjqzMypySJnTd6sDbsFNDLgl0bwFphPp84W5YOWyTuTM_jQ_YJ8rMSYfFzXP3x2h8BXo8rLtAzCfIj8vLGrl2lTNiwfuUEsP_rPIxOO_x2JwVoNZ9xEvO_Qxjm6Ty3h3u7o-NklciUQcyJGKtJryxlPj591hy0M71rAeIuWeYm6NGcFu88PpcztIqDZEQU85rpDWitK0g7xPZcsvoKT7sZNow5hcywLsDZWIqV1IPIxDFcRnRzgVnucwe0Hc86N5FKAyam4LggHjUjcnT1L6hQ1NoWIvnx7pL0Dr32EmArHVTa2QDeDX5HSKqKRbOrAtgwDa6mFahzRvZ6D-Q6gJVyA2-YXkElyBpJs_6TnWeiGCSzk1md3fCYhjG-Rc62PwVMHAJsgEmO0UJieDMkzCblvcCVaaBbfGe8_0GOKhAPVrqVYfMb3-4hRRzUuoINRwl7KsN38ykHgyjTFjh79cFQcKHFv2JCuJmN_dil-IY3zxo6AWs0v1fZrPXzBHZLkCNYhOms4EEyAxO7vUVoGYZog6hFjQoC1rz8VjZKCn5wrN6yhRq0WVzAMdel5fzzW1fHzErhn-UCeR9CCJFpFtZPLJuoOokEQeV8CijPLIPpwCJf-n_U3Ajcm6sEKpa_AtRSsPQpTDPf360iSRej68g5k3YQpIpzDiKl5zT_dYDGfMsWEuK3QRmA2y9zbBQwIqCDXE0xInnuVWeBCWPAg1tOfQ-F-X8VE5oXpOb1NLYnQDWZ3zWIEesUkDZME7fgghYt90zIqUGAh9ebi2oIlj2lbiUdaFDIn7jBiB6IYurUImW85YDZhAJ5ehCGXvPF8mjOq6-6Vx8UMKOGCvSRuYuDw0zMD-V4En7fYXYHtvQqPZlRBVV9ypexZZjpEoKF8TK58fMtb4E3r5w3hZJOGFUK2YXnqvCnEyLGME8Tt2GTlWnvzM8l-FUg_ApiM0Pj_dgzqilEfiCeTlSH46xNe83c5A-06MVTxH4rL10e6UU2aHI_2FN84bz6rAqcqLPSdgUL789w_dQHma_WjbFP_B4Pewm1t-74s_ON_JaQ4hFXT1WI--uQZVe8ZoUtcgRFH9UsC48DK0eRVDdRHKHiYM8QXQqGeUi1xLamYuEbqm9IRwVgFDzNF3ikStxpobZnP1bd8vxq8h7lG-3Qw-6ZWwUGvQEQhIW_SU9sAt7fKzxLRehoDEbhbcxyQ21e3kovToXXxOn3WNU1ME-XU2tWPF0S03L15irEzoWRlRDHvyUDd-cbvE9XbN9qQGNYXoCgqn_MXMugiRmolyI7b_GCDw6aAWuBX0LyhNVkoJLatOpOTVoVWlZNLsTmHzYxIQGftw_CreR4zzJNhgIMKi9POO9SDkUoowt-qCz827n-1we9U1GU5TFoxFTgS5MWjidtTvykdn2q2mGsK5IjD9ey28cUx9snAiwNEYrR8hB3pOU-3Iro_YgXcMI_WhDsogcpUn0W-lAq08znEZ45yH2GbaNmS9ZJbvMmwSi9G1RNbHef58UuxHJtltTftV0O2Q0EHzZG41BhngBp251OiN6_ZrH3j6V_eWQuIpZIblL6F76ZGBFMCNvN_QP19eSHRSg6XLZQhNPsLGN7Ri_qJkTjOkNLXC4-duUcvS8QBgavS4UNbBkak5viCK1rqLHlXAebbmBKTQbdjznVSx5857IB5E_7YYS-iHI4hu8EFl1gemdCWUs1sEbg1KJTpiWqcB1pM5y72N-3KXbzojHlN11bu92__3-Ot1hlL9PQ8MWcVB9xiMPKrhw_1i0JGZIVco5uOueC1bKjZWjxp9Oqj-ZBkIBpxU0TlTtiHZq4U7JAUKi_vTglWIa6WwgdzbNrklG3_SDvSG_u3np8fv2y6qZbH8V7iTb3i00XDMgr_h7XzWnOhjUvy87VZjltEYZrqil7Pw68hnA8WQIGghk4IrcSAP4mzu7ptSBS8lSlArX9S6Xt9RZ94xnjEooQOMGs_KGXj0BIphLkce_F1M0jQCkmSQtDi0Xd4LazfSgVFVEOOGrJXh8oC8WIWXk6-faZpd9ne-qWVEN0RTnby0qzfcF4lVERj0k8thxBZ8zvGu4Q6-rwLDWbeO1GwZ8tFCA5zie4zVlWOSBNEoLwjzuL3l1a3EvBweSy8e_5TI_rX3P3opO9TYb23syWnZ-XGj8M8vt0r1Z4rueTn3VJjWE0nWsUV1jedkfJCjABl3qNVSj_4-b2dUMk2-X9IsAz_2sFVs5WjeWkhwPxnh77dDwAWqnOivJShe9A2y5DftRhW9BdvHqGEW8sWyCdLZq-0ojvDGWXLD6QA5N-Nvw9sZER7jmMPJTcncgmyIYl2E0Ral6lALljujJHzg7TystHA1uZuMS8iC_Ri6B-wVaK5vB_wOjbPzbZAxTnNPgAUvwy_gCoqY07b-6yqsQR6oWYvvi_QWXE_XXCOU2PBw3XFroRfdzi1znS8Cxy7YdgQ-YTh9WvlElDP3fTfQ2M5CWH2kJc_MjLeI6V70F9PzBVQfX48JBMtRSiXaTDI6JXWnqhgS6xdRiM_JsOtJIR7gYRFBInXXxefP8bC2_gIuo5E1hygqnkDFEn8veRuPIM88AH7lzkmCCZyJ-R231jTL6H6unjbZ8OBstKSb8P1O-YSLcl8dxEr0ePJw6t-QJRFPsAWgAcfy_fib2BcXbzmxDnWfnSTyW_I0B3WGobOUjuhLADFHU-vLyZZDT9Ul0unj6V5Vf9qwq-ZkMcSdD1YUeLHqlsbs6On-9Nsv-B_yWsMLUxYmSrjtHq6Y-IcoclhUxJ1Ile2YTMrd2j_V1UAdIOZUlRNNPifnop4Jr5qOzsT6ZC6KKfTItstRZKvM0wLkkj8B5ZbZ9WqG6WQb9XohLWZlwquz3LUv4O2c7qbGjJgKY7TfvbEhN0Msxz5Q1SCQsBy6Oiq13tKtYI-OYGfML0Z0mq1g_9Fw4hpZW9pRf_gD2JL9cS8T81bNl6gCmmBNRxq9ui6YnGymNDIGuINckv30eFMIYJUm3wR87-8PbNBDtZNlXgba4AgSeDejqt2KVmHHTwssISoifvI7ULxo7H_h-pXIGWUwDbIEZCiYlFhM2t1OBVWebFOdQgRMSZIcbifS9Wqu6lKltPxq7wfL_-7-WC9ywP822gmes2QUmELVGZm3XqNhM887J3mcFjk6aEbvBdfYv2Q7vHszK6CTuOlXirVBPhLTFzOMjjNBkf6R6G-biLPqI8wkqRbrqsQBZBEoDMdClSX4HCa36_DDTGNM0XhVfMedqu2SozbgDO2hzImYfX1PGJxbRgmqciZgKhXvzOT5sTDo7Ft22r9H9SC5FZfdWIk8UPcJo2wJbInA7MOqq52hVO6lmSZkGCduvzFP8BQuOr6KN-5BlsYduxarLCI1NgRiy4le5rip9QAGmIgwW_ZQtqPOf9mkXnPx0lLxMcfK2P9dqk3rrUnhI4jvcXOQuDw-_R1sIIHthSRn92KMdrrFS6-zAfcb-JTye_KSBczyCzYFdigkVDw9Cy_QY3AfoETH1qqO7jvR63D8ARJmDRtW_Zfihfh9CHKhMZ1cyhNQfRb7vF4sjjeRQlzMQJ72zLepByfLfHfgCnVqT_cugUdgToyk-5A0UBB7uab3T1swsLN2X_3eI-LYZPf4lsOEEAVTb3l383Z-6jm41_0GAd6u4BN6In2GVHD57zc2k0r757gS5xXrdygR2G-4RzZGByJYyTsP4C5bws3FKThxku61vnl19quB0oSpMc_HsJn_kaQoUMjCPUpjMoFQqZNj_kS0ob4J9LGM8u5i85Hl3Qx9HdHPqKQSQPTlIqKJrKvrnmp8H4BGNzBpL5FzXRiWw9QV20ZfXp3YDtEBqt3sU2pFZQbMXSE50sVpqDw_5y7Whq7iQRYtPapMw4h1dTYR69PZC1Ash-0MACZxPcEC4kktJvVvmzM8pQfiK6_YuCIhAICM_LQSNpCCDaxTly95q5hsQkByEBfSoSdy7Q8iWoXHUkE8owCbIWPngmTcq7TCIHKCXkg2cr_qBo8oNQR_PSSvJsfOAHOFfEYqMpwEJsKVgK0xqDvBN0x0ZLpwZcgAeiEc2vElLvNnYFJVjX_eLABGPh4F7qHjwgHVEqtzX-i0vpHg-aZxB2hd5zvUZJOa7MN3arpuG8REFU_WH9sEWHLtgMBgWnH6QZF_4Y9s5w_QEDks20mjoYRz9qmu9gC2620NGNW9z0iDknMV18rJZxhfU8KAWAmpVsNknqnG9GhJHKrA4-YrpmqpPFE1rlfcQMxOpO7Bl5o9DEN0Nlm5YzdOvGSIBBgJj_diZGRPR-coKCcQIuIEXygi1WpZ4tF8uj4ITI0KVR_AZ6JGqUbOl7e3ryHu9DSE638gd9rMeFXmw7yRgsRegyQJOqIRUyZk-fMrQ8dvKPYyjKAWoSYB1Xun-jrf7eQhGM6I4kvprv2Nna521BJj_A2hgOqKSqDIkDeKbVENgM_J76Nysb5MBXkERwnN7o3ccHplexODVGYivsMqpLmh3qxR1z0zpXBRLTpz5u3Pkjo5zw2ThxGCfTxcHd4-ktoniQcMf7Wi0UL3PzM6NmtPJU1uzegWFK3dUSA2l5aYvOyV3cbpjjpEGRLwArsCXWV1MJDRxIfqA9UuhJF2DRUjGAYgdjpsF7KFCP3Cx9pZYa6pv_bUki4u3souuOG3R8XzYHGrcvsd7znpJg7evksZdPr9TEBuuB9Sp5j-IPQaKH3162pcSgF47SKEEjeuqwdaijwRbNVzZkIUG9A1Ud8rny_GjM8v5BxznWvXqo3UXzmDnXeSLpsFAQw7WmfVp750HP0rXKRHsKZbFR-HG6nr_0oR9iKeh5nNSaG2dH2MxS9JRpudjIB88ApQAINSwZHqcX09noH-FU9D2Z3yvsg0v4E6S367C-4xIWBFwYCZsATK_6pP0IDUKbQ0MSx6pOPbsOniJR698CWtGYKXrzJpxxgQ_lxu9RbPQgTgcfz8u1HBb4lVoa2Jm0XtTtzLyYV6lUVhfHpU0_0y06judOPlqDX2TsB88Le39QDw7iTgK0JCNLPr9D0bkG6m_v3OKTWXimgevQvwLiia0wk6w4xMR5qnYIlk2hzuvP-aHG-1cQk0hY80_RNsBz-XaT-3CabYlHyzXMtmN-thPryNYdxXzK4kqDXAUoUXlgWKfjyMq5QekJNmHXvz-uDUz2xs51eMUCRMIl6pE7llkbu9Crp8enOXntJLj-OIUnWVxj3LajevEK84OLXjPKTu78Zl5gkKWUUCN4Ba9J7znZlHZ3lhaBQtMcPQky9BmomtXPzQy7KFG4niY7jLFcdinEI1I7P-mKuY2HJQD3piGaS37xozdW_PWQn9dxCPGtY5bhm6L4Ye2ikIadgX_6BkoeDV0LQLkFVFfiYE9H8-cl6vnUpp-cuyebxDClXPmI8OoKYQO1k1KdhclI5j0tPPgV5dFL-XJ1c0HaPvAtofCVA89C2BuEiOCgqXi3HFjiFfe95pSvSo6u7TQstGokXMgrfdRBAICI60sjZJZEsd9SQsp6Idfa0J1GIThQqzq38nwSZU6FfBCRCkBT0qdEDrBqG2-_jr_ALLJA9pVofXKss1N1YN_KEwe91eN2iyAn_Znzhn5L9QCJGvRBnfOjvXlFlyQfxpk5mGgId0R4Ylvh5SuCBueODdvNwpjWKWluaDu1X5v4_6CZj7lvkBFRKJn0_jlSMCOeni_029utdpZdgcaOYGo2X2EcfRli0Jv0L2wobT_95wCqtuiTGhnxm77xZ2ceUm54ng0D5qcpnPpBd9-3T0N4_uTVKclnE5fD82V00z9iclXaaUdibm40RsYOC-uhBLjngApHki9aNuhz6t9peBYVuZd-WQD1SManw-5JvFCLTdgnsUhcpk_VsXebz1D2dL-T1VQtpxuStox3wqaqN-YMFqlBjhPh-N5fW8afXkaMQfMw4-81p_B6EhsPN-kKwsuhmNP0RNBSxNDNJiCuTHL6lrp_UaaOzEurE6CGCSQSAVps-BvU2t7UFY4CPI9eWWvVucKoZH4BI8poJs1snh77hVRq8GI-HzEJH_Rbd8-sd9nzMID2FM4pEGcFOKg7L_BV8KMvrxvXDvBjYpBkId7WVMX3NSHsRMtF4_XYcsCsOBU0R_wbhjOYB5WVevkoj2dANZsPDCORbHaggb1c2Tl6YsulyjYqYGp16fH5uXsii1UGLi2jloeBVVIwHzEJjBW5h5KJ3V7R8H512W0dR11GBaHeuUSmxy6T0T0wg0A69QuDDuNgfpvbtjntcwNJi4StdWyjgcR7Lo0xtkyLFzlHAZtvm6-OXPklB6sOXN1BECpb71wvKiorl43YtCRP2u7aT3fBRXWrDZIqfj3cia22daVvMy0sH771GAU6rSnBwprEbSCoYAF5Ma7dU1EE093aHIUErUhplm7wMjtstPcHpxAM35nmkgW5kePoTZ6D9C5VSCSK9dFs8J5g59lEtoYvbameNOgM2PdGDdxQWBw2267IBbJuv3a5FB_REVmm326LZhQWRy06ThQzL8WmjxV8VihJsheivYYJ1fVf07zdM_6jr-1Irsqxmb67Z8KUkn50bIj1bG32lCWf9skXqExj9xmFNZb1WTfXvbAPWq3ULkRcIAS3oNHxvPNU3FsY3In-cM9-2F5mmtfIPg2WVmfOVdN2ZAB73dmrdMnt6pwZV7RmYFfatcHPesh1NII030yHaiPYKF8rpwtfD04vgbAM50U_fOe5awlDvgAxDEWgzTD47yxrGdVgFRQRQ8zfnBKowKPHJ_RbDLlz4v47sTjTQgdIgaKqvpT1pPLki0e-MGSa5zIxMoC1_hh6nJpUk5xGPmfH9ipTt_pH_3Lw4uZ8ibrlANanS-WT3-84w--RYoI26P_b3PVho_jgXeAATPj6D028XT514ax_JHe1w4pkBfRxZvmdOrGYc_NJ517_HMei4_8uxSpZYNKy5Yh6v1Ds_TGcN5goKiwWGtUsohw2MEmC7nchWEEfM6hqIcF00iJRRkEELF5cl1JMxeL7mCf0CPAD8Ac43gyCD_tDN8cHy9JNzoLrI791YSfmmGtCU7vUja3suO48j0xfJ_wyDHUiN3obXg3_ptYISDCXCBkmRY4E5hIhzKQnkx6-FDCMsSbGwvv9t7U0B6Kds73JTsB4jLmMw2rHDBmKl9zIFCbUxtB49wf3xamkCgQGL812nT0BjhQHo-_BEWgRR_kmf-oghPjbdJGYCnSMVEWCuo2Ksf-R0Tn04PLeWZCz2TWiQAVjBtRY9_PjltMZqlqxO67Q1W3K3iLalcqiSPQJHej3zAS9Qev-VKhVlIvBp0jtcOANNczeOJ2JQgElcgAMe-iQrWTxVXN9niWifCcvYdhfErntpv6s5yWaaXIU-I0j8UkQoClCi7asKDOrIq2BafYQV6dZ_Pz-GO1exQyN0BqJu-Lwc5DHdZ4CJnoiig0MaSkwIj-gTINbjG9-aXi0gYJpeq6kEmCEP3qvUka_sdIdoSc47bvrimwJy3g00FxhpLQR0iIHGTNewedbfBnQbmge0HjaCg-eReada4m0fkFpyvhyujVTQxVm52C3ibF-oHSYy2Gu71DIuGC20o3ZYdgj_XG7GtvjrhRc9HvfSykxe3OAPMIc4Fo4medX4Tt3CKms-KMu-y25Qik-_KV1LSZUvA1oCZcvOLQ3oVoid0EYTs_ASuPLKOCL0hlM1PEQBimtpcQJMQVoyq5yRF6s1XxIRNGKQvD3JkW0WvlJ7fk2lfyHr1YO73KgSBEE9NW6pnFMWvJaAcvxDzsOQKvcD_0T9-oIj8Ql3Fv_UB5KnMD9G06sTI4xxOMj9o6RAF8pKya6DF005DhV3ItR0Sx_Zlk-uIXZHqvOnLEqcHoioZ4CVX7pgHzPWgdjIjXYP3J-zBTK4GPCn9nu_XfRWVtirY4JcPpeBDKPB_wbq7KMItaDCxDAFGrbcklbkxVgZsmA6VatTd7sv5Ju9_BwVV6ye0NSOVWrF6ogWNQRU2W81XNs0nOMDkPT5jDAlgQz9GeQNPB121Q4B6hoo5RP5Qkovko2-O7sLUlTGREcD56A7zKJ8HcYQNKNvOvLwnNdhFmqlUOeLkWRPQBLF1BxOQ8GEL3UbtjdGwvkWtiIHxuFF3T-82Zbb2r6IgNTDjNR1ViHctRlyXZVip9PUq3OXIWEQPkB93k_ns3gJ9sOPZ_bN4SMagN0V8_dlIZwy5JIJMju2BCLH5XxhcXRcsuMb_6wHssMDIYTHOHVTgHNBvhITq0M2O7XXflaCuVjvy95n7QPY_ho-erZYO3zmS2YC4xDPlANeUfAIGmxCEqrsZy7ZhJAnW7iFypBLVoXNX46eExetIXtpVtsgKp5bkS675HF7oRFk2SivvMXYeT1h62FpyHlytm4UvGtmZ_EYc3sX0vvZ1ZS0_4LGJLUvXDFk9g4BWSBh9ixEVBu6lS8sKOObPiUJwzPmO_2ekQnakigQZc4GIAgu3IorlD2lg88ErTITVXzP9QXBKzYU44m7080237TkWIFhROQJzNjfajG3Cboj9ggc6Bn6QQh7WUVs15WWaOj4ZkwfVDniuKqMK7nuBXezZiDkwLgiG7Vay1iDO8A5Wj9ijvwt200Lzzb_hNB0Lr3I6VZG3DYJK3WdcPa7BQriqoEeEvY3KEGAeBkrMM0pUkCQtMbqaopFmGdEZyabZ_ei2TPf7Tp41dqlCIObwNvJwOrsIAaf6w5DJ2rrJXBvnnH9pHn9gEC5xtymC0HNPT5DSc6SxM6dSH4qgsXBEg0nYEeTz71lmFFyj5ydQTkCw-tSbgYhAdnY08SUmqEFt5KwBM55pjD1DkrzU2i_iHUp8ZCZcXZD6VTPvSUyyw8Omq5CZOuZCN6XwIpU6R9SPNijWzBnAQ6LYc_8NyWPks7QgJ54RHwFw2ivI3-6B8KxisFvxUowE766_oV-4evqoF3L2R2rX7VK2Hw8Mg1ZqjjO3XqZ4miijBH3hO3dIJAzzrDJiasQ2DNg_wr21RH-09zRog5DZXS4PWpIOYQr6VHBzkQHZBbHLJHKTs3igLXN71uayX6Jn18HbcLKuIaj9CnowcJ0CsW8oLLdPPq9wn8xsnGqOhKpJpf4g2Dietom56pjCwN_oZdzryp0JcxxMbWSFDhVBYfDshJV4DN1F5M7JDMFlNJpUoa0KyGg8ik5LVUMnv0Vrigrj-wxBHKZLh559gEWYig8gasBVSoIfJy3qgjDQuetRmcKF3D8eILtnQbb6mGkb1H28ff4R7n5HmQGAuTI_-e5oxjUMoqxZotn-vyYbhG9vnEHE8Fp7mM8kJMBqPyXiGB5wB_v2JdnL74TAq7RhjG16_TRIXJ7b6zlS8XQUp7K3ZcIp2Ozdj8996W7_6OIUieng-h9A5lB5SfnBL5j7KQmDUcOmyi6WM3y8gHk0hnwc1r9jUavTLLrgiGuVbsl_ZVn0gGtJegvChiV8W6WOTToSHFzWgCwtm3F0nIxe_aBZCRXhv0tA5FcTPzALP3YDaDDaqWTvyC4gbJysFgjB1apFidjrXtohbQHZSy_z0JzxIRrs8z9b2WUBLjxtIVIGtofhJ9Bri6X2YXOH_QDNVHlQiK8aECLiu0P6MWhEIwq8PtUWk8qigzeiFwAVtySw4BpQc20UqPWF_YcLKd0Cy34zq4EUma9i2cPSxswf_m81vHGM5kdqmiEkrfB85c-9wXW-XcA_Warx7g8kDq-R-UX665RS89lA_YX7O_W1MoLFSmX8A7-GiNDK7Bq42TEtGKBtvUym7fex9F9bRasOYHY7-AfmXCYMflB0I8NBBZr0BZ-1TICv55nG6dxGQbfuliCmRNJIAI2HatbeHDku1DZJnkhvY3vGG44lnmS8kxRaudVLSzQkhDLhf3w67_Gn1eiauWqEG9YQo4QXrReunSuQY8hC1KtxfzH6tLudNBS0C5tAqzwgdBtgB4x3lWSXPnIzHTJrEUKuRI7KcUAJUFi__xBEnqSVK3sq2CTBDTu4CicXhTJUg6Tqfkugn-LNccl44533PMPzMkTd9P0z6P5g8FM8Fxw3AQ9JEgrJIbTbGUe_HBdDO1oexhA8fS6Sn_Qb4XExr5JyLhP5Hm053qyU5ajl84SKehrrzUsV9UQ6rgyOGv3LnILQvnWQmAwJoM-DblVejdFEYZ569O_4sRqmWsvIPd_1oNtAQjQtzXJzYfCnppOgtIRzUK69bsp-9eNinn0GJbjzjddIkCtO864RG_GQNau00-CTvnw3XHalzBzzeNKLss7h2JSsbL1u9vabzPDgX5nBwE8PFKgwsEGEwREDoLSpdKCZdlvZ9X9IYgYXPvv17siXrHBNrPk_3xkhfKtY96kgLZ_8lpm7TAYKjRCAaLp0yw2akgU3h90s6Q8dAnrX5G2Xr41cEAydVwmCZjkqhkY50la2R6Sf2jjLd0_G0uY_tbypHlbS8MGs2DOs3VIyd29n-xcGx8DjmCzsHz2c094B1pHiSPK1p559EcsJec8P3Wvi3GO_xE3FHD8Ccs7ns2JU2z9rzYj7ECxEUm-VnQV-_5Vf7Dt95Pfhz5O19ZC6lhn6FBVtAOfEYXvtDPnIbaAPkL19colVvZaLty7sUtO-RusRT3132A2E3qdJFH58ygaSucnukI1Q0yp7HBKVZha3aAxcCNbhME5HesDt11mrvughs_qJ7QgDuRWMKuyE-ncejzE-RJqFxKrT09qDHkkXiLwN_6SZ7MhyV7dpKm8BG7hwiR1Dn4DwsK-3aE5jMnUraDkaoZyOdqh3wvSmrXl5aiYjtiH6z3wTZ2J4ygyPc3MRgyP92_eMdAld3Ohunb166Rn3J1oGytLyuIDQttk3btg8sJ1hpZuakaufx56i6pNKzSi42tjkjCHrpr1gBFWRPrp4NNtPPC3454YpEbfRQhXKLU_qbxc40BLFOXw5z7NGWAjDGpRuUuV4GKW02XqmkSd0r4Gv0euFmhjzmFKXcTomsGFB8-RXzxbCbAQGybiqBP0Q87U_pusex1NDOJ6m5XDOVubBO_2Y0v9E6BR6TIOhEsKq46EXoAl2Yso56QYIy5krJzPnbPKpihIvIe22gzln_nDN0QHXcndI3mLHGh78BmvM3pDUO4K3z0nZmCWBWyr4zAYjSAkk7rT9WHDoFmdRg3cXrL0XGB7quMX8LJAczumeb5fluY7ezpi-z5_be0jOv1GXgjUXl3FK9CmNTIrFtxz7Oov8W5rVhsV0VqbnIN72EVIOkUvCr8hfkbcOEtc8FJ3dN57_JHE11hDwxXFK72kQbwTlSNQSIQcgzAHdU1qimS5ERBRmHie5TMtzW542auffTqKfS4cVd9BApUDtUTX9kkjfbIQPXEJrvSzEvfUG1x15TWupPZWfOHJcnY9VWCKCmznrYgDGRsdXIpdnvtNguJeZySnU4vB262_cR11g5ks1GopIo0iNxQMstFktW-TFzVItdPCBQj2vBQgs8ck1Rpdfwk6WT1P4GBfItZc68Jd4YDDEBUCh_mcHitnftLM5LCaddvDBCIzyRBNFatZIvL6B_h8ReROsCgJZFOdZjtcbChLCLvRQbNvAs2vOl-Tw5ibSl_c0CPjPMP4jONeXcDV5RJSKj3c4tjXuXP4Hv27tItAN0WdqdLykR3zsA_3Ct5fz14MMDIC7uLiO8xK2pgy_GFuMB_p4LrEzQ4L694A3wFM5_vWG7zOUD2v9OH2_UtaR9v6yIxRSm815M62gUuoR0zfVSqG9r6QyvR8mzBVE1VZCq00FbYkhmPYfKIn7pEbEneJHUbXO0pKo6CXsezYrOj1EQlAK8XEud_2vhGQ6ZMrgbvwzdql55XZcBhNe4OHGHpyEtS3TUfQvLGmJIFaRrX7oYOUCG2-yPYSEJj-4jz6-6WU4uFjLfAyvfAY-XHTdpU4lanwllgU7PMDgymNB5nXn2qD3g9B_6Ub58J3gZ1buf7W-xB8mBbo_i0GFC8Jc7mnKQ9XDuOvpAXq__y2aGrZwjmMRY6OpW44PWYu0s6dzk3vb7pUPeoBpGw1ZVrL6CBlnODy5kRM4BEKXmnTj1HwWe5fU4JMYnLlOxWrRjnzZ1NtokOs-M3NgbFyBfuQFGtj6NSwaKiY9wSw_kMlKxcrldC2suUbp9MqfPvlJOgAmGh0BVHJoGRfEs9fQWw3kvQYDxEwwmWQ5znJMg7lK0VPch5zc3jspP7qfW6frWaDll0eFqLIk54uX-NbwZquZIc-g_OcVlALuOzQxtoE-jF_53zWOHiv-OB6JpRiMGk43HMWwOHqvB4iejZPRBs1kYx3CBDfajJ3LG6Cs7mt3O-jBt6geWkt7d3dnRMRkwkZ8G4JImoa76h25mu-QR8445Q6FYR-s5f-U71v9EXUe2NquZgbJyVcZ0BhW-dLZfTd8vBzCd-QEE0DuU9tWaeZCrVIjSLZVP_4_6uO3aBQE1JnyKjAuSuxBiDsRolJlfAPy9OA4V-8FaIOf3m9zY9qOv_nXhQFeS9yE4gxKxu3RZplnkKoVjvwHqbg99_DdjcZ8ItfPBUXHiOjwotJFbWDW7PhB6uFEA9tLH78P77C7LHKu11kJlKksCw4Yax4wRnt9q805vfZmLeOdP4E_ZCp6Shgaq3EUk2Pe2qmlKZv2qr3ZALn39s12A8kPCrvA3cm5juDZzXbPkH50lDwfNDH1NZC1SWD69jXMsovRIvQqKERlYpyMduDp9xZpPvJkwRc8HafT8dNawdHVykhPVN8HdaJceQeb7furXKHjojzo5q8p8AU-tn0nfZkw4i3AUsg-HrwbqJQ_Oj-6knRN9hcbrThOHAd-rP1zzYz9IRH5QvBSeGag2EnefoEOuAOWn7kIq8O-T788CjOF3Q91YQgtGkCC8DE_wUQna6u806xSx7gi-SOtgGLMeCk_8E6CmBJUtH0QV3Y3uHCey9IIRvRf4BfB7kUDyVFVMmrsx_fq7jqE-g8Ij2oHe71_nI3DeKIlgmj1A-EhFWJ4UYcC-H92HUakwZN55NDY-6iwUhODH7h_GFg2EkILppYTL0i4yS0ez8TL55SEdPXnynHdzpfX8xEv8wFZ-bINleTLFKXXaHDooCvGGXSKAIpDDiObEjI2gEeQF4WzI9Kyt2nmVa7ghBK-_VqhxQzYW3GFGbD0ZoRH1BiNK8kQF8f3g6Z7Ybv855zYyvg8Vv2r-_NUeRAO608YfnIX4CNZdiC3pEeU6pQCjWqfrX0PyhsuLZHCZ4SWbQmpzn-BgZETgt6NAyWLJ9-SzDZ2zdaw91RYJf_ykwIG1Mn1yuJ_hw16lLTk8vzq6rszEJw3dFh_EevQMJxZHNYhKOTWaGpJ-1ulbv3AYiESGNkcPJRsMAXJ1kWCj3HoEVDCp3oZL3rP78UQNOMCE-mTwaMfTQY_6ijLblhRzzoI_llj5nqf6FAT5fE2nGTMPnqOU3HEPzohqZVy29JKLyzRj2rGEZj3pYciG243u2lkPRJohe4xWoZhRdznVVjY2_oAly4HhED3IhjasQqnam1kttaxOehPi8605CuHg4w5Y3UYau4sv1OU0qHXzOMAuRaEmPJv7295snpAp4H4C_oY-3ejfurGDsLnmynqsAtz02wuNjTOhHgyRPFRCV1U0_l2LR2EDnQJRLScHZunMoF8B74r1aupEQMiYXQoQDJIutu6Q6wkBjcgB0pPQJWalyAonrRy4lg_dwQAvrnIX4pQHlzt6WPW6aAPEA2LT2HAEfIK8xv1p1kV6EzmQf_oRlocDGunTP-oppcYaKOb5vb2p8svRrE4fbPvpjK3Cel5V3zLYGpQ-wJBPDFEQe0cFVEy7Tawc8ohsepX8ur21q03u9TNOdhPX5_sBDSjy1KrxzYYjUzLSoAmx_ZZMAydLepPFax2db6dIxJD_K1gJGufKvZNeYGRcPibc7sJ_2vLsmpsnJIEF1dde68TL46pTO0fkgyHCGfk_iQJuBitA65cVVpaMcgRYVGwu9RNSxNwFebzpP-z4798WNS7RxB1lieUX2Rflkle54JPW4CscCRfhOxLj8_j5zXno_QIYgSWz_Ocdh4Jy8GLZb-92SWX7OS9RBeRXb0T59f_t7slLGDYyXJXKUDOG-kkuDdLOOusWzKEZLicS5nLCngtB8H8nLp45MbHC3ufrSbtUxDQtAYJsbaOkDtrH_N48J-3cYyEEuWEV91X7kNc5ENsWNv6N7YsIJTXstmyd58Fr0k_-Gi5NtZQkDBnEviUeRqpCLKNY8VT89MWEiXX4iQ7MFmPt5dmW2ZAghRP_q8FVDxQPf1rBIgdi3-uxPmWPTAaR0wqNaTDDGFvh1PtC7B39m9O1cX36WVkm8a6kz5FoUXkr371n9HsRazV_9ZQu9aI34h_9Rj-3J9KkI1poGHpWru5LUZXgU5EQFi4vQwLrbC4iKaWXNuwpsJlqvJqdU8atqmJMdp7SEmP-ka1PuztuK2wybS4n5rhcOrQykdiT1xOLEka6Av7F94DjBn1qJiZVbQVuoqhWsmljTrfv56rYeCFpOy3OyOEb0mIqFbGVzJyJNHb6F2IgJ9z3ek8KSyb_ia9qkjvUtay3Ug9-OFUqm511_OftwYQL2NsHdjtC1itBdYT9DzqjKD3DuqXvB_dJc628_3SOv7OMmNk1u7ZM0YC50w8G5KbA5nf1sVP2_EFIGtJD9X_SvREF_THLsB1fs7ElEBaDhGvxR4iB4RqnEYnM56ShxmvTPpdNV5NQKxMvZNHHndT20hHgJ33VBjyMTrufytfzoFZKzhtEQtaLV0TtcngHZ5IFCoNffryfeJaeyT8PyLiaqAq9-f7kFcvGlIZEXgBYJN6y61c6TRsMiYslNDyIiUVOoh2hye6Mtc-Ac4-gBkmJraXFqus7Zfi1YXRUmf25n7rhmnw0KHo4XgQyURsevzT-_UFBqOg8f45a7wjDnsh1Za72HWatU3W8SYQxJk73f3WfoRU3Xs2UoByUAS_YmAgUxpU4x0t0QjOwVu2Gw2VYIC3Npsl-ay09iMlEUg6fVnX1rG3mzgP1NhRrHQsjqm7tXgZyMHihY7b2XS60bgEqizdr4le_ElJBBKaiYYzCeY5iZcTZKl6bmuINk86lQPTKHXXdi3v9wPCFvRjCSDX4ERY6FdE5q1YFhUNGFIWdC3J1q7pzhqpw9Ps0rJIyoAWaTsBwxbs_j_DJb2lbI7BMsAT8te7JO-sfFRV6WPojEV-uDTfhP7mGbqZJ8YnlStYoGTx8oir34Cm4VuH_W7xXAhJZSEN0qO2KYym1pil349wxHAxKY7LYecK8bi2A0-ef4cDE2NsfLXJhRqyjeUUF0zsfan1RXs54B4q0MMNTkeJ1DO6b_DNnv5g2EZEzHlhQuASjlUr_1qGMDhKQpH5oy6Exm6d068LNgg19l1b8WCqyZVj7Olhr3yWok0WQ0kmmmFeeyiCSNU1l3-YtA5Ru7PM8Gpn01ZYARe9jj50vEiaq0B2sWC50u6m7w5vBVcnkwFbyGc6mGpjCf2cOOZFq8WkY8w55-mfSKPNeO0yz6cg__zNX0_AWuJN8UcX7kKIO01WRXMY57C92NQwY4bcinFdceGxdVD1oyOAbQGT0W9zTyNJP3RnovqQPIimzmC3Ywf89LuDew8-fNWq6W33jlO9lSVRpmtwitFvK6dVRiAmz1D11sgyQ_vRttN60rq7B7EuEjZkmwYXZSF5k3bE9vWUqpwLY3LxIuoqVDupTEU-UoRySaJqDiLs9u0jTzCQl3C1LnFtGdm9QUvl8ALPbhnkpBL1OuToK-qbUcQcuZzLKvML-_QJUhAlHXKexcXclzYBvwfTmmfLakCrDBVwzZNdV3zyQY4K3yxTQe6M0kUQgemnj8EkZaWw-4KMb_orf82Lrp3a2-fAzyc7ShuhFACyMVxYSlLipFnqPQ3-8oT30U141EwN1EL9C6sc5v3nCE04zgVsw0s628fkI9GoH_HvqLTvILpmzjnS03d8y2NYkU6Jr0keCv5rtwlEKf6P55cOt9_WhcZrZvbKId8QfEINTii2q7RcYhovekNdjY9NAswZOiRKiV0hqbzFrhWRKBpiMTlzAJ2NYnS5MX5YpDS8KdeSzUvLvPudFmqr1j3_GrNUtdz1tbM73dOZyNwaroJHzXbzm8DCB6dUnBgc9hBLPC20m_CbXFmEdM_nVAvMtBi6Yf-mgI5YNai_E3UfPibObBZTE6BB470D047-9bzuuCvv29PeaHy7JmMdLPVeCAH4TdHR930Q2MQQIZa2rTulyG64Eh2jmKQZ3NpoMyMsKDcTsJPgVi2a6kmtVuYZOxSYLBPvFFgpRftPd7DAsAX136FHrNfrm8imPo31st4SlAogeajgzghaMrG76cCb2DAL0LZD5NFmXpaTRxMXYJ28q48Ww3kI77zCjl3qApMgaQhEIEvlCmxkF_H8omLdxTDY9S2OQ96O-78gbyJ4UHsbb0B7alc0hQos7sLJjWOcQU-UTnMRN5W4wMU1EaQvX5hBnByzs-g62txkgUgUAdfwMO3cuL36idltGTpE1XBW0i94X-40RfS_f43FepNAr2cHZXoiuMe--CDRFJWrwUwXGehS8xwGaoyJGwpxbacdZbEq7ah7pCQZQDbTy8AufJCE8ReYBJVcsSxyaU2A72iYPJ-fijLhpWk5ArEoiyQMT_TLiNkGxxnWbOjD5VNkqNfCVEH_qAd8wPgQdZ9prJyxzn8LI2nMmx9NrIhEs6BRxcw0iB-aWggY8bvN3AkF9m5PSjJ5gJCdCRftXNrw17wDCiGMcRWICRo46j9U64L8yu72fFWPF6uSvWK2Rdu7fLA88hbgRMRprxEjiT6-afGw_iBgxUNJp1FVMigCggVJq0UoFcvQlGDcbCYTh9RkNhMREAxpScmkUbiGfyUi5Zl4G3aPwdVFUlb_tM2lw-MRkV_12IAwDz6AeR469k39W1-ZRkRsBk9HWnklkMuN5w1GWcWK1hlI2KQn2yoSpikG3vFHgkBdQckbV4bBscc4kZTeOYQ3W6OVBJsLxktxRsEqQDmp89xjjOngpZZYfB7sBUU_u5ti0u1_UW-DrdVxdPdI0mQcSm6Jr_Be0nsVg3VVjSV3JlaaqKT0VYiJMtaOg_AkPr5-xp-UWRm9OLTB2GgHvQddGj267yEkj_Fi260-pwj1YPYsEG10-UMVb4JFZQKZsBKOtZQ3oce7PYJ20OJJUpY68EYx6wSTTC8NTbwjMsL7zu5Th37938Fm2EQrgbHI0LMfubabCQjDMHPiqmk62Vqw4gniIm6F3JmYzyVOTVffWy6qj3Feyfry9ZhZh5pcl6E-eNyu95CbqIncJvO8T6OplrlGIlc-ZbdNtjRso7aDuyLHDwthklzCAWIefbRtgwY4qq3gBN2kMUCgkYaMV6Uqcfhcd8y_-cQYAG6GO2XuQwjKj5Qd4xJEbMPgvt99Fd8qEvj9O9FR69Cgu7XERqAw126u3W4dfZFQgxeLpT6cu6M6KuK1lcJ1M5DKUE9BRU4WHaU0d01C2vqRYXLix_MsO8FJnZPPY8R132sBTCRibJoOukRj7y4YENzJ_aJTW7r7zoiCGA-m2Gf7TMLu_Q7-jrWqt6V3JihNF6rzDGo2-P1qokF6q-SIbrTiX4pt-p7Vv3Q-DrOwwik8UjjNPA1d-bpd2FgvnL5QMVY1iSRBlocZxh5Cgq4nclhqWn-y_3P8Xywyz4u07tQU1h40ee0lZ14Qaan4X25nAYB1JOA0oszX4dJR0jduw3u92ILxM5zGV-j6YIMD5E7PhCvrt9oYo2ns2pE9bU1fG4m4oz11oEj4vhhvLQRRTrcy6qBxz6b9mP2B99e1BBrXJxPykLO7MGqmt76LsjAd1T3wp3OgfA5IFCnRonI1BwshfpLz3h2qDLGE1R61znY8OYVo9vufUZ-CHYxAWl0JnyKYoAaoPayzIEGoR_JP0llzy5lSeSdchDz22g7MBgbLR1nMX887lIlr-4Cklv4yC2842YjynQ1sWjBdhqaThFc9hxTwUZkEJplgxFBC-4OihL6wtQREnch0mMYozf1qDCrDSJKB9ZrWVfHqTRRa5O92a_u2fJ47z-q6calhNafrj4cFQQSefSWwrSZgYcJct4ryroSpK82uA_HrZcgB9NlqDNIm0bs5kTzdyNkTx6bmdqlLZfhpix_WQaON8StBCGh99Oc8QBxvLTfvRDDkP25kJBpeTNckmi1jYliBEbPA98kd8zb40wKxs9zaLQs1DQhI2dRmCfO8xZoljsTS4ibTTyrf3KBgUuJUqjFcTF5duNPRxcPfZzQjnLFx6J3tRAw7wXtmyewz88XFeNVe0q8l0_7BxZ-Y_xULEomPbnkAsP2DXxtqZR_x4lGol5ujfKOHyAMugMNwo0dtI-s1wuocb3hCnwAGtDlSF8V-Yhj-DBu4noJ740Gh9L7aBe2WKHz3p0vZKyvBweMgMHgpnflfvBgw3zzrY_X9-AEewHIL6c7K_6CT_7O0gevYYwoJ89Cua0Aae55AWxwZwdFBzM8EXF2IEfwc2Md50fubRHaZtwAF_j9msN75UXG2f2c4YLKFkUEiDqgRLKUkDW1Kd0mAkRmBPdZViyiTrnyGxgOsJPUG0X1cqYoctb5ObsPEhbU2V0YB7c7MRiwMNnuSRjuVsV-SwpJ4k06BX_kHLCROXyeLoW-PETkhF5v-tZf4LjwFkJbiXEmFWH9eYsDdPCevjB6RC4cThzBacCDfTM8kjOtEpxFEdHnG_8Ea7aBZXkCo9QeZjZC7V8i4sFbOmP5u48mLqSSCBJt47ayov8Ediu0sFJW0u0QeTJSqZzxLLS8TYzvDV4P40ZyoNq0B7WHFOAfwqhyxMFEN0iZexRkwafz-DC0gtSzHAV_48KC0VitPvG6E1H_86ushvgC0Ytv5diyQp_HWiz841wj5y_mvV3GmFIySTBz8r0oRNybV0JK_2aPxYN2wmkSnZhItlHEBomZywgPpWLQPQl04Vfxv5564PTRmplNA-siaOaX7-I8FuaYkzADJ632GpU_J9Bc6W7ROY9Dhgzs092zfHxKoZow919I1dRNsXyYUfPJBSCbvqhtBGZfV3PxPburBs-5nLnTJVJKC09MWLPKiYqIov-KTz4tku0mAV1cVQBa24FodE7GJMioZx4jvH_rsv8qNXVccK81gJodcoOSFZhJN9HYXj9djduNICUv15boQV-ztVIpYXNpji4BnuiUKl8HVFQYjniHmAC2_ygYXAPKD1Oot8iLemVDPrnp4vhooKFuNUNsLURo_vC976JhByuo8KXaErVKuZslzrioqsaCEO4KRc4xg9_y9gdUsfih1ePOi0hR3VPm-5SXWpI8NHgmP-kvf5BAW4eTPfZsQ2I19Jp4OLVQK353jvlTqTM7-fOk221vOZZnMs_ybeBSmEgmLdn4nKXqEW65g8kB7U1Ggw6JfPMoEq1LnpTckPb_Dc541ksn_-CNre5d-eKAo6t_nYVluHpF_7CUs0X46iFyhS7X28-6fdU_SGP-JkV3QdqEwqUHCEizxl773keTsESVrQ-DuiCVEWSh9dboMTvqy85lerDpFBXoGsCQOvuLFn9oLHmgNDZIsdQ4YN_t3GR59G6ISeY482tjKg-9YR6YVaMLpWlxdsp-SAZ_H6nkI3UfvAgztMwLys7lQHpUOS_2CsHSQB-uVewZfIwTqslIloHTcdcx8uAubtXRi-7OQZNhEAlQXWhA81kgS-Aman4Wi-H-nGJKN_jWKgVflvxL8j5_yvhSa1sg_Xjvx2OlYioiS27DQKoJktUkv5dqtTT24GTheXTFKPp3Lqm7mdc8N71kV_eGHdQi2axFKJPYLEnlHXR1nc06D9nhzKtouMFp3Iwn6OtAYURKaKPRZ2uFHVNKRwnbBhbfCeUUjLpIry6D8iLxngwJ5M2U3QO697UlBlmDlxA51rWssP7W_zAYIBAgFkr77HK0ojZy52ULPVsMXX9UgC07zfWunzj_BSipAl7V7mSCdfKZoFsuWHBj6GI_enOBWRhxNxOKjYc-kpYwyyTSvNxxIKwDhhE7DZLsQd6SuME5qZX7tzgSmhr1nvbEt17p4kH2oSZfms7YpnRctthgwEzvIvoIivZDH_TUaDF3i-jxtUwf8AUh-qgLKzNzjH2l_1EUI47r0iV6wgmTJK1T50baf_eUBVIlx1s9C4jJ-TgeBJvULPwVKMuwd6MMeXuoDiMxbmFT7EXckjRAC0bUlmLciAtWnl2kfjyk99ACfGsaPCCKSz6WjsJ07YmQNepwMg2IvKAkV065Ftjatb2bozkKfngwz973U-h-XnnMPwLIN5HuxZXl8vsJhMiZMOMCOE0Rvm8_FRF7OIl3avCVWkPLkTi7y1Dv7CAbmoQQOUBcWxNj0I1SXpC5j_ZMITjorucGQZpTSud1lAc_6Cz1By9pMeLuOuy8g5rRCHxMlJB78XIS7XznPY9qr3qsZfMxFjIeAfBlrRiGvizeYJFiKphdLmO4ZA6dRvtSwkbV8eZNwq67J_osQO8lrHSYvCJTd0ugPatJJU-zh5wR_LJU-29C9Ed_hBFHulATksCC5c7jmcwF27u9yanHuKJtbHmX6cwqsCTuTOmHOkSc3oF9foUYHQjB40zerXMhhHPhU54ekZeVAZWiOUpDX4kbEiJSW8Bp6lOuIOxiyD3lkUIhy8bxDDevpoPH0u_9urEOWQ-IEdXcaSew9ShFnxuZDotM727XhjeFKVEyV8cZwBhW0sE_w9r4l7eJx0-Oa3AwoKx3UI_eahctPceYj2_ejrRt35B4GwXIoQiI-wUvn6XwVIuwpobCyJYFq4y78Y3vavri5vLvzG3gKCrucfhH4bJlC6TAEh0o-JfaiS1kKgbCrF4_Fg69UWH8skgDR069CIVRBGM2BPZ_-dnE_tI8yKtVpThmqR_JRMN6BcAlwqVLvb7c292FP0EbaO6uisjpR3_YdqakfcMpbDAAIFyyzOiMhx3fsm2Qccf5NtcRTTJWu38K0Y7NjtNbXCOsCB7ijsKDbwz2HSmnBNua2zq4Y8TDQpPuvzbCfVvrGD71umGAfTTznAnpgQv9yPDO_woYjEZBrG1cAMyiszNRLEJzK4_5x4bLoSQhdl9IiqSceV9E9ZQ5lYPyrC-qh7KVgElKGLlFFvDcM6AjzBg3jSyN2cxDMrqh4TNxqAjlNSSyDNZuttOBisSD5yXrH-imJQ0GrUGD6LqRVtkv68tocin_aBvOqvR9YG91TlAFqhH7X-Vp7m_1g0h9NvonnBzJP-rVppmrdxPEGGatfKQ=="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-95fab783-6ddf-464c-b0b9-380a8ec6e445",
+                        "args": {
+                          "query": "SELECT Campaign, SUM(Cost) AS Total_Spend, SUM(Clicks) AS Total_Clicks, SUM(Impressions) AS Total_Impressions, SUM(Conversions) AS Total_Conversions FROM `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard` WHERE Client = \"NPI\" AND Date BETWEEN '2025-06-01' AND '2025-06-30' GROUP BY Campaign HAVING Total_Impressions > 0 AND Total_Clicks > 0 ORDER BY Total_Spend DESC"
+                        },
+                        "name": "call_bigquery_agent"
+                      },
+                      "thought_signature": "CrUFAY89a18m1LIzVfHQWd0-e8h2hRhARfXRwPmniie3dD_cwZ7-rmxj7H2yLl94li0c0fBvvz_7cFOHS7uFGX-gFOC9PusZJ9MEAhlDTjn8kPYs9JnFy2c3-U2hPyyKFwq6LdJ0aJFBFhGHHbLP_Cgg_5NlvCSs4TtS6Ax_Sax2Qq57uzKGgtqHKcNT1oK9My4EuNxbU0q0omiOUTDwWhyZDvFraxFQF8Z5OaCJ5KojBfG_Ut8tSBcpHA7rnBr1GsngbxOOTxK5i12txUtDUWV6XwbdsFGnk6ptKNbXIWa5un7vy9VqMzTQVumV8dkPDJwLe4D5YI8UsyCHaZXNYBti2FakQ3iirUNJCi5NHgyARglLfUgWec6yQP-2rY75Ls0k8oLauHtu3vPc4oPLaxTDh5iImDifpS92l8OOaAohVbZbXr3gpVfTypcDGeeKRNyvKyqZmQRdHTGGq84vKVQ3YRiIboM0iOt8fXcfMciMK-_GdEe4TZKAgUhlDa0jwyno5M7TwurIdY1YOzesYZGWXwrQfbS0eu_niySs7VjYq6g9ruWB35_uA2opd50IOkkrNdH9IAaAiqxNIEODx7hSUAO_M8CTZIQjEO8oGNkTbojGEcD4G8hYYgR3JI0hbxuYwCQImrZwGi-cLphNJ_f2hSh03yiGgvhPXyXfrxbMcp2pk9eZTJ1J84ez43XOx10shqw9dJRe8sGaXEaF9AyJu2W5B6hT_4g3dVzGQxpdqNn4QccV4bzSJlbV80fyLz02GdAnyd84o3Yo5C-VOqrIjTnn2NS6-uLSR_tweKV_z_kvoYtwKjoJn2ddM9ksj7c7ImBuZnrXYuJhtxHGw1erH6Hi0gd5Y8mnxNELifsZTPwH8SiQkY4asRtpO33OyhDup2fWzTms1StiJLemku0qgso__LFT"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-95fab783-6ddf-464c-b0b9-380a8ec6e445",
+                        "name": "call_bigquery_agent",
+                        "response": {
+                          "result": "Here are the top campaigns by spend for June 2025, along with their clicks, impressions, and conversions:\n\n| Campaign                                                              | Total_Spend | Total_Clicks | Total_Impressions | Total_Conversions |\n|:----------------------------------------------------------------------|------------:|-------------:|------------------:|------------------:|\n| enb_int_soc_mlt_usa_non_all_tar_fbk [us - asc]                        |      785.42 |          605 |             39351 |                 0 |\n| enb_cnv_src_brd_usa_non_all_obs_gds [US - Brand - Bahamas/NPI] - Consolidated |      540.73 |          319 |              2651 |                 0 |\n| enb_int_soc_mlt_usa_pmk_all_tar_fbk_[us - remaining markets - intenders] |      526.46 |          524 |             24123 |                 0 |\n| enb_int_soc_mlt_usa_pmk_na_all_tar_fbk [us - down markets - intenders] |      423.03 |          821 |              4422 |               700 |\n| enb_cnv_pmx_mlt_usa_pmk_all_tar_gds [Performance Max - NPI Linkouts] |      347.01 |          643 |             13162 |                 0 |\n| enb_awr_soc_mlt_can_top_all_tar_fbk [can - top markets - awareness] - eviv |      247.30 |         1896 |             32380 |                 0 |\n| enb_awr_soc_mlt_usa_top_all_tar_fbk [us - top markets - awareness] - eviv |      223.01 |         2057 |             16003 |                 0 |\n| enb_awr_dmg_mlt_canada_top_all_tar_gds [CAN - Top Markets - Demand Gen] |      191.50 |          489 |              8302 |                 0 |\n| enb_int_src_ctg_canada_pmk_all_obs_gds [CAN - Category - All Inclusive] |      121.25 |           62 |               932 |                 0 |\n| enb_int_soc_mlt_can_top_all_tar_fbk [can- top markets - intenders] -  |      120.20 |          142 |              7765 |                 0 |\n\n*Note: The results are likely truncated, meaning there might be more campaigns that fit your criteria.*\n\nIt's interesting to note that the campaign \"enb_int_soc_mlt_usa_pmk_na_all_tar_fbk [us - down markets - intenders]\" has a significant number of conversions (700) despite not being the highest in terms of spend. Many other high-spend campaigns show 0 conversions.\n\nWould you like to investigate the campaigns with 0 conversions further, or perhaps look at a different metric?"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-2577543e-1d2a-4921-a180-06905bc1c97a",
+                        "args": {
+                          "query": "\nSELECT\n    Campaign,\n    SUM(Cost) AS Total_Spend,\n    SAFE_DIVIDE(SUM(Clicks), SUM(Impressions)) * 100 AS CTR,\n    SAFE_DIVIDE(SUM(Conversions), SUM(Clicks)) * 100 AS CVR,\n    SUM(Conversions) AS Total_Conversions\nFROM\n    `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`\nWHERE\n    Client = \"NPI\"\n    AND Date BETWEEN '2025-06-01' AND '2025-06-30'\nGROUP BY\n    Campaign\nHAVING\n    SUM(Impressions) > 0 AND SUM(Clicks) > 0\nORDER BY\n    Total_Spend DESC\n"
+                        },
+                        "name": "call_bigquery_agent"
+                      },
+                      "thought_signature": "CsEKAY89a1_oe4fplbjl48T_oEBes9GxsltbN_rmDi9x_kM9WjLwUHCeFaQN3z3pZQ3goV545wIhJBMXSBsuSBuVCiF-dKbIjdtSmcetlkoovFDxIG_dWc5IIJ_ubrxTS6C23RMb1V_v-1S1YSAtYp7Ph3WVLbRNWYM0LbcJeHw0611xwTvLG61VCXsU0CdFosVyQMmTDFjUccHEFEVb2O7-hGW8rViKhWH1OhV6eKW3sXo3eMHz-15GGCAHBZhPp5d_j9EIEiE1_zuPUu7vXyBFFNF32JieYKwfXfGxu-YflbmVa3j-P6s5WsXIg0BqHGl-2sIipjuN4de2R3xIdR-vd_mTdElsT3h1OcZKyNhyZAFiCpSaGLt1kzvWFB3rHIJAxkoY5_yzvRnYzlsOk8mBeRNzs6y9WQuw1355k4shHPomSlc82XKWn3aR7p3ZP0h-bBCXJQwBd7qgZUit56YSgeU_0PaZkT6GMvdPGfPcKnlHSEAy7tt0L-7de6RjC9yPn3g0GOPqIkUK4pUTDfSHJ8wiKPbTpYSj3g2xvb2XAiez_36QEqD8nfXZCJgQAFzAoq1Zw6ReKEf9EfrXEwGwvo2G3Jc1ImzIV7Hg2hjNrQ8aJvpks6Dyd917gNgiOCogOkbl6Bwj4LmbUV36SEcHL4nJzadysGE9PSnXjJDOiOUO59_uRIHacgfGTYZ-yMt7pV4ang-4Rm9U2HZiF-sygSTF0lbwdBB0OWpHpTrkds1gjtQA9If9rEKAoWUr9DJ5oGl6y3J2PDV-4heW5SamKrZte-kbEPMw3ZOr6NFr7Gh3xIFfDsO_Ez6-cJEaXbjH8NcsT6MWm_ENIuxGgH1VXyHaFZzlue2vOzORudLh0f1TiZYUTUtAriN3VqbzBS__MfAxdg05GhM64Klj-CI2Eb0GUf4HxqLTr4r99XqDfnKzRSmTKX245fi-1KR0ARyyG8qUPzxVid1Q3FcieHuoUImT4NJ2GAXzMpJ2feWJO5C6uje3hZ3fYksHOfqjswBoQExTq6VFjVzK4PKj3-t74Agxu-zkWfQrv46xr87jlDprHbVYleZwtc1UIu2ktK2Pcl53J83BgtSdul4dN7ZjrMRSqEvcwOzHok0BXrx-Ln8xiL9CV98Bn49NfJsvY28ZWIgpCIst_Toc2QGzFpgQfYmbu8Yz5DcxrYXl5vkiRMlBul9Y2f391KIf83xIAU1HuR9sCvifNNeFsH_V7v8yu-1C1ESXskGC61T5575aSv3dDSTn4gt41QYwaBmm680UZGKX9jrYfcF5gza3qY2k6LqlBjeyRgHHPlYG7iX905Nmpit0sGtEpR9RODoMIImV-_c6L5FyuNwrUktqyS5JQ3AREw6bc_A3gSI8lOL8x0JjD502gS7wdVd6HpLmykQ9B0YdFeYJek-U6Qr-JVF5tJm-PW_enmCfs7usmp9WchdAFD8BRGJxVZJqNf5f3Z-cvmqGKa8AYcGRhjpZ6OExvPTUK45d_5GQGagr9RBU4LV9MpBU9Q1MTB0NmB2Egxu6hrkkr2X8_oCvEy6rCfqqMODgKota8VQ473JJOomMN7pfuc7YF9PfBpzbBjEl8nHBOtdXQeZ3lwYV6IM19EDNkhbzrOTaCMVbCepELAonYyoBYCO_vdYaww-pTchXkMt98JUMjXTu_vh0l1RhczqF41PJLCSTXOgWl2X6-VdhxkQXOzkTGSVCTcAZwR9KZWnbcwu1zd4DvGbrORSCmerTc1MzcxSQRWCjUNIvFTotXRKCS-Gks6K7dTl46wn4C8H1qg=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-2577543e-1d2a-4921-a180-06905bc1c97a",
+                        "name": "call_bigquery_agent",
+                        "response": {
+                          "result": "Here are the top campaigns by spend for NPI from June 1st to June 30th, 2025. The results are truncated, but here's what I have:\n\n| Campaign | Total Spend | CTR | CVR | Total Conversions |\n|:---|---:|---:|---:|---:|\n| enb_int_soc_mlt_usa_non_all_tar_fbk [us - asc] | $785.42 | 1.54% | 0.00% | 0 |\n| enb_cnv_src_brd_usa_non_all_obs_gds [US - Brand - Bahamas/NPI] - Consolidated | $540.73 | 12.03% | 0.00% | 0 |\n| enb_int_soc_mlt_usa_pmk_all_tar_fbk_[us - remaining markets - intenders] | $526.46 | 2.17% | 0.00% | 0 |\n| enb_int_soc_mlt_usa_pmk_na_all_tar_fbk [us - down markets - intenders] | $423.03 | 18.57% | 85.26% | 700 |\n| enb_cnv_pmx_mlt_usa_pmk_all_tar_gds [Performance Max - NPI Linkouts] | $347.01 | 4.89% | 0.00% | 0 |\n| enb_awr_soc_mlt_can_top_all_tar_fbk [can - top markets - awareness] - eviv | $247.30 | 5.86% | 0.00% | 0 |\n| enb_awr_soc_mlt_usa_top_all_tar_fbk [us - top markets - awareness] - eviv | $223.01 | 12.85% | 0.00% | 0 |\n| enb_awr_dmg_mlt_canada_top_all_tar_gds [CAN - Top Markets - Demand Gen] | $191.50 | 5.89% | 0.00% | 0 |\n| enb_int_src_ctg_canada_pmk_all_obs_gds [CAN - Category - All Inclusive] | $121.25 | 6.65% | 0.00% | 0 |\n| enb_int_soc_mlt_can_top_all_tar_fbk [can- top markets - intenders] - | $120.20 | 1.83% | 0.00% | 0 |\n| enb_cnv_src_brd_usa_non_all_obs_gds [US - Brand - Getting Here] | $119.45 | 7.45% | 0.00% | 0 |\n| enb_awr_soc_mlt_usa_pmk_all_tar_fbk [us - down markets - awareness] nov. launch | $117.74 | 10.99% | 0.00% | 0 |\n| enb_cnv_dmg_mlt_usa_top_all_tar_gds [US - Remarketing - Demand Gen] | $106.63 | 3.08% | 0.00% | 0 |\n| enb_int_src_ctg_canada_pmk_all_obs_gds [CAN - Category - Vacations Consolidated] | $87.08 | 5.08% | 0.00% | 0 |\n| zzzz_enb_awr_dmg_mlt_international_top_all_tar_gds [Demand Gen - UK] | $63.99 | 4.52% | 0.00% | 0 |\n| enb_cnv_src_brd_international_pmk_all_obs_gds [UK - Consolidated] | $62.47 | 8.77% | 0.00% | 0 |\n| enb_int_src_ctg_canada_pmk_all_obs_gds [CAN - Category - All Inclusive - Consolidated] | $59.28 | 6.44% | 0.00% | 0 |\n| enb_int_src_ctg_usa_non_all_obs_gds [US - Category - Honeymoon] | $56.38 | 5.33% | 0.00% | 0 |\n| enb_cnv_src_brd_canada_pmk_all_obs_gds [canada - Brand - Bahamas/NPI] | $45.65 | 13.75% | 0.00% | 0 |\n| enb_cnv_src_brd_usa_non_all_obs_bng [us - brand - accommodations/vacations - bahamas/npi] - new | $36.85 | 1.84% | 5.71% | 2 |\n| enb_awr_soc_mlt_usa_top_all_tar_fbk [airline - awareness audience] eviv | $35.40 | 20.71% | 0.00% | 0 |\n| enb_cnv_src_brd_canada_pmk_all_obs_gds [canada - Brand - Getting Here] | $33.99 | 14.43% | 0.00% | 0 |\n| enb_int_soc_mlt_usa_pmk_all_tar_fbk [airline - intent audience] | $32.77 | 0.94% | 0.00% | 0 |\n| enb_int_src_ctg_usa_non_all_obs_gds [US - Category - All Inclusive - Broad] | $30.11 | 6.33% | 0.00% | 0 |\n| enb_awr_soc_mlt_ukm_top_all_tar_fbk [united kingdom (uk)- top markets - awareness] | $23.13 | 9.94% | 0.00% | 0 |\n| enb_cnv_src_brd_canada_pmk_all_obs_gds [canada - Brand - Bahamas & Nassau] | $22.83 | 9.09% | 0.00% | 0 |\n| enb_int_src_ctg_usa_non_all_obs_gds [US - Category - Vacations - Broad] | $20.69 | 8.33% | 0.00% | 0 |\n| zzz_cnv_src_brd_can_top_all_obs_bng [can - brand - deals - bahamas/npi] - new | $19.92 | 0.98% | 0.00% | 0 |\n| enb_int_src_ctg_usa_non_na_all_obs_bng [us - category - top vacations] | $11.72 | 35.66% | 0.43% | 1 |\n| enb_cnv_src_brd_canada_pmk_all_obs_gds [canada - Brand - Accommodations/Vacations - Bahamas/NPI] - New | $10.11 | 8.64% | 0.00% | 0 |\n| enb_cnv_src_brd_usa_non_all_obs_bng [us - brand - deals - bahamas/npi] - new | $9.34 | 2.19% | 0.00% | 0 |\n| enb_int_src_ctg_usa_non_all_obs_bng [us - category - all inclusive - beach-island] | $8.47 | 4.93% | 5.41% | 2 |\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - bahamas] | $8.27 | 12.97% | 6.25% | 3 |\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - getting here] | $7.92 | 15.52% | 14.81% | 4 |\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - deals - bahamas/npi] - new | $6.61 | 9.21% | 757.14% | 53 |\n| enb_cnv_src_brd_can_top_all_obs_bng [can - brand - accommodations/vacations - bahamas/npi] - new | $6.39 | 3.85% | 0.00% | 0 |\n| enb_cnv_dmg_mlt_canada_top_all_tar_gds [CAN - Remarketing - Demand Gen] | $6.00 | 1.01% | 0.00% | 0 |\n| zzzenb_awr_dmg_mlt_usa_top_all_tar_gds [Demand Gen - Top Markets] | $5.98 | 0.07% | 0.00% | 0 |\n| enb_int_src_cmp_usa_non_all_obs_gds [US - Competitor] - New | $5.48 | 3.45% | 0.00% | 0 |\n| enb_cnv_soc_rmk_can_top_all_tar_fbk [can - top markets - remarketing] - | $5.26 | 4.02% | 0.00% | 0 |\n| enb_cnv_src_brd_usa_pmk_all_obs_gds [US - Brand - Getting Here] - Houston | $5.01 | 5.56% | 0.00% | 0 |\n| enb_cnv_src_brd_usa_non_all_obs_bng [us - brand - getting here] | $4.64 | 1.56% | 100.00% | 4 |\n| enb_awr_soc_mlt_usa_pmk_all_tar_fbk [us - top markets - awareness] - eviv | $4.41 | 10.09% | 0.00% | 0 |\n| enb_awr_soc_mlt_usa_air_all_tar_fbk [airline - awareness audience] eviv | $4.03 | 10.57% | 0.00% | 0 |\n| enb_int_soc_mlt_canada_pmk_all_tar_fbk [can- top markets - intenders] - | $3.63 | 1.81% | 0.00% | 0 |\n| enb_cnv_soc_rmk_canada_pmk_all_tar_fbk [can - top markets - remarketing] - | $3.57 | 2.09% | 0.00% | 0 |\n| enb_int_src_ctg_usa_non_all_obs_bng [us - category - top vacations] | $2.69 | 9.50% | 5.26% | 1 |\n| enb_int_soc_mlt_ukm_top_all_tar_fbk [united kingdom (uk)- top markets - intenders] | $2.55 | 0.60% | 0.00% | 0 |\n| enb_cnv_src_brd_usa_non_all_obs_bng [us - brand - nassau] - new | $2.06 | 3.16% | 0.00% | 0 |\n| enb_cnv_src_brd_usa_non_na_all_obs_bng [us - brand - accommodations/vacations - bahamas/npi] - new | $1.75 | 3.48% | 0.00% | 0 |"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778070707.8843539
+        },
+        {
+          "invocation_id": "e-5c4ccab2-0137-4cce-bb6c-31fb50a0240d",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What does new vs returning customer mix look like?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "**Result:**\n\n**NPI New vs. Returning Customer Mix (June 2025)**\n\n| User Type       | Count | Percentage |\n|:----------------|------:|-----------:|\n| New Users       | 5,235 | 67.79%     |\n| Returning Users | 2,487 | 32.21%     |\n| **Total Users** | **7,722** | **100.00%**|\n\n**Explanation:**\n1.  The analysis is based on NPI data for June 2025, as this is the only available data.\n2.  The mix of new versus returning customers was calculated using the `New_Users` and `Users` columns.\n3.  In June 2025, NPI had 5,235 new users, accounting for approximately 67.79% of the total users, and 2,487 returning users, making up about 32.21%.",
+                "thought_signature": "CtkEAY89a18qAUxB0NavhC9cRhvOLMUBnuXvkFrFchr_KIDK9bfSCEIGY-itVvvDX6WcJFeHy3GBfq5V5c1sC94fLP2HpP46Wn3bNDWrjUFFo5v7uVs1sJcgG3nCaqnw-AqjsKDsIWx-s3cdxAgQvAN_gRewFqTz6gEI1fXeZxJn15js8Uqp6u5cOPEmjIor51uTz1K9Bd8yBA7bcwzUaQQiASKhBTUgv4H1PN8h6Bd_pTjn7eGsPANsKvbNEw2_fbKzUCYNP5sL7D3qwz7M3ZIWuFdD951BP761xXDk611Y9Ptu3KnE15Ke3JzvpH-fk_byZgduAFjMQ14IvOUjNx13FDkvBIXtvJzrv22ks0gnUONPcDiJgghH88UerH50W6yFc5kID3pGqESNIfJlHte9MXeFeG5rKCz6GNssVMs9a74Ycr2p4hTTJ501CfLv8dziA-GkjD9UjL4cTBfqHjdwiaoitWz-iT77O1JT1CB0VHZE5ClPixpQdXOq8eL0bV-lklL-6kdaEnfq_yUVH9-7T79pStX7zu818ERS7ay5Y5Mg-T7UaPAR4fnHGgrESVjK3z3fqU8Y3CF6RcgGqOE5ZREJAIyqLMu_khiOC6Tvn52r2viV07Ox_s2S9nqSTUAmDTmln4JMjjRMcn2NFjWYEdFDH5OwAMS0du9JVAhEOk8pl13UddkF7zyBELE2vQtF1GPtIYL89tiCvtG_kGTS54TaGg_NlbvncjJARmBK3apcWdJPKHvqBURWw4WgtDUL6SP0fbx9L9hMGaXwjKrp1Q5ULcgU8TT2lw=="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-381c32c6-1b43-4418-bb5a-2c3703d18758",
+                        "args": {
+                          "query": "SELECT SUM(Users) AS Total_Users, SUM(New_Users) AS Total_New_Users FROM `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard` WHERE Client = \"NPI\" AND Date BETWEEN '2025-06-01' AND '2025-06-30'"
+                        },
+                        "name": "call_bigquery_agent"
+                      },
+                      "thought_signature": "CvoEAY89a19Gh3hMmW59vfhLKa7DNe_IYb9U-IuGS_O-zZwaGUpsNVYoHDEYPIOOAC1VIYyUMbbt1E668BiHW_RpZq5CS1Hlnk3mtWa73_I4hKkzoPP5psng5HwyFMy8PB45a2duF07glc5nZ0t2exY-92Myc9XIoN87Lx3pnmoy2MTqMy9tR1OXne9CFiy9U0QtiKsii_Oytw8IO-mX7vm_src5v5zOGIvo4KsajTxwZmsauRmZFuInbcrhSjSMw1xj-KhD6vjm8_YThwSp6VFR1nBhLK3u5exLlGbd4ImQYEZbwRB5yjki6uBvSXxViG2kMoMowbqpehJCmKyg4SthgShhjBG1VxlqyuEahz3M1F7Izn-79YeF6yapJ7wi1WbydVErXBp7AHMaA4eH9CZG_1gOHvPNgVEAAN867qTV_MEOdzAgAmE8vbszpYrbd6NgVLmC3ovYOqRA9Yzrd14wDuSyhPpvB8VdDQj2E3p3XDwIctlDIyY3OFgMhuCza5SPfVxUgMAPJzMDpT1hd3g3WVzntnNypY_d2wiO0MG40QfxEejo_eEkQR69cW7wLxA76zwCrXZeirCyt8tW-LtjJNxYdr0peoFZiPVeCea51nnTCdgcFcKtvlBqUuIz5Y6xFJJkMGZW4RR-41mbUAnW3WYteKdpix3MbVTgHNE0YJQgH0Ax_9P8iQ6F6DL0AgbFcJgx8CTS8MvctLMOQLYlVwxKcjsR0q0vPRcbIJs3IVO908heN3gbsYsqNtulbANQcRB1u-oZIp305qQaM7FysBolfMbULjaHug2wTxIKown_dZjjZ-pqCTt4E8YtP0xozQhQJv_dPsB1QA=="
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-381c32c6-1b43-4418-bb5a-2c3703d18758",
+                        "name": "call_bigquery_agent",
+                        "response": {
+                          "result": "For NPI, from 2025-06-01 to 2025-06-30, there were 7,722 total users and 5,235 new users."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778071004.2243066
+        },
+        {
+          "invocation_id": "e-630d5dc6-0c25-4cf5-a7de-e1bb6cfed5d8",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Map the funnel: CTR, CVR, AOV, CAC, LTV, payback period. Where’s the bottleneck?\nHow much current ROAS is still “in flight”?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "**Result:**\n\n**NPI Funnel Metrics (June 2025)**\n\n| Metric                  | Value     |\n|:------------------------|----------:|\n| Click-Through Rate (CTR)| 5.29%     |\n| Conversion Rate (CVR)   | 23.96%    |\n| Customer Acquisition Cost (CAC) | $0.89     |\n\n**Explanation:**\n1.  The analysis is based on NPI data for June 2025, as this is the only available data.\n2.  **Average Order Value (AOV), Lifetime Value (LTV), and Payback Period** cannot be calculated with the current dataset. The `Revenue` and `Transactions` columns are not populated for NPI, and these metrics require historical data over a longer period to track customer value and recoupment of acquisition costs.\n3.  **\"In-flight\" ROAS** cannot be determined with the available data. This concept requires specific tracking and modeling that is not present in the dataset.\n\n**Bottleneck Analysis:**\nBased on the available metrics for June 2025:\n*   **CTR (5.29%)**: This indicates that about 5.29% of impressions lead to a click. This could be an area for optimization if the goal is to drive more traffic to the site.\n*   **CVR (23.96%)**: This suggests that nearly a quarter of users who click are converting. This is a relatively strong conversion rate, indicating that the landing experience or offer is effective for those who click.\n*   **CAC ($0.89)**: The cost to acquire a new user is $0.89. Without AOV or LTV, it's difficult to assess if this CAC is sustainable or efficient.\n\nGiven the available data, a potential bottleneck could be at the **top of the funnel (CTR)**. While the conversion rate is good for those who click, increasing the CTR could lead to a higher volume of clicks and, consequently, more conversions, assuming the CVR remains consistent. However, without revenue data, it's hard to definitively say if this is the most impactful bottleneck from a profitability perspective.",
+                "thought_signature": "CvMJAY89a195XzazCq34Ns08Ep9lY0pCt-_yEmFMQvasRnby0-KCPyJce3nvWTZl1SZSlu1LUAxRjROYXDLFqJOrrzpa_4XA-pIOxvRNw4pDTMUkIMpwk01hq7JcDkHtN0pD8cFBGqnmccFn89gZXhDeCL24MawEdls4f_hboiZvbkSfZnJutdP7wjsDl6EZEb4NMfkESHdgiA1wOgdpV0xpIqy3jSW3sZPnq1awKt2L1xWDeYPljF6BxtxaWs9j-Hky9CpMsO_cDzI6DNRaz5TRFqeXI9tHgK_nHIMuZrKn5qbyq7_0uImt6NtupCjaGF7_JFJrRD3NKVfiQV4MnKexqwxbZoydtqf5UOtewmP5yGvFuWvZvtGLuC-vvkjvOqHTzZsRKH4MqWlnSClGCAlZIH7kVSbKhjZlN2WFHMLtVh0Kdej8rgxKBrCntYbugJiGrCWMckMqClEqNOYR95dX6uqP1KW8zDZtaowBhNq4kApyeiTvn-zAV62PVmN0hcHFlvywLtskCzts57bbY_acusg4bBezhmG5JZSBKbpDTkfItjItudnnB4vN3PiiZKJFwLf9OFpC-LXoKiXJP667aJSXTcXVpva9bvmlgnJ1eTUrRHqWnmpMNPfXP7Mviem8fvK8cvWNRz2zWVuclc88MDihGCnNBoNMzi0w-E82a6kgQ8NQzmzwNx3zAP1j25sc4-_SduLkgO8ROib33V7-vbLyEmVUessimdtL8k4MV7XT-UMJWdJJygKjB36f45R705QrVo1Jj7VFxFu1Mex1fzr1lgnLwl0M0ae6iHXZjaOJsZUXyPipOzsHUYRcMLntYypRq5Y2_EvoWJJ_L4-B9H18ukt2jguFJ_RPi8f_1wySECaPleNNHCHGJzX9HEF843MeXo7v2XiNitOowzYHRzypkFF8J5bbqqmQ1HzyWyDscw98lUt03VGhy3AYucoQoQ2rjlwiOJ5jLPWbVfAFxZ3HI9pHQ5JzwxuF6DGJZAaj7CozowTuuQ8__lz6Q8vMuQTGVolZJQTLOTwTUMZeUOb9SaphsZqwSwU3AAUH6e0leveN9By7YNo2ZIrUp3vUfJVBLxKwVxXPiWO1SaENEf3rlT98Ki6clviVyBnMChx17OZcHu92LMaGWsrRnm05mAwCnPjTfEae_TSWL2yJ8LuQpUgLqKJi5deTCK-NoQfmoke1KfVFojMoCPwPWen86zZPIFpXeRRO_feTW70zambTjsseZIBLBPoEIyV_hkItNbGFNMK55ux4JQdBuPjo-13DT2c8lIH4yWfT_xQtir_yQu3SkfQJ9I1RUvI4D4HX2wrtpMmJU88Y_1Pe-g5PWr-POxcXBtaKt-NWaA4Y-2ExfsF0rPvWKS4e4RvXc3nHi_SFVF12B22v3Pz1D-9Xsawn_8CHxP4d7wfFDmPGvK1kH3R_WF4V8MiWlFiK7GPPQL6rSzrV-iNSm-QnqCUNPWkFsyG3i25Ibc1jXnegqry1svtT29iYfNiYGssu10KriO8mIfcuz4NtRMS2l1Lzm2qX5Il5cUaJ9ChhwgvrW5DYPKFriQQwXDH322BMSY0JwzneNJzd-Y5PCpilQJ3XO7qCz_jIiaUleX0jJuudvffHy9drbBwiiLPZIHFimayMtCsvJNukycFPe0lhN-FftGmLA9HyR9UB_JcUbY1JpnVOSQ=="
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "invocation_events": [
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-5eaf3116-0f4f-4e24-9d19-dfbc1fd4d9d5",
+                        "args": {
+                          "query": "SELECT SUM(Impressions) AS Total_Impressions, SUM(Clicks) AS Total_Clicks, SUM(Conversions) AS Total_Conversions, SUM(Cost) AS Total_Cost, SUM(New_Users) AS Total_New_Users FROM `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard` WHERE Client = \"NPI\" AND Date BETWEEN '2025-06-01' AND '2025-06-30'"
+                        },
+                        "name": "call_bigquery_agent"
+                      },
+                      "thought_signature": "CpUVAY89a19VSGyAX4a3_p_xCbmocJhXX_7Q-5TgsDtnkfxsiyZ4EfAc5iVGzhZdQPwMCjZdlg4ysdJZDm0vy54KHQ2fKUmeHEQl9h5B2XV7tp4PQQl6tT0jXuM_i7vh9H0RSC1t8bmrhKdvyN9GEsWw4nTuJ1qQ6a9PvU08AgQABc3ySNmWWr554uk0jw0S6ri2AKZbPdkylBKjRzrTYhSmaWBfCmte-FPXKzZXr-gEzbIDGQUSTWqJ-59dTOtR_-EJV79qEgQSr9JxhLnKgXJypcK0CTnTYzrKFxDh3IHFk3sw91KukVrJnkPX6zJxGKQTpPFJm4cX2Q9hLLlFkLsiWNnaPtKAnNwG1QkDUZOyF10_jnL1XJ7tt4KB1ea8p_QnzxiUkcU7aBBa-5OkAXaHHCCNDHl8OMrpLGkx32CvBTUJzJO9Q5LnF5adQcxZDzFRC0VDlva0kfgQ7-4rWakKaiqQTOkK2kTyI3l3gJ-VJqo4TuaHfRhBmWSZET-iXnPp5Z7UUQ5_xSKUY0HhLqcVx0Z1AG1gD3DToo5jXiKhCNG9JlvlP9HzGSxOugGSbiAl9O8bs_jW6xJAA6t5l-yYGrByBJlPPADafmyDLmZ4F41npZlhd0XFrJ6OVmOkFQWYAJgka8BV0TqZNsoAqryRcinSwF5e_5UkE3AWTJnDw228M74Ea4OG7C_Ri80UKAoK53ZAix-9VaKHV6WXTAdS6R2AEQt3k1_gOlWbapNmyJooGxEwvMO3ZGmZ-XXC3iLngNeecaPadL5yNzWjEVlwetJ7mUcWU-WvJ1apuxoCXDRxsTQs5YmnwVGTIAJiCBuQkLvqlKyCTjE0jyiiElGG_fbAiN4Asdrrhtt4aUn2fzY8Ilufn6U1yoyDPcKx0w4MA8ssFjfzhLdZX4jdnPNsa_zqz2GsJ20p_AyZQKbvEGdEpjC4IV-kS8zwOETyamaZQpB8g6gGFqjqvLC1j_30iiuEoQx8iajWsNckoHTkVcvEy1Q9aUtzY8-7g3itAbOAHLzpePCFRNkYmQwfPPHs4pResg9bSYuSDrx_IPhF9kCyDBQGrbRKkOSVAj2jiUZBEMCSJnV2ct-UmnPVWthqywwLJBlxM6e_cTymZIkjaIN55c69Ybl1nwH5Id_sb4Rv5adnEwZMmDMmyvsd_USSel-kFQEcQewRq_CaWys-mSdlltY0pjIGLRSdcQWEre8QIUgOBqYBwyR6mQLwIaep7eA_BloYviH4sKO8Znz7GBmYITGVhH95cwX-Hg72JkPfmggY1kNdTgEnwZhG97zMkKxG0Bm4FOMUR7iRUaMfM3Kb8IK6oewVMTv7RpWZuJqQy_P2qSePG82vh4GDwxqeA3zP6FovOnVbZCvrgPUoCVlvu4bcoEoPrZ2TfAeOn9QS8fRah_picp_d0bmFY5LvICMbZvnxwoX9T-lUyEJV_mQRXC93pvnqPbBlShnAZciYqs4ih7hieR_K8QVDDS0P2zaRrcxUfVQTMC-nvwnM_KU-SS9aRQQW5s78MdR-Vo7K8RQ8HtGK95dwKspPk4qS63t75qG9TgJMtlcTM-D2M2zuPq-R9DBNra8sGfvgL8234N5Kue6CYWOQMGY2qo1sSRmlug78jMp60HGZFPPXD9CAvf4xRDu62R79tQThVgcsD0eEED4v1cGyy6br0rCMNDdysmTL67MzGFz8I2T4pQQz221bcdGpaZAZejTNRv99_tP6yi0xizL0qRlbUHoTdLJtQIXG6TYxWOd4jfQ7KnJfMDRRX5aSNozIz6hYGQInoFjKCjIqRVeEJjT3dML1ur4p5XRRl1-R8bqRfbXCYt8G9REZQaFbJr6h8BIdKQKyOkgCKKECvkTesic4jTt5aOoonXwwh4TzjxHN8yVhxuoaUOKITvaSzZ9VNM3t7vuVT4A5jdP2WPPjMJFp9zGmWjYlW48ihkRNt8yTtc2PC1ON-RRxk44s_CZJrROpAbrTrat6E6_wwWwy2J5SBzwdw0kZ_RxfUrbwCZY70H56lBKVZreTbCf4SNiDdojNgevnEHsSKfxD-49mF7-Jqpuyghzmp1iPUdxMthRILmFNh2V3-hYF92v987SATcgEO-dfYX_SaQnq2LsZ6DyXx_CddxLIBd-DLaZPNVkSrclp4TcuHE5xbANoFqsQoGCjD6AfE_3R0_Adj_ocfRGJbwt1-w56LsQaq97Z486GdWQWdpH14UKYJyBtmC5A_BRn_TgPYPPXVKrQHGMPTmWxEr5rxCupLiK9YbFsiCgiNe_1RZwat5eAvLDWKx96PvQ3HARKoV2h3xirTX77HScgeWxRx_roP31ck83OZ-cPF3lPic3biV6BN4IjDhCNYVlqrQN--0J79M0cYAJezvOmlhNGJYZBeDV2IZlE1s9VMWlB7GCDv9ng4uKMc-CDVn0CM5CPRutmWBlK1bO2ECSIaJKctos4cxhnuvP-DWtLeB0ZEG5kWIGQfIQs_6JceFR_3N5I0Md41KQLSpUULmFTsv3KR9lfPWt7Am6kixbz_yi9rFmmoB8xpSNwko_ZYCUqtOx5zzkCelO5TTcYRTA9Q90d6VaSyF1SSERLm0Jly3IG9eZ9_3X0RzPHgAuDrFY2xGSi3cU2INZxPvf0gmgTu8J2ctL6V9SqxDQyho3Pbi-9uT5b88gMzIKQdbH4ECeQOSOABJFlhkt4RV9b2SACSOoBe6GjvEBGTUKubly179fLhy5krD8k6mp4PBOmTku9BXndcxdLK3GruKSfdrU-LF5oYROxYFoM2jvYTFY9ps8oNqVZ52W__5Idlign4GF6NhDdM8ZHUVaqf5Q0R8oy-YvQXO1ARDF0F3dJejL83IDxRiGmfwc_FUcD9RnqX8Rxzn_KVEh3Z4poMe3DWrAQyY_go_EKIQ5nGzLX11xJSh9XEG_n9h6DIaTGaGe4dTwbEmPKbBey3toKJ0xUB0I-S8NCogLKd32ApvSdxXIFUSWTRKNvB4-HROXqA__GXuGkQI-nijDHtNGLGEqEfLjmQEoVFQxdW2oU_l2SXbScLcZltcRFMi1hhUZB1FqIE2jodyFtC7Puo8VsS-KR8N4SY4tAIPZ9icTDkq4VJwe0p46cBZik-V2m6tgY3AoQke7iV4_r41fQHPyiEabNT9WHx2J_APKlwSq2cODjzA-Eki17Ew8ST774axVyrT-N53oOHjiJLLaIMoT5L-oMjAU2FNr-uBtKTAbmIyBIAY2l9jMZ9i3FxwLckxQh0um3Nc91VGrKeQ01hBfKy8KpC2-UxeKqnEyq2hGKIVP6VNwdpxH0B-19JqkqiQ7DscDORryjVVTdDxYK-Y9XJitdW2TvgW33KKEJaL98PZqWLG-jiztc869aylkREcTIpyb8_cFg5X4ajXcRldWvIDXPJHmB8rA_Kb3iRPqEpPmOBr6Q9Z4SOONB53i0bi4saEcG_I9PQRRFrDAfQxb3m7MhlHSaD5VgWk0jrBKaPx8dwnAimF8gffKPoqpMh96PsACfoKAeEfbrg9yrJhBMWjkj17fomxss8M_uAByJSRENDC2U0vO0wUqn1asNqDbC_mJwLbvgJLXL5OYtKRZuo0c3vT8IcwIDSrnwHkKs"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_science_root_agent",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-5eaf3116-0f4f-4e24-9d19-dfbc1fd4d9d5",
+                        "name": "call_bigquery_agent",
+                        "response": {
+                          "result": "The total impressions are 206,400, total clicks are 10,916, total conversions are 2,616, total cost is $4,634.45, and total new users are 5,235 for the NPI client between June 1, 2025, and June 30, 2025."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              }
+            ]
+          },
+          "creation_timestamp": 1778071034.6402774
+        }
+      ],
+      "session_input": {
+        "app_name": "data_science",
+        "user_id": "user"
+      },
+      "creation_timestamp": 1778071298.40222
+    }
+  ],
+  "creation_timestamp": 1778070592.5543823
+}

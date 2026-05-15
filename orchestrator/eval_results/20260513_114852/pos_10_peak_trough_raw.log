@@ -1,0 +1,173 @@
+2026-05-13 12:03:36,995 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 12:03:46,233 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:03:46,233 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 12:03:46,235 - INFO - agent.py:439 - 🔒 Orchestrator session LOCKED to client: NPI
+2026-05-13 12:03:46,235 - INFO - agent.py:451 - ▶ before_agent | client=NPI | locked=NPI | session=session_1778673826 | turn=1 | mode=local-AgentTool
+2026-05-13 12:03:46,303 - INFO - agent.py:576 - ⚡ before_model | client=NPI | turn=1 | last_skill=none
+2026-05-13 12:03:46,430 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:03:48,686 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:03:48,687 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 12:03:48,688 - INFO - agent.py:596 - 🔢 after_model  | tokens in=4406 out=28 total=4506
+2026-05-13 12:03:48,690 - INFO - agent.py:495 - ⚙ before_tool  | tool=call_data_scientist | skill=charts | client=NPI | query=Show NPI channel mix shift between peak months (No…
+2026-05-13 12:03:48,690 - INFO - agent.py:163 - Routing to LOCAL DS agent
+2026-05-13 12:03:49,559 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 12:03:49,559 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 12:03:49,559 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+2026-05-13 12:03:49,560 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:03:49,560 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 12:03:49,561 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 12:03:49,561 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 12:03:49,562 - INFO - agent.py:339 - 📍 KM routed '[Client: NPI] Show NPI channel mix shift between p...' → table=performance (confidence=low)
+2026-05-13 12:03:50,009 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 12:03:50,009 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 12:03:50,469 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:03:54,688 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:03:54,689 - INFO - agent.py:489 - Tokens: In=7722, Out=53
+2026-05-13 12:03:54,691 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:03:54,691 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 12:03:54,801 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:04:02,399 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:04:04,734 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:04:13,263 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:04:13,266 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:04:13,266 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 12:04:13,266 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 12:04:13,266 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:04:13,367 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:04:39,641 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:04:39,643 - INFO - agent.py:489 - Tokens: In=9912, Out=1147
+2026-05-13 12:04:39,645 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:04:39,645 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 12:04:39,743 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:04:39,743 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 12:04:39,746 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:04:39,747 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 12:04:39,851 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:04:39,851 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 12:04:43,977 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:04:43,978 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:04:43,979 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:04:44,940 - INFO - tools.py:935 - Chart rendered: Channel Cost Mix Shift: Peak (Nov/Dec) vs. Trough (Jan-Oct) (58819 bytes)
+2026-05-13 12:04:44,940 - INFO - tools.py:944 - Saved chart: chart_1778673884_0787f1.png v0
+2026-05-13 12:04:45,493 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:04:45,494 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:04:45,495 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:04:45,974 - INFO - tools.py:935 - Chart rendered: Channel Conversion Mix Shift: Peak (Nov/Dec) vs. Trough (Jan-Oct) (66164 bytes)
+2026-05-13 12:04:45,974 - INFO - tools.py:944 - Saved chart: chart_1778673885_206c79.png v0
+2026-05-13 12:04:46,083 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:04:49,861 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:04:49,863 - INFO - agent.py:489 - Tokens: In=15782, Out=216
+2026-05-13 12:04:49,864 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:04:49,864 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 12:04:49,864 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 12:04:49,864 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:04:49,865 - INFO - agent.py:552 - ✓ after_tool   | tool=call_data_scientist | skill=charts | len=900 | error=False
+2026-05-13 12:04:49,872 - INFO - agent.py:576 - ⚡ before_model | client=NPI | turn=1 | last_skill=charts
+2026-05-13 12:04:49,967 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:04:52,946 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:04:52,948 - INFO - agent.py:596 - 🔢 after_model  | tokens in=4728 out=258 total=5116
+2026-05-13 12:04:52,962 - INFO - agent.py:465 - ◀ after_agent  | client=NPI | turn=1 | duration=66.73s | tools_called=1
+2026-05-13 12:04:52,964 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:04:52,964 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:04:52,968 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 12:04:52,973 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/orchestrator/.adk/eval_history/orchestrator_tests_eval_orchestrator_pos_10_peak_trough.evalset.json_1778673892.973013.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.05} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval_orchestrator/pos_10_peak_trough.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval_orchestrator/pos_10_peak_trough.evalset.json
+Eval Id: pos_10_peak_trough
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.1256544502617801, Threshold: 0.05
+---------------------------------------------------------------------
+Invocation Details:
++----+---------------------------+-------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                    | expected_response       | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+===========================+=========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, show channel mix | NPI peak trough channel | **Result:**  The          |                       | id='adk-7d7b02e7-cb54-49f | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | shift between             | mix Nov Dec cost        | following two charts      |                       | 3-9c15-                   | 0.0                         | 0.1256544502617801     |
+|    | peak months Nov Dec and   | conversion bar chart    | illustrate the channel    |                       | 49a45c0f427e'             |                             |                        |
+|    | trough months as          | shift                   | mix shift for NPI         |                       | args={'query': 'Show NPI  |                             |                        |
+|    | 2 bar charts              |                         | between peak months       |                       | channel mix shift between |                             |                        |
+|    |                           |                         | (November/December)       |                       | peak months               |                             |                        |
+|    |                           |                         | and trough months         |                       | (Nov, Dec) and trough     |                             |                        |
+|    |                           |                         | (January-October) for     |                       | months as 2 bar           |                             |                        |
+|    |                           |                         | both Cost and             |                       | charts'} name='call_data_ |                             |                        |
+|    |                           |                         | Conversions.  **Graph:**  |                       | scientist'                |                             |                        |
+|    |                           |                         | Generated stacked_bar     |                       | partial_args=None         |                             |                        |
+|    |                           |                         | chart: Channel            |                       | will_continue=None        |                             |                        |
+|    |                           |                         | Cost Mix Shift: Peak      |                       |                           |                             |                        |
+|    |                           |                         | (Nov/Dec) vs.             |                       |                           |                             |                        |
+|    |                           |                         | Trough (Jan-Oct)          |                       |                           |                             |                        |
+|    |                           |                         | Generated stacked_bar     |                       |                           |                             |                        |
+|    |                           |                         | chart: Channel Conversion |                       |                           |                             |                        |
+|    |                           |                         | Mix Shift:                |                       |                           |                             |                        |
+|    |                           |                         | Peak (Nov/Dec) vs. Trough |                       |                           |                             |                        |
+|    |                           |                         | (Jan-Oct)                 |                       |                           |                             |                        |
+|    |                           |                         | **Explanation:** 1. The   |                       |                           |                             |                        |
+|    |                           |                         | first chart,              |                       |                           |                             |                        |
+|    |                           |                         | "Channel Cost Mix Shift:  |                       |                           |                             |                        |
+|    |                           |                         | Peak (Nov/Dec)            |                       |                           |                             |                        |
+|    |                           |                         | vs. Trough (Jan-Oct)",    |                       |                           |                             |                        |
+|    |                           |                         | displays the              |                       |                           |                             |                        |
+|    |                           |                         | percentage of total cost  |                       |                           |                             |                        |
+|    |                           |                         | attributed to             |                       |                           |                             |                        |
+|    |                           |                         | each channel during the   |                       |                           |                             |                        |
+|    |                           |                         | peak and trough           |                       |                           |                             |                        |
+|    |                           |                         | periods. 2. The second    |                       |                           |                             |                        |
+|    |                           |                         | chart, "Channel           |                       |                           |                             |                        |
+|    |                           |                         | Conversion Mix Shift:     |                       |                           |                             |                        |
+|    |                           |                         | Peak (Nov/Dec) vs.        |                       |                           |                             |                        |
+|    |                           |                         | Trough (Jan-Oct)", shows  |                       |                           |                             |                        |
+|    |                           |                         | the percentage            |                       |                           |                             |                        |
+|    |                           |                         | of total conversions      |                       |                           |                             |                        |
+|    |                           |                         | attributed to each        |                       |                           |                             |                        |
+|    |                           |                         | channel during the peak   |                       |                           |                             |                        |
+|    |                           |                         | and trough                |                       |                           |                             |                        |
+|    |                           |                         | periods. 3. Channels with |                       |                           |                             |                        |
+|    |                           |                         | zero cost or              |                       |                           |                             |                        |
+|    |                           |                         | conversions in both       |                       |                           |                             |                        |
+|    |                           |                         | periods have been         |                       |                           |                             |                        |
+|    |                           |                         | excluded from their       |                       |                           |                             |                        |
+|    |                           |                         | respective charts         |                       |                           |                             |                        |
+|    |                           |                         | for clarity.              |                       |                           |                             |                        |
+|    |                           |                         | **Recommendation:**       |                       |                           |                             |                        |
+|    |                           |                         | Analyze the generated     |                       |                           |                             |                        |
+|    |                           |                         | charts to identify        |                       |                           |                             |                        |
+|    |                           |                         | significant shifts in     |                       |                           |                             |                        |
+|    |                           |                         | channel                   |                       |                           |                             |                        |
+|    |                           |                         | performance and cost      |                       |                           |                             |                        |
+|    |                           |                         | allocation between        |                       |                           |                             |                        |
+|    |                           |                         | peak and trough seasons.  |                       |                           |                             |                        |
+|    |                           |                         | This insight              |                       |                           |                             |                        |
+|    |                           |                         | can inform future budget  |                       |                           |                             |                        |
+|    |                           |                         | adjustments and           |                       |                           |                             |                        |
+|    |                           |                         | campaign strategies to    |                       |                           |                             |                        |
+|    |                           |                         | optimize spend            |                       |                           |                             |                        |
+|    |                           |                         | and conversion efficiency |                       |                           |                             |                        |
+|    |                           |                         | throughout the            |                       |                           |                             |                        |
+|    |                           |                         | year.                     |                       |                           |                             |                        |
++----+---------------------------+-------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

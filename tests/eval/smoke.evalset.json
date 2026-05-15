@@ -1,0 +1,20 @@
+[
+  {
+    "name": "smoke_top_channels",
+    "data": [
+      {
+        "query": "For NPI, show top 5 channels by spend last quarter as a bar chart",
+        "reference": "top 5 channels NPI bar chart spend",
+        "expected_tool_use": [
+          {"tool_name": "call_bigquery_agent", "tool_input": {}},
+          {"tool_name": "call_analytics_agent", "tool_input": {}}
+        ]
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

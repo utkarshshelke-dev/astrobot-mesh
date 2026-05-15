@@ -1,0 +1,137 @@
+test_name,category,difficulty,question,expected_keywords,forbidden_keywords,ground_truth
+C1_Q1_lead_driver_correlation,Channel Efficiency,medium,"For NPI, which specific channel has the highest statistical correlation with total Conversions over the last 24 months? Compute Pearson correlation between each channel's daily spend and total daily conversions across the dataset.",,,"[
+  {
+    ""social_corr"": 0.604,
+    ""search_corr"": 0.655,
+    ""demand_corr"": 0.672,
+    ""tv_corr"": 0.241
+  }
+]"
+C1_Q2_cpa_per_channel,Channel Efficiency,easy,"For NPI, which channel has the lowest CPA (Cost Per Conversion) over the last 12 months? Use UNIFIED CTE pattern.","Demand Gen,P-Max",,"[
+  {
+    ""Channel"": ""Demand Gen + P-Max"",
+    ""spend"": 1172642.68,
+    ""conv"": 307779,
+    ""cpa"": 3.81
+  }
+]"
+C1_Q3_saturation_point,Channel Efficiency,hard,"For NPI, at what daily spend level does Paid Social stop producing incremental conversions? Use NTILE(10) decile bucketing on daily Paid Social spend last 12 months. Identify the decile where conv/$ drops below 50% of peak.","decile,saturation,11","3,436,938,4,404,369,$4,241.67,$921.91","[
+  {
+    ""decile"": 1,
+    ""min_spend"": 956.0,
+    ""max_spend"": 3220.0,
+    ""avg_spend"": 2955.0,
+    ""avg_conv"": 0.0,
+    ""conv_per_dollar"": 0.0
+  },
+  {
+    ""decile"": 2,
+    ""min_spend"": 3226.0,
+    ""max_spend"": 3847.0,
+    ""avg_spend"": 3547.0,
+    ""avg_conv"": 0.0,
+    ""conv_per_dollar"": 0.0
+  },
+  {
+    ""decile"": 3,
+    ""min_spend"": 3856.0,
+    ""max_spend"": 5016.0,
+    ""avg_spend"": 4348.0,
+    ""avg_conv"": 0.0,
+    ""conv_per_dollar"": 0.0
+  },
+  {
+    ""decile"": 4,
+    ""min_spend"": 5073.0,
+    ""m"
+C1_Q4_worst_3_channels,Channel Efficiency,medium,"For NPI, rank channels by Conversions per Dollar Spent. Show the 3 worst-performing channels using FULL OUTER JOIN unified pattern.","Online Audio,Print,OOH","Performance Max,Demand Gen","[
+  {
+    ""Channel"": ""Performance Max"",
+    ""spend"": 145049.59,
+    ""conv"": null,
+    ""conv_per_dollar"": null
+  },
+  {
+    ""Channel"": ""Demand Gen"",
+    ""spend"": 1027593.09,
+    ""conv"": null,
+    ""conv_per_dollar"": null
+  },
+  {
+    ""Channel"": ""Search"",
+    ""spend"": 1874777.93,
+    ""conv"": null,
+    ""conv_per_dollar"": null
+  }
+]"
+C1_Q5_budget_100k,Channel Efficiency,hard,"For NPI, based on last 12 months unified channel performance, how should the next $100k be distributed to maximize total Conversions?","Demand Gen,Paid Social,Paid Search,$100,000","OOH,Print,Online Audio",(no SQL provided - manual review needed)
+C2_Q1_tv_halo_search,Halo Effect,medium,"For NPI, does Linear TV or CTV/OTT spend cause measurable lift in Direct or Paid Search conversions same/next month? 24 months data.","0.6,Paid Search",,"[
+  {
+    ""tv_search_same"": 0.66,
+    ""tv_direct_same"": 0.27
+  }
+]"
+C2_Q2_video_social_synergy,Halo Effect,hard,"For NPI, do conversions increase more when Online Video and Paid Social are active simultaneously vs in isolation? Use 4-bucket analysis with unified channel mapping.","Both Active,isolation",,(no SQL provided - manual review needed)
+C2_Q3_pmax_cannibalization,Halo Effect,hard,"For NPI, does increase in Performance Max spend lead to decrease in Paid Search conversions? Compute correlation between monthly P-Max spend and Paid Search conversions, last 24 months.",correlation,,"[
+  {
+    ""f0_"": 0.69
+  }
+]"
+C2_Q4_upper_lower_funnel_lag,Halo Effect,hard,"For NPI, which upper-funnel channels (Audio, Video, TV) show strongest correlation with lower-funnel channels (Search, Email) lagged by 30 days?","correlation,lag",,(no SQL provided - manual review needed)
+C3_Q1_organic_efficiency_month,Seasonality,medium,"For NPI, which month had the highest Organic Efficiency (% of conversions from organic channels Organic Search, Organic Social, Organic Video, Direct, Referral, Email) in last 12 months?","2025-06,61","2026-05,15.83","[
+  {
+    ""month"": ""2025-06"",
+    ""pct_organic"": 61.3
+  }
+]"
+C3_Q2_forecast_next_quarter,Seasonality,hard,"For NPI, forecast next 3 months total conversions using ARIMA. Aggregate forecast to weekly before charting.","forecast,weekly",MALFORMED_FUNCTION_CALL,(no SQL provided - manual review needed)
+C3_Q3_holiday_pivot,Seasonality,medium,"For NPI, how does channel mix shift during peak months (Nov/Dec) vs trough months (Jul/Aug)? Use unified channels.","Nov,Dec,Jul,Aug",,(no SQL provided - manual review needed)
+C3_Q4_volatility_per_channel,Seasonality,medium,"For NPI, which channel has the highest month-over-month volatility (coefficient of variation) in conversions over last 24 months?","volatility,coefficient",,"[
+  {
+    ""Channel"": ""Paid Other"",
+    ""cv"": 2.199,
+    ""avg_conv"": 5057.0
+  },
+  {
+    ""Channel"": ""Paid Social"",
+    ""cv"": 1.919,
+    ""avg_conv"": 26567.0
+  },
+  {
+    ""Channel"": ""Unassigned"",
+    ""cv"": 1.557,
+    ""avg_conv"": 10683.0
+  },
+  {
+    ""Channel"": ""Online Video"",
+    ""cv"": 1.347,
+    ""avg_conv"": 2686.0
+  },
+  {
+    ""Channel"": ""Social"",
+    ""cv"": 1.245,
+    ""avg_conv"": 16510.0
+  }
+]"
+C4_Q1_awareness_dr_ratio,Funnel Health,medium,"For NPI, what is the spend ratio between Awareness channels (TV, Audio, Video) vs Direct Response channels (Search, Email) in last 12 months?","awareness,direct response",,"[
+  {
+    ""awareness_spend"": 2145098.39844166,
+    ""dr_spend"": 1914689.0134029991,
+    ""ratio"": 1.12
+  }
+]"
+C4_Q2_brand_independence_trend,Funnel Health,hard,"For NPI, is the percentage of Direct conversions growing or shrinking quarter over quarter for the last 8 quarters?","Direct,quarterly,trend",,(no SQL provided - manual review needed)
+C4_Q3_demand_gen_search_lift,Funnel Health,hard,"For NPI, does Demand Gen spend generate new Paid Search volume? Compute lagged correlation.","correlation,Demand Gen",,(no SQL provided - manual review needed)
+C5_Q1_dark_traffic_pct,Data Hygiene,easy,"For NPI, what percentage of conversions are attributed to Unassigned, NA, or DEFAULT channels in last 12 months?","%,Unassigned",,"[
+  {
+    ""pct_dark"": 11.2
+  }
+]"
+C5_Q2_tracking_leakage,Data Hygiene,hard,"For NPI, in months where conversions are high but channel spend is low, can you identify potential tracking failures?","tracking,anomaly",,(no SQL provided - manual review needed)
+C5_Q3_email_direct_correlation,Data Hygiene,hard,"For NPI, is there correlation between Email spend and Direct conversions, suggesting Email attribution under-reporting?","Email,Direct,correlation",,(no SQL provided - manual review needed)
+C6_Q1_mmm_weights,Advanced Modeling,very_hard,"For NPI, build a simple Media Mix Model assigning weight scores to each channel. Use multivariate regression on monthly spend vs total conversions, last 24 months.","regression,weight",,(no SQL provided - manual review needed)
+C6_Q2_video_decay_rate,Advanced Modeling,very_hard,"For NPI, what is the decay rate (ad-stock) for Video ads? How many weeks does Video influence persist after spend stops?","decay,weeks",,(no SQL provided - manual review needed)
+C6_Q3_outliers_anomalies,Advanced Modeling,hard,"For NPI, identify any black swan months where Conversions moved independently of channel spend (z-score > 2). Last 24 months.","outlier,z-score",,(no SQL provided - manual review needed)
+C6_Q4_high_low_clusters,Advanced Modeling,very_hard,"For NPI, cluster months by channel spend pattern using k-means (3 clusters: high/medium/low). What channel mix defines each cluster?","cluster,high",,(no SQL provided - manual review needed)
+C6_Q5_display_elasticity,Advanced Modeling,hard,"For NPI, if Display budget is cut by 50%, what is predicted % drop in total Conversions based on historical correlation?","elasticity,Display,%",,(no SQL provided - manual review needed)
+C6_Q6_ott_unique_audience,Advanced Modeling,hard,"For NPI, is OTT reaching a unique audience or correlated with Paid Social (suggesting overlap)? Compute correlation between OTT spend and Paid Social conversions.","OTT,correlation",,(no SQL provided - manual review needed)

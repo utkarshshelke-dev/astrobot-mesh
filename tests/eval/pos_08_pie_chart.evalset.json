@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_08_channel_share_pie",
+    "data": [
+      {
+        "query": "For NPI, show channel spend share as a pie chart for last quarter",
+        "reference": "pie chart channel share spend NPI last quarter",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

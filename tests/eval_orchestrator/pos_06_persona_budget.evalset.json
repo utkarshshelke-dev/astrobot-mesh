@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_06_persona_budget",
+    "data": [
+      {
+        "query": "For NPI, analyze channel mix and tell me which persona each channel targets and should we shift budget?",
+        "reference": "NPI channel mix persona HNW DINK Legacy budget recommendation shift allocation",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

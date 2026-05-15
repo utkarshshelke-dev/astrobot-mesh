@@ -1,0 +1,347 @@
+2026-05-12 15:29:26,688 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 15:29:33,346 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 15:29:33,347 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 15:29:33,347 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 15:29:33,349 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:29:33,350 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 15:29:33,351 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 15:29:33,351 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 15:29:33,351 - INFO - agent.py:392 - 📍 KM routed 'For NPI, channel mix shift peak months Nov Dec com...' → table=performance (confidence=low)
+2026-05-12 15:29:33,823 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 15:29:33,823 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 15:29:34,006 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:29:37,295 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:29:37,295 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 15:29:37,297 - INFO - agent.py:561 - Tokens: In=7716, Out=56
+2026-05-12 15:29:37,298 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:29:37,298 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 15:29:37,404 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:29:41,596 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:29:44,025 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:29:53,237 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:29:53,239 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:29:53,240 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:29:53,240 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:29:53,240 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:29:53,339 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:29:57,058 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:29:57,060 - INFO - agent.py:561 - Tokens: In=9833, Out=632
+2026-05-12 15:29:57,061 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:29:57,061 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 15:29:57,157 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:29:57,158 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-12 15:30:02,867 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:30:02,869 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:30:02,869 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:30:03,868 - INFO - tools.py:927 - Chart rendered: Cost Mix Shift: Peak (Nov/Dec) vs. Trough (Jan-Oct) (80431 bytes)
+2026-05-12 15:30:03,868 - INFO - tools.py:936 - Saved chart: chart_1778599803_64d942.png v0
+2026-05-12 15:30:03,968 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:30:09,019 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:30:09,021 - INFO - agent.py:561 - Tokens: In=10572, Out=798
+2026-05-12 15:30:09,022 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:30:09,022 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 15:30:09,129 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:30:09,130 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-12 15:30:24,197 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:30:24,199 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:30:24,199 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:30:24,756 - INFO - tools.py:927 - Chart rendered: Conversion Mix Shift: Peak (Nov/Dec) vs. Trough (Jan-Oct) (78445 bytes)
+2026-05-12 15:30:24,756 - INFO - tools.py:936 - Saved chart: chart_1778599824_3ff8db.png v0
+2026-05-12 15:30:24,855 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:30:33,534 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:30:33,536 - INFO - agent.py:561 - Tokens: In=11443, Out=1324
+2026-05-12 15:30:33,538 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:30:33,538 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:30:33,538 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:30:33,538 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:30:33,542 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 15:30:33,549 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_04_peak_trough.evalset.json_1778599833.5496178.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.4, 'response_match_score': 0.15} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_04_peak_trough.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_04_peak_trough.evalset.json
+Eval Id: pos_04_peak_trough
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: FAILED, Score: 0.0, Threshold: 0.4
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.03272727272727272, Threshold: 0.15
+---------------------------------------------------------------------
+Invocation Details:
++----+-------------------------+-------------------------+---------------------------+---------------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                  | expected_response       | actual_response           | expected_tool_calls       | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=========================+=========================+===========================+===========================+===========================+=============================+========================+
+|  0 | For NPI, channel mix    | peak trough channel mix | **Result:**  The channel  | id=None args={}           | id='adk-e585d5ee-e20f-4ac | Status: FAILED, Score:      | Status: FAILED, Score: |
+|    | shift peak months       | bar charts cost         | mix for NPI               | name='call_bigquery_agent | 6-9db6-                   | 0.0                         | 0.03272727272727272    |
+|    | Nov Dec compared trough | conversion percentage   | shows distinct shifts     | '                         | bb77c816f0b8'             |                             |                        |
+|    | months 2 bar            |                         | between peak              | partial_args=None         | args={'query': 'For NPI,  |                             |                        |
+|    | charts cost percent     |                         | months (Nov/Dec) and      | will_continue=None        | provide the channel mix   |                             |                        |
+|    | conversion              |                         | trough months (Jan-       | id=None args={}           | shift for peak            |                             |                        |
+|    | attribution             |                         | Oct) for both cost and    | name='call_analytics_agen | months (Nov/Dec) compared |                             |                        |
+|    |                         |                         | conversion                | t'                        | to trough                 |                             |                        |
+|    |                         |                         | attribution.  **Cost Mix  | partial_args=None         | months (Jan-Oct),         |                             |                        |
+|    |                         |                         | Shift: Peak               | will_continue=None        | including cost            |                             |                        |
+|    |                         |                         | (Nov/Dec) vs. Trough      |                           | percentage and conversion |                             |                        |
+|    |                         |                         | (Jan-Oct)**  |            |                           | attribution               |                             |                        |
+|    |                         |                         | Channel           | Peak  |                           | percentage. Use the pre-  |                             |                        |
+|    |                         |                         | (Nov/Dec) % |             |                           | built SQL                 |                             |                        |
+|    |                         |                         | Trough (Jan-Oct) % |      |                           | pattern for seasonal      |                             |                        |
+|    |                         |                         | |:-----------------       |                           | comparison (peak vs       |                             |                        |
+|    |                         |                         | -|-----------------:|---- |                           | trough).'} name='call_big |                             |                        |
+|    |                         |                         | ---------------           |                           | query_agent'              |                             |                        |
+|    |                         |                         | :| | Paid Social       |  |                           | partial_args=None         |                             |                        |
+|    |                         |                         | 47.64 |                   |                           | will_continue=None id=    |                             |                        |
+|    |                         |                         | 31.32 | | Search          |                           | 'adk-8e9f2410-4265-4388-9 |                             |                        |
+|    |                         |                         | |            28.92 |      |                           | fd4-                      |                             |                        |
+|    |                         |                         | 22.32                     |                           | d885001c9199'             |                             |                        |
+|    |                         |                         | | | Demand Gen        |   |                           | args={'analysis_request': |                             |                        |
+|    |                         |                         | 20.55                     |                           | 'chart_type: "bar",       |                             |                        |
+|    |                         |                         | |              12.06 | |  |                           | title: "Cost Mix          |                             |                        |
+|    |                         |                         | Performance Max           |                           | Shift: Peak (Nov/Dec) vs. |                             |                        |
+|    |                         |                         | |             2.90 |      |                           | Trough (Jan-              |                             |                        |
+|    |                         |                         | 1.52                      |                           | Oct)", data: {categories: |                             |                        |
+|    |                         |                         | | | CTV               |   |                           | ["Paid                    |                             |                        |
+|    |                         |                         | 0.00                      |                           | Social", "Search",        |                             |                        |
+|    |                         |                         | |              19.38 | |  |                           | "Demand Gen",             |                             |                        |
+|    |                         |                         | Linear TV                 |                           | "Performance Max",        |                             |                        |
+|    |                         |                         | |             0.00 |      |                           | "Organic Social",         |                             |                        |
+|    |                         |                         | 4.27                      |                           | "Unassigned", "Referral", |                             |                        |
+|    |                         |                         | | | Online Audio      |   |                           | "Print",                  |                             |                        |
+|    |                         |                         | 0.00                      |                           | "Direct", "Display",      |                             |                        |
+|    |                         |                         | |               1.77 | |  |                           | "Organic Video",          |                             |                        |
+|    |                         |                         | OTT                       |                           | "Paid Search", "OTT",     |                             |                        |
+|    |                         |                         | |             0.00 |      |                           | "Email", "CTV",           |                             |                        |
+|    |                         |                         | 3.54                      |                           | "OOH", "Paid Video",      |                             |                        |
+|    |                         |                         | | | Paid Search       |   |                           | "Online Audio",           |                             |                        |
+|    |                         |                         | 0.00                      |                           | "Video", "Linear TV",     |                             |                        |
+|    |                         |                         | |               0.52 | |  |                           | "Organic                  |                             |                        |
+|    |                         |                         | Print                     |                           | Shopping", "Paid Other",  |                             |                        |
+|    |                         |                         | |             0.00 |      |                           | "Organic                  |                             |                        |
+|    |                         |                         | 0.18                      |                           | Search", "Cross-          |                             |                        |
+|    |                         |                         | | | Organic Social    |   |                           | network"], series:        |                             |                        |
+|    |                         |                         | 0.00                      |                           | {"Peak (Nov/Dec)":        |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           | [47.635610209824186,      |                             |                        |
+|    |                         |                         | Unassigned                |                           | 28.917286036492929,       |                             |                        |
+|    |                         |                         | |             0.00 |      |                           | 20.551508891672331,       |                             |                        |
+|    |                         |                         | 0.00                      |                           | 2.8955948620083318, 0.0,  |                             |                        |
+|    |                         |                         | | | Referral          |   |                           | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         | 0.00                      |                           | 0.0, 0.0, 0.0, 0.0, 0.0,  |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         | Direct                    |                           | 0.0, 0.0, 0.0, 0.0, 0.0,  |                             |                        |
+|    |                         |                         | |             0.00 |      |                           | 0.0, 0.0, 0.0],           |                             |                        |
+|    |                         |                         | 0.00                      |                           | "Trough (Jan-Oct)":       |                             |                        |
+|    |                         |                         | | | Display           |   |                           | [31.323570028309593,      |                             |                        |
+|    |                         |                         | 0.00                      |                           | 22.322696646591616,       |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           | 12.063820099056793,       |                             |                        |
+|    |                         |                         | Organic Video             |                           | 1.5246056137552861, 0.0,  |                             |                        |
+|    |                         |                         | |             0.00 |      |                           | 0.0, 0.0,                 |                             |                        |
+|    |                         |                         | 0.00                      |                           | 0.17847387773214388, 0.0, |                             |                        |
+|    |                         |                         | | | Email             |   |                           | 0.0, 0.0,                 |                             |                        |
+|    |                         |                         | 0.00                      |                           | 0.51840778032810642,      |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           | 3.5429881215051728,       |                             |                        |
+|    |                         |                         | OOH                       |                           | 0.0, 19.381355857038841,  |                             |                        |
+|    |                         |                         | |             0.00 |      |                           | 2.7068646663146869, 0.0,  |                             |                        |
+|    |                         |                         | 0.00                      |                           | 1.7686503012673906,       |                             |                        |
+|    |                         |                         | | | Paid Video        |   |                           | 0.3987903022672129,       |                             |                        |
+|    |                         |                         | 0.00                      |                           | 4.269776705813177, 0.0,   |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           | 0.0, 0.0,                 |                             |                        |
+|    |                         |                         | Video                     |                           | 0.0]}}'} name='call_analy |                             |                        |
+|    |                         |                         | |             0.00 |      |                           | tics_agent'               |                             |                        |
+|    |                         |                         | 0.00                      |                           | partial_args=None         |                             |                        |
+|    |                         |                         | | | Organic Shopping  |   |                           | will_continue=None id=    |                             |                        |
+|    |                         |                         | 0.00                      |                           | 'adk-71364f46-6905-4eaa-8 |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           | df0-                      |                             |                        |
+|    |                         |                         | Paid Other                |                           | 3578da42013e'             |                             |                        |
+|    |                         |                         | |             0.00 |      |                           | args={'analysis_request': |                             |                        |
+|    |                         |                         | 0.00                      |                           | 'chart_type: "bar",       |                             |                        |
+|    |                         |                         | | | Organic Search    |   |                           | title: "Conversion        |                             |                        |
+|    |                         |                         | 0.00                      |                           | Mix Shift: Peak (Nov/Dec) |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           | vs. Trough                |                             |                        |
+|    |                         |                         | Cross-network             |                           | (Jan-Oct)", data:         |                             |                        |
+|    |                         |                         | |             0.00 |      |                           | {categories: ["Paid       |                             |                        |
+|    |                         |                         | 0.00                      |                           | Social", "Search",        |                             |                        |
+|    |                         |                         | |  **Conversion Mix       |                           | "Demand Gen",             |                             |                        |
+|    |                         |                         | Shift: Peak               |                           | "Performance Max",        |                             |                        |
+|    |                         |                         | (Nov/Dec) vs. Trough      |                           | "Organic Social",         |                             |                        |
+|    |                         |                         | (Jan-Oct)**  |            |                           | "Unassigned", "Referral", |                             |                        |
+|    |                         |                         | Channel           | Peak  |                           | "Print",                  |                             |                        |
+|    |                         |                         | (Nov/Dec) % |             |                           | "Direct", "Display",      |                             |                        |
+|    |                         |                         | Trough (Jan-Oct) % |      |                           | "Organic Video",          |                             |                        |
+|    |                         |                         | |:-----------------       |                           | "Paid Search", "OTT",     |                             |                        |
+|    |                         |                         | -|-----------------:|---- |                           | "Email", "CTV",           |                             |                        |
+|    |                         |                         | ---------------           |                           | "OOH", "Paid Video",      |                             |                        |
+|    |                         |                         | :| | Organic Social    |  |                           | "Online Audio",           |                             |                        |
+|    |                         |                         | 27.66 |                   |                           | "Video", "Linear TV",     |                             |                        |
+|    |                         |                         | 15.69 | | Paid            |                           | "Organic                  |                             |                        |
+|    |                         |                         | Social       |            |                           | Shopping", "Paid Other",  |                             |                        |
+|    |                         |                         | 24.03 |                   |                           | "Organic                  |                             |                        |
+|    |                         |                         | 32.95 | | Unassigned      |                           | Search", "Cross-          |                             |                        |
+|    |                         |                         | |                         |                           | network"], series:        |                             |                        |
+|    |                         |                         | 16.51 |                   |                           | {"Peak (Nov/Dec)":        |                             |                        |
+|    |                         |                         | 10.32 | | Paid            |                           | [24.031798816821404,      |                             |                        |
+|    |                         |                         | Search       |            |                           | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         | 15.47 |                   |                           | 27.664471102040235,       |                             |                        |
+|    |                         |                         | 16.54 | | Cross-network   |                           | 16.508481349594309,       |                             |                        |
+|    |                         |                         | |                         |                           | 0.33861172759774782,      |                             |                        |
+|    |                         |                         | 9.44 |              16.14 |                           | 0.0, 0.519870692423518,   |                             |                        |
+|    |                         |                         | | | Organic               |                           | 0.0017840449293875019,    |                             |                        |
+|    |                         |                         | Search    |               |                           | 0.0017840449293875019,    |                             |                        |
+|    |                         |                         | 3.60 |                    |                           | 15.471594436634293, 0.0,  |                             |                        |
+|    |                         |                         | 3.05 | | Paid Other       |                           | 0.049953258022850049,     |                             |                        |
+|    |                         |                         | |                         |                           | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         | 2.36 |               4.16 |                           | 0.0, 0.0, 0.0, 0.0,       |                             |                        |
+|    |                         |                         | | | Direct                |                           | 2.3645731494101945,       |                             |                        |
+|    |                         |                         | |             0.52 |      |                           | 3.6023435214192432,       |                             |                        |
+|    |                         |                         | 0.47                      |                           | 9.4447338561774341],      |                             |                        |
+|    |                         |                         | | | Referral          |   |                           | "Trough (Jan-Oct)":       |                             |                        |
+|    |                         |                         | 0.34                      |                           | [32.951178874480888,      |                             |                        |
+|    |                         |                         | |               0.41 | |  |                           | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         | Display                   |                           | 15.686587660570359,       |                             |                        |
+|    |                         |                         | |             0.00 |      |                           | 10.32043612691448,        |                             |                        |
+|    |                         |                         | 0.00                      |                           | 0.4055670838019082,       |                             |                        |
+|    |                         |                         | | | Organic Video     |   |                           | 0.0, 0.46801303075601042, |                             |                        |
+|    |                         |                         | 0.00                      |                           | 0.0032051901976441854,    |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           | 0.0014368093989439452,    |                             |                        |
+|    |                         |                         | Email                     |                           | 16.5364604200457,         |                             |                        |
+|    |                         |                         | |             0.05 |      |                           | 0.0, 0.18777993606198176, |                             |                        |
+|    |                         |                         | 0.19                      |                           | 0.0, 0.0,                 |                             |                        |
+|    |                         |                         | | | Paid Video        |   |                           | 0.094221539430747167,     |                             |                        |
+|    |                         |                         | 0.00                      |                           | 0.0, 0.0, 0.0,            |                             |                        |
+|    |                         |                         | |               0.09 | |  |                           | 0.00022104759983753003,   |                             |                        |
+|    |                         |                         | Organic                   |                           | 4.16055792414199,         |                             |                        |
+|    |                         |                         | Shopping  |               |                           | 3.0489095445590513,       |                             |                        |
+|    |                         |                         | 0.00 |                    |                           | 16.135424812040462]}}'}   |                             |                        |
+|    |                         |                         | 0.00 | | Search           |                           | name='call_analytics_agen |                             |                        |
+|    |                         |                         | |                         |                           | t'                        |                             |                        |
+|    |                         |                         | 0.00 |               0.00 |                           | partial_args=None         |                             |                        |
+|    |                         |                         | | | Demand Gen            |                           | will_continue=None        |                             |                        |
+|    |                         |                         | |             0.00 |      |                           |                           |                             |                        |
+|    |                         |                         | 0.00                      |                           |                           |                             |                        |
+|    |                         |                         | | | Performance Max   |   |                           |                           |                             |                        |
+|    |                         |                         | 0.00                      |                           |                           |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           |                           |                             |                        |
+|    |                         |                         | Print                     |                           |                           |                             |                        |
+|    |                         |                         | |             0.00 |      |                           |                           |                             |                        |
+|    |                         |                         | 0.00                      |                           |                           |                             |                        |
+|    |                         |                         | | | OTT               |   |                           |                           |                             |                        |
+|    |                         |                         | 0.00                      |                           |                           |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           |                           |                             |                        |
+|    |                         |                         | CTV                       |                           |                           |                             |                        |
+|    |                         |                         | |             0.00 |      |                           |                           |                             |                        |
+|    |                         |                         | 0.00                      |                           |                           |                             |                        |
+|    |                         |                         | | | OOH               |   |                           |                           |                             |                        |
+|    |                         |                         | 0.00                      |                           |                           |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           |                           |                             |                        |
+|    |                         |                         | Online Audio              |                           |                           |                             |                        |
+|    |                         |                         | |             0.00 |      |                           |                           |                             |                        |
+|    |                         |                         | 0.00                      |                           |                           |                             |                        |
+|    |                         |                         | | | Video             |   |                           |                           |                             |                        |
+|    |                         |                         | 0.00                      |                           |                           |                             |                        |
+|    |                         |                         | |               0.00 | |  |                           |                           |                             |                        |
+|    |                         |                         | Linear TV                 |                           |                           |                             |                        |
+|    |                         |                         | |             0.00 |      |                           |                           |                             |                        |
+|    |                         |                         | 0.00                      |                           |                           |                             |                        |
+|    |                         |                         | |  **Explanation:**  1.   |                           |                           |                             |                        |
+|    |                         |                         | **Cost Mix                |                           |                           |                             |                        |
+|    |                         |                         | Shift:** During the peak  |                           |                           |                             |                        |
+|    |                         |                         | months of                 |                           |                           |                             |                        |
+|    |                         |                         | November and December,    |                           |                           |                             |                        |
+|    |                         |                         | NPI significantly         |                           |                           |                             |                        |
+|    |                         |                         | increases its cost        |                           |                           |                             |                        |
+|    |                         |                         | allocation to **Paid      |                           |                           |                             |                        |
+|    |                         |                         | Social**, **Search**,     |                           |                           |                             |                        |
+|    |                         |                         | **Demand Gen**,           |                           |                           |                             |                        |
+|    |                         |                         | and **Performance Max**.  |                           |                           |                             |                        |
+|    |                         |                         | Conversely,               |                           |                           |                             |                        |
+|    |                         |                         | channels like **CTV**,    |                           |                           |                             |                        |
+|    |                         |                         | **Linear TV**,            |                           |                           |                             |                        |
+|    |                         |                         | **Online Audio**, and     |                           |                           |                             |                        |
+|    |                         |                         | **OTT** see a             |                           |                           |                             |                        |
+|    |                         |                         | substantial decrease in   |                           |                           |                             |                        |
+|    |                         |                         | their share of            |                           |                           |                             |                        |
+|    |                         |                         | cost, with some having no |                           |                           |                             |                        |
+|    |                         |                         | recorded spend            |                           |                           |                             |                        |
+|    |                         |                         | during the peak period.   |                           |                           |                             |                        |
+|    |                         |                         | This indicates a          |                           |                           |                             |                        |
+|    |                         |                         | strategic shift towards   |                           |                           |                             |                        |
+|    |                         |                         | performance-              |                           |                           |                             |                        |
+|    |                         |                         | oriented digital channels |                           |                           |                             |                        |
+|    |                         |                         | during the                |                           |                           |                             |                        |
+|    |                         |                         | holiday season. 2.        |                           |                           |                             |                        |
+|    |                         |                         | **Conversion Mix          |                           |                           |                             |                        |
+|    |                         |                         | Shift:** The conversion   |                           |                           |                             |                        |
+|    |                         |                         | attribution mix           |                           |                           |                             |                        |
+|    |                         |                         | reveals a different       |                           |                           |                             |                        |
+|    |                         |                         | dynamic. While            |                           |                           |                             |                        |
+|    |                         |                         | **Paid Social** cost      |                           |                           |                             |                        |
+|    |                         |                         | share increases           |                           |                           |                             |                        |
+|    |                         |                         | during peak, its          |                           |                           |                             |                        |
+|    |                         |                         | conversion share          |                           |                           |                             |                        |
+|    |                         |                         | actually *decreases*.     |                           |                           |                             |                        |
+|    |                         |                         | This suggests that        |                           |                           |                             |                        |
+|    |                         |                         | Paid Social might be used |                           |                           |                             |                        |
+|    |                         |                         | more for                  |                           |                           |                             |                        |
+|    |                         |                         | upper-funnel activities   |                           |                           |                             |                        |
+|    |                         |                         | or brand                  |                           |                           |                             |                        |
+|    |                         |                         | awareness during peak, or |                           |                           |                             |                        |
+|    |                         |                         | that the cost             |                           |                           |                             |                        |
+|    |                         |                         | per conversion is higher. |                           |                           |                             |                        |
+|    |                         |                         | **Organic                 |                           |                           |                             |                        |
+|    |                         |                         | Social** and              |                           |                           |                             |                        |
+|    |                         |                         | **Unassigned** channels   |                           |                           |                             |                        |
+|    |                         |                         | contribute a higher       |                           |                           |                             |                        |
+|    |                         |                         | percentage of             |                           |                           |                             |                        |
+|    |                         |                         | conversions during peak   |                           |                           |                             |                        |
+|    |                         |                         | months,                   |                           |                           |                             |                        |
+|    |                         |                         | potentially indicating    |                           |                           |                             |                        |
+|    |                         |                         | increased organic         |                           |                           |                             |                        |
+|    |                         |                         | engagement or halo        |                           |                           |                             |                        |
+|    |                         |                         | effects from other        |                           |                           |                             |                        |
+|    |                         |                         | marketing efforts.        |                           |                           |                             |                        |
+|    |                         |                         | Conversely, **Paid        |                           |                           |                             |                        |
+|    |                         |                         | Search**, **Cross-        |                           |                           |                             |                        |
+|    |                         |                         | network**, and **Paid     |                           |                           |                             |                        |
+|    |                         |                         | Other** experience a      |                           |                           |                             |                        |
+|    |                         |                         | decrease in their         |                           |                           |                             |                        |
+|    |                         |                         | conversion share during   |                           |                           |                             |                        |
+|    |                         |                         | peak.                     |                           |                           |                             |                        |
+|    |                         |                         | **Graph:** The following  |                           |                           |                             |                        |
+|    |                         |                         | charts                    |                           |                           |                             |                        |
+|    |                         |                         | visualize the channel mix |                           |                           |                             |                        |
+|    |                         |                         | shifts for                |                           |                           |                             |                        |
+|    |                         |                         | cost and conversion       |                           |                           |                             |                        |
+|    |                         |                         | attribution between       |                           |                           |                             |                        |
+|    |                         |                         | peak (Nov/Dec) and trough |                           |                           |                             |                        |
+|    |                         |                         | (Jan-Oct)                 |                           |                           |                             |                        |
+|    |                         |                         | months.  Generated        |                           |                           |                             |                        |
+|    |                         |                         | stacked_bar chart:        |                           |                           |                             |                        |
+|    |                         |                         | Cost Mix Shift: Peak      |                           |                           |                             |                        |
+|    |                         |                         | (Nov/Dec) vs.             |                           |                           |                             |                        |
+|    |                         |                         | Trough (Jan-Oct)          |                           |                           |                             |                        |
+|    |                         |                         | Generated stacked_bar     |                           |                           |                             |                        |
+|    |                         |                         | chart: Conversion Mix     |                           |                           |                             |                        |
+|    |                         |                         | Shift: Peak               |                           |                           |                             |                        |
+|    |                         |                         | (Nov/Dec) vs. Trough      |                           |                           |                             |                        |
+|    |                         |                         | (Jan-Oct)                 |                           |                           |                             |                        |
++----+-------------------------+-------------------------+---------------------------+---------------------------+---------------------------+-----------------------------+------------------------+
+
+
+

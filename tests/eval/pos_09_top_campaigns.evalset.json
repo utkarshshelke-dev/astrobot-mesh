@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_09_top_campaigns",
+    "data": [
+      {
+        "query": "For NPI, list the top 10 campaigns by spend last 30 days",
+        "reference": "NPI top campaigns spend cost channel performance last quarter",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

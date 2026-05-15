@@ -1,0 +1,9 @@
+[{
+  "name": "pos_14_chase_sql_monthly_trend",
+  "data": [{
+    "query": "For NPI, show monthly spend and conversions trend for last 12 months as a line chart",
+    "reference": "monthly trend spend conversions NPI line chart 12 months",
+    "expected_tool_use": []
+  }],
+  "initial_session": {"app_name": "data_science", "user_id": "eval_user", "state": {}}
+}]

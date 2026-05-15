@@ -1,0 +1,13 @@
+[
+  {
+    "name": "neg_ambiguous_no_client",
+    "data": [
+      {
+        "query": "Show top channels by spend",
+        "reference": "which client NPI Venetian WinnDixie specify clarify",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {"app_name": "data_science", "user_id": "eval_user", "state": {}}
+  }
+]

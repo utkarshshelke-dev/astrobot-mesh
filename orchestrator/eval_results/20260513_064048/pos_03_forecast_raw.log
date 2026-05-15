@@ -1,0 +1,108 @@
+2026-05-13 06:44:15,924 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 06:44:25,218 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 06:44:25,219 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 06:44:25,220 - INFO - agent.py:401 - 🔒 Orchestrator session LOCKED to client: NPI
+2026-05-13 06:44:25,220 - INFO - agent.py:413 - ▶ before_agent | client=NPI | locked=NPI | session=session_1778654665 | turn=1 | mode=local-AgentTool
+2026-05-13 06:44:25,292 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=none
+2026-05-13 06:44:25,430 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:44:26,675 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:44:26,676 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 06:44:26,677 - INFO - agent.py:558 - 🔢 after_model  | tokens in=4241 out=17 total=4354
+2026-05-13 06:44:26,678 - INFO - agent.py:457 - ⚙ before_tool  | tool=call_data_scientist | skill=bqml_forecast | client=NPI | query=Forecast NPI spend for the next 14 days…
+2026-05-13 06:44:26,678 - INFO - agent.py:163 - Routing to LOCAL DS agent
+2026-05-13 06:44:27,541 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 06:44:27,541 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 06:44:27,541 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+2026-05-13 06:44:27,542 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 06:44:27,542 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 06:44:27,543 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 06:44:27,543 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 06:44:27,543 - INFO - agent.py:339 - 📍 KM routed '[Client: NPI] Forecast NPI spend for the next 14 d...' → table=performance (confidence=low)
+2026-05-13 06:44:28,121 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 06:44:28,121 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 06:44:28,560 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:44:30,855 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:44:30,856 - INFO - agent.py:489 - Tokens: In=7711, Out=13
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 06:44:30,969 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:44:34,969 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:44:35,976 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:44:49,127 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:44:49,131 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 06:44:49,131 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 06:44:49,250 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:44:49,251 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 06:44:54,818 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:44:54,821 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 06:44:54,821 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 06:44:55,331 - INFO - category.py:224 - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-13 06:44:55,333 - INFO - category.py:224 - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-13 06:44:55,637 - INFO - agent.py:124 - BQML chart rendered: NPI Daily Spend Forecast (Next 14 Days) (62711 bytes)
+2026-05-13 06:44:55,638 - INFO - agent.py:131 - BQML chart saved: chart_1778654695_0ee2ee.png v0
+2026-05-13 06:44:55,746 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:44:58,265 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:44:58,268 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 06:44:58,268 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 06:44:58,268 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 06:44:58,268 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 06:44:58,273 - INFO - agent.py:514 - ✓ after_tool   | tool=call_data_scientist | skill=bqml_forecast | len=61 | error=False
+2026-05-13 06:44:58,281 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=bqml_forecast
+2026-05-13 06:44:58,385 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:45:00,803 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:45:00,806 - INFO - agent.py:558 - 🔢 after_model  | tokens in=4376 out=68 total=4444
+2026-05-13 06:45:00,810 - INFO - agent.py:427 - ◀ after_agent  | client=NPI | turn=1 | duration=35.59s | tools_called=1
+2026-05-13 06:45:00,813 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 06:45:00,815 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 06:45:00,822 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 06:45:00,825 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/orchestrator/.adk/eval_history/orchestrator_tests_eval_orchestrator_pos_03_forecast.evalset.json_1778654700.8257084.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.05} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval_orchestrator/pos_03_forecast.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval_orchestrator/pos_03_forecast.evalset.json
+Eval Id: pos_03_forecast
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.19999999999999998, Threshold: 0.05
+---------------------------------------------------------------------
+Invocation Details:
++----+-------------------------+--------------------------+------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                  | expected_response        | actual_response        | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=========================+==========================+========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, forecast spend | NPI forecast spend ARIMA | **Result:** Generated  |                       | id='adk-54571c01-aa58-4bd | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | for the next 14         | 14 days                  | line chart: NPI        |                       | 5-8477-                   | 0.0                         | 0.19999999999999998    |
+|    | days                    | prediction weekly        | Daily Spend Forecast   |                       | cd7acb11e1a6'             |                             |                        |
+|    |                         |                          | (Next 14 Days)         |                       | args={'query': 'Forecast  |                             |                        |
+|    |                         |                          | **Explanation:** The   |                       | NPI spend for the next 14 |                             |                        |
+|    |                         |                          | `call_data_scientist`  |                       | days'}                    |                             |                        |
+|    |                         |                          | agent was used to      |                       | name='call_data_scientist |                             |                        |
+|    |                         |                          | forecast NPI spend for |                       | '                         |                             |                        |
+|    |                         |                          | the next 14 days.      |                       | partial_args=None         |                             |                        |
+|    |                         |                          | **Recommendation:**    |                       | will_continue=None        |                             |                        |
+|    |                         |                          | Review the forecast    |                       |                           |                             |                        |
+|    |                         |                          | to anticipate future   |                       |                           |                             |                        |
+|    |                         |                          | spend and adjust       |                       |                           |                             |                        |
+|    |                         |                          | budget allocations as  |                       |                           |                             |                        |
+|    |                         |                          | needed.                |                       |                           |                             |                        |
++----+-------------------------+--------------------------+------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

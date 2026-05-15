@@ -1,0 +1,1 @@
+[{"name": "neg_05_invalid_metric", "data": [{"query": "For NPI, show me clucks per channel last month", "reference": "unknown metric clucks did you mean clicks suggest available metrics", "expected_tool_use": []}], "initial_session": {"app_name": "data_science", "user_id": "eval_user", "state": {}}}]

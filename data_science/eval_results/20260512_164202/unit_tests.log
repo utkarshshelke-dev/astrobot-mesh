@@ -1,0 +1,17 @@
+..F....F....................Fs...............F..F....................... [ 26%]
+.....ss................................................................. [ 52%]
+..........................................sssssssssssss................. [ 79%]
+.........................................................                [100%]
+=================================== FAILURES ===================================
+/home/utkarsh_shelke/astrobot_mesh/data_science/agent.py:667: pydantic_core._pydantic_core.ValidationError: 1 validation error for LlmAgent
+/home/utkarsh_shelke/astrobot_mesh/data_science_tests/test_agent_callbacks.py:59: AssertionError: assert ('Venetian' in 'Use explicit column names or add LIMIT — SELECT * without LIMIT is blocked.' or 'NPI' in 'Use explicit column names or add LIMIT — SELECT * without LIMIT is blocked.')
+/home/utkarsh_shelke/astrobot_mesh/data_science/sub_agents/bigquery/tools.py:1292: ZeroDivisionError: division by zero
+/home/utkarsh_shelke/astrobot_mesh/data_science_tests/test_bqml_smoke.py:6: ImportError: cannot import name 'bqml_agent' from 'data_science.sub_agents.bqml.agent' (/home/utkarsh_shelke/astrobot_mesh/data_science/sub_agents/bqml/agent.py)
+/home/utkarsh_shelke/astrobot_mesh/data_science_tests/test_bqml_smoke.py:23: ImportError: cannot import name 'bqml_agent' from 'data_science.sub_agents.bqml.agent' (/home/utkarsh_shelke/astrobot_mesh/data_science/sub_agents/bqml/agent.py)
+=========================== short test summary info ============================
+FAILED data_science_tests/test_agent_callbacks.py::test_get_root_agent_callable
+FAILED data_science_tests/test_agent_callbacks.py::test_ac5_walled_garden_check_blocks_cross_client
+FAILED data_science_tests/test_bq_tools_pure.py::TestSatFitLogLog::test_handles_empty_input
+FAILED data_science_tests/test_bqml_smoke.py::test_bqml_agent_imports - Impor...
+FAILED data_science_tests/test_bqml_smoke.py::test_bqml_agent_has_tools - Imp...
+5 failed, 252 passed, 16 skipped in 28.67s

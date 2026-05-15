@@ -1,0 +1,19 @@
+[
+  {
+    "name": "volatility_npi",
+    "data": [
+      {
+        "query": "For NPI, which channels are most volatile in cost over last 12 months",
+        "reference": "most volatile channels cost CV coefficient of variation",
+        "expected_tool_use": [
+          {"tool_name": "call_bigquery_agent", "tool_input": {}}
+        ]
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

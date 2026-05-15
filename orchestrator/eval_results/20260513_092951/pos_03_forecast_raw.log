@@ -1,0 +1,200 @@
+2026-05-13 09:33:46,714 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 09:33:55,990 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 09:33:55,990 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 09:33:55,991 - INFO - agent.py:401 - 🔒 Orchestrator session LOCKED to client: NPI
+2026-05-13 09:33:55,991 - INFO - agent.py:413 - ▶ before_agent | client=NPI | locked=NPI | session=session_1778664835 | turn=1 | mode=local-AgentTool
+2026-05-13 09:33:56,051 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=none
+2026-05-13 09:33:56,171 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 09:33:58,568 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 09:33:58,568 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 09:33:58,569 - INFO - agent.py:558 - 🔢 after_model  | tokens in=4241 out=17 total=4354
+2026-05-13 09:33:58,571 - INFO - agent.py:457 - ⚙ before_tool  | tool=call_data_scientist | skill=bqml_forecast | client=NPI | query=Forecast NPI spend for the next 14 days…
+2026-05-13 09:33:58,571 - INFO - agent.py:163 - Routing to LOCAL DS agent
+2026-05-13 09:33:59,380 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 09:33:59,380 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 09:33:59,381 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+2026-05-13 09:33:59,381 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 09:33:59,382 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 09:33:59,383 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 09:33:59,383 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 09:33:59,383 - INFO - agent.py:339 - 📍 KM routed '[Client: NPI] Forecast NPI spend for the next 14 d...' → table=performance (confidence=low)
+2026-05-13 09:33:59,833 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 09:33:59,833 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 09:34:00,294 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 09:34:03,071 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 09:34:03,072 - INFO - agent.py:489 - Tokens: In=7711, Out=13
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 09:34:03,184 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 09:34:06,387 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 09:34:06,820 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 09:34:09,218 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 09:34:09,328 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 09:34:12,563 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 09:34:13,650 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 09:34:19,924 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 09:34:19,927 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 09:34:19,927 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 09:34:19,927 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 09:34:19,927 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 09:34:19,932 - INFO - agent.py:514 - ✓ after_tool   | tool=call_data_scientist | skill=bqml_forecast | len=1474 | error=False
+2026-05-13 09:34:19,938 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=bqml_forecast
+2026-05-13 09:34:20,031 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 09:34:26,736 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 09:34:26,737 - INFO - agent.py:558 - 🔢 after_model  | tokens in=5115 out=866 total=6186
+2026-05-13 09:34:26,774 - INFO - agent.py:427 - ◀ after_agent  | client=NPI | turn=1 | duration=30.78s | tools_called=1
+2026-05-13 09:34:26,776 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 09:34:26,776 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 09:34:26,779 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 09:34:26,783 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/orchestrator/.adk/eval_history/orchestrator_tests_eval_orchestrator_pos_03_forecast.evalset.json_1778664866.7834878.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.05} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval_orchestrator/pos_03_forecast.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval_orchestrator/pos_03_forecast.evalset.json
+Eval Id: pos_03_forecast
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.0379746835443038, Threshold: 0.05
+---------------------------------------------------------------------
+Invocation Details:
++----+-------------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                  | expected_response        | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=========================+==========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, forecast spend | NPI forecast spend ARIMA | **Result:** The NPI spend |                       | id='adk-9689e11f-cade-40a | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | for the next 14         | 14 days                  | forecast for              |                       | 5-a602-                   | 0.0                         | 0.0379746835443038     |
+|    | days                    | prediction weekly        | the next 14 days (from    |                       | f04929ceae59'             |                             |                        |
+|    |                         |                          | 2025-07-01 to             |                       | args={'query': 'Forecast  |                             |                        |
+|    |                         |                          | 2025-07-14) shows an      |                       | NPI spend for the next 14 |                             |                        |
+|    |                         |                          | average daily             |                       | days'}                    |                             |                        |
+|    |                         |                          | predicted spend of        |                       | name='call_data_scientist |                             |                        |
+|    |                         |                          | $138.83. The forecast     |                       | '                         |                             |                        |
+|    |                         |                          | has a wide confidence     |                       | partial_args=None         |                             |                        |
+|    |                         |                          | interval, with an         |                       | will_continue=None        |                             |                        |
+|    |                         |                          | average lower bound of    |                       |                           |                             |                        |
+|    |                         |                          | $-36.63 and an            |                       |                           |                             |                        |
+|    |                         |                          | average upper bound of    |                       |                           |                             |                        |
+|    |                         |                          | $314.28. The              |                       |                           |                             |                        |
+|    |                         |                          | lower bound is negative   |                       |                           |                             |                        |
+|    |                         |                          | for most days,            |                       |                           |                             |                        |
+|    |                         |                          | indicating a high degree  |                       |                           |                             |                        |
+|    |                         |                          | of uncertainty            |                       |                           |                             |                        |
+|    |                         |                          | or significant spend      |                       |                           |                             |                        |
+|    |                         |                          | fluctuation.  Here        |                       |                           |                             |                        |
+|    |                         |                          | is the daily breakdown:   |                       |                           |                             |                        |
+|    |                         |                          | | Forecast Date           |                       |                           |                             |                        |
+|    |                         |                          | | Predicted Spend | Lower |                       |                           |                             |                        |
+|    |                         |                          | Bound | Upper             |                       |                           |                             |                        |
+|    |                         |                          | Bound | |---------------| |                       |                           |                             |                        |
+|    |                         |                          | ---------------           |                       |                           |                             |                        |
+|    |                         |                          | --|-------------|-------- |                       |                           |                             |                        |
+|    |                         |                          | -----|\n|                 |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-01    | $10.51    |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-172.09$   | $193.12$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-02    | $62.68$   |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-119.92$   | $245.28$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-03    | $126.08$  |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-56.52$    | $308.68$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-04    | $118.66$  |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-63.94$    | $301.26$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-05    | $129.24$  |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-53.36$    | $311.84$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-06    | $144.71$  |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-37.89$    | $327.31$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-07    | $295.63$  |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $113.03$    | $478.23$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-08    | $7.84$    |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-174.77$   | $190.44$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-09    | $64.13$   |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-118.47$   | $246.73$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-10    | $122.32$  |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-60.28$    | $304.93$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-11    | $111.91$  |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-70.69$    | $294.51$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-12    | $129.98$  |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-52.62$    | $312.58$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-13    | $145.02$  |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $-37.59$    | $327.62$    |                       |                           |                             |                        |
+|    |                         |                          | |\n|                      |                       |                           |                             |                        |
+|    |                         |                          | 2025-07-14    | $303.74$  |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | $121.14$    | $486.34$    |                       |                           |                             |                        |
+|    |                         |                          | |                         |                       |                           |                             |                        |
+|    |                         |                          | **Explanation:** The      |                       |                           |                             |                        |
+|    |                         |                          | `call_data_scientist`     |                       |                           |                             |                        |
+|    |                         |                          | agent was used to         |                       |                           |                             |                        |
+|    |                         |                          | generate the spend        |                       |                           |                             |                        |
+|    |                         |                          | forecast for NPI for      |                       |                           |                             |                        |
+|    |                         |                          | the next 14 days.         |                       |                           |                             |                        |
+|    |                         |                          | **Recommendation:**       |                       |                           |                             |                        |
+|    |                         |                          | Given the wide confidence |                       |                           |                             |                        |
+|    |                         |                          | interval and              |                       |                           |                             |                        |
+|    |                         |                          | the presence of negative  |                       |                           |                             |                        |
+|    |                         |                          | lower bounds in           |                       |                           |                             |                        |
+|    |                         |                          | the forecast, it is       |                       |                           |                             |                        |
+|    |                         |                          | recommended to            |                       |                           |                             |                        |
+|    |                         |                          | investigate the           |                       |                           |                             |                        |
+|    |                         |                          | underlying data for       |                       |                           |                             |                        |
+|    |                         |                          | potential anomalies or    |                       |                           |                             |                        |
+|    |                         |                          | significant               |                       |                           |                             |                        |
+|    |                         |                          | fluctuations that might   |                       |                           |                             |                        |
+|    |                         |                          | be impacting the          |                       |                           |                             |                        |
+|    |                         |                          | model's certainty. We     |                       |                           |                             |                        |
+|    |                         |                          | could also explore        |                       |                           |                             |                        |
+|    |                         |                          | alternative forecasting   |                       |                           |                             |                        |
+|    |                         |                          | models or                 |                       |                           |                             |                        |
+|    |                         |                          | incorporate additional    |                       |                           |                             |                        |
+|    |                         |                          | features to               |                       |                           |                             |                        |
+|    |                         |                          | improve prediction        |                       |                           |                             |                        |
+|    |                         |                          | accuracy. Would you       |                       |                           |                             |                        |
+|    |                         |                          | like to visualize this    |                       |                           |                             |                        |
+|    |                         |                          | forecast to               |                       |                           |                             |                        |
+|    |                         |                          | better understand the     |                       |                           |                             |                        |
+|    |                         |                          | trend and                 |                       |                           |                             |                        |
+|    |                         |                          | uncertainty?              |                       |                           |                             |                        |
++----+-------------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

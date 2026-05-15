@@ -1,0 +1,13 @@
+import os
+from google.adk.agents import LlmAgent
+from google.adk.code_executors import BuiltInCodeExecutor
+from google.genai import types
+from .prompts import return_instructions_analytics
+
+analytics_agent = LlmAgent(
+    model=os.getenv("ANALYTICS_AGENT_MODEL", "gemini-2.5-flash"),
+    name="analytics_agent",
+    instruction=return_instructions_analytics(),
+    code_executor=BuiltInCodeExecutor(),
+    generate_content_config=types.GenerateContentConfig(temperature=0.0),
+)

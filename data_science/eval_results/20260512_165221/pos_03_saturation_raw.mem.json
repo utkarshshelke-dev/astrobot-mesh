@@ -1,0 +1,9 @@
+{
+  "peak_mem_mb": 1334.9,
+  "open_figures_after": 0,
+  "figures_leaked": 0,
+  "gc_objects_delta": -277,
+  "duration_sec": 124.7,
+  "leak_score": "\ud83d\udfe2 LOW",
+  "exit_code": 0
+}

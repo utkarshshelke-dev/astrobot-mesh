@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_05_monthly_trend",
+    "data": [
+      {
+        "query": "For NPI, show me total monthly spend trend over the last 6 months as a line chart",
+        "reference": "monthly spend trend line chart NPI 6 months",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

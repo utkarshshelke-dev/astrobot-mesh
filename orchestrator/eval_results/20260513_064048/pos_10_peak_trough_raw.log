@@ -1,0 +1,246 @@
+2026-05-13 07:18:38,352 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 07:18:47,635 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:18:47,635 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:18:47,637 - INFO - agent.py:401 - 🔒 Orchestrator session LOCKED to client: NPI
+2026-05-13 07:18:47,637 - INFO - agent.py:413 - ▶ before_agent | client=NPI | locked=NPI | session=session_1778656727 | turn=1 | mode=local-AgentTool
+2026-05-13 07:18:47,708 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=none
+2026-05-13 07:18:47,844 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:18:49,377 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:18:49,378 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 07:18:49,379 - INFO - agent.py:558 - 🔢 after_model  | tokens in=4249 out=27 total=4362
+2026-05-13 07:18:49,380 - INFO - agent.py:457 - ⚙ before_tool  | tool=call_data_scientist | skill=charts | client=NPI | query=For NPI, show channel mix shift between peak month…
+2026-05-13 07:18:49,380 - INFO - agent.py:163 - Routing to LOCAL DS agent
+2026-05-13 07:18:50,216 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 07:18:50,217 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 07:18:50,217 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+2026-05-13 07:18:50,217 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:18:50,218 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:18:50,219 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 07:18:50,219 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 07:18:50,219 - INFO - agent.py:339 - 📍 KM routed '[Client: NPI] For NPI, show channel mix shift betw...' → table=performance (confidence=low)
+2026-05-13 07:18:50,659 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 07:18:50,659 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 07:18:51,156 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:18:53,255 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:18:53,256 - INFO - agent.py:489 - Tokens: In=7721, Out=54
+2026-05-13 07:18:53,258 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:18:53,258 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 07:18:53,383 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:19:01,528 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:19:04,055 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:19:13,003 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:19:13,006 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:19:13,006 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 07:19:13,006 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 07:19:13,006 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:19:13,111 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:19:36,823 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:19:36,824 - INFO - agent.py:489 - Tokens: In=9728, Out=1156
+2026-05-13 07:19:36,826 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:19:36,826 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:19:36,928 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:19:36,929 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 07:19:36,931 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:19:36,931 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:19:37,036 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:19:37,036 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 07:19:42,656 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:19:42,658 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:19:42,658 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:19:43,165 - ERROR - tools.py:937 - Chart rendering failed: shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (12,) and arg 1 with shape (0,).
+2026-05-13 07:19:54,837 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:19:54,839 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:19:54,839 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:19:54,852 - ERROR - tools.py:937 - Chart rendering failed: shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (14,) and arg 1 with shape (0,).
+2026-05-13 07:19:54,960 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:20:03,133 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:20:03,135 - INFO - agent.py:489 - Tokens: In=15391, Out=1457
+2026-05-13 07:20:03,136 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:20:03,136 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:20:03,240 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:20:03,240 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 07:20:03,242 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:20:03,242 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:20:03,350 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:20:03,350 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 07:20:08,531 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:20:08,533 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:20:08,533 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:20:09,229 - INFO - tools.py:935 - Chart rendered: Channel Cost Mix Shift (Peak vs. Trough) (78572 bytes)
+2026-05-13 07:20:09,230 - INFO - tools.py:944 - Saved chart: chart_1778656809_f3ba93.png v0
+2026-05-13 07:20:09,718 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:20:09,719 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:20:09,720 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:20:09,730 - ERROR - tools.py:937 - Chart rendering failed: shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (24,) and arg 1 with shape (0,).
+2026-05-13 07:20:09,833 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:20:21,770 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:20:21,771 - INFO - agent.py:489 - Tokens: In=17089, Out=698
+2026-05-13 07:20:21,773 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:20:21,773 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:20:21,883 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:20:21,883 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 07:20:39,570 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:20:39,571 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:20:39,571 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:20:39,584 - ERROR - tools.py:937 - Chart rendering failed: shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (14,) and arg 1 with shape (0,).
+2026-05-13 07:20:39,691 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:20:45,703 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:20:45,705 - INFO - agent.py:489 - Tokens: In=19712, Out=833
+2026-05-13 07:20:45,706 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:20:45,706 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:20:45,811 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:20:45,812 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 07:20:51,956 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:20:51,958 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:20:51,958 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:20:51,970 - ERROR - tools.py:937 - Chart rendering failed: shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (24,) and arg 1 with shape (0,).
+2026-05-13 07:20:52,108 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:20:57,922 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:20:57,924 - INFO - agent.py:489 - Tokens: In=20885, Out=594
+2026-05-13 07:20:57,925 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:20:57,925 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 07:20:57,925 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 07:20:57,925 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:20:57,930 - INFO - agent.py:514 - ✓ after_tool   | tool=call_data_scientist | skill=charts | len=2169 | error=False
+2026-05-13 07:20:57,935 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=charts
+2026-05-13 07:20:58,031 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:21:01,983 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:21:01,984 - INFO - agent.py:558 - 🔢 after_model  | tokens in=4962 out=648 total=5734
+2026-05-13 07:21:02,015 - INFO - agent.py:427 - ◀ after_agent  | client=NPI | turn=1 | duration=134.38s | tools_called=1
+2026-05-13 07:21:02,017 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:21:02,017 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:21:02,020 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 07:21:02,025 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/orchestrator/.adk/eval_history/orchestrator_tests_eval_orchestrator_pos_10_peak_trough.evalset.json_1778656862.0256898.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.05} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval_orchestrator/pos_10_peak_trough.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval_orchestrator/pos_10_peak_trough.evalset.json
+Eval Id: pos_10_peak_trough
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.07868852459016394, Threshold: 0.05
+---------------------------------------------------------------------
+Invocation Details:
++----+---------------------------+-------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                    | expected_response       | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+===========================+=========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, show channel mix | NPI peak trough channel | **Result:**  **Channel    |                       | id='adk-162d632c-88cb-455 | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | shift between             | mix Nov Dec cost        | Cost Mix Shift            |                       | 9-8ea5-                   | 0.0                         | 0.07868852459016394    |
+|    | peak months Nov Dec and   | conversion bar chart    | (Peak vs. Trough)**       |                       | 71f9dc63382c'             |                             |                        |
+|    | trough months as          | shift                   | Generated                 |                       | args={'query': 'For NPI,  |                             |                        |
+|    | 2 bar charts              |                         | stacked_bar chart:        |                       | show channel mix shift    |                             |                        |
+|    |                           |                         | Channel Cost Mix          |                       | between peak              |                             |                        |
+|    |                           |                         | Shift (Peak vs. Trough)   |                       | months Nov Dec and trough |                             |                        |
+|    |                           |                         | **Channel                 |                       | months as 2               |                             |                        |
+|    |                           |                         | Conversion Mix Shift      |                       | bar charts'} name='call_d |                             |                        |
+|    |                           |                         | (Peak vs. Trough)**       |                       | ata_scientist'            |                             |                        |
+|    |                           |                         | | Channel | Peak          |                       | partial_args=None         |                             |                        |
+|    |                           |                         | (Nov/Dec) % | Trough      |                       | will_continue=None        |                             |                        |
+|    |                           |                         | (Jan-Oct) % | |:--------- |                       |                           |                             |                        |
+|    |                           |                         | ---------|-----           |                       |                           |                             |                        |
+|    |                           |                         | ------------:|----------- |                       |                           |                             |                        |
+|    |                           |                         | --------:| |              |                       |                           |                             |                        |
+|    |                           |                         | Paid Social | 24.03 |     |                       |                           |                             |                        |
+|    |                           |                         | 33.01 | | Search |        |                       |                           |                             |                        |
+|    |                           |                         | 0.00 | 0.00 | | Demand    |                       |                           |                             |                        |
+|    |                           |                         | Gen | 0.00 | 0.00         |                       |                           |                             |                        |
+|    |                           |                         | | | Performance Max |     |                       |                           |                             |                        |
+|    |                           |                         | 0.00 | 0.00 | |           |                       |                           |                             |                        |
+|    |                           |                         | Referral | 0.34 | 0.41 |  |                       |                           |                             |                        |
+|    |                           |                         | | Organic                 |                       |                           |                             |                        |
+|    |                           |                         | Social | 27.66 | 15.73 |  |                       |                           |                             |                        |
+|    |                           |                         | | Organic                 |                       |                           |                             |                        |
+|    |                           |                         | Search | 3.60 | 3.05 | |  |                       |                           |                             |                        |
+|    |                           |                         | Video | 0.00 |            |                       |                           |                             |                        |
+|    |                           |                         | 0.00 | | Organic Shopping |                       |                           |                             |                        |
+|    |                           |                         | | 0.00 | 0.00             |                       |                           |                             |                        |
+|    |                           |                         | | | OOH | 0.00 | 0.00 | | |                       |                           |                             |                        |
+|    |                           |                         | CTV | 0.00 |              |                       |                           |                             |                        |
+|    |                           |                         | 0.00 | | Display | 0.00 | |                       |                           |                             |                        |
+|    |                           |                         | 0.00 | |                  |                       |                           |                             |                        |
+|    |                           |                         | Organic Video | 0.00 |    |                       |                           |                             |                        |
+|    |                           |                         | 0.00 | | Email |          |                       |                           |                             |                        |
+|    |                           |                         | 0.05 | 0.19 | | Paid      |                       |                           |                             |                        |
+|    |                           |                         | Other | 2.36 | 4.06       |                       |                           |                             |                        |
+|    |                           |                         | | | Direct | 0.52 | 0.47  |                       |                           |                             |                        |
+|    |                           |                         | | | Online                |                       |                           |                             |                        |
+|    |                           |                         | Audio | 0.00 | 0.00 | |   |                       |                           |                             |                        |
+|    |                           |                         | Print | 0.00 |            |                       |                           |                             |                        |
+|    |                           |                         | 0.00 | | Paid Video |     |                       |                           |                             |                        |
+|    |                           |                         | 0.00 | 0.09 | |           |                       |                           |                             |                        |
+|    |                           |                         | Unassigned | 16.51 |      |                       |                           |                             |                        |
+|    |                           |                         | 10.35 | | OTT |           |                       |                           |                             |                        |
+|    |                           |                         | 0.00 | 0.00 | | Linear TV |                       |                           |                             |                        |
+|    |                           |                         | | 0.00 | 0.00             |                       |                           |                             |                        |
+|    |                           |                         | | | Paid Search | 15.47 | |                       |                           |                             |                        |
+|    |                           |                         | 16.52 | |                 |                       |                           |                             |                        |
+|    |                           |                         | Cross-network | 9.44 |    |                       |                           |                             |                        |
+|    |                           |                         | 16.12 |                   |                       |                           |                             |                        |
+|    |                           |                         | **Explanation:** The      |                       |                           |                             |                        |
+|    |                           |                         | channel mix shift         |                       |                           |                             |                        |
+|    |                           |                         | for NPI between peak      |                       |                           |                             |                        |
+|    |                           |                         | months (Nov/Dec)          |                       |                           |                             |                        |
+|    |                           |                         | and trough months (Jan-   |                       |                           |                             |                        |
+|    |                           |                         | Oct) is presented         |                       |                           |                             |                        |
+|    |                           |                         | above. The cost mix shift |                       |                           |                             |                        |
+|    |                           |                         | is shown in               |                       |                           |                             |                        |
+|    |                           |                         | the bar chart,            |                       |                           |                             |                        |
+|    |                           |                         | highlighting changes in   |                       |                           |                             |                        |
+|    |                           |                         | cost allocation across    |                       |                           |                             |                        |
+|    |                           |                         | channels during           |                       |                           |                             |                        |
+|    |                           |                         | these periods. The        |                       |                           |                             |                        |
+|    |                           |                         | conversion mix shift      |                       |                           |                             |                        |
+|    |                           |                         | is provided in a table    |                       |                           |                             |                        |
+|    |                           |                         | format, as the            |                       |                           |                             |                        |
+|    |                           |                         | chart rendering for this  |                       |                           |                             |                        |
+|    |                           |                         | data                      |                       |                           |                             |                        |
+|    |                           |                         | encountered an issue.     |                       |                           |                             |                        |
+|    |                           |                         | **Graph:** The            |                       |                           |                             |                        |
+|    |                           |                         | generated stacked bar     |                       |                           |                             |                        |
+|    |                           |                         | chart illustrates         |                       |                           |                             |                        |
+|    |                           |                         | the Channel Cost Mix      |                       |                           |                             |                        |
+|    |                           |                         | Shift (Peak vs.           |                       |                           |                             |                        |
+|    |                           |                         | Trough).                  |                       |                           |                             |                        |
+|    |                           |                         | **Recommendation:**       |                       |                           |                             |                        |
+|    |                           |                         | Analyze                   |                       |                           |                             |                        |
+|    |                           |                         | the channels with         |                       |                           |                             |                        |
+|    |                           |                         | significant shifts in     |                       |                           |                             |                        |
+|    |                           |                         | both cost and conversion  |                       |                           |                             |                        |
+|    |                           |                         | mix between               |                       |                           |                             |                        |
+|    |                           |                         | peak and trough months to |                       |                           |                             |                        |
+|    |                           |                         | understand the            |                       |                           |                             |                        |
+|    |                           |                         | underlying reasons and    |                       |                           |                             |                        |
+|    |                           |                         | optimize budget           |                       |                           |                             |                        |
+|    |                           |                         | allocation for future     |                       |                           |                             |                        |
+|    |                           |                         | campaigns. For            |                       |                           |                             |                        |
+|    |                           |                         | instance, investigate the |                       |                           |                             |                        |
+|    |                           |                         | decrease in               |                       |                           |                             |                        |
+|    |                           |                         | Organic Social's          |                       |                           |                             |                        |
+|    |                           |                         | conversion share during   |                       |                           |                             |                        |
+|    |                           |                         | trough months despite a   |                       |                           |                             |                        |
+|    |                           |                         | higher cost               |                       |                           |                             |                        |
+|    |                           |                         | share in peak months.     |                       |                           |                             |                        |
++----+---------------------------+-------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

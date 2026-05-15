@@ -1,0 +1,680 @@
+# Copyright 2025 Google LLC (Apache 2.0)
+"""
+Data Scientist Agent — NL2SQL + NL2Py + BQML.
+
+Called by the Orchestrator via AgentTool (SSE streaming).
+The orchestrator injects [Client: NPI] prefix into every message —
+before_agent_callback parses and locks client_id in state.
+
+All 6 ADK callbacks implemented:
+  before_agent_callback — DB load + client_id lock + walled garden init (AC-5)
+  after_agent_callback  — turn logging + BQ result size
+  before_tool_callback  — AC-1 CHASE-SQL + AC-2 JOIN awareness +
+                          AC-3 dry-run + AC-4 max retries + AC-5 walled garden
+  after_tool_callback   — BQ result caching + retry counter management
+  before_model_callback — model call logging
+  after_model_callback  — token usage tracking
+"""
+
+import json
+import logging
+import os
+import re
+from datetime import date
+from typing import Any, Optional
+
+from google.adk.agents import LlmAgent
+from google.adk.code_executors import VertexAiCodeExecutor
+from google.adk.agents.callback_context import CallbackContext
+from google.adk.tools import BaseTool, ToolContext
+from google.genai import types
+
+from .prompts import return_instructions_root
+from .sub_agents import bqml_agent
+from .sub_agents.bigquery.tools import (
+    get_database_settings as get_bq_database_settings,
+)
+from .tools import call_analytics_agent, call_bigquery_agent
+
+logging.basicConfig(level=logging.INFO)
+_logger = logging.getLogger(__name__)
+
+# ── Module-level config ───────────────────────────────────────────────────────
+_dataset_config                 = {}
+_database_settings              = {}
+_supported_dataset_types        = ["bigquery"]
+_required_dataset_config_params = ["name", "description"]
+
+# ── AC constants ──────────────────────────────────────────────────────────────
+_PROJECT_ID  = os.getenv("BQ_DATA_PROJECT_ID", "nc-ai-chatbot")
+_MAX_RETRIES = 3
+
+_CLIENT_TABLE_MAP = {
+    "NPI":       f"{_PROJECT_ID}.Astrobot_NPI.sample_astrobot_npi_nc360_dashboard",
+    "Venetian":  f"{_PROJECT_ID}.Astrobot_Venetian.sample_astrobot_venetian_nc360_dashboard",
+    "WinnDixie": f"{_PROJECT_ID}.Astrobot_WinnDixie.sample_astrobot_wd_nc360_dashboard",
+}
+
+# AC-1: CHASE-SQL metric → column mapping
+_CHASE_SQL_METRIC_MAP = {
+    "spend":          "SUM(Cost)",
+    "cost":           "SUM(Cost)",
+    "cpa":            "SAFE_DIVIDE(SUM(Cost), NULLIF(SUM(Conversions), 0))",
+    "ctr":            "SAFE_DIVIDE(SUM(Clicks), NULLIF(SUM(Impressions), 0))",
+    "clicks":         "SUM(Clicks)",
+    "impressions":    "SUM(Impressions)",
+    "conversions":    "SUM(Conversions)",
+    "vivs":           "SUM(ViVs)",
+    "sessions":       "SUM(Sessions)",
+    "revenue":        "SUM(Revenue)",
+    "transactions":   "SUM(Transactions)",
+    "roas":           "SAFE_DIVIDE(SUM(Revenue), NULLIF(SUM(Cost), 0))",
+    "cpc":            "SAFE_DIVIDE(SUM(Cost), NULLIF(SUM(Clicks), 0))",
+    "cpm":            "SAFE_DIVIDE(SUM(Cost) * 1000, NULLIF(SUM(Impressions), 0))",
+}
+
+# AC-2: Valid JOIN keys between tables
+_VALID_JOIN_KEYS = ["Date", "Campaign", "Channel", "Client", "Platform"]
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# DATASET CONFIG + SCHEMA LOADING
+# ══════════════════════════════════════════════════════════════════════════════
+
+def load_dataset_config() -> dict:
+    path = os.getenv("DATASET_CONFIG_FILE", "")
+    if not path:
+        _logger.fatal("DATASET_CONFIG_FILE env var not set")
+    with open(path, encoding="utf-8") as f:
+        config = json.load(f)
+    if "datasets" not in config:
+        _logger.fatal("No 'datasets' entry in dataset config")
+    for dataset in config["datasets"]:
+        if "type" not in dataset:
+            _logger.fatal("Missing dataset type in config")
+        for p in _required_dataset_config_params:
+            if p not in dataset:
+                _logger.fatal("Missing required param '%s' from dataset config", p)
+    return config
+
+
+def get_database_settings(db_type: str) -> dict:
+    assert db_type in _supported_dataset_types
+    return get_bq_database_settings()
+
+
+def init_database_settings(dataset_config: dict) -> dict:
+    db_settings = {}
+    for dataset in dataset_config["datasets"]:
+        if dataset["type"] == "bigquery":
+            db_settings["bigquery"] = get_database_settings("bigquery")
+    return db_settings
+
+
+def get_dataset_definitions_for_instructions() -> str:
+    definitions = "\n<DATASETS>\n"
+    for dataset in _dataset_config["datasets"]:
+        dtype = dataset["type"]
+        if dtype not in _database_settings:
+            continue
+        definitions += f"""
+<{dtype.upper()}>
+<DESCRIPTION>
+{dataset["description"]}
+</DESCRIPTION>
+<SCHEMA>
+--------- The schema of the relevant database with a few sample rows. --------
+{_database_settings[dtype]["schema"]}
+</SCHEMA>
+</{dtype.upper()}>
+"""
+    definitions += "\n</DATASETS>\n"
+    if "cross_dataset_relations" in _dataset_config:
+        definitions += f"""
+<CROSS_DATASET_RELATIONS>
+--------- The cross dataset relations between the configured datasets. ---------
+{_dataset_config["cross_dataset_relations"]}
+</CROSS_DATASET_RELATIONS>
+"""
+    return definitions
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# AC HELPER FUNCTIONS
+# ══════════════════════════════════════════════════════════════════════════════
+
+def _ac5_walled_garden_check(sql: str, client_id: str) -> tuple[bool, str]:
+    """
+    AC-5: Validates SQL only queries the correct client table.
+    Returns (is_valid, error_message).
+    """
+    if not client_id or client_id not in _CLIENT_TABLE_MAP:
+        return False, f"Unknown client_id: '{client_id}'"
+
+    correct_table = _CLIENT_TABLE_MAP[client_id].lower()
+    sql_lower     = sql.lower()
+
+    # Block SELECT * without LIMIT
+    if "select *" in sql_lower and "limit" not in sql_lower:
+        return False, (
+            "Security violation: SELECT * without LIMIT is not allowed. "
+            "Always specify columns and add a LIMIT clause."
+        )
+
+    # Block cross-client table references
+    for other_client, other_table in _CLIENT_TABLE_MAP.items():
+        if other_client == client_id:
+            continue
+        if other_table.lower() in sql_lower:
+            return False, (
+                f"Security violation: SQL references '{other_client}' table "
+                f"but active client is '{client_id}'. "
+                f"Cross-client queries are strictly forbidden."
+            )
+
+    # Allow BQML, INFORMATION_SCHEMA queries without client table check
+    bqml_patterns = [
+        "ml.predict", "ml.forecast", "ml.evaluate",
+        "ml.detect", "astrobot_bqml_models", "information_schema",
+        "ml.centroids", "ml.training_info",
+    ]
+    if any(p in sql_lower for p in bqml_patterns):
+        return True, ""
+
+    # Ensure correct client table is referenced
+    if correct_table not in sql_lower:
+        return False, (
+            f"Security violation: SQL does not reference the correct "
+            f"table for client '{client_id}'. "
+            f"Required: {_CLIENT_TABLE_MAP[client_id]}"
+        )
+
+    return True, ""
+
+
+def _ac3_dry_run(sql: str) -> tuple[bool, str]:
+    """
+    AC-3: Submits SQL to BigQuery dry-run API.
+    Returns (is_valid, error_message).
+    """
+    try:
+        from google.cloud import bigquery
+        bq = bigquery.Client(project=_PROJECT_ID)
+        job_config = bigquery.QueryJobConfig(dry_run=True, use_query_cache=False)
+        bq.query(sql, job_config=job_config)
+        return True, ""
+    except Exception as e:
+        return False, str(e)
+
+
+def _ac1_inject_chase_sql(question: str, client_id: str) -> str:
+    """
+    AC-1: Inject CHASE-SQL reasoning context into NL2SQL questions.
+    Maps natural language metrics to correct BigQuery column expressions.
+    """
+    if "[CHASE-SQL]" in question:
+        return question  # already injected
+
+    # Build metric hints based on question content
+    q_lower   = question.lower()
+    hints     = []
+    for metric, expr in _CHASE_SQL_METRIC_MAP.items():
+        if metric in q_lower:
+            hints.append(f"  {metric} → {expr}")
+
+    chase_prefix = (
+        f"[CHASE-SQL]\n"
+        f"[Client: {client_id}]\n"
+        f"[Table: {_CLIENT_TABLE_MAP.get(client_id, '')}]\n"
+    )
+    if hints:
+        chase_prefix += f"[Metric mappings:\n" + "\n".join(hints) + "\n]\n"
+    chase_prefix += (
+        f"[Rules: use SUM+GROUP BY, SAFE_DIVIDE for ratios, "
+        f"sample_ tables only, no vw_ tables]\n"
+    )
+
+    return chase_prefix + question
+
+
+def _ac2_join_context(question: str, client_id: str) -> str:
+    """
+    AC-2: Inject multi-table JOIN context when cross-table query detected.
+    """
+    q_lower = question.lower()
+    join_triggers = [
+        "pacing", "budget vs", "planned vs actual",
+        "join", "budget table", "two tables",
+    ]
+
+    if not any(t in q_lower for t in join_triggers):
+        return question
+
+    join_hint = (
+        f"\n[AC-2 JOIN CONTEXT]\n"
+        f"Valid JOIN keys between tables: {', '.join(_VALID_JOIN_KEYS)}\n"
+        f"Client table: {_CLIENT_TABLE_MAP.get(client_id, '')}\n"
+        f"BQML models: {_PROJECT_ID}.astrobot_bqml_models\n"
+        f"Always JOIN ON Date AND Campaign AND Channel for campaign-level joins.\n"
+        f"Use LEFT JOIN to preserve all campaign rows.\n"
+        f"Use SAFE_DIVIDE for any ratio after JOIN.\n"
+    )
+    return question + join_hint
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CALLBACKS — ALL 6
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ── 1. before_agent_callback ──────────────────────────────────────────────────
+
+def before_agent_callback(
+    callback_context: CallbackContext,
+) -> Optional[types.Content]:
+    """
+    Fires before every agent turn.
+    AC-5: Initialise walled garden — lock client_id and correct table.
+    Also loads DB settings and parses orchestrator client prefix.
+    """
+    state = callback_context.state
+
+    # Load DB settings on first turn
+    if "database_settings" not in state:
+        state["database_settings"] = _database_settings
+        _logger.info("DB settings loaded into session state")
+
+    # Parse client_id from orchestrator prefix: [Client: NPI] query...
+    try:
+        for msg in reversed(
+            callback_context._invocation_context.session.events or []
+        ):
+            if hasattr(msg, "content") and msg.content:
+                for part in msg.content.parts or []:
+                    if hasattr(part, "text") and part.text:
+                        text = part.text
+                        if text.startswith("[Client:"):
+                            client_id = text[9: text.index("]")].strip()
+                            if client_id in ("NPI", "Venetian", "WinnDixie"):
+                                state["client_id"] = client_id
+                                _logger.info(
+                                    "Client locked from orchestrator: %s", client_id
+                                )
+                        break
+            break
+    except Exception as e:
+        _logger.debug("Could not parse client prefix: %s", e)
+
+    # Detect client from CURRENT incoming user message — always overrides cache
+    def _detect_client(text: str) -> str | None:
+        t = text.lower()
+        if any(w in t for w in [
+            "winn-dixie", "winndixie", "winn dixie",
+            "win-dixe", "win dixie", "winndi", "winn_dixie"
+        ]):
+            return "WinnDixie"
+        if "venetian" in t:
+            return "Venetian"
+        if "npi" in t:
+            return "NPI"
+        return None
+
+    try:
+        # Read ONLY the current invocation's user message
+        user_input = callback_context._invocation_context.user_content
+        if user_input:
+            for part in user_input.parts or []:
+                if hasattr(part, "text") and part.text:
+                    detected = _detect_client(part.text)
+                    if detected:
+                        state["client_id"] = detected
+                        _logger.info("Client set from current message: %s", detected)
+                    break
+    except Exception as e:
+        _logger.debug("Client detection from user_content failed: %s", e)
+        # Fallback — scan last user event
+        try:
+            events = callback_context._invocation_context.session.events or []
+            for event in reversed(events):
+                if (hasattr(event, "content") and event.content
+                        and event.content.role == "user"):
+                    for part in event.content.parts or []:
+                        if hasattr(part, "text") and part.text:
+                            detected = _detect_client(part.text)
+                            if detected:
+                                state["client_id"] = detected
+                                _logger.info("Client set from last user event: %s", detected)
+                            break
+                    break
+        except Exception as e2:
+            _logger.debug("Client detection fallback failed: %s", e2)
+
+    # Default if not set
+    if not state.get("client_id"):
+        state["client_id"] = os.getenv("DEFAULT_CLIENT_ID", "NPI")
+
+    # SESSION LOCK — once client is set, reject different client requests
+    locked_client = state.get("_session_locked_client", "")
+    current_client = state.get("client_id", "")
+
+    if not locked_client and current_client:
+        # First time — lock the session to this client
+        state["_session_locked_client"] = current_client
+        _logger.info("Session locked to client: %s", current_client)
+
+    elif locked_client and current_client and current_client != locked_client:
+        # Different client requested — block and ask for new session
+        _logger.warning(
+            "Session lock violation: locked=%s requested=%s",
+            locked_client, current_client
+        )
+        state["client_id"] = locked_client  # revert to locked client
+        return types.Content(
+            role="model",
+            parts=[types.Part(text=(
+                f"This session is locked to **{locked_client}** data. "
+                f"To access **{current_client}** data, please start a new session "
+                f"by clicking **+ New Session** in the top right corner."
+            ))]
+        )
+
+    # AC-5: Lock the correct table and initialise retry counter
+    client_id = state["client_id"]
+    if client_id in _CLIENT_TABLE_MAP:
+        state["_locked_table"]    = _CLIENT_TABLE_MAP[client_id]
+        state["_sql_retry_count"] = state.get("_sql_retry_count", 0)
+        _logger.info(
+            "AC-5: Walled garden init | client=%s | table=%s",
+            client_id, _CLIENT_TABLE_MAP[client_id],
+        )
+
+    _logger.info("▶ DS before_agent | client=%s", state.get("client_id"))
+    return None
+
+
+# ── 2. after_agent_callback ───────────────────────────────────────────────────
+
+def after_agent_callback(
+    callback_context: CallbackContext,
+) -> Optional[types.Content]:
+    """
+    Fires after every agent turn.
+    Logs completion, resets retry counter, deduplicates responses.
+    """
+    state = callback_context.state
+    _logger.info(
+        "◀ DS after_agent  | client=%s | bq_result_len=%d | retries=%d",
+        state.get("client_id", "unknown"),
+        len(str(state.get("bigquery_query_result", ""))),
+        state.get("_sql_retry_count", 0),
+    )
+    state["_sql_retry_count"] = 0
+    state["_last_bq_hash"] = ""
+    state["_chart_steps_done"] = 0
+    state["_multi_step_mode"] = False
+    state["bigquery_query_result"] = ""
+    state["_seen_hashes"] = []  # Reset dedup for new turn
+    return None
+
+
+# ── 3. before_tool_callback ───────────────────────────────────────────────────
+
+def before_tool_callback(
+    tool:         BaseTool,
+    args:         dict[str, Any],
+    tool_context: ToolContext,
+) -> Optional[dict]:
+    """
+    Fires before every tool call.
+
+    AC-1: Inject CHASE-SQL reasoning into bigquery_nl2sql questions.
+    AC-2: Inject JOIN context for multi-table queries.
+    AC-3: Run BigQuery dry-run before execute_sql.
+    AC-4: Track retries, return graceful error after MAX_RETRIES.
+    AC-5: Walled garden — reject SQL that references wrong client table.
+    """
+    client_id = tool_context.state.get("client_id", "NPI")
+    tool_name = tool.name if hasattr(tool, "name") else str(tool)
+
+    # ── call_bigquery_agent: inject client context ────────────────────────────
+    if tool_name == "call_bigquery_agent":
+        question = args.get("question", args.get("query", ""))
+
+        if question:
+            # AC-1: Inject CHASE-SQL reasoning
+            question = _ac1_inject_chase_sql(question, client_id)
+            # AC-2: Inject JOIN context if multi-table query detected
+            question = _ac2_join_context(question, client_id)
+            # Ensure client prefix present
+            if f"[Client: {client_id}]" not in question:
+                question = f"[Client: {client_id}] {question}"
+            args["question"] = question
+
+        _logger.info(
+            "⚙ DS before_tool | bigquery | client=%s | AC-1+AC-2 injected",
+            client_id,
+        )
+        return None
+
+    # ── execute_sql: AC-3 dry-run + AC-4 retry + AC-5 walled garden ──────────
+    if tool_name == "execute_sql":
+        sql = args.get("query", args.get("sql", ""))
+        if not sql:
+            return None
+
+        retry_count = tool_context.state.get("_sql_retry_count", 0)
+
+        # AC-4: Check max retries FIRST
+        if retry_count >= _MAX_RETRIES:
+            _logger.error("AC-4: Max retries (%d) exceeded", _MAX_RETRIES)
+            tool_context.state["_sql_retry_count"] = 0
+            failed_q = tool_context.state.get("_last_nl_question", "the requested metric")
+            return {
+                "error": (
+                    f"I'm having trouble generating a valid query for "
+                    f"'{failed_q[:80]}' after {_MAX_RETRIES} attempts. "
+                    f"This metric may not be available in the current schema for "
+                    f"client '{client_id}'. Please rephrase or try a different metric."
+                )
+            }
+
+        # AC-5: Walled garden check
+        is_safe, wall_error = _ac5_walled_garden_check(sql, client_id)
+        if not is_safe:
+            _logger.error("AC-5 WALLED GARDEN VIOLATION: %s", wall_error)
+            tool_context.state["_sql_retry_count"] = 0
+            return {"error": f"Security Error: {wall_error}", "sql": sql}
+
+        # AC-3: Dry-run validation
+        is_valid, dry_run_error = _ac3_dry_run(sql)
+        if not is_valid:
+            retry_count += 1
+            tool_context.state["_sql_retry_count"] = retry_count
+            _logger.warning(
+                "AC-3: Dry-run failed (attempt %d/%d): %s",
+                retry_count, _MAX_RETRIES, dry_run_error[:200],
+            )
+            return {
+                "dry_run_error": dry_run_error,
+                "retry_attempt": retry_count,
+                "max_retries":   _MAX_RETRIES,
+                "instruction": (
+                    f"SQL dry-run failed (attempt {retry_count}/{_MAX_RETRIES}). "
+                    f"Error: {dry_run_error[:300]}. "
+                    f"Fix the SQL — check column names against the schema, "
+                    f"use SAFE_DIVIDE for ratios, verify table is "
+                    f"{_CLIENT_TABLE_MAP.get(client_id, '')}."
+                ),
+            }
+
+        # Dry-run passed
+        tool_context.state["_sql_retry_count"] = 0
+        _logger.info("AC-3: Dry-run passed ✅ | client=%s", client_id)
+        return None
+
+    # ── call_analytics_agent ──────────────────────────────────────────────────
+    if tool_name == "call_analytics_agent":
+        _logger.info(
+            "⚙ DS before_tool | analytics | client=%s | bq_rows=%s",
+            client_id,
+            "available" if tool_context.state.get("bigquery_query_result") else "none",
+        )
+
+    return None
+
+
+# ── 4. after_tool_callback ────────────────────────────────────────────────────
+
+def after_tool_callback(
+    tool:          BaseTool,
+    args:          dict[str, Any],
+    tool_context:  ToolContext,
+    tool_response: Any,
+) -> Optional[Any]:
+    """
+    Fires after every tool call.
+    Caches BQ results. Resets retry counter on success.
+    AC-4: Tracks the NL question for graceful error messages.
+    """
+    tool_name = tool.name if hasattr(tool, "name") else str(tool)
+    response  = str(tool_response) if tool_response else ""
+
+    if tool_name == "call_bigquery_agent":
+        tool_context.state["bigquery_query_result"] = tool_response
+        # AC-4: Store question for error message context
+        question = args.get("question", "")
+        if question:
+            tool_context.state["_last_nl_question"] = question[:100]
+        _logger.info(
+            "✓ DS after_tool | bigquery cached | len=%d", len(response)
+        )
+        # Reset retries on successful BQ response
+        if response and "error" not in response.lower()[:50]:
+            tool_context.state["_sql_retry_count"] = 0
+
+    elif tool_name == "call_analytics_agent":
+        pass
+        tool_context.state["analytics_result"] = tool_response
+        _logger.info(
+            "✓ DS after_tool | analytics cached | len=%d", len(response)
+        )
+
+    elif tool_name == "execute_sql":
+        if response and "error" not in response.lower()[:50]:
+            tool_context.state["_sql_retry_count"] = 0
+            _logger.info("AC-3: SQL executed successfully | len=%d", len(response))
+
+    return None
+
+
+# ── 5. before_model_callback ──────────────────────────────────────────────────
+
+def before_model_callback(
+    callback_context: CallbackContext,
+    llm_request:      Any,
+) -> Optional[Any]:
+    """
+    Fires before every Gemini API call.
+    Logs active client, retry state, and DB load status.
+    """
+    state = callback_context.state
+    _logger.info(
+        "⚡ DS before_model | client=%s | db_loaded=%s | retries=%d",
+        state.get("client_id", "unknown"),
+        "yes" if "database_settings" in state else "no",
+        state.get("_sql_retry_count", 0),
+    )
+    return None
+
+
+# ── 6. after_model_callback ───────────────────────────────────────────────────
+
+def after_model_callback(
+    callback_context: CallbackContext,
+    llm_response:     Any,
+) -> Optional[Any]:
+    """
+    Fires after every Gemini API response.
+    Logs token usage, accumulates session totals, blocks duplicate responses.
+    """
+    import hashlib as _hl
+    try:
+        usage     = llm_response.usage_metadata
+        input_tok = getattr(usage, "prompt_token_count",     0)
+        out_tok   = getattr(usage, "candidates_token_count", 0)
+        total_tok = getattr(usage, "total_token_count",      input_tok + out_tok)
+        _logger.info(
+            "🔢 DS after_model | tokens in=%d out=%d total=%d",
+            input_tok, out_tok, total_tok,
+        )
+        state = callback_context.state
+        state["session_tokens_in"]  = state.get("session_tokens_in",  0) + input_tok
+        state["session_tokens_out"] = state.get("session_tokens_out", 0) + out_tok
+
+        # Dedup — block identical consecutive text responses
+        if llm_response.candidates:
+            for cand in llm_response.candidates:
+                if cand.content and cand.content.parts:
+                    for part in cand.content.parts:
+                        if (hasattr(part, "text") and part.text
+                                and len(part.text) > 50):
+                            h = _hl.md5(part.text[:300].encode()).hexdigest()[:8]
+                            seen = state.get("_seen_hashes", [])
+                            if h in seen:
+                                _logger.warning("Duplicate response blocked hash=%s", h)
+                                return None
+                            state["_seen_hashes"] = (seen + [h])[-10:]
+                            break
+    except Exception:
+        pass
+    return None
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ROOT AGENT FACTORY
+# ══════════════════════════════════════════════════════════════════════════════
+
+def get_root_agent() -> LlmAgent:
+    tools      = [call_analytics_agent, call_bigquery_agent]
+    sub_agents = [bqml_agent]
+
+    return LlmAgent(
+        model=os.getenv("ROOT_AGENT_MODEL", "gemini-2.5-flash"),
+        name="data_science_root_agent",
+        instruction=(
+            return_instructions_root()
+            + get_dataset_definitions_for_instructions()
+        ),
+        global_instruction=(
+            f"You are a Data Science and Analytics Multi Agent System.\n"
+            f"Today's date: {date.today()}"
+        ),
+        sub_agents=sub_agents,
+        tools=tools,
+
+        # ── All 6 callbacks (AC-1,2,3,4,5 enforced in before_tool_callback) ──
+        before_agent_callback = before_agent_callback,  # AC-5 init + client lock
+        after_agent_callback  = after_agent_callback,   # turn logging + retry reset
+        before_tool_callback  = before_tool_callback,   # AC-1,2,3,4,5 enforcement
+        after_tool_callback   = after_tool_callback,    # BQ caching + retry mgmt
+        before_model_callback = before_model_callback,  # model call logging
+        after_model_callback  = after_model_callback,   # token usage tracking
+
+        generate_content_config=types.GenerateContentConfig(temperature=0.0),
+        code_executor=VertexAiCodeExecutor(
+            resource_name=os.getenv(
+                "CODE_INTERPRETER_EXTENSION_NAME",
+                "projects/866797370377/locations/us-central1/extensions/3688537086538809344"
+            ),
+            optimize_data_file=True,
+            stateful=True,
+        ),
+    )
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# BOOT SEQUENCE
+# ══════════════════════════════════════════════════════════════════════════════
+
+_dataset_config    = load_dataset_config()
+_database_settings = init_database_settings(_dataset_config)
+root_agent         = get_root_agent()

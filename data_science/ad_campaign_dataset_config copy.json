@@ -1,0 +1,37 @@
+{
+  "datasets": [
+    {
+      "type": "bigquery",
+      "name": "Astrobot_NPI",
+      "table": "vw_astrobot_npi_nc360_dashboard",
+      "kpi_column": "Conversions",
+      "description": "NPI client - tourism advertiser. 10+ years multi-year data.",
+      "channel_unification": {
+        "Paid Search": ["Search", "Paid Search"],
+        "Demand Gen + P-Max": ["Cross-network", "Demand Gen", "Performance Max"],
+        "Paid Social": ["Paid Social"],
+        "Video/CTV/OTT/TV": ["Linear TV", "CTV", "OTT", "Online Video", "Paid Video", "Video"]
+      },
+      "organic_channels": ["Organic Search", "Organic Social", "Organic Video", "Direct", "Referral", "Email"]
+    },
+    {
+      "type": "bigquery",
+      "name": "Astrobot_Venetian",
+      "table": "sample_astrobot_venetian_nc360_dashboard",
+      "kpi_column": "KPI",
+      "description": "Venetian ENT - OOH advertising. Cost rows mostly zero.",
+      "channel_unification": {},
+      "organic_channels": ["Direct", "Organic"]
+    },
+    {
+      "type": "bigquery",
+      "name": "Astrobot_WinnDixie",
+      "table": "sample_astrobot_wd_nc360_dashboard",
+      "kpi_column": "KPI",
+      "description": "Winn-Dixie - OTT/streaming. Network column = app name.",
+      "primary_metric": "ViVs",
+      "channel_unification": {},
+      "organic_channels": []
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+timestamp,test_name,category,eval_id,prompt,agent_response,tools_called,tool_count,duration_sec,tool_trajectory_score,response_match_score,verdict,expected_outcome,peak_mem_mb,figures_leaked,gc_objects_delta,leak_score,error_summary
+20260512_170402,unit_tests,unit,all,N/A,N/A,pytest,257,33,N/A,N/A,FAIL,unit-tests-pass,1-failed
+20260512_170402,pos_01_top_channels,positive,pos_01_top_channels,"For NPI; show top 5 channels by spend last quarter as a bar chart ","expected_tool_calls ","call_analytics_agent|call_bigquery_agent",2,45,0.0,0.19130434782608693,PASS,"answer_with_tools_and_data",1391.7,0,-277,"🟢 LOW",""
+20260512_170402,neg_01_out_of_scope,negative,neg_01_out_of_scope,"What is the weather in Tokyo tomorrow ","expected_tool_calls ","call_analytics_agent",1,27,1.0,0.25,FAIL_LEAKED,"refuse_or_clarify_no_tools",1320.2,0,-277,"🟢 LOW",""

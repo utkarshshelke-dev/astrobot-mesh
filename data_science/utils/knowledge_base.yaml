@@ -1,0 +1,88 @@
+# knowledge_base.yaml
+# Central registry for marketing analytics domain knowledge, client mappings, and analytical blueprints.
+
+clients:
+  NPI:
+    display_name: "Nassau Paradise Island (NPI)"
+    table_name: "vw_astrobot_npi_nc360_dashboard"
+    primary_kpi: "Conversions"
+    data_start_date: "2016-01-03"
+    aliases: ["npi", "nassau", "paradise island", "bahamas", "ministry"]
+    metrics_to_ignore: ["Transactions"]
+    ground_truth:
+      top_channels: ["Demand Gen + P-Max", "Paid Social", "Paid Search"]
+      awareness_channels: ["Online Audio", "Print", "OOH", "Video/CTV/OTT/TV"]
+
+  Venetian:
+    display_name: "The Venetian"
+    table_name: "sample_astrobot_venetian_nc360_dashboard"
+    primary_kpi: "KPI"
+    aliases: ["venetian"]
+    metrics_to_ignore: ["Transactions"]
+
+  WinnDixie:
+    display_name: "Winn-Dixie (SEG)"
+    table_name: "sample_astrobot_wd_nc360_dashboard"
+    primary_kpi: "KPI"
+    secondary_kpis: ["ViVs"]
+    aliases: ["winndixie", "winn dixie", "winn-dixie", "seg"]
+    metrics_to_ignore: ["Transactions"]
+
+channel_definitions:
+  unified_groups:
+    "Paid Search": ["Search", "Paid Search"]
+    "Demand Gen + P-Max": ["Cross-network", "Demand Gen", "Performance Max"]
+    "Paid Social": ["Paid Social"]
+    "Video/CTV/OTT/TV": ["Online Video", "Paid Video", "Video", "OTT", "CTV", "Linear TV"]
+    "Display": ["Display"]
+    "Organic": ["Organic Search", "Organic Social", "Organic Video", "Direct", "Referral", "Email", "(none)"]
+
+  funnel_mapping:
+    awareness: ["Linear TV", "CTV", "OTT", "Online Audio", "Online Video", "Paid Video", "Video", "OOH", "Print", "Display"]
+    direct_response: ["Search", "Paid Search", "Shopping", "Email"]
+    mid_funnel: ["Paid Social", "Demand Gen", "Performance Max", "Cross-network"]
+
+term_translations:
+  "Linear TV": "OTT (Proxy)"
+  "CTV": "OTT"
+  "Connected TV": "OTT"
+  "Streaming": "OTT"
+  "Direct traffic": "Channel='DEFAULT'"
+  "Brand search": "Brand_NonBrand='Brand'"
+  "Non-brand search": "Brand_NonBrand='Non-Brand'"
+
+analytical_blueprints:
+  organic_efficiency:
+    trigger_phrases: ["organic efficiency", "organic performance", "brand independence"]
+    description: "Ratio of organic conversions to total conversions"
+    sql_template: |
+      SELECT 
+        FORMAT_DATE("%Y-%m", Date) AS month,
+        ROUND(SUM(Cost), 0) AS paid_spend,
+        SUM(CASE WHEN Channel IN ({organic_channels}) THEN Conversions ELSE 0 END) AS organic_conversions,
+        SUM(Conversions) AS total_conversions,
+        ROUND(100.0 * SUM(CASE WHEN Channel IN ({organic_channels}) THEN Conversions ELSE 0 END) / NULLIF(SUM(Conversions), 0), 1) AS pct_organic
+      FROM {table}
+      WHERE Date >= DATE_SUB(CURRENT_DATE(), INTERVAL 12 MONTH) AND Client = '{client}'
+      GROUP BY month ORDER BY month DESC
+
+  channel_mix:
+    trigger_phrases: ["channel mix", "channel shift", "peak vs trough"]
+    requires_unification: true
+    sql_template: |
+      WITH unified AS (
+        SELECT 
+          Date,
+          {unified_channel_logic} AS unified_channel,
+          Cost, Conversions
+        FROM {table}
+        WHERE Date >= {start_date} AND Client = '{client}'
+      )
+      SELECT unified_channel, SUM(Cost) as spend, SUM(Conversions) as conv
+      FROM unified GROUP BY 1
+
+operational_constraints:
+  max_table_rows: 10
+  chart_arg_limit: 4000
+  max_retries: 2
+  nan_serialization: "None"

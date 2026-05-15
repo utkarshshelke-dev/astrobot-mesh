@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_09_volatility",
+    "data": [
+      {
+        "query": "For NPI, which channels are most volatile in cost over the last 12 months?",
+        "reference": "NPI channel volatility cost coefficient variation stable CTV Paid Social Search",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_04_peak_trough",
+    "data": [
+      {
+        "query": "For NPI, channel mix shift peak months Nov Dec compared trough months 2 bar charts cost percent conversion attribution",
+        "reference": "peak trough channel mix bar charts cost conversion percentage",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

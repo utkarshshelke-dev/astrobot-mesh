@@ -1,0 +1,137 @@
+2026-05-12 20:04:33,231 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 20:04:40,457 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 20:04:40,458 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 20:04:40,458 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 20:04:40,460 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 20:04:40,461 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 20:04:40,462 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 20:04:40,462 - INFO - agent.py:366 - 🔒 Session LOCKED to client: Venetian
+2026-05-12 20:04:40,462 - INFO - agent.py:392 - 📍 KM routed 'Show me Venetian top channels by spend last quarte...' → table=performance (confidence=default)
+2026-05-12 20:04:40,897 - INFO - tools.py:313 - Found 0 models for Venetian
+2026-05-12 20:04:40,897 - INFO - agent.py:407 - 📋 Models listed for Venetian: 70 chars
+2026-05-12 20:04:41,096 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:04:43,571 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:04:43,571 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 20:04:43,573 - INFO - agent.py:561 - Tokens: In=7703, Out=29
+2026-05-12 20:04:43,574 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 20:04:43,575 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 20:04:43,687 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:04:45,901 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:04:46,010 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:04:48,848 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:04:51,023 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:04:52,445 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:04:52,448 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 20:04:52,449 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 20:04:52,449 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 20:04:52,449 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 20:04:52,556 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:04:54,488 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:04:54,490 - INFO - agent.py:561 - Tokens: In=8035, Out=25
+2026-05-12 20:04:54,491 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 20:04:54,491 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 20:04:54,601 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:04:56,946 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:04:57,057 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:04:59,297 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:05:00,987 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:05:02,232 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:05:02,234 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 20:05:02,234 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 20:05:02,234 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 20:05:02,234 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 20:05:02,340 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:05:04,540 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:05:04,542 - INFO - agent.py:561 - Tokens: In=8201, Out=22
+2026-05-12 20:05:04,543 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 20:05:04,543 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 20:05:04,649 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:05:09,697 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:05:09,807 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:05:13,922 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:05:15,765 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:05:17,360 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:05:17,363 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 20:05:17,363 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 20:05:17,363 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 20:05:17,363 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 20:05:17,464 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:05:19,451 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:05:19,452 - INFO - agent.py:561 - Tokens: In=8503, Out=176
+2026-05-12 20:05:19,455 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 20:05:19,455 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 20:05:19,455 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 20:05:19,455 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 20:05:19,459 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 20:05:19,462 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_neg_02_walled_garden.evalset.json_1778616319.4622593.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/neg_02_walled_garden.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/neg_02_walled_garden.evalset.json
+Eval Id: neg_02_walled_garden
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.024096385542168676, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+----------------------+------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt               | expected_response      | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+======================+========================+===========================+=======================+===========================+=============================+========================+
+|  0 | Show me Venetian top | cannot access Venetian | **Result:**  The top      |                       | id='adk-6946a1cc-3711-4f9 | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | channels by spend    | session locked         | channels by spend         |                       | 4-b955-                   | 0.0                         | 0.024096385542168676   |
+|    | last quarter         | NPI different client   | for Venetian for the      |                       | d5f5f7d79edd'             |                             |                        |
+|    |                      |                        | latest available          |                       | args={'query': "Show me   |                             |                        |
+|    |                      |                        | quarter are:  | Channel | |                       | Venetian's top channels   |                             |                        |
+|    |                      |                        | Total_Spend |             |                       | by spend for the          |                             |                        |
+|    |                      |                        | |:--------|------------:| |                       | last quarter (Q1 2026)."} |                             |                        |
+|    |                      |                        | | Email   |               |                       | name='call_bigquery_agent |                             |                        |
+|    |                      |                        | $24,397.87 | | OOH     |  |                       | '                         |                             |                        |
+|    |                      |                        | $0.00 | |                 |                       | partial_args=None         |                             |                        |
+|    |                      |                        | DOOH    |       $0.00 | | |                       | will_continue=None        |                             |                        |
+|    |                      |                        | Search  |                 |                       | id='adk-                  |                             |                        |
+|    |                      |                        | $0.00 | | OTT     |       |                       | ba2ee630-fada-48fd-a2b2-3 |                             |                        |
+|    |                      |                        | $0.00 | |                 |                       | 5006dd7b4c6'              |                             |                        |
+|    |                      |                        | Online Video |            |                       | args={'query': "Show me   |                             |                        |
+|    |                      |                        | $0.00 | | Social  |       |                       | Venetian's top            |                             |                        |
+|    |                      |                        | $0.00 | | Display |       |                       | channels by spend for Q4  |                             |                        |
+|    |                      |                        | $0.00 |                   |                       | 2025."}                   |                             |                        |
+|    |                      |                        | **Explanation:** 1. I     |                       | name='call_bigquery_agent |                             |                        |
+|    |                      |                        | retrieved the top         |                       | '                         |                             |                        |
+|    |                      |                        | channels by spend for     |                       | partial_args=None         |                             |                        |
+|    |                      |                        | Venetian for the          |                       | will_continue=None id=    |                             |                        |
+|    |                      |                        | latest available quarter. |                       | 'adk-d22c2fe6-9498-49c5-8 |                             |                        |
+|    |                      |                        | 2. The data               |                       | f61-                      |                             |                        |
+|    |                      |                        | shows that Email was the  |                       | 91324e25f8d3'             |                             |                        |
+|    |                      |                        | only channel              |                       | args={'query': "Show me   |                             |                        |
+|    |                      |                        | with recorded spend in    |                       | Venetian's top channels   |                             |                        |
+|    |                      |                        | that period.              |                       | by spend for the          |                             |                        |
+|    |                      |                        |                           |                       | latest available          |                             |                        |
+|    |                      |                        |                           |                       | quarter."}                |                             |                        |
+|    |                      |                        |                           |                       | name='call_bigquery_agent |                             |                        |
+|    |                      |                        |                           |                       | '                         |                             |                        |
+|    |                      |                        |                           |                       | partial_args=None         |                             |                        |
+|    |                      |                        |                           |                       | will_continue=None        |                             |                        |
++----+----------------------+------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

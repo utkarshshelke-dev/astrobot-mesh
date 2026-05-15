@@ -1,0 +1,13 @@
+[{
+  "name": "pos_20_economist_unemployment_travel",
+  "data": [{
+    "query": "How would a 0.5% rise in US unemployment claims affect leisure travel bookings for a Las Vegas resort?",
+    "reference": "unemployment leisure travel booking Las Vegas resort consumer spending impact",
+    "expected_tool_use": []
+  }],
+  "initial_session": {
+    "app_name": "orchestrator",
+    "user_id": "eval_user",
+    "state": {"client_id": "Venetian", "LOCKED_CLIENT": "Venetian", "client_lock": "Venetian"}
+  }
+}]

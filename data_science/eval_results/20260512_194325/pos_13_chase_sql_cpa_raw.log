@@ -1,0 +1,118 @@
+2026-05-12 20:10:43,246 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 20:10:50,296 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 20:10:50,296 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 20:10:50,297 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 20:10:50,299 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 20:10:50,299 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 20:10:50,300 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 20:10:50,300 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 20:10:50,301 - INFO - agent.py:392 - 📍 KM routed 'For NPI, what is the blended CPA by channel over t...' → table=performance (confidence=low)
+2026-05-12 20:10:50,752 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 20:10:50,752 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 20:10:50,937 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:10:57,754 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:10:57,755 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 20:10:57,756 - INFO - agent.py:561 - Tokens: In=7716, Out=247
+2026-05-12 20:10:57,758 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 20:10:57,758 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 20:10:57,876 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:11:00,447 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:11:03,389 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:11:06,432 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:11:06,436 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 20:11:06,436 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 20:11:06,436 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 20:11:06,436 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 20:11:06,536 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:11:10,853 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:11:10,854 - INFO - agent.py:561 - Tokens: In=9416, Out=275
+2026-05-12 20:11:10,856 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 20:11:10,856 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 20:11:10,857 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 20:11:10,857 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 20:11:10,860 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 20:11:10,864 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_13_chase_sql_cpa.evalset.json_1778616670.864118.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_13_chase_sql_cpa.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_13_chase_sql_cpa.evalset.json
+Eval Id: pos_13_chase_sql_cpa
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.09722222222222222, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+--------------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                   | expected_response        | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+==========================+==========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, what is the     | CPA cost per acquisition | **Result:**  **Blended    |                       | id='adk-b5ca7f9c-6c1e-4e6 | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | blended CPA by           | channel NPI              | CPA by Channel            |                       | 5-9102-                   | 0.0                         | 0.09722222222222222    |
+|    | channel over the last 90 | SAFE_DIVIDE ranked       | for NPI (Last 90 Days)**  |                       | 77ff44a1b176'             |                             |                        |
+|    | days ranked              |                          | | Channel |               |                       | args={'query': "WITH      |                             |                        |
+|    | best to worst            |                          | Blended CPA |             |                       | spend                     |                             |                        |
+|    |                          |                          | |:---------------|------- |                       | AS (\n  SELECT Date,      |                             |                        |
+|    |                          |                          | -----:| |                 |                       | Channel AS channel,       |                             |                        |
+|    |                          |                          | Direct | $0.00 | |        |                       | SUM(Cost) AS cost\n  FROM |                             |                        |
+|    |                          |                          | Referral | $0.00 | |      |                       | `ad_campaign_data.perform |                             |                        |
+|    |                          |                          | Paid Search | $0.00 | |   |                       | ance_data`\n              |                             |                        |
+|    |                          |                          | Organic Video |           |                       | WHERE Client = 'NPI' AND  |                             |                        |
+|    |                          |                          | $0.00 | | Email | $0.00 | |                       | Cost > 0\n                |                             |                        |
+|    |                          |                          | | Cross-                  |                       | AND Date >=               |                             |                        |
+|    |                          |                          | network | $0.00 | |       |                       | DATE_SUB(CURRENT_DATE(),  |                             |                        |
+|    |                          |                          | Organic Search |          |                       | INTERVAL 90 DAY)\n  GROUP |                             |                        |
+|    |                          |                          | $0.00 | | Unassigned |    |                       | BY Date,                  |                             |                        |
+|    |                          |                          | $0.00 | | Organic         |                       | Channel\n),\nconv AS (\n  |                             |                        |
+|    |                          |                          | Social | $0.00 | |        |                       | SELECT Date,              |                             |                        |
+|    |                          |                          | Organic Shopping |        |                       | Channel AS channel,       |                             |                        |
+|    |                          |                          | $0.00 | | Paid Other |    |                       | SUM(Conversions) AS       |                             |                        |
+|    |                          |                          | $0.00 | | Paid            |                       | conversions\n  FROM       |                             |                        |
+|    |                          |                          | Social | $3.01 |          |                       | `ad_campaign_data.perform |                             |                        |
+|    |                          |                          | **Explanation:** The      |                       | ance_data`\n              |                             |                        |
+|    |                          |                          | table above shows the     |                       | WHERE Client = 'NPI' AND  |                             |                        |
+|    |                          |                          | blended Cost Per          |                       | Conversions >             |                             |                        |
+|    |                          |                          | Acquisition (CPA) for     |                       | 0\n    AND Date >=        |                             |                        |
+|    |                          |                          | each channel over         |                       | DATE_SUB(CURRENT_DATE(),  |                             |                        |
+|    |                          |                          | the last 90 days, ranked  |                       | INTERVAL 90               |                             |                        |
+|    |                          |                          | from best                 |                       | DAY)\n  GROUP BY Date,    |                             |                        |
+|    |                          |                          | (lowest CPA) to worst     |                       | Channel\n)\nSELECT\n      |                             |                        |
+|    |                          |                          | (highest CPA). A          |                       | COALESCE(s.channel,       |                             |                        |
+|    |                          |                          | CPA of $0.00 indicates    |                       | c.channel) AS             |                             |                        |
+|    |                          |                          | that conversions          |                       | Channel,\n                |                             |                        |
+|    |                          |                          | were achieved without any |                       | SAFE_DIVIDE(SUM(COALESCE( |                             |                        |
+|    |                          |                          | recorded cost             |                       | s.cost, 0)),              |                             |                        |
+|    |                          |                          | for that channel during   |                       | SUM(COALESCE(c.conversion |                             |                        |
+|    |                          |                          | the period.  The          |                       | s, 0))) AS                |                             |                        |
+|    |                          |                          | following channels had    |                       | Blended_CPA\nFROM spend   |                             |                        |
+|    |                          |                          | undefined CPA             |                       | s\nFULL OUTER             |                             |                        |
+|    |                          |                          | values (either no spend   |                       | JOIN conv c USING (Date,  |                             |                        |
+|    |                          |                          | or no                     |                       | channel)\nGROUP           |                             |                        |
+|    |                          |                          | conversions in the last   |                       | BY Channel\nORDER BY      |                             |                        |
+|    |                          |                          | 90 days): Demand          |                       | Blended_CPA ASC"}         |                             |                        |
+|    |                          |                          | Gen, CTV, Search, OOH,    |                       | name='call_bigquery_agent |                             |                        |
+|    |                          |                          | Performance Max,          |                       | '                         |                             |                        |
+|    |                          |                          | Linear TV, Online Audio,  |                       | partial_args=None         |                             |                        |
+|    |                          |                          | Video.                    |                       | will_continue=None        |                             |                        |
++----+--------------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

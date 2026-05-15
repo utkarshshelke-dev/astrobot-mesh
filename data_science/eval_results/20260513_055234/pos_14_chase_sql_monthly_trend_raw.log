@@ -1,0 +1,176 @@
+2026-05-13 07:56:26,114 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-13 07:56:33,465 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 07:56:33,466 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 07:56:33,467 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 07:56:33,471 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:56:33,471 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:56:33,472 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 07:56:33,472 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 07:56:33,473 - INFO - agent.py:339 - 📍 KM routed 'For NPI, show monthly spend and conversions trend ...' → table=performance (confidence=default)
+2026-05-13 07:56:33,935 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 07:56:33,935 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 07:56:34,158 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:56:40,863 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:56:40,863 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 07:56:40,864 - INFO - agent.py:489 - Tokens: In=7714, Out=247
+2026-05-13 07:56:40,866 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:56:40,866 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 07:56:40,978 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:56:43,629 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:56:46,146 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:56:51,138 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:56:51,140 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:56:51,141 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 07:56:51,141 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 07:56:51,141 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:56:51,251 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:56:55,390 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:56:55,392 - INFO - agent.py:489 - Tokens: In=9324, Out=511
+2026-05-13 07:56:55,394 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:56:55,394 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:56:55,503 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:56:55,504 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 07:57:06,715 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:57:06,718 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:57:06,718 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:57:07,275 - INFO - category.py:224 - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-13 07:57:07,290 - ERROR - tools.py:937 - Chart rendering failed: x and y must have same first dimension, but have shapes (12,) and (0,)
+2026-05-13 07:57:07,451 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:57:21,415 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:57:21,417 - INFO - agent.py:489 - Tokens: In=10133, Out=569
+2026-05-13 07:57:21,419 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:57:21,419 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 07:57:21,420 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 07:57:21,420 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:57:21,423 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 07:57:21,427 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_14_chase_sql_monthly_trend.evalset.json_1778659041.4273474.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_14_chase_sql_monthly_trend.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval/pos_14_chase_sql_monthly_trend.evalset.json
+Eval Id: pos_14_chase_sql_monthly_trend
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.12244897959183672, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+-----------------------+----------------------+--------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                | expected_response    | actual_response          | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=======================+======================+==========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, show monthly | monthly trend spend  | **Graph:**  ```json {    |                       | id='adk-36377a11-6a66-4b4 | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | spend and             | conversions NPI line | "chart_type":            |                       | 5-b4b7-                   | 0.0                         | 0.12244897959183672    |
+|    | conversions trend for | chart 12 months      | "dual_axis_line",        |                       | 8fbd92f63204'             |                             |                        |
+|    | last 12 months as     |                      | "title": "NPI            |                       | args={'query': "\nWITH    |                             |                        |
+|    | a line chart          |                      | Monthly Spend and        |                       | spend AS (\n  SELECT\n    |                             |                        |
+|    |                       |                      | Conversions Trend        |                       | DATE_TRUNC(Date, MONTH)   |                             |                        |
+|    |                       |                      | (Last 12 Months)",       |                       | AS month,\n               |                             |                        |
+|    |                       |                      | "x_label": "Month",      |                       | SUM(Cost) AS cost\n  FROM |                             |                        |
+|    |                       |                      | "y_label_left": "Spend", |                       | `ad_campaign_p            |                             |                        |
+|    |                       |                      | "y_label_right":         |                       | erformance.performance_da |                             |                        |
+|    |                       |                      | "Conversions",           |                       | ta`\n  WHERE              |                             |                        |
+|    |                       |                      | "data": {                |                       | Client = 'NPI' AND Cost > |                             |                        |
+|    |                       |                      | "categories": [          |                       | 0\n  GROUP BY             |                             |                        |
+|    |                       |                      | "2025-06",               |                       | 1\n),\nconv AS (\n        |                             |                        |
+|    |                       |                      | "2025-07",               |                       | SELECT\n                  |                             |                        |
+|    |                       |                      | "2025-08",               |                       | DATE_TRUNC(Date, MONTH)   |                             |                        |
+|    |                       |                      | "2025-09",               |                       | AS month,\n               |                             |                        |
+|    |                       |                      | "2025-10",               |                       | SUM(Conversions) AS       |                             |                        |
+|    |                       |                      | "2025-11",               |                       | conversions\n  FROM       |                             |                        |
+|    |                       |                      | "2025-12",               |                       | `ad_campaign_performance. |                             |                        |
+|    |                       |                      | "2026-01",               |                       | performance_dat           |                             |                        |
+|    |                       |                      | "2026-02",               |                       | a`\n  WHERE Client =      |                             |                        |
+|    |                       |                      | "2026-03",               |                       | 'NPI' AND                 |                             |                        |
+|    |                       |                      | "2026-04",               |                       | Conversions > 0\n  GROUP  |                             |                        |
+|    |                       |                      | "2026-05"     ],         |                       | BY                        |                             |                        |
+|    |                       |                      | "series": {              |                       | 1\n)\nSELECT\n            |                             |                        |
+|    |                       |                      | "Spend": [               |                       | FORMAT_DATE('%Y-%m',      |                             |                        |
+|    |                       |                      | 524025.02,               |                       | COALESCE(s.month,         |                             |                        |
+|    |                       |                      | 270110.44,               |                       | c.month)) AS month,\n     |                             |                        |
+|    |                       |                      | 200306.22,               |                       | COALESCE(s.cost, 0) AS    |                             |                        |
+|    |                       |                      | 250451.86,               |                       | spend,\n                  |                             |                        |
+|    |                       |                      | 534234.14,               |                       | COALESCE(c.conversions,   |                             |                        |
+|    |                       |                      | 547851.34,               |                       | 0) AS                     |                             |                        |
+|    |                       |                      | 350762.11,               |                       | conversions\nFROM spend   |                             |                        |
+|    |                       |                      | 1227253.16,              |                       | s\nFULL OUTER             |                             |                        |
+|    |                       |                      | 1082803.9,               |                       | JOIN conv c USING         |                             |                        |
+|    |                       |                      | 1129038.99,              |                       | (month)\nWHERE            |                             |                        |
+|    |                       |                      | 936865.61,               |                       | COALESCE(s.month,         |                             |                        |
+|    |                       |                      | 341456.83       ],       |                       | c.month) >=               |                             |                        |
+|    |                       |                      | "Conversions": [         |                       | DATE_SUB(CURRENT_DATE(),  |                             |                        |
+|    |                       |                      | 158668,                  |                       | INTERVAL 12               |                             |                        |
+|    |                       |                      | 158291,         126440,  |                       | MONTH)\nORDER BY          |                             |                        |
+|    |                       |                      | 124438,                  |                       | month\n"}                 |                             |                        |
+|    |                       |                      | 228016,         169642,  |                       | name='call_bigquery_agent |                             |                        |
+|    |                       |                      | 110620,                  |                       | '                         |                             |                        |
+|    |                       |                      | 302578,         165196,  |                       | partial_args=None         |                             |                        |
+|    |                       |                      | 235469,                  |                       | will_continue=None id=    |                             |                        |
+|    |                       |                      | 142135,         54343    |                       | 'adk-f19ff6d6-91e7-4990-b |                             |                        |
+|    |                       |                      | ]     }   }              |                       | 2a5-                      |                             |                        |
+|    |                       |                      | } ``` **Explanation:**   |                       | 9ae75cec8996'             |                             |                        |
+|    |                       |                      | The chart above          |                       | args={'analysis_request': |                             |                        |
+|    |                       |                      | displays the monthly     |                       | 'chart_type="dual_axis_li |                             |                        |
+|    |                       |                      | trend of spend and       |                       | ne" title="NPI            |                             |                        |
+|    |                       |                      | conversions for NPI over |                       | Monthly Spend and         |                             |                        |
+|    |                       |                      | the last 12              |                       | Conversions Trend         |                             |                        |
+|    |                       |                      | months. Spend is         |                       | (Last 12 Months)"         |                             |                        |
+|    |                       |                      | represented on the left  |                       | x_label="Month"           |                             |                        |
+|    |                       |                      | y-axis, and conversions  |                       | y_label_left="Spend"      |                             |                        |
+|    |                       |                      | are represented          |                       | y_label_right="Conversion |                             |                        |
+|    |                       |                      | on the right y-axis,     |                       | s"                        |                             |                        |
+|    |                       |                      | allowing for a           |                       | data={"categories":       |                             |                        |
+|    |                       |                      | comparison of their      |                       | ["2025-06",               |                             |                        |
+|    |                       |                      | movements over time.     |                       | "2025-07", "2025-08",     |                             |                        |
+|    |                       |                      |                          |                       | "2025-09",                |                             |                        |
+|    |                       |                      |                          |                       | "2025-10", "2025-11",     |                             |                        |
+|    |                       |                      |                          |                       | "2025-12",                |                             |                        |
+|    |                       |                      |                          |                       | "2026-01", "2026-02",     |                             |                        |
+|    |                       |                      |                          |                       | "2026-03",                |                             |                        |
+|    |                       |                      |                          |                       | "2026-04", "2026-05"],    |                             |                        |
+|    |                       |                      |                          |                       | "series":                 |                             |                        |
+|    |                       |                      |                          |                       | {"Spend":                 |                             |                        |
+|    |                       |                      |                          |                       | [524025.0156330062,       |                             |                        |
+|    |                       |                      |                          |                       | 270110.44460900163,       |                             |                        |
+|    |                       |                      |                          |                       | 200306.21500699874,       |                             |                        |
+|    |                       |                      |                          |                       | 250451.85526599947,       |                             |                        |
+|    |                       |                      |                          |                       | 534234.1409060048,        |                             |                        |
+|    |                       |                      |                          |                       | 547851.3385800172,        |                             |                        |
+|    |                       |                      |                          |                       | 350762.11074599996,       |                             |                        |
+|    |                       |                      |                          |                       | 1227253.1613683545,       |                             |                        |
+|    |                       |                      |                          |                       | 1082803.8993387904,       |                             |                        |
+|    |                       |                      |                          |                       | 1129038.9917994805,       |                             |                        |
+|    |                       |                      |                          |                       | 936865.612241419,         |                             |                        |
+|    |                       |                      |                          |                       | 341456.83242329484],      |                             |                        |
+|    |                       |                      |                          |                       | "Conversions":            |                             |                        |
+|    |                       |                      |                          |                       | [158668, 158291, 126440,  |                             |                        |
+|    |                       |                      |                          |                       | 124438, 228016,           |                             |                        |
+|    |                       |                      |                          |                       | 169642, 110620, 302578,   |                             |                        |
+|    |                       |                      |                          |                       | 165196, 235469,           |                             |                        |
+|    |                       |                      |                          |                       | 142135, 54343]}}'}        |                             |                        |
+|    |                       |                      |                          |                       | name='call_analytics_agen |                             |                        |
+|    |                       |                      |                          |                       | t'                        |                             |                        |
+|    |                       |                      |                          |                       | partial_args=None         |                             |                        |
+|    |                       |                      |                          |                       | will_continue=None        |                             |                        |
++----+-----------------------+----------------------+--------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

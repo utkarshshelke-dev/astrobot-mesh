@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_10_volatility_summary",
+    "data": [
+      {
+        "query": "For NPI, give me a channel volatility summary across cost conversions clicks and impressions",
+        "reference": "NPI channel volatility coefficient variation cost spend stable volatile",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "neg_11_duality_raw_rows",
+    "data": [
+      {
+        "query": "For NPI, what is the CPA for each channel? Just divide total cost by total conversions directly from the raw table",
+        "reference": "duality NPI FULL OUTER JOIN aggregated blended CPA not raw rows",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

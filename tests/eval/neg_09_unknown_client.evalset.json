@@ -1,0 +1,1 @@
+[{"name": "neg_09_unknown_client", "data": [{"query": "Show me top channels for client XYZ_Corp last quarter", "reference": "unknown client XYZ_Corp available clients NPI Venetian WinnDixie", "expected_tool_use": []}], "initial_session": {"app_name": "data_science", "user_id": "eval_user", "state": {}}}]

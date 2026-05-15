@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_13_winndixie_vivs",
+    "data": [
+      {
+        "query": "For WinnDixie, show ViVs by channel last quarter",
+        "reference": "WinnDixie ViVs OTT CTV Linear TV streaming performance channel",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

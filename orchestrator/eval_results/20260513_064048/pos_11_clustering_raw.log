@@ -1,0 +1,108 @@
+2026-05-13 07:21:26,222 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 07:21:35,876 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:21:35,876 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:21:35,877 - INFO - agent.py:401 - 🔒 Orchestrator session LOCKED to client: NPI
+2026-05-13 07:21:35,877 - INFO - agent.py:413 - ▶ before_agent | client=NPI | locked=NPI | session=session_1778656895 | turn=1 | mode=local-AgentTool
+2026-05-13 07:21:35,943 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=none
+2026-05-13 07:21:36,079 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:21:38,547 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:21:38,547 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 07:21:38,548 - INFO - agent.py:558 - 🔢 after_model  | tokens in=4242 out=27 total=4370
+2026-05-13 07:21:38,549 - INFO - agent.py:457 - ⚙ before_tool  | tool=call_data_scientist | skill=bqml_cluster | client=NPI | query=Cluster NPI campaigns by performance and show whic…
+2026-05-13 07:21:38,550 - INFO - agent.py:163 - Routing to LOCAL DS agent
+2026-05-13 07:21:39,359 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 07:21:39,359 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 07:21:39,359 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+2026-05-13 07:21:39,359 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:21:39,360 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:21:39,361 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 07:21:39,361 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 07:21:39,361 - INFO - agent.py:339 - 📍 KM routed '[Client: NPI] Cluster NPI campaigns by performance...' → table=performance (confidence=default)
+2026-05-13 07:21:39,991 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 07:21:39,991 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 07:21:40,462 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:21:41,893 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:21:41,895 - INFO - agent.py:489 - Tokens: In=7721, Out=13
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 07:21:42,006 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:21:44,556 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:21:45,058 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:21:48,108 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:21:50,231 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:22:09,225 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:22:09,230 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 07:22:09,230 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 07:22:09,332 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:22:09,332 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 07:22:13,651 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:22:13,653 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:22:13,653 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:22:14,552 - INFO - agent.py:124 - BQML chart rendered: NPI Campaign Clusters by Performance (Partial Data) (31688 bytes)
+2026-05-13 07:22:14,552 - INFO - agent.py:131 - BQML chart saved: chart_1778656934_e52bab.png v0
+2026-05-13 07:22:14,679 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:22:17,061 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:22:17,065 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:22:17,065 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 07:22:17,065 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 07:22:17,065 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:22:17,071 - INFO - agent.py:514 - ✓ after_tool   | tool=call_data_scientist | skill=bqml_cluster | len=0 | error=False
+2026-05-13 07:22:17,078 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=bqml_cluster
+2026-05-13 07:22:17,181 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 07:22:18,984 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 07:22:18,985 - INFO - agent.py:558 - 🔢 after_model  | tokens in=4376 out=21 total=4397
+2026-05-13 07:22:18,986 - INFO - agent.py:427 - ◀ after_agent  | client=NPI | turn=1 | duration=43.11s | tools_called=1
+2026-05-13 07:22:18,987 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 07:22:18,987 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 07:22:18,991 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 07:22:18,995 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/orchestrator/.adk/eval_history/orchestrator_tests_eval_orchestrator_pos_11_clustering.evalset.json_1778656938.9950855.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.05} custom_metrics=None user_simulator_config=None
+Models contained in 'nc-ai-chatbot.astrobot_bqml_models':
+*********************************************************************
+Eval Run Summary
+tests/eval_orchestrator/pos_11_clustering.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval_orchestrator/pos_11_clustering.evalset.json
+Eval Id: pos_11_clustering
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.0, Threshold: 0.05
+---------------------------------------------------------------------
+Invocation Details:
++----+----------------------+-------------------------+-------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt               | expected_response       | actual_response         | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+======================+=========================+=========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, cluster     | NPI campaign cluster    | I'm sorry, I was unable |                       | id='adk-858ad622-588f-464 | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | campaigns by         | KMEANS performance      | to get a                |                       | b-b873-                   | 0.0                         | 0.0                    |
+|    | performance and show | spend conversions group | response from the data  |                       | 5f41e04af21c'             |                             |                        |
+|    | which clusters       | segment                 | scientist. Please       |                       | args={'query': 'Cluster   |                             |                        |
+|    | perform best         |                         | try again.              |                       | NPI campaigns by          |                             |                        |
+|    |                      |                         |                         |                       | performance and show      |                             |                        |
+|    |                      |                         |                         |                       | which clusters perform    |                             |                        |
+|    |                      |                         |                         |                       | best.                     |                             |                        |
+|    |                      |                         |                         |                       | Automatically select      |                             |                        |
+|    |                      |                         |                         |                       | features and train        |                             |                        |
+|    |                      |                         |                         |                       | the model.'} name='call_d |                             |                        |
+|    |                      |                         |                         |                       | ata_scientist'            |                             |                        |
+|    |                      |                         |                         |                       | partial_args=None         |                             |                        |
+|    |                      |                         |                         |                       | will_continue=None        |                             |                        |
++----+----------------------+-------------------------+-------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

@@ -1,0 +1,9 @@
+[{
+  "name": "pos_16_duality_efficiency",
+  "data": [{
+    "query": "For NPI, show channel efficiency with CPA and ROAS using duality-aware aggregation",
+    "reference": "channel efficiency CPA ROAS NPI duality spend conversions separate rows unified",
+    "expected_tool_use": []
+  }],
+  "initial_session": {"app_name": "data_science", "user_id": "eval_user", "state": {}}
+}]

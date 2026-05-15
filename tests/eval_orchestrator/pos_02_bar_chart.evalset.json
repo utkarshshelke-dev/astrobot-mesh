@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_02_bar_chart",
+    "data": [
+      {
+        "query": "For NPI, give me a bar chart of channel spend last quarter",
+        "reference": "NPI bar chart channel spend CTV Paid Social Search chart generated",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

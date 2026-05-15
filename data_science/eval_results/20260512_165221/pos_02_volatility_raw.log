@@ -1,0 +1,106 @@
+2026-05-12 16:54:02,612 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 16:54:09,569 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 16:54:09,570 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 16:54:09,570 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 16:54:09,572 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 16:54:09,573 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 16:54:09,573 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 16:54:09,574 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 16:54:09,574 - INFO - agent.py:392 - 📍 KM routed 'For NPI, which channels are most volatile in cost ...' → table=performance (confidence=default)
+2026-05-12 16:54:10,122 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 16:54:10,122 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 16:54:10,313 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:54:12,147 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:54:12,147 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 16:54:12,149 - INFO - agent.py:561 - Tokens: In=7711, Out=26
+2026-05-12 16:54:12,151 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 16:54:12,152 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 16:54:12,286 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:54:14,191 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:54:16,479 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:54:17,733 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:54:17,735 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 16:54:17,736 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 16:54:17,736 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 16:54:17,736 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 16:54:17,838 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 16:54:19,332 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 16:54:19,333 - INFO - agent.py:561 - Tokens: In=7948, Out=156
+2026-05-12 16:54:19,335 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 16:54:19,335 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 16:54:19,335 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 16:54:19,335 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 16:54:19,339 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 16:54:19,341 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_02_volatility.evalset.json_1778604859.3417351.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.4, 'response_match_score': 0.15} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_02_volatility.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_02_volatility.evalset.json
+Eval Id: pos_02_volatility_cost
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: FAILED, Score: 0.0, Threshold: 0.4
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.15384615384615385, Threshold: 0.15
+---------------------------------------------------------------------
+Invocation Details:
++----+-------------------------+------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                  | expected_response      | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=========================+========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, which channels | most volatile channels | **Result:**  Performance  |                       | id='adk-98d162d7-987c-414 | Status: FAILED, Score:      | Status: PASSED, Score: |
+|    | are most                | cost CV                | Max is the most           |                       | 6-bd3c-                   | 0.0                         | 0.15384615384615385    |
+|    | volatile in cost over   | coefficient variation  | volatile channel in cost  |                       | 4195612a8186'             |                             |                        |
+|    | last 12 months          | Performance Max        | over the last             |                       | args={'query': 'For NPI,  |                             |                        |
+|    |                         |                        | 12 months, with a         |                       | which channels are most   |                             |                        |
+|    |                         |                        | Coefficient of            |                       | volatile in cost          |                             |                        |
+|    |                         |                        | Variation (CV) of 1.046.  |                       | over the last 12          |                             |                        |
+|    |                         |                        | Demand Gen                |                       | months?'}                 |                             |                        |
+|    |                         |                        | follows with a CV of      |                       | name='call_bigquery_agent |                             |                        |
+|    |                         |                        | 0.801, then Search        |                       | '                         |                             |                        |
+|    |                         |                        | (0.432), and Paid Social  |                       | partial_args=None         |                             |                        |
+|    |                         |                        | (0.426).                  |                       | will_continue=None        |                             |                        |
+|    |                         |                        | **Explanation:** 1. The   |                       |                           |                             |                        |
+|    |                         |                        | BigQuery agent            |                       |                           |                             |                        |
+|    |                         |                        | was queried to identify   |                       |                           |                             |                        |
+|    |                         |                        | the channels              |                       |                           |                             |                        |
+|    |                         |                        | with the highest cost     |                       |                           |                             |                        |
+|    |                         |                        | volatility over           |                       |                           |                             |                        |
+|    |                         |                        | the last 12 months for    |                       |                           |                             |                        |
+|    |                         |                        | NPI. 2.                   |                       |                           |                             |                        |
+|    |                         |                        | Volatility was measured   |                       |                           |                             |                        |
+|    |                         |                        | using the                 |                       |                           |                             |                        |
+|    |                         |                        | Coefficient of Variation  |                       |                           |                             |                        |
+|    |                         |                        | (CV), which is            |                       |                           |                             |                        |
+|    |                         |                        | the ratio of the standard |                       |                           |                             |                        |
+|    |                         |                        | deviation to              |                       |                           |                             |                        |
+|    |                         |                        | the mean. A higher CV     |                       |                           |                             |                        |
+|    |                         |                        | indicates greater         |                       |                           |                             |                        |
+|    |                         |                        | volatility. 3. The        |                       |                           |                             |                        |
+|    |                         |                        | results show that         |                       |                           |                             |                        |
+|    |                         |                        | Performance Max exhibits  |                       |                           |                             |                        |
+|    |                         |                        | the highest               |                       |                           |                             |                        |
+|    |                         |                        | cost volatility among the |                       |                           |                             |                        |
+|    |                         |                        | channels                  |                       |                           |                             |                        |
+|    |                         |                        | analyzed.                 |                       |                           |                             |                        |
++----+-------------------------+------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

@@ -1,0 +1,1 @@
+[{"name": "neg_06_future_date", "data": [{"query": "For NPI, show me total spend for 2030", "reference": "cannot future date no data available 2030", "expected_tool_use": []}], "initial_session": {"app_name": "data_science", "user_id": "eval_user", "state": {}}}]

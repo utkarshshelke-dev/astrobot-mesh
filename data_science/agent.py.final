@@ -1,0 +1,401 @@
+# Copyright 2025 Google LLC (Apache 2.0)
+"""Top level agent for data science multi-agent system."""
+
+import base64
+import json
+import logging
+import os
+from datetime import date
+
+
+# ============================================================
+# ARGUMENT SIZE GUARD - prevent MALFORMED_FUNCTION_CALL
+# ============================================================
+import json as _json_module
+_MAX_FUNCTION_ARG_SIZE = 6000
+
+
+def _enforce_arg_size(arg_str):
+    """If a function arg is too big, truncate or summarize it."""
+    if not arg_str:
+        return arg_str
+    if len(arg_str) <= _MAX_FUNCTION_ARG_SIZE:
+        return arg_str
+    print(f"[ARG GUARD] Argument too large ({len(arg_str)} chars), truncating to {_MAX_FUNCTION_ARG_SIZE}")
+    return arg_str[:_MAX_FUNCTION_ARG_SIZE] + " ... [TRUNCATED - argument was too large for Gemini]"
+
+
+def _wrap_call_analytics_agent(orig_func):
+    """Wrap call_analytics_agent to enforce arg size."""
+    def wrapped(*args, **kwargs):
+        new_args = [_enforce_arg_size(a) if isinstance(a, str) else a for a in args]
+        new_kwargs = {k: (_enforce_arg_size(v) if isinstance(v, str) else v) for k, v in kwargs.items()}
+        return orig_func(*new_args, **new_kwargs)
+    return wrapped
+
+
+from google.adk.agents import LlmAgent
+from google.adk.agents.callback_context import CallbackContext
+from google.genai import types
+from opentelemetry import trace
+from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
+from opentelemetry.sdk import trace as trace_sdk
+from opentelemetry.sdk.trace.export import SimpleSpanProcessor
+
+from .prompts import return_instructions_root
+from .sub_agents import bqml_agent
+from .sub_agents.bigquery.tools import get_database_settings as get_bq_database_settings
+from .tools import call_analytics_agent, call_bigquery_agent
+
+
+# ============================================================
+# NEW: KnowledgeManager — single source of truth for client/table context
+# ============================================================
+try:
+    from .utils.knowledge_manager import manager as km
+    _KM_AVAILABLE = True
+except ImportError as e:
+    logging.getLogger(__name__).warning(f"KnowledgeManager not available: {e}")
+    km = None
+    _KM_AVAILABLE = False
+
+
+# Dynamic client discovery (kept for backwards compat with old code paths)
+try:
+    from data_science.sub_agents.bigquery.tools import (
+        discover_available_clients,
+        get_clients_summary_for_prompt,
+        is_valid_client,
+        get_table_for_client,
+    )
+except ImportError:
+    discover_available_clients = lambda: {}
+    get_clients_summary_for_prompt = lambda: "Client discovery unavailable"
+    is_valid_client = lambda x: False
+    get_table_for_client = lambda x: None
+
+
+# ============================================================
+# GLOBAL NaN/Infinity SANITIZATION
+# ============================================================
+def _global_nan_fix():
+    """Patch JSON serialization to never emit NaN/Infinity."""
+    import json
+    import math
+
+    _original_dumps = json.dumps
+    _original_dump = json.dump
+
+    def _replace_nan(obj):
+        if isinstance(obj, dict):
+            return {k: _replace_nan(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [_replace_nan(v) for v in obj]
+        if isinstance(obj, tuple):
+            return tuple(_replace_nan(v) for v in obj)
+        if isinstance(obj, float):
+            if math.isnan(obj) or math.isinf(obj):
+                return None
+        return obj
+
+    def safe_dumps(obj, *args, **kwargs):
+        kwargs["allow_nan"] = False
+        return _original_dumps(_replace_nan(obj), *args, **kwargs)
+
+    def safe_dump(obj, fp, *args, **kwargs):
+        kwargs["allow_nan"] = False
+        return _original_dump(_replace_nan(obj), fp, *args, **kwargs)
+
+    json.dumps = safe_dumps
+    json.dump = safe_dump
+    print("✅ Global NaN/Infinity JSON sanitizer installed")
+
+
+_global_nan_fix()
+
+
+# WANDB / OTEL tracing (optional)
+_WANDB_BASE_URL = "https://trace.wandb.ai"
+_WANDB_PROJECT_ID = os.getenv("WANDB_PROJECT_ID")
+_WANDB_API_KEY = os.getenv("WANDB_API_KEY")
+_WANDB_AUTH = base64.b64encode(f"api:{_WANDB_API_KEY}".encode()).decode()
+_OTEL_EXPORTER_OTLP_ENDPOINT = f"{_WANDB_BASE_URL}/otel/v1/traces"
+_OTEL_EXPORTER_OTLP_HEADERS = {
+    "Authorization": f"Basic {_WANDB_AUTH}",
+    "project_id": _WANDB_PROJECT_ID,
+}
+exporter = OTLPSpanExporter(
+    endpoint=_OTEL_EXPORTER_OTLP_ENDPOINT,
+    headers=_OTEL_EXPORTER_OTLP_HEADERS,
+)
+_tracer_provider = trace_sdk.TracerProvider()
+_tracer_provider.add_span_processor(SimpleSpanProcessor(exporter))
+trace.set_tracer_provider(_tracer_provider)
+
+logging.basicConfig(level=logging.INFO)
+_logger = logging.getLogger(__name__)
+
+_dataset_config = {}
+_database_settings = {}
+_supported_dataset_types = ["bigquery"]
+_required_dataset_config_params = ["name", "description"]
+
+
+def load_dataset_config():
+    dataset_config_file = os.getenv("DATASET_CONFIG_FILE", "")
+    if not dataset_config_file:
+        _logger.fatal("DATASET_CONFIG_FILE env var not set")
+    with open(dataset_config_file, encoding="utf-8") as f:
+        dataset_config = json.load(f)
+    if "datasets" not in dataset_config:
+        _logger.fatal("No 'datasets' entry in dataset config")
+    for dataset in dataset_config["datasets"]:
+        if "type" not in dataset:
+            _logger.fatal("Missing dataset type")
+        for p in _required_dataset_config_params:
+            if p not in dataset:
+                _logger.fatal("Missing required param '%s'", p)
+    return dataset_config
+
+
+def get_database_settings(db_type: str) -> dict:
+    assert db_type in _supported_dataset_types
+    return get_bq_database_settings()
+
+
+def init_database_settings(dataset_config: dict) -> dict:
+    db_settings = {}
+    for dataset in dataset_config["datasets"]:
+        if dataset["type"] == "bigquery":
+            db_settings["bigquery"] = get_database_settings("bigquery")
+    return db_settings
+
+
+def get_dataset_definitions_for_instructions() -> str:
+    dataset_definitions = "\n<DATASETS>\n"
+    for dataset in _dataset_config["datasets"]:
+        dataset_type = dataset["type"]
+        if dataset_type not in _database_settings:
+            continue
+        dataset_definitions += f"""
+<{dataset_type.upper()}>
+<DESCRIPTION>
+{dataset["description"]}
+</DESCRIPTION>
+<SCHEMA>
+{_database_settings[dataset_type]["schema"]}
+</SCHEMA>
+</{dataset_type.upper()}>
+"""
+    dataset_definitions += "\n</DATASETS>\n"
+    return dataset_definitions
+
+
+# ============================================================
+# NEW: KnowledgeManager context injection
+# ============================================================
+def _inject_knowledge_manager_context(callback_context: CallbackContext):
+    """
+    Use KnowledgeManager to route the question and inject context.
+
+    Adds to state:
+      routed_table_id, routed_table_path, channel_column, kpi_column,
+      channel_taxonomy, duality, unification_map, applicable_rules
+
+    Skips silently if KM not available or no client locked yet.
+    """
+    if not _KM_AVAILABLE or km is None:
+        return
+
+    state = callback_context.state
+    client_id = state.get("client_lock") or state.get("client_id")
+
+    if not client_id:
+        # No client locked yet — nothing to route
+        return
+
+    # Get user message text for routing
+    user_text = ""
+    if hasattr(callback_context, "user_content") and callback_context.user_content:
+        try:
+            parts = getattr(callback_context.user_content, "parts", None)
+            if parts:
+                user_text = parts[0].text or ""
+        except Exception:
+            pass
+
+    if not user_text:
+        return
+
+    try:
+        ctx = km.route_and_load_context(user_text, client_id)
+        for k, v in ctx.items():
+            state[k] = v
+        _logger.info(
+            f"📍 KM routed '{user_text[:50]}...' → table={ctx['routed_table_id']} "
+            f"(confidence={ctx['routing_confidence']})"
+        )
+    except ValueError as e:
+        _logger.warning(f"KM routing skipped — {e}")
+        state["routing_error"] = str(e)
+    except Exception as e:
+        _logger.error(f"KM routing error: {e}")
+        state["routing_error"] = str(e)
+
+
+def load_database_settings_in_context(callback_context: CallbackContext):
+    """Initialize session state including client lock."""
+    if "database_settings" not in callback_context.state:
+        callback_context.state["database_settings"] = _database_settings
+
+    # Detect and lock client from user message
+    _validate_client_in_message(callback_context)
+    _force_client_question(callback_context)
+    _inject_locked_client(callback_context)
+    _inject_models_list(callback_context)
+
+    # CLIENT LOCK: once a client is set in a session, never change it
+    if "client_lock" not in callback_context.state:
+        callback_context.state["client_lock"] = None
+        callback_context.state["client_id"] = None
+        _logger.info("Session initialized — awaiting client selection")
+
+    # Reset multi-step state at start of each request
+    callback_context.state["_chart_steps_done"] = 0
+    callback_context.state["_multi_step_mode"] = False
+    callback_context.state["_seen_hashes"] = []
+    callback_context.state["_sql_retry_count"] = 0
+
+    # NEW: route the question and inject KnowledgeManager context
+    _inject_knowledge_manager_context(callback_context)
+
+
+def lock_client_in_session(state, client_id: str):
+    """Lock client to session if not already locked."""
+    if state.get("client_lock") is None:
+        state["client_lock"] = client_id
+        state["client_id"] = client_id
+        _logger.info(f"Session locked to client: {client_id}")
+        return True
+    elif state["client_lock"] != client_id:
+        _logger.warning(f"Attempted to switch from {state['client_lock']} to {client_id} — BLOCKED")
+        return False
+    return True
+
+
+def _inject_models_list(callback_context: CallbackContext):
+    """Inject dynamic model list into agent state."""
+    state = callback_context.state
+    locked = state.get("client_lock")
+
+    if locked and not state.get("_models_listed_for") == locked:
+        try:
+            from .sub_agents.bigquery.tools import get_models_summary_for_prompt
+            models_summary = get_models_summary_for_prompt(locked)
+            state["available_models_summary"] = models_summary
+            state["_models_listed_for"] = locked
+            _logger.info(f"📋 Models listed for {locked}: {len(models_summary)} chars")
+        except Exception as e:
+            _logger.warning(f"Could not list models: {e}")
+
+
+def _inject_locked_client(callback_context: CallbackContext):
+    """Inject locked client info into agent context for visibility."""
+    state = callback_context.state
+    locked = state.get("client_lock")
+
+    if locked:
+        state["LOCKED_CLIENT"] = locked
+        state["client_id"] = locked
+        _logger.info(f"📌 Reminding agent: session is locked to {locked}")
+
+
+def _force_client_question(callback_context: CallbackContext):
+    """If no client locked AND no client mention, force agent to ask."""
+    state = callback_context.state
+
+    user_msg = ""
+    if hasattr(callback_context, "user_content") and callback_context.user_content:
+        try:
+            user_msg = str(callback_context.user_content).lower()
+        except Exception:
+            return
+
+    detected_client = None
+    if "npi" in user_msg or "nassau" in user_msg or "paradise island" in user_msg:
+        detected_client = "NPI"
+    elif "venetian" in user_msg:
+        detected_client = "Venetian"
+    elif "winndixie" in user_msg or "winn dixie" in user_msg or "winn-dixie" in user_msg or "seg" in user_msg:
+        detected_client = "WinnDixie"
+
+    locked = state.get("client_lock")
+
+    if locked is None:
+        if detected_client:
+            state["client_lock"] = detected_client
+            state["client_id"] = detected_client
+            _logger.info(f"🔒 Session LOCKED to client: {detected_client}")
+        else:
+            state["_must_ask_client"] = True
+            _logger.info("⚠️ No client detected — agent must ask user")
+    else:
+        state["_must_ask_client"] = False
+        if detected_client and detected_client != locked:
+            _logger.warning(f"🚫 Cross-client attempt: locked={locked}, requested={detected_client}")
+            state["_cross_client_blocked"] = detected_client
+
+
+def _validate_client_in_message(callback_context: CallbackContext):
+    """Detect client mentions in user message and lock session."""
+    state = callback_context.state
+
+    user_msg = ""
+    if hasattr(callback_context, "user_content") and callback_context.user_content:
+        try:
+            user_msg = str(callback_context.user_content).lower()
+        except Exception:
+            pass
+
+    detected_client = None
+    if "npi" in user_msg or "nassau" in user_msg or "paradise island" in user_msg:
+        detected_client = "NPI"
+    elif "venetian" in user_msg:
+        detected_client = "Venetian"
+    elif "winndixie" in user_msg or "winn dixie" in user_msg or "winn-dixie" in user_msg or "seg" in user_msg:
+        detected_client = "WinnDixie"
+
+    locked = state.get("client_lock")
+
+    if locked is None and detected_client:
+        state["client_lock"] = detected_client
+        state["client_id"] = detected_client
+        _logger.info(f"🔒 Session LOCKED to client: {detected_client}")
+    elif locked and detected_client and detected_client != locked:
+        _logger.warning(f"🚫 Cross-client attempt: locked={locked}, requested={detected_client}")
+
+
+def get_root_agent() -> LlmAgent:
+    tools = [call_analytics_agent, call_bigquery_agent]
+    sub_agents = [bqml_agent]
+
+    agent = LlmAgent(
+        model=os.getenv("ROOT_AGENT_MODEL", "gemini-2.5-flash"),
+        name="data_science_root_agent",
+        instruction=return_instructions_root() + get_dataset_definitions_for_instructions(),
+        global_instruction=(
+            f"You are a Data Science and Analytics Multi Agent System.\n"
+            f"Today's date: {date.today()}"
+        ),
+        sub_agents=sub_agents,
+        tools=tools,
+        before_agent_callback=load_database_settings_in_context,
+        generate_content_config=types.GenerateContentConfig(temperature=0.01),
+    )
+    return agent
+
+
+# Boot sequence
+_dataset_config = load_dataset_config()
+_database_settings = init_database_settings(_dataset_config)
+root_agent = get_root_agent()

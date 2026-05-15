@@ -1,0 +1,151 @@
+2026-05-13 12:23:26,736 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 12:23:35,790 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:23:35,790 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 12:23:35,791 - INFO - agent.py:451 - ▶ before_agent | client=Venetian | locked=None | session=session_1778675015 | turn=1 | mode=local-AgentTool
+2026-05-13 12:23:35,856 - INFO - agent.py:576 - ⚡ before_model | client=Venetian | turn=1 | last_skill=none
+2026-05-13 12:23:35,980 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:24:14,529 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:24:14,530 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 12:24:14,531 - INFO - agent.py:596 - 🔢 after_model  | tokens in=4414 out=57 total=10376
+2026-05-13 12:24:14,533 - INFO - agent.py:495 - ⚙ before_tool  | tool=call_data_scientist | skill=charts | client=Venetian | query=Get historical booking volume, average daily rate,…
+2026-05-13 12:24:14,534 - INFO - agent.py:163 - Routing to LOCAL DS agent
+2026-05-13 12:24:15,321 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 12:24:15,321 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 12:24:15,321 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+2026-05-13 12:24:15,322 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:24:15,322 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 12:24:15,323 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 12:24:15,324 - INFO - agent.py:315 - 🔒 Session LOCKED to client: Venetian
+2026-05-13 12:24:15,324 - INFO - agent.py:339 - 📍 KM routed '[Client: Venetian] Get historical booking volume, ...' → table=performance (confidence=default)
+2026-05-13 12:24:15,798 - INFO - tools.py:313 - Found 0 models for Venetian
+2026-05-13 12:24:15,798 - INFO - agent.py:354 - 📋 Models listed for Venetian: 70 chars
+2026-05-13 12:24:16,267 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:24:22,867 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:24:22,869 - INFO - agent.py:489 - Tokens: In=7750, Out=35
+2026-05-13 12:24:22,870 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:24:22,871 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 12:24:22,978 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:24:25,682 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:24:25,685 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:24:25,685 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 12:24:25,685 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 12:24:25,686 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:24:25,786 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:24:29,087 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:24:29,088 - INFO - agent.py:489 - Tokens: In=8669, Out=92
+2026-05-13 12:24:29,089 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:24:29,089 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 12:24:29,089 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 12:24:29,089 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:24:29,089 - INFO - agent.py:552 - ✓ after_tool   | tool=call_data_scientist | skill=charts | len=482 | error=False
+2026-05-13 12:24:29,095 - INFO - agent.py:576 - ⚡ before_model | client=Venetian | turn=1 | last_skill=charts
+2026-05-13 12:24:29,189 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:24:33,154 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:24:33,156 - INFO - agent.py:596 - 🔢 after_model  | tokens in=10474 out=229 total=11004
+2026-05-13 12:24:33,170 - INFO - agent.py:465 - ◀ after_agent  | client=Venetian | turn=1 | duration=57.38s | tools_called=1
+2026-05-13 12:24:33,172 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:24:33,172 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:24:33,174 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 12:24:33,179 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/orchestrator/.adk/eval_history/orchestrator_tests_eval_orchestrator_pos_19_economist_flight_price_impact.evalset.json_1778675073.1796708.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.05} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval_orchestrator/pos_19_economist_flight_price_impact.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval_orchestrator/pos_19_economist_flight_price_impact.evalset.json
+Eval Id: pos_19_economist_flight_price_impact
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.07253886010362694, Threshold: 0.05
+---------------------------------------------------------------------
+Invocation Details:
++----+---------------------------+-----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                    | expected_response     | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+===========================+=======================+===========================+=======================+===========================+=============================+========================+
+|  0 | If flight prices increase | flight price increase | **Result:** I am sorry,   |                       | id='adk-                  | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | by 20% to Las             | Venetian booking      | but I cannot              |                       | abb095e4-9bdc-4928-963c-a | 0.0                         | 0.07253886010362694    |
+|    | Vegas, how would that     | impact persona travel | fulfill this request. The |                       | f692714edaf'              |                             |                        |
+|    | affect The                | elastic demand        | available data            |                       | args={'query': 'Get       |                             |                        |
+|    | Venetian Resort bookings  |                       | for The Venetian Resort   |                       | historical booking        |                             |                        |
+|    | and which                 |                       | primarily                 |                       | volume, average daily     |                             |                        |
+|    | personas would be most    |                       | focuses on marketing      |                       | rate, customer            |                             |                        |
+|    | impacted?                 |                       | performance metrics       |                       | origin data, and          |                             |                        |
+|    |                           |                       | such as Cost, Clicks,     |                       | demographic               |                             |                        |
+|    |                           |                       | Impressions, and          |                       | distribution for The      |                             |                        |
+|    |                           |                       | Conversions. I do not     |                       | Venetian Resort for       |                             |                        |
+|    |                           |                       | have access to            |                       | the last 12 months to     |                             |                        |
+|    |                           |                       | historical booking        |                       | analyze the               |                             |                        |
+|    |                           |                       | volume, average daily     |                       | potential impact of a 20% |                             |                        |
+|    |                           |                       | rate, customer origin     |                       | increase in               |                             |                        |
+|    |                           |                       | data, or                  |                       | flight prices to Las      |                             |                        |
+|    |                           |                       | demographic distribution. |                       | Vegas and identify        |                             |                        |
+|    |                           |                       | Therefore, I              |                       | most impacted personas.'} |                             |                        |
+|    |                           |                       | cannot analyze the        |                       | name='call_data_scientist |                             |                        |
+|    |                           |                       | potential impact of a     |                       | '                         |                             |                        |
+|    |                           |                       | 20% increase in flight    |                       | partial_args=None         |                             |                        |
+|    |                           |                       | prices to Las             |                       | will_continue=None        |                             |                        |
+|    |                           |                       | Vegas or identify most    |                       |                           |                             |                        |
+|    |                           |                       | impacted personas         |                       |                           |                             |                        |
+|    |                           |                       | with the currently        |                       |                           |                             |                        |
+|    |                           |                       | available data.           |                       |                           |                             |                        |
+|    |                           |                       | **Explanation:** I        |                       |                           |                             |                        |
+|    |                           |                       | attempted to retrieve     |                       |                           |                             |                        |
+|    |                           |                       | historical booking data,  |                       |                           |                             |                        |
+|    |                           |                       | customer                  |                       |                           |                             |                        |
+|    |                           |                       | demographics, and average |                       |                           |                             |                        |
+|    |                           |                       | spend per                 |                       |                           |                             |                        |
+|    |                           |                       | booking for The Venetian  |                       |                           |                             |                        |
+|    |                           |                       | Resort using              |                       |                           |                             |                        |
+|    |                           |                       | the `call_data_scientist` |                       |                           |                             |                        |
+|    |                           |                       | agent. This               |                       |                           |                             |                        |
+|    |                           |                       | data was necessary to     |                       |                           |                             |                        |
+|    |                           |                       | provide context           |                       |                           |                             |                        |
+|    |                           |                       | for analyzing the impact  |                       |                           |                             |                        |
+|    |                           |                       | of flight price           |                       |                           |                             |                        |
+|    |                           |                       | increases and identifying |                       |                           |                             |                        |
+|    |                           |                       | affected                  |                       |                           |                             |                        |
+|    |                           |                       | personas. However, the    |                       |                           |                             |                        |
+|    |                           |                       | `call_data_scientist`     |                       |                           |                             |                        |
+|    |                           |                       | agent indicated           |                       |                           |                             |                        |
+|    |                           |                       | that this specific type   |                       |                           |                             |                        |
+|    |                           |                       | of booking and            |                       |                           |                             |                        |
+|    |                           |                       | demographic data is not   |                       |                           |                             |                        |
+|    |                           |                       | available for             |                       |                           |                             |                        |
+|    |                           |                       | The Venetian Resort.      |                       |                           |                             |                        |
+|    |                           |                       | **Recommendation:** To    |                       |                           |                             |                        |
+|    |                           |                       | analyze the               |                       |                           |                             |                        |
+|    |                           |                       | impact of external        |                       |                           |                             |                        |
+|    |                           |                       | factors like flight       |                       |                           |                             |                        |
+|    |                           |                       | prices on bookings and    |                       |                           |                             |                        |
+|    |                           |                       | customer                  |                       |                           |                             |                        |
+|    |                           |                       | personas, we would need   |                       |                           |                             |                        |
+|    |                           |                       | access to more            |                       |                           |                             |                        |
+|    |                           |                       | comprehensive booking and |                       |                           |                             |                        |
+|    |                           |                       | customer                  |                       |                           |                             |                        |
+|    |                           |                       | demographic data. Please  |                       |                           |                             |                        |
+|    |                           |                       | consider if               |                       |                           |                             |                        |
+|    |                           |                       | there are other data      |                       |                           |                             |                        |
+|    |                           |                       | sources that could        |                       |                           |                             |                        |
+|    |                           |                       | provide this information. |                       |                           |                             |                        |
++----+---------------------------+-----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

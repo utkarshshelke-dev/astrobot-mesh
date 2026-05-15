@@ -1,0 +1,342 @@
+2026-05-13 03:58:33,858 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-13 03:58:41,871 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 03:58:41,872 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 03:58:41,872 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 03:58:41,876 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:58:41,876 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 03:58:41,878 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 03:58:41,878 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 03:58:41,878 - INFO - agent.py:339 - 📍 KM routed 'For NPI, check status of campaign 'Brand Awareness...' → table=performance (confidence=low)
+2026-05-13 03:58:42,325 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 03:58:42,325 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 03:58:42,541 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:58:45,165 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:58:45,165 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 03:58:45,166 - INFO - agent.py:489 - Tokens: In=7713, Out=29
+2026-05-13 03:58:45,168 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:58:45,168 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 03:58:45,284 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:58:46,341 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:58:47,168 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:58:49,684 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:58:49,686 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:58:49,686 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:58:49,686 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:58:49,686 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:58:49,686 - WARNING - tools.py:218 - BQ ERROR detected (attempt 0): I'm sorry, I was unable to retrieve the status for the campaign 'Brand Awareness Q4 2025'. The system reported an error indicating that the 'Status' c
+2026-05-13 03:58:49,686 - WARNING - tools.py:204 - BQ RETRY attempt 1 for query: [CHASE-SQL][Client: NPI]
+[Table: nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard]
+[Channe
+2026-05-13 03:58:49,687 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:58:49,687 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 03:58:49,796 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:58:51,024 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:58:51,953 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:58:55,194 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:58:55,196 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:58:55,196 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:58:55,196 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:58:55,196 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:58:55,196 - WARNING - tools.py:218 - BQ ERROR detected (attempt 1): I'm sorry, I was unable to retrieve the status for the campaign 'Brand Awareness Q4 2025'. The system reported an error indicating that the 'Status' c
+2026-05-13 03:58:55,196 - WARNING - tools.py:204 - BQ RETRY attempt 2 for query: [CHASE-SQL][Client: NPI]
+[Table: nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard]
+[Channe
+2026-05-13 03:58:55,196 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:58:55,197 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 03:58:55,309 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:58:56,683 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:58:57,590 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:58:59,441 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:58:59,443 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:58:59,443 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:58:59,443 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:58:59,443 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:58:59,443 - WARNING - tools.py:218 - BQ ERROR detected (attempt 2): I'm sorry, I was unable to retrieve the status for the campaign 'Brand Awareness Q4 2025'. The system reported an error indicating that the 'Status' c
+2026-05-13 03:58:59,544 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:59:01,318 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:59:01,320 - INFO - agent.py:489 - Tokens: In=8073, Out=31
+2026-05-13 03:59:01,321 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:59:01,321 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 03:59:01,448 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:59:02,806 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:59:03,582 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:59:05,573 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:59:05,682 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:59:09,047 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:59:10,865 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:59:14,157 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:59:15,889 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:59:17,815 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:59:17,818 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:59:17,818 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:59:17,818 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:59:17,818 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:59:17,921 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:59:19,804 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:59:19,806 - INFO - agent.py:489 - Tokens: In=8199, Out=16
+2026-05-13 03:59:19,807 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:59:19,807 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 03:59:19,933 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:59:21,994 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:59:22,109 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:59:24,115 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:59:26,643 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:59:33,384 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:59:33,387 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:59:33,387 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:59:33,388 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:59:33,388 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:59:33,498 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:59:42,377 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:59:42,378 - INFO - agent.py:489 - Tokens: In=9932, Out=1654
+2026-05-13 03:59:42,381 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:59:42,381 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:59:42,381 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:59:42,381 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:59:42,386 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 03:59:42,396 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_12_check_campaign.evalset.json_1778644782.3960068.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_12_check_campaign.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_12_check_campaign.evalset.json
+Eval Id: pos_12_check_campaign
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.01687763713080169, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+--------------------------+---------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                   | expected_response         | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+==========================+===========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, check status of | campaign status NPI Brand | **Result:**  The campaign |                       | id='adk-                  | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | campaign 'Brand          | Awareness Q4              | 'Brand                    |                       | df740588-58af-4a18-b1b2-5 | 0.0                         | 0.01687763713080169    |
+|    | Awareness Q4 2025'       | active paused             | Awareness Q4 2025' was    |                       | 2335c1a373d'              |                             |                        |
+|    |                          |                           | not found for             |                       | args={'query': "For NPI,  |                             |                        |
+|    |                          |                           | NPI.  **Explanation:**  I |                       | what is the               |                             |                        |
+|    |                          |                           | searched for              |                       | status of the campaign    |                             |                        |
+|    |                          |                           | the campaign 'Brand       |                       | 'Brand Awareness          |                             |                        |
+|    |                          |                           | Awareness Q4 2025'        |                       | Q4 2025'?"} name='call_bi |                             |                        |
+|    |                          |                           | but could not find an     |                       | gquery_agent'             |                             |                        |
+|    |                          |                           | exact match in the        |                       | partial_args=None         |                             |                        |
+|    |                          |                           | available campaign list   |                       | will_continue=None        |                             |                        |
+|    |                          |                           | for NPI. It's             |                       | id='adk-                  |                             |                        |
+|    |                          |                           | possible the campaign     |                       | cf4db1b0-2c77-456e-b4bb-a |                             |                        |
+|    |                          |                           | name is slightly          |                       | 0bd7139e807'              |                             |                        |
+|    |                          |                           | different or the campaign |                       | args={'query': "For NPI,  |                             |                        |
+|    |                          |                           | is no longer              |                       | what is the               |                             |                        |
+|    |                          |                           | active.  Here is a list   |                       | Ad_Status of the campaign |                             |                        |
+|    |                          |                           | of campaign               |                       | 'Brand                    |                             |                        |
+|    |                          |                           | names for NPI: 1. 17_all  |                       | Awareness Q4 2025'?"}     |                             |                        |
+|    |                          |                           | inclusive:                |                       | name='call_bigquery_agent |                             |                        |
+|    |                          |                           | bahamas [us] (s) ^kw *ad  |                       | '                         |                             |                        |
+|    |                          |                           | 2. remarketing            |                       | partial_args=None         |                             |                        |
+|    |                          |                           | - native [us] (c) ^rem *m |                       | will_continue=None id=    |                             |                        |
+|    |                          |                           | 3.                        |                       | 'adk-8237ac36-2787-42c7-a |                             |                        |
+|    |                          |                           | npi_q4_verizon_pre-roll   |                       | d38-                      |                             |                        |
+|    |                          |                           | 4.                        |                       | c1705947d90a'             |                             |                        |
+|    |                          |                           | 18_accommodations -       |                       | args={'query': 'For NPI,  |                             |                        |
+|    |                          |                           | bahamas [us] (s) ^kw      |                       | list all campaign         |                             |                        |
+|    |                          |                           | ^all-lang ^rlsa-b *ad 5.  |                       | names.'}                  |                             |                        |
+|    |                          |                           | brand -                   |                       | name='call_bigquery_agent |                             |                        |
+|    |                          |                           | vacations - paradise      |                       | '                         |                             |                        |
+|    |                          |                           | island [top mrkt]         |                       | partial_args=None         |                             |                        |
+|    |                          |                           | (s) ^kw ^all-lang ^rlsa-b |                       | will_continue=None        |                             |                        |
+|    |                          |                           | *ad 6.                    |                       |                           |                             |                        |
+|    |                          |                           | january_content_2020 7.   |                       |                           |                             |                        |
+|    |                          |                           | awr: prospecting          |                       |                           |                             |                        |
+|    |                          |                           | - relaunch [top mrkt]     |                       |                           |                             |                        |
+|    |                          |                           | (pdsm-v) ^ic              |                       |                           |                             |                        |
+|    |                          |                           | ^sim-e *ad 8. brand -     |                       |                           |                             |                        |
+|    |                          |                           | accommodations -          |                       |                           |                             |                        |
+|    |                          |                           | cable beach [top mrkt]    |                       |                           |                             |                        |
+|    |                          |                           | (s) ^kw ^all-lang         |                       |                           |                             |                        |
+|    |                          |                           | ^rlsa-b *ad 9.            |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_usa_non_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [US - Brand - Vacations - |                       |                           |                             |                        |
+|    |                          |                           | Bahamas] 10.              |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_usa_non_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [US - Brand - Vacations - |                       |                           |                             |                        |
+|    |                          |                           | Nassau/NPI/Paradise       |                       |                           |                             |                        |
+|    |                          |                           | Island] 11.               |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_usa_non_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_bng             |                       |                           |                             |                        |
+|    |                          |                           | [us - brand - deals -     |                       |                           |                             |                        |
+|    |                          |                           | paradise island]          |                       |                           |                             |                        |
+|    |                          |                           | 12.                       |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_usa_non_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_bng             |                       |                           |                             |                        |
+|    |                          |                           | [us - brand - vacations - |                       |                           |                             |                        |
+|    |                          |                           | bahamas] 13.              |                       |                           |                             |                        |
+|    |                          |                           | enb_int_dsc_lal_usa_non_a |                       |                           |                             |                        |
+|    |                          |                           | ll_tar_gds                |                       |                           |                             |                        |
+|    |                          |                           | [Similar to Audiences]    |                       |                           |                             |                        |
+|    |                          |                           | 14.                       |                       |                           |                             |                        |
+|    |                          |                           | enb_int_src_cmp_usa_non_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [US - Competitor -        |                       |                           |                             |                        |
+|    |                          |                           | Cancun] 15.               |                       |                           |                             |                        |
+|    |                          |                           | enb_int_src_cmp_usa_non_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_bng             |                       |                           |                             |                        |
+|    |                          |                           | [us - competitor - puerto |                       |                           |                             |                        |
+|    |                          |                           | rico] 16.                 |                       |                           |                             |                        |
+|    |                          |                           | enb_int_src_ctg_usa_non_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [US - Category - Family   |                       |                           |                             |                        |
+|    |                          |                           | Vacations] 17.            |                       |                           |                             |                        |
+|    |                          |                           | enb_int_src_ctg_usa_non_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_bng             |                       |                           |                             |                        |
+|    |                          |                           | [us - category - all      |                       |                           |                             |                        |
+|    |                          |                           | inclusive - beach-        |                       |                           |                             |                        |
+|    |                          |                           | island] 18.               |                       |                           |                             |                        |
+|    |                          |                           | enb_awr_olv_mlt_can_air_m |                       |                           |                             |                        |
+|    |                          |                           | on_all_tar_gds            |                       |                           |                             |                        |
+|    |                          |                           | [airline - awareness      |                       |                           |                             |                        |
+|    |                          |                           | audience -montreal]       |                       |                           |                             |                        |
+|    |                          |                           | 19.                       |                       |                           |                             |                        |
+|    |                          |                           | enb_awr_olv_mlt_usa_air_h |                       |                           |                             |                        |
+|    |                          |                           | ou_all_tar_gds            |                       |                           |                             |                        |
+|    |                          |                           | [airline - awareness      |                       |                           |                             |                        |
+|    |                          |                           | audience -houston]        |                       |                           |                             |                        |
+|    |                          |                           | 20.                       |                       |                           |                             |                        |
+|    |                          |                           | enb_awr_olv_mlt_usa_top_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_tar_gds             |                       |                           |                             |                        |
+|    |                          |                           | [NYC & LA Top Markets -   |                       |                           |                             |                        |
+|    |                          |                           | Video ads] 21.            |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_can_top_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [CAN - Brand -            |                       |                           |                             |                        |
+|    |                          |                           | Accommodations -          |                       |                           |                             |                        |
+|    |                          |                           | Nassau/Paradise Island]   |                       |                           |                             |                        |
+|    |                          |                           | 22.                       |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_can_top_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [CAN - Brand - Deals -    |                       |                           |                             |                        |
+|    |                          |                           | Bahamas] 23.              |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_can_top_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [CAN - Brand - Vacations  |                       |                           |                             |                        |
+|    |                          |                           | - Bahamas] 24.            |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_canada_pm |                       |                           |                             |                        |
+|    |                          |                           | k_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [canada - Brand - All     |                       |                           |                             |                        |
+|    |                          |                           | Inclusive -               |                       |                           |                             |                        |
+|    |                          |                           | Bahamas] 25.              |                       |                           |                             |                        |
+|    |                          |                           | enb_int_src_cmp_can_top_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [CAN - Competitor -       |                       |                           |                             |                        |
+|    |                          |                           | Cancun] 26.               |                       |                           |                             |                        |
+|    |                          |                           | enb_int_src_cmp_can_top_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [CAN - Competitor -       |                       |                           |                             |                        |
+|    |                          |                           | Jamaica] 27.              |                       |                           |                             |                        |
+|    |                          |                           | enb_int_src_cmp_usa_non_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [us - competitor - turks  |                       |                           |                             |                        |
+|    |                          |                           | & caicos] 28.             |                       |                           |                             |                        |
+|    |                          |                           | enb_int_src_cmp_usa_non_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [us - competitor - us     |                       |                           |                             |                        |
+|    |                          |                           | virgin islands]           |                       |                           |                             |                        |
+|    |                          |                           | 29. enb_int_src_ctg_usa_n |                       |                           |                             |                        |
+|    |                          |                           | on_all_obs_gds            |                       |                           |                             |                        |
+|    |                          |                           | [us - category -          |                       |                           |                             |                        |
+|    |                          |                           | honeymoon] 30. zzzenb_c   |                       |                           |                             |                        |
+|    |                          |                           | nv_src_brd_usa_non_na_all |                       |                           |                             |                        |
+|    |                          |                           | _obs_gds [us -            |                       |                           |                             |                        |
+|    |                          |                           | brand - nassau] 31. gbp   |                       |                           |                             |                        |
+|    |                          |                           | 32. category -            |                       |                           |                             |                        |
+|    |                          |                           | all inclusive - beach-    |                       |                           |                             |                        |
+|    |                          |                           | island [us] (s)           |                       |                           |                             |                        |
+|    |                          |                           | ^kw ^all-lang ^rlsa-b *ad |                       |                           |                             |                        |
+|    |                          |                           | 33.                       |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_olv_rmk_usa_air_b |                       |                           |                             |                        |
+|    |                          |                           | al_all_tar_gds            |                       |                           |                             |                        |
+|    |                          |                           | [airline - remarketing    |                       |                           |                             |                        |
+|    |                          |                           | -baltimore] 34.           |                       |                           |                             |                        |
+|    |                          |                           | enb_int_src_ctg_ukm_top_n |                       |                           |                             |                        |
+|    |                          |                           | a_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [uk - category - all      |                       |                           |                             |                        |
+|    |                          |                           | inclusive - beach-        |                       |                           |                             |                        |
+|    |                          |                           | island] 35.               |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_olv_rmk_usa_air_d |                       |                           |                             |                        |
+|    |                          |                           | en_all_tar_gds            |                       |                           |                             |                        |
+|    |                          |                           | [airline - remarketing    |                       |                           |                             |                        |
+|    |                          |                           | -denver] 36.              |                       |                           |                             |                        |
+|    |                          |                           | enb_int_soc_cmb_usa_non_a |                       |                           |                             |                        |
+|    |                          |                           | ll_tar_fbk                |                       |                           |                             |                        |
+|    |                          |                           | [airline - intenders] 37. |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_soc_rm            |                       |                           |                             |                        |
+|    |                          |                           | k_usa_top_na_all_tar_fbk+ |                       |                           |                             |                        |
+|    |                          |                           | [us+-                     |                       |                           |                             |                        |
+|    |                          |                           | +top+markets+-+remarketin |                       |                           |                             |                        |
+|    |                          |                           | g] 38.                    |                       |                           |                             |                        |
+|    |                          |                           | april-2023-content 39.    |                       |                           |                             |                        |
+|    |                          |                           | enb_awr_soc_mlt_usa_pmk_a |                       |                           |                             |                        |
+|    |                          |                           | ll_tar_fbk                |                       |                           |                             |                        |
+|    |                          |                           | [airline - awareness      |                       |                           |                             |                        |
+|    |                          |                           | audience] eviv 40.        |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_dmg_mlt_canada_to |                       |                           |                             |                        |
+|    |                          |                           | p_all_tar_gds             |                       |                           |                             |                        |
+|    |                          |                           | [can - remarketing -      |                       |                           |                             |                        |
+|    |                          |                           | demand gen] 41.           |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_soc_rmk_canada_pm |                       |                           |                             |                        |
+|    |                          |                           | k_all_tar_fbk             |                       |                           |                             |                        |
+|    |                          |                           | [can - top markets -      |                       |                           |                             |                        |
+|    |                          |                           | remarketing] 42.          |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_canada_pm |                       |                           |                             |                        |
+|    |                          |                           | k_all_obs_gds             |                       |                           |                             |                        |
+|    |                          |                           | [canada - brand - deals - |                       |                           |                             |                        |
+|    |                          |                           | bahamas/npi] -            |                       |                           |                             |                        |
+|    |                          |                           | new 43.                   |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_montreal_ |                       |                           |                             |                        |
+|    |                          |                           | pmk_all_obs_gds           |                       |                           |                             |                        |
+|    |                          |                           | [Montreal - Brand -       |                       |                           |                             |                        |
+|    |                          |                           | Accommodations/Vacations  |                       |                           |                             |                        |
+|    |                          |                           | - Bahamas/NPI]            |                       |                           |                             |                        |
+|    |                          |                           | 44.                       |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_montreal_ |                       |                           |                             |                        |
+|    |                          |                           | pmk_all_obs_gds           |                       |                           |                             |                        |
+|    |                          |                           | [Montreal - Brand -       |                       |                           |                             |                        |
+|    |                          |                           | Bahamas] 45.              |                       |                           |                             |                        |
+|    |                          |                           | enb_cnv_src_brd_montreal_ |                       |                           |                             |                        |
+|    |                          |                           | pmk_all_obs_gds           |                       |                           |                             |                        |
+|    |                          |                           | [montreal - brand -       |                       |                           |                             |                        |
+|    |                          |                           | nassau] - new 46.         |                       |                           |                             |                        |
+|    |                          |                           | this-caribbean-           |                       |                           |                             |                        |
+|    |                          |                           | island-10-different-stays |                       |                           |                             |                        |
+|    |                          |                           | 47. a-six-star-caribbean- |                       |                           |                             |                        |
+|    |                          |                           | luxury-resort             |                       |                           |                             |                        |
+|    |                          |                           | 48. a-different-kind-of-  |                       |                           |                             |                        |
+|    |                          |                           | caribbean-beach           |                       |                           |                             |                        |
+|    |                          |                           | 49. enb_awr_soc_mlt_usa_p |                       |                           |                             |                        |
+|    |                          |                           | mk_all_tar_fbk            |                       |                           |                             |                        |
+|    |                          |                           | [us - remaining markets - |                       |                           |                             |                        |
+|    |                          |                           | awareness] -              |                       |                           |                             |                        |
+|    |                          |                           | eviv 50.                  |                       |                           |                             |                        |
+|    |                          |                           | 120207865152430052        |                       |                           |                             |                        |
++----+--------------------------+---------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

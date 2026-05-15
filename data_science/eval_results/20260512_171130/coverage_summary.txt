@@ -1,0 +1,35 @@
+Name                                                                                         Stmts   Miss Branch BrPart  Cover   Missing
+----------------------------------------------------------------------------------------------------------------------------------------
+data_science/eval_results/_mem_wrap.py                                                          61      7     14      2  88.0%   35-36, 61, 75-76, 88, 90
+data_science/utils/utils.py                                                                     36     36      2      0   0.0%   15-94
+data_science/utils/reference_guide_RAG.py                                                       32     32      0      0   0.0%   15-124
+data_science/utils/load_ad_campaign_data.py                                                     66     66      6      0   0.0%   17-207
+data_science/utils/knowledge_manager.py                                                         67     67     14      0   0.0%   29-280
+data_science/utils/create_bq_table.py                                                           46     46      4      0   0.0%   16-118
+data_science/tools.py                                                                          690    690    296      0   0.0%   2-941
+data_science/sub_agents/bqml/tools.py                                                           64     64     14      0   0.0%   15-294
+data_science/sub_agents/bqml/prompts.py                                                          4      4      0      0   0.0%   3-8
+data_science/sub_agents/bqml/agent.py                                                           78     78     26      0   0.0%   4-142
+data_science/sub_agents/bigquery/tools.py                                                      580    580    234      0   0.0%   1-1812
+data_science/sub_agents/bigquery/prompts.py                                                      1      1      0      0   0.0%   4
+data_science/sub_agents/bigquery/chase_sql/sql_postprocessor/sql_translator.py                 173    173     60      0   0.0%   17-488
+data_science/sub_agents/bigquery/chase_sql/sql_postprocessor/correction_prompt_template.py       1      1      0      0   0.0%   17
+data_science/sub_agents/bigquery/chase_sql/llm_utils.py                                         87     87     20      0   0.0%   17-237
+data_science/sub_agents/bigquery/chase_sql/chase_db_tools.py                                    53     53      8      0   0.0%   17-158
+data_science/sub_agents/bigquery/chase_sql/chase_constants.py                                    4      4      0      0   0.0%   17-23
+data_science/sub_agents/bigquery/agent.py                                                       29     29      6      0   0.0%   17-77
+data_science/sub_agents/analytics/prompts.py                                                     3      3      0      0   0.0%   4-183
+data_science/sub_agents/analytics/agent.py                                                      19     19      4      0   0.0%   5-47
+data_science/sub_agents/__init__.py                                                              3      3      0      0   0.0%   16-18
+data_science/prompts.py                                                                         22     22      2      0   0.0%   2-66
+data_science/main.py                                                                            24     24      4      0   0.0%   26-88
+data_science/lib/sql_builder.py                                                                 53     53      6      0   0.0%   9-201
+data_science/lib/question_router.py                                                             47     47     20      0   0.0%   10-117
+data_science/lib/channel_resolver.py                                                            84     84     28      0   0.0%   11-236
+data_science/lib/__init__.py                                                                     4      4      0      0   0.0%   7-32
+data_science/agent.py                                                                          344    344    154      0   0.0%   12-673
+data_science/__init__.py                                                                        11     11      0      0   0.0%   15-32
+----------------------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                                         2686   2632    922      2   1.8%
+
+6 empty files skipped.

@@ -1,0 +1,13 @@
+[{
+  "name": "pos_21_economist_fred_gdp",
+  "data": [{
+    "query": "What is the FRED GDP data from January 2025 to April 2026?",
+    "reference": "FRED GDP data 2025 2026 growth billion trillion economic",
+    "expected_tool_use": []
+  }],
+  "initial_session": {
+    "app_name": "orchestrator",
+    "user_id": "eval_user",
+    "state": {"client_id": "NPI", "LOCKED_CLIENT": "NPI", "client_lock": "NPI"}
+  }
+}]

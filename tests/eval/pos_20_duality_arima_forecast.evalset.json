@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_20_duality_arima_forecast",
+    "data": [
+      {
+        "query": "For NPI, forecast spend for the next 30 days using ARIMA",
+        "reference": "forecast NPI ARIMA spend next 30 days weekly aggregated chart",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

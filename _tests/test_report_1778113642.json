@@ -1,0 +1,32 @@
+[
+  {
+    "test": "test_01_blended_cpa_nov_dec",
+    "passed": null,
+    "message": "No agent response provided, ground truth only",
+    "ground_truth": "[\n  {\n    \"month_num\": 11,\n    \"unified_channel\": \"Paid Social\",\n    \"cost\": 262329.94,\n    \"conv\": 16469,\n    \"cpa\": 15.93\n  },\n  {\n    \"month_num\": 11,\n    \"unified_channel\": \"Paid Search\",\n    \"cost\": 152720.98,\n    \"conv\": 22915,\n    \"cpa\": 6.66\n  },\n  {\n    \"month_num\": 11,\n    \"unified_channel"
+  },
+  {
+    "test": "test_02_worst_channels",
+    "passed": null,
+    "message": "No agent response provided, ground truth only",
+    "ground_truth": "[\n  {\n    \"Channel_Group\": \"Online Audio\",\n    \"Total_Spend\": 135517.69,\n    \"Total_Conversions\": 0,\n    \"Conv_Per_Dollar\": 0.0\n  },\n  {\n    \"Channel_Group\": \"OOH\",\n    \"Total_Spend\": 280921.01,\n    \"Total_Conversions\": 0,\n    \"Conv_Per_Dollar\": 0.0\n  },\n  {\n    \"Channel_Group\": \"Print\",\n    \"Total_"
+  },
+  {
+    "test": "test_03_organic_pct",
+    "passed": null,
+    "message": "No agent response provided, ground truth only",
+    "ground_truth": "[\n  {\n    \"month\": \"2025-06\",\n    \"pct_organic\": 61.3\n  }\n]"
+  },
+  {
+    "test": "test_04_tv_lift",
+    "passed": null,
+    "message": "No agent response provided, ground truth only",
+    "ground_truth": "[\n  {\n    \"correlation\": 0.66\n  }\n]"
+  },
+  {
+    "test": "test_05_no_zero_spend_hallucination",
+    "passed": null,
+    "message": "No agent response provided, ground truth only",
+    "ground_truth": "[\n  {\n    \"month\": \"2025-08\",\n    \"paid_spend\": 200306.0\n  },\n  {\n    \"month\": \"2026-03\",\n    \"paid_spend\": 1164039.0\n  },\n  {\n    \"month\": \"2025-06\",\n    \"paid_spend\": 524025.0\n  },\n  {\n    \"month\": \"2025-11\",\n    \"paid_spend\": 547851.0\n  },\n  {\n    \"month\": \"2026-04\",\n    \"paid_spend\": 1016365.0\n "
+  }
+]

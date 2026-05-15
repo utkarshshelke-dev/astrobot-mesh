@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_18_duality_saturation",
+    "data": [
+      {
+        "query": "For NPI, build a saturation model for next $100k investment using aggregated daily data",
+        "reference": "saturation model NPI aggregated FULL OUTER JOIN spend conversions channel allocation budget",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

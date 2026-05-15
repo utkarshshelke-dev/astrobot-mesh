@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_11_bqml_train",
+    "data": [
+      {
+        "query": "For NPI, train a saturation model using BQML",
+        "reference": "BQML saturation model trained NPI Paid Search Paid Social",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

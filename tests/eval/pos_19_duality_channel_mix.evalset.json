@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_19_duality_channel_mix",
+    "data": [
+      {
+        "query": "For NPI, show channel mix shift between peak months Nov Dec and trough months with cost percentage and conversion attribution as 2 bar charts",
+        "reference": "channel mix NPI peak trough Nov Dec cost percent conversion attribution bar chart unified CTE",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_07_cpa",
+    "data": [
+      {
+        "query": "For NPI, what is the blended CPA by channel last 12 months?",
+        "reference": "NPI blended CPA channel cost per acquisition Search Performance Max Demand Gen",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

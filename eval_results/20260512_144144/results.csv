@@ -1,0 +1,4 @@
+timestamp,test_name,category,eval_id,prompt,agent_response,tools_called,tool_count,duration_sec,tool_trajectory_score,response_match_score,verdict,expected_outcome,error_summary
+20260512_144144,unit_tests,unit,all,N/A,N/A,pytest,112,41,N/A,N/A,PASS,unit-tests-pass,0-failed
+20260512_144144,pos_smoke,positive,pos_smoke_top_channels,"For NPI; show top 5 channels by spend last quarter as a bar chart ","expected_tool_calls ","none",0,63,0.0,0.2268041237113402,FAIL,"answer_with_tools_and_data",""
+20260512_144144,neg_out_of_scope,negative,neg_out_of_scope_weather,"What is the weather in Tokyo tomorrow? ","expected_tool_calls ","none",0,31,1.0,0.34782608695652173,PASS_REFUSED,"refuse_or_clarify_no_tools",""

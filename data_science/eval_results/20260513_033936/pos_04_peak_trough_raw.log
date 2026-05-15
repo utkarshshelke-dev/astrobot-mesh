@@ -1,0 +1,91 @@
+2026-05-13 03:46:19,039 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-13 03:46:26,764 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 03:46:26,765 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 03:46:26,765 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 03:46:26,768 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:46:26,768 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 03:46:26,769 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 03:46:26,769 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 03:46:26,769 - INFO - agent.py:339 - 📍 KM routed 'For NPI, channel mix shift peak months Nov Dec com...' → table=performance (confidence=low)
+2026-05-13 03:46:27,210 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 03:46:27,210 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 03:46:27,429 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:46:30,289 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:46:30,289 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 03:46:30,291 - INFO - agent.py:489 - Tokens: In=7716, Out=68
+2026-05-13 03:46:30,293 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:46:30,293 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 03:46:30,407 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:46:35,354 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:46:37,631 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:46:46,910 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:46:46,913 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:46:46,913 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:46:46,913 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:46:46,914 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:46:47,021 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:46:57,158 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:46:57,160 - INFO - agent.py:489 - Tokens: In=9795, Out=None
+2026-05-13 03:46:57,162 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:46:57,162 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:46:57,162 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:46:57,162 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:46:57,165 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 03:46:57,167 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_04_peak_trough.evalset.json_1778644017.1674466.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_04_peak_trough.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_04_peak_trough.evalset.json
+Eval Id: pos_04_peak_trough
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.0, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+-------------------------+-------------------------+-------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                  | expected_response       | actual_response   | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=========================+=========================+===================+=======================+===========================+=============================+========================+
+|  0 | For NPI, channel mix    | peak trough channel mix |                   |                       | id='adk-b64c4d65-c433-4dc | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | shift peak months       | bar charts cost         |                   |                       | 2-9275-                   | 0.0                         | 0.0                    |
+|    | Nov Dec compared trough | conversion percentage   |                   |                       | 2bbbbce7e222'             |                             |                        |
+|    | months 2 bar            |                         |                   |                       | args={'query': 'For NPI,  |                             |                        |
+|    | charts cost percent     |                         |                   |                       | compare channel mix shift |                             |                        |
+|    | conversion              |                         |                   |                       | for peak                  |                             |                        |
+|    | attribution             |                         |                   |                       | months (Nov/Dec) versus   |                             |                        |
+|    |                         |                         |                   |                       | trough months             |                             |                        |
+|    |                         |                         |                   |                       | (Jan-Oct) for both cost   |                             |                        |
+|    |                         |                         |                   |                       | percentage and            |                             |                        |
+|    |                         |                         |                   |                       | conversion attribution    |                             |                        |
+|    |                         |                         |                   |                       | percentage.               |                             |                        |
+|    |                         |                         |                   |                       | Return peak_cost_pct,     |                             |                        |
+|    |                         |                         |                   |                       | trough_cost_pct,          |                             |                        |
+|    |                         |                         |                   |                       | peak_conv_pct, and        |                             |                        |
+|    |                         |                         |                   |                       | trough_conv_pct by        |                             |                        |
+|    |                         |                         |                   |                       | channel.'} name='call_big |                             |                        |
+|    |                         |                         |                   |                       | query_agent'              |                             |                        |
+|    |                         |                         |                   |                       | partial_args=None         |                             |                        |
+|    |                         |                         |                   |                       | will_continue=None        |                             |                        |
++----+-------------------------+-------------------------+-------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

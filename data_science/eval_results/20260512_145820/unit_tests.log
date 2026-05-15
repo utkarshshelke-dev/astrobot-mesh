@@ -1,0 +1,8 @@
+....................Fs.................................................. [ 40%]
+.......................sssssssssssss.................................... [ 80%]
+....................................                                     [100%]
+=================================== FAILURES ===================================
+/home/utkarsh_shelke/astrobot_mesh/data_science/sub_agents/bigquery/tools.py:1292: ZeroDivisionError: division by zero
+=========================== short test summary info ============================
+FAILED data_science_tests/test_bq_tools_pure.py::TestSatFitLogLog::test_handles_empty_input
+1 failed, 165 passed, 14 skipped in 25.17s

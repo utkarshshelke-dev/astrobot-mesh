@@ -1,0 +1,135 @@
+{
+  "criteria": {
+
+    "tool_trajectory_avg_score": 0.7,
+
+    "response_match_score": 0.3,
+
+    "final_response_match_v2": {
+      "threshold": 0.6,
+      "judge_model_options": {
+        "judge_model": "gemini-2.5-flash",
+        "num_samples": 3
+      }
+    },
+
+    "rubric_based_final_response_quality_v1": {
+      "threshold": 0.8,
+      "judge_model_options": {
+        "judge_model": "gemini-2.5-flash",
+        "num_samples": 3
+      },
+      "rubrics": [
+        {
+          "rubric_id": "client_lock_respected",
+          "rubric_content": {
+            "text_property": "Once a client is identified (NPI, Venetian, or WinnDixie), the agent never queries a different client's data in the same session. If asked to compare with another client mid-session, it explicitly refuses and explains the session lock."
+          }
+        },
+        {
+          "rubric_id": "no_default_channel_for_direct",
+          "rubric_content": {
+            "text_property": "When the user asks about 'Direct' conversions or traffic, the SQL filter uses Channel = 'Direct' (capitalized first letter). The string 'DEFAULT' (all caps) NEVER appears in any SQL targeting a user-facing query. 'DEFAULT' is unmapped placeholder data."
+          }
+        },
+        {
+          "rubric_id": "awareness_uses_full_taxonomy",
+          "rubric_content": {
+            "text_property": "When the user asks about 'awareness' channels or spend, the SQL filter includes the FULL awareness taxonomy: Linear TV, CTV, OTT, Online Audio, Online Video, Paid Video, Video, OOH, and Print. The agent must NOT guess a partial subset (e.g., only 'Linear TV' and 'OTT')."
+          }
+        },
+        {
+          "rubric_id": "volatility_uses_cv",
+          "rubric_content": {
+            "text_property": "For volatility / 'most volatile channel' questions, the final SQL uses Coefficient of Variation (CV = STDDEV(metric) / AVG(metric)) wrapped with SAFE_DIVIDE and NULLIF. Raw STDDEV without dividing by AVG is NOT acceptable as a volatility measure."
+          }
+        },
+        {
+          "rubric_id": "pacing_uses_pacing_table",
+          "rubric_content": {
+            "text_property": "For pacing, budget, flight status, or burn-rate questions, the SQL queries the pacing/budget table (e.g., vw_astrobot_npi_nc360_budget), NOT the performance dashboard. Pacing queries use GVMM_Channel for grouping, not Budget_Channel or Channel."
+          }
+        },
+        {
+          "rubric_id": "performance_uses_dashboard_table",
+          "rubric_content": {
+            "text_property": "For CPA, channel mix, ranking, forecast, organic efficiency, TV halo, and similar performance questions, the SQL queries the performance dashboard (e.g., vw_astrobot_npi_nc360_dashboard), NOT the budget/pacing table."
+          }
+        },
+        {
+          "rubric_id": "unified_cte_for_search_paid_search",
+          "rubric_content": {
+            "text_property": "For blended CPA, channel mix, or ranking questions, the SQL uses a CTE with CASE WHEN to unify 'Search' and 'Paid Search' into a single 'Paid Search' bucket. Direct WHERE Channel = 'Paid Search' filters that exclude 'Search' rows are NOT acceptable."
+          }
+        },
+        {
+          "rubric_id": "no_client_no_sql",
+          "rubric_content": {
+            "text_property": "When the user has not specified a client (NPI, Venetian, or WinnDixie), the agent asks which client to analyze and does NOT call call_bigquery_agent, execute_sql, or any data-fetching tool until the client is specified."
+          }
+        },
+        {
+          "rubric_id": "safe_divide_for_ratios",
+          "rubric_content": {
+            "text_property": "When the SQL computes any ratio (CPA, ROAS, CTR, conversion rate, organic share), it uses SAFE_DIVIDE() with NULLIF() on the denominator to prevent divide-by-zero errors. Bare division operator '/' on aggregates is acceptable only inside SAFE_DIVIDE."
+          }
+        },
+        {
+          "rubric_id": "channel_resolver_called_for_categories",
+          "rubric_content": {
+            "text_property": "When the user uses a channel category term ('awareness', 'organic', 'paid', 'direct response', 'mid-funnel'), the agent calls resolve_channel_reference_tool to get the canonical channel list, rather than guessing channels from the LLM's prior knowledge."
+          }
+        }
+      ]
+    },
+
+    "rubric_based_tool_use_quality_v1": {
+      "threshold": 0.7,
+      "judge_model_options": {
+        "judge_model": "gemini-2.5-flash",
+        "num_samples": 3
+      },
+      "rubrics": [
+        {
+          "rubric_id": "no_sql_without_client_lock",
+          "rubric_content": {
+            "text_property": "No call to call_bigquery_agent, execute_sql, or call_analytics_agent happens until a client (NPI, Venetian, or WinnDixie) has been identified and locked into the session."
+          }
+        },
+        {
+          "rubric_id": "channel_resolver_before_filter",
+          "rubric_content": {
+            "text_property": "Before generating SQL that filters on a channel category ('awareness', 'organic', 'paid'), the agent calls resolve_channel_reference_tool with the correct client_id and term."
+          }
+        },
+        {
+          "rubric_id": "bqml_uses_transfer",
+          "rubric_content": {
+            "text_property": "For forecast / prediction / time-series questions, the agent transfers to bqml_agent (transfer_to_agent with agent_name='bqml_agent') rather than trying to write ML.FORECAST SQL directly."
+          }
+        },
+        {
+          "rubric_id": "tool_args_include_client_context",
+          "rubric_content": {
+            "text_property": "When call_bigquery_agent is invoked, the question argument or surrounding context includes the locked client ID (e.g., 'For NPI: ...' or '[Client: NPI]'). The sub-agent should never be left to guess which client."
+          }
+        }
+      ]
+    },
+
+    "hallucinations_v1": {
+      "threshold": 0.4,
+      "judge_model_options": {
+        "judge_model": "gemini-2.5-flash"
+      },
+      "evaluate_intermediate_nl_responses": true
+    },
+
+    "safety_v1": 0.9
+  },
+
+  "user_simulator_config": {
+    "model": "gemini-2.5-flash",
+    "max_allowed_invocations": 8
+  }
+}

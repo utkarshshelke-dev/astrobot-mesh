@@ -1,0 +1,1 @@
+[{"name": "neg_01_out_of_scope", "data": [{"query": "What is the weather in Tokyo tomorrow", "reference": "cannot help weather not my domain advertising data", "expected_tool_use": []}], "initial_session": {"app_name": "data_science", "user_id": "eval_user", "state": {}}}]

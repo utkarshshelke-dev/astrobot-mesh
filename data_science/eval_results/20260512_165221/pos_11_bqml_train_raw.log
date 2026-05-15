@@ -1,0 +1,101 @@
+2026-05-12 17:03:03,464 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 17:03:10,322 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 17:03:10,322 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 17:03:10,322 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 17:03:10,325 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 17:03:10,325 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 17:03:10,326 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 17:03:10,327 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 17:03:10,327 - INFO - agent.py:392 - 📍 KM routed 'For NPI, train a saturation model using BQML...' → table=performance (confidence=default)
+2026-05-12 17:03:10,778 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 17:03:10,778 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 17:03:10,953 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 17:03:12,737 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 17:03:12,737 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 17:03:12,738 - INFO - agent.py:561 - Tokens: In=7706, Out=13
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 17:03:12,844 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 17:03:15,758 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 17:03:59,675 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 17:04:01,077 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 17:04:01,081 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 17:04:01,082 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 17:04:01,082 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 17:04:01,082 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 17:04:01,092 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 17:04:01,095 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_11_bqml_train.evalset.json_1778605441.095103.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.4, 'response_match_score': 0.15} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_11_bqml_train.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_11_bqml_train.evalset.json
+Eval Id: pos_11_bqml_train
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: FAILED, Score: 0.0, Threshold: 0.4
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.163265306122449, Threshold: 0.15
+---------------------------------------------------------------------
+Invocation Details:
++----+------------------------+-----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                 | expected_response     | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+========================+=======================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, train a       | BQML saturation model | The saturation model      |                       | id='adk-f3f01d8b-7724-4fc | Status: FAILED, Score:      | Status: PASSED, Score: |
+|    | saturation model using | trained NPI Paid      | `npi_conversions_saturati |                       | 7-b91c-                   | 0.0                         | 0.163265306122449      |
+|    | BQML                   | Search Paid Social    | on` for NPI has           |                       | 7d132af5a07c'             |                             |                        |
+|    |                        |                       | been trained.  Would you  |                       | args={'agent_name':       |                             |                        |
+|    |                        |                       | like me to: (a)           |                       | 'bq_ml_agent'}            |                             |                        |
+|    |                        |                       | Evaluate the model to see |                       | name='transfer_to_agent'  |                             |                        |
+|    |                        |                       | its                       |                       | partial_args=None         |                             |                        |
+|    |                        |                       | performance? (b) Use the  |                       | will_continue=None id=    |                             |                        |
+|    |                        |                       | model to                  |                       | 'adk-87ef1878-4ea0-4901-8 |                             |                        |
+|    |                        |                       | predict conversions for a |                       | bbe-                      |                             |                        |
+|    |                        |                       | given spend?              |                       | f014ef732340'             |                             |                        |
+|    |                        |                       | (c) Show the saturation   |                       | args={'query': "\nCREATE  |                             |                        |
+|    |                        |                       | curve?                    |                       | OR REPLACE MODEL `nc-ai-  |                             |                        |
+|    |                        |                       |                           |                       | chatbot.astrobot          |                             |                        |
+|    |                        |                       |                           |                       | _bqml_models.npi_conversi |                             |                        |
+|    |                        |                       |                           |                       | ons_saturation`           |                             |                        |
+|    |                        |                       |                           |                       | \nOPTIONS(model_type='LIN |                             |                        |
+|    |                        |                       |                           |                       | EAR_REG',                 |                             |                        |
+|    |                        |                       |                           |                       | input_label_cols=['Conver |                             |                        |
+|    |                        |                       |                           |                       | sions'])                  |                             |                        |
+|    |                        |                       |                           |                       | AS\nSELECT \n  Channel,\n |                             |                        |
+|    |                        |                       |                           |                       | Cost,\n                   |                             |                        |
+|    |                        |                       |                           |                       | LN(Cost + 1) AS log_cost, |                             |                        |
+|    |                        |                       |                           |                       | -- log                    |                             |                        |
+|    |                        |                       |                           |                       | transformation for        |                             |                        |
+|    |                        |                       |                           |                       | saturation\n              |                             |                        |
+|    |                        |                       |                           |                       | Clicks,\n  LN(Clicks + 1) |                             |                        |
+|    |                        |                       |                           |                       | AS                        |                             |                        |
+|    |                        |                       |                           |                       | log_clicks,\n             |                             |                        |
+|    |                        |                       |                           |                       | Conversions\nFROM `nc-ai- |                             |                        |
+|    |                        |                       |                           |                       | chatbot.Astrobot_NPI.vw_a |                             |                        |
+|    |                        |                       |                           |                       | strobot_npi_nc3           |                             |                        |
+|    |                        |                       |                           |                       | 60_dashboard`\nWHERE Cost |                             |                        |
+|    |                        |                       |                           |                       | > 0\n",                   |                             |                        |
+|    |                        |                       |                           |                       | 'project_id': 'nc-ai-     |                             |                        |
+|    |                        |                       |                           |                       | chatbot'}                 |                             |                        |
+|    |                        |                       |                           |                       | name='execute_sql'        |                             |                        |
+|    |                        |                       |                           |                       | partial_args=None         |                             |                        |
+|    |                        |                       |                           |                       | will_continue=None        |                             |                        |
++----+------------------------+-----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

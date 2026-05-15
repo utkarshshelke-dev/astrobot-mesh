@@ -1,0 +1,17 @@
+[
+  {
+    "name": "neg_03_no_client",
+    "data": [
+      {
+        "query": "Show me top channels by spend",
+        "reference": "which client NPI Venetian WinnDixie please specify client cannot proceed",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

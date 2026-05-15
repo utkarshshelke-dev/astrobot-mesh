@@ -1,0 +1,163 @@
+2026-05-12 15:28:44,274 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 15:28:51,024 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 15:28:51,025 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 15:28:51,025 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 15:28:51,028 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:28:51,028 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 15:28:51,029 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 15:28:51,029 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 15:28:51,029 - INFO - agent.py:392 - 📍 KM routed 'For NPI, build a saturation model for next 100k in...' → table=performance (confidence=default)
+2026-05-12 15:28:51,506 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 15:28:51,506 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 15:28:51,690 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:28:53,670 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:28:53,670 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 15:28:53,672 - INFO - agent.py:561 - Tokens: In=7710, Out=32
+2026-05-12 15:28:53,673 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:28:53,674 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 15:28:53,779 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:28:55,414 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:28:55,773 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 15:28:55,773 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 15:28:55,774 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+2026-05-12 15:28:55,782 - INFO - tools.py:1068 - compute_saturation_curve: aggregating for NPI, 4 unification rules, lookback=12mo
+2026-05-12 15:28:59,544 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:29:04,657 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:29:04,659 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:29:04,659 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:29:04,659 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:29:04,659 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:29:04,754 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:29:08,385 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:29:08,387 - INFO - agent.py:561 - Tokens: In=8516, Out=433
+2026-05-12 15:29:08,389 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:29:08,389 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:29:08,389 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:29:08,389 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:29:08,393 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 15:29:08,399 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_03_saturation.evalset.json_1778599748.3988905.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.4, 'response_match_score': 0.15} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_03_saturation.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_03_saturation.evalset.json
+Eval Id: pos_03_saturation_100k
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: FAILED, Score: 0.0, Threshold: 0.4
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.0689655172413793, Threshold: 0.15
+---------------------------------------------------------------------
+Invocation Details:
++----+----------------------+----------------------+---------------------------+---------------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt               | expected_response    | actual_response           | expected_tool_calls       | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+======================+======================+===========================+===========================+===========================+=============================+========================+
+|  0 | For NPI, build a     | saturation model NPI | **Result:**               | id=None args={}           | id='adk-103790d4-6c13-498 | Status: FAILED, Score:      | Status: FAILED, Score: |
+|    | saturation model for | allocation channels  | **Recommended Allocation  | name='call_bigquery_agent | f-9623-                   | 0.0                         | 0.0689655172413793     |
+|    | next 100k investment | Paid Search          | for $100k Investment      | '                         | 08cca269ae47'             |                             |                        |
+|    |                      |                      | (NPI):**  | Metric        | partial_args=None         | args={'query': 'Build a   |                             |                        |
+|    |                      |                      | | Value        |          | will_continue=None        | saturation model for NPI  |                             |                        |
+|    |                      |                      | |:---------------------   |                           | with $100k                |                             |                        |
+|    |                      |                      | -------------------|----- |                           | investment. Use the       |                             |                        |
+|    |                      |                      | --------:| |              |                           | deterministic             |                             |                        |
+|    |                      |                      | Total Budget              |                           | compute_saturation_curve  |                             |                        |
+|    |                      |                      | | $100,000     | |        |                           | tool.'}                   |                             |                        |
+|    |                      |                      | Recommended Channel       |                           | name='call_bigquery_agent |                             |                        |
+|    |                      |                      | Allocation          |     |                           | '                         |                             |                        |
+|    |                      |                      | Paid Search  | |          |                           | partial_args=None         |                             |                        |
+|    |                      |                      | Expected Monthly          |                           | will_continue=None        |                             |                        |
+|    |                      |                      | Conversions               |                           |                           |                             |                        |
+|    |                      |                      | | 19,125       |  **Paid  |                           |                           |                             |                        |
+|    |                      |                      | Search                    |                           |                           |                             |                        |
+|    |                      |                      | Saturation Details:**  |  |                           |                           |                             |                        |
+|    |                      |                      | Metric                    |                           |                           |                             |                        |
+|    |                      |                      | | Value        |          |                           |                           |                             |                        |
+|    |                      |                      | |:---------------------   |                           |                           |                             |                        |
+|    |                      |                      | -------------------|----- |                           |                           |                             |                        |
+|    |                      |                      | --------:| |              |                           |                           |                             |                        |
+|    |                      |                      | Current Average Daily     |                           |                           |                             |                        |
+|    |                      |                      | Spend                     |                           |                           |                             |                        |
+|    |                      |                      | | $5,208.98    | |        |                           |                           |                             |                        |
+|    |                      |                      | Current Average Daily     |                           |                           |                             |                        |
+|    |                      |                      | Conversions       |       |                           |                           |                             |                        |
+|    |                      |                      | 938.63       | | Fit      |                           |                           |                             |                        |
+|    |                      |                      | Quality (R²)              |                           |                           |                             |                        |
+|    |                      |                      | |                         |                           |                           |                             |                        |
+|    |                      |                      | 0.865        | |          |                           |                           |                             |                        |
+|    |                      |                      | Saturation Alpha          |                           |                           |                             |                        |
+|    |                      |                      | (exponent)             |  |                           |                           |                             |                        |
+|    |                      |                      | 0.8646       |            |                           |                           |                             |                        |
+|    |                      |                      | | Saturation Kappa        |                           |                           |                             |                        |
+|    |                      |                      | (efficiency constant)     |                           |                           |                             |                        |
+|    |                      |                      | | 0.5736       | |        |                           |                           |                             |                        |
+|    |                      |                      | Predicted Daily           |                           |                           |                             |                        |
+|    |                      |                      | Conversions at $100k    | |                           |                           |                             |                        |
+|    |                      |                      | 637.68       |            |                           |                           |                             |                        |
+|    |                      |                      | **Excluded Channels and   |                           |                           |                             |                        |
+|    |                      |                      | Reasons:**  *             |                           |                           |                             |                        |
+|    |                      |                      | **Conversions with no     |                           |                           |                             |                        |
+|    |                      |                      | spend (likely             |                           |                           |                             |                        |
+|    |                      |                      | organic or attribution-   |                           |                           |                             |                        |
+|    |                      |                      | only):** Direct,          |                           |                           |                             |                        |
+|    |                      |                      | Email, Organic Search,    |                           |                           |                             |                        |
+|    |                      |                      | Organic Social,           |                           |                           |                             |                        |
+|    |                      |                      | Paid Other, Referral,     |                           |                           |                             |                        |
+|    |                      |                      | Unassigned,               |                           |                           |                             |                        |
+|    |                      |                      | Display, Organic Video,   |                           |                           |                             |                        |
+|    |                      |                      | Organic                   |                           |                           |                             |                        |
+|    |                      |                      | Shopping. *   **Low       |                           |                           |                             |                        |
+|    |                      |                      | Quality Fit (R² <         |                           |                           |                             |                        |
+|    |                      |                      | 0.5 or implausible        |                           |                           |                             |                        |
+|    |                      |                      | alpha):** Demand Gen      |                           |                           |                             |                        |
+|    |                      |                      | + P-Max, Paid Social,     |                           |                           |                             |                        |
+|    |                      |                      | Video/CTV/OTT/TV.         |                           |                           |                             |                        |
+|    |                      |                      | *   **Spend with no       |                           |                           |                             |                        |
+|    |                      |                      | conversions (likely       |                           |                           |                             |                        |
+|    |                      |                      | awareness or naming       |                           |                           |                             |                        |
+|    |                      |                      | mismatch):** Online       |                           |                           |                             |                        |
+|    |                      |                      | Audio, Print, OOH.        |                           |                           |                             |                        |
+|    |                      |                      | **Explanation:**          |                           |                           |                             |                        |
+|    |                      |                      | The saturation model      |                           |                           |                             |                        |
+|    |                      |                      | suggests that for         |                           |                           |                             |                        |
+|    |                      |                      | an additional $100,000    |                           |                           |                             |                        |
+|    |                      |                      | investment,               |                           |                           |                             |                        |
+|    |                      |                      | allocating the entire     |                           |                           |                             |                        |
+|    |                      |                      | budget to Paid            |                           |                           |                             |                        |
+|    |                      |                      | Search would yield the    |                           |                           |                             |                        |
+|    |                      |                      | most conversions.         |                           |                           |                             |                        |
+|    |                      |                      | Paid Search was the only  |                           |                           |                             |                        |
+|    |                      |                      | channel with a            |                           |                           |                             |                        |
+|    |                      |                      | reliable saturation curve |                           |                           |                             |                        |
+|    |                      |                      | fit (R² of                |                           |                           |                             |                        |
+|    |                      |                      | 0.865). Other channels    |                           |                           |                             |                        |
+|    |                      |                      | were excluded due         |                           |                           |                             |                        |
+|    |                      |                      | to having conversions but |                           |                           |                             |                        |
+|    |                      |                      | no associated             |                           |                           |                             |                        |
+|    |                      |                      | spend, spend but no       |                           |                           |                             |                        |
+|    |                      |                      | conversions               |                           |                           |                             |                        |
+|    |                      |                      | (indicating awareness     |                           |                           |                             |                        |
+|    |                      |                      | channels or naming        |                           |                           |                             |                        |
+|    |                      |                      | mismatches), or a low-    |                           |                           |                             |                        |
+|    |                      |                      | quality fit for           |                           |                           |                             |                        |
+|    |                      |                      | the saturation curve.     |                           |                           |                             |                        |
++----+----------------------+----------------------+---------------------------+---------------------------+---------------------------+-----------------------------+------------------------+
+
+
+

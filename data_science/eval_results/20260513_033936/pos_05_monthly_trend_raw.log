@@ -1,0 +1,131 @@
+2026-05-13 03:47:16,066 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-13 03:47:23,590 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 03:47:23,590 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 03:47:23,590 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 03:47:23,593 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:47:23,593 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 03:47:23,594 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 03:47:23,594 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 03:47:23,594 - INFO - agent.py:339 - 📍 KM routed 'For NPI, show me total monthly spend trend over th...' → table=performance (confidence=default)
+2026-05-13 03:47:24,026 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 03:47:24,026 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 03:47:24,227 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:47:27,874 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:47:27,874 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 03:47:27,876 - INFO - agent.py:489 - Tokens: In=7714, Out=76
+2026-05-13 03:47:27,878 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:47:27,878 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 03:47:27,992 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:47:30,474 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:47:32,724 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:47:35,428 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:47:35,430 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:47:35,430 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:47:35,430 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:47:35,430 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:47:35,534 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:47:38,016 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:47:38,017 - INFO - agent.py:489 - Tokens: In=8508, Out=195
+2026-05-13 03:47:38,019 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:47:38,019 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 03:47:38,124 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:47:38,124 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 03:47:40,006 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:47:40,008 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:47:40,008 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:47:40,471 - INFO - category.py:224 - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-13 03:47:40,473 - INFO - category.py:224 - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-13 03:47:40,787 - INFO - tools.py:935 - Chart rendered: NPI Total Monthly Spend Trend (Last 6 Months) (52699 bytes)
+2026-05-13 03:47:40,788 - INFO - tools.py:944 - Saved chart: chart_1778644060_0fa24d.png v0
+2026-05-13 03:47:40,918 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:47:43,406 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:47:43,407 - INFO - agent.py:489 - Tokens: In=8881, Out=278
+2026-05-13 03:47:43,410 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:47:43,410 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:47:43,410 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:47:43,410 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:47:43,413 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 03:47:43,417 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_05_monthly_trend.evalset.json_1778644063.4169612.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_05_monthly_trend.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval/pos_05_monthly_trend.evalset.json
+Eval Id: pos_05_monthly_trend
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.15384615384615385, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+------------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                 | expected_response        | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+========================+==========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, show me total | monthly spend trend line | **Result:**  ### NPI      |                       | id='adk-553afa33-bd61-4f4 | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | monthly spend          | chart NPI 6              | Total Monthly Spend       |                       | f-a85d-                   | 0.0                         | 0.15384615384615385    |
+|    | trend over the last 6  | months                   | Trend (Last 6 Months)  |  |                       | 314af1ad4d52'             |                             |                        |
+|    | months as a line       |                          | Month   | Total           |                       | args={'query': "SELECT    |                             |                        |
+|    | chart                  |                          | Spend   | |:--------|---- |                       | FORMAT_DATE('%Y-%m',      |                             |                        |
+|    |                        |                          | ----------:| |            |                       | Date) AS month,           |                             |                        |
+|    |                        |                          | 2025-11 |   $301,468.75 | |                       | SUM(Cost) AS total_spend  |                             |                        |
+|    |                        |                          | | 2025-12 |               |                       | FROM `conversio           |                             |                        |
+|    |                        |                          | $350,762.11 | | 2026-01 | |                       | nomics.performance_market |                             |                        |
+|    |                        |                          | $1,227,253.16             |                       | ing.performance           |                             |                        |
+|    |                        |                          | | | 2026-02 |             |                       | ` WHERE Client = 'NPI'    |                             |                        |
+|    |                        |                          | $1,082,803.90 | | 2026-03 |                       | AND Date >=               |                             |                        |
+|    |                        |                          | | $1,129,038.99 | |       |                       | DATE_SUB('2026-05-13',    |                             |                        |
+|    |                        |                          | 2026-04 |                 |                       | INTERVAL 6 MONTH)         |                             |                        |
+|    |                        |                          | $936,865.61 | | 2026-05 | |                       | GROUP BY month ORDER BY   |                             |                        |
+|    |                        |                          | $341,456.83               |                       | month"}                   |                             |                        |
+|    |                        |                          | |  **Explanation:** 1. I  |                       | name='call_bigquery_agent |                             |                        |
+|    |                        |                          | queried the `co           |                       | '                         |                             |                        |
+|    |                        |                          | nversionomics.performance |                       | partial_args=None         |                             |                        |
+|    |                        |                          | _marketing.perf           |                       | will_continue=None id=    |                             |                        |
+|    |                        |                          | ormance` table for NPI's  |                       | 'adk-3cfc5878-955a-40e2-9 |                             |                        |
+|    |                        |                          | monthly spend             |                       | c68-                      |                             |                        |
+|    |                        |                          | over the last 6 months.   |                       | 5cfcb425d5a6'             |                             |                        |
+|    |                        |                          | 2. The data was           |                       | args={'analysis_request': |                             |                        |
+|    |                        |                          | then used to generate a   |                       | 'chart_type: "line",      |                             |                        |
+|    |                        |                          | line chart                |                       | title: "NPI Total         |                             |                        |
+|    |                        |                          | visualizing the trend.    |                       | Monthly Spend Trend (Last |                             |                        |
+|    |                        |                          | **Graph:**                |                       | 6 Months)",               |                             |                        |
+|    |                        |                          | Generated line chart: NPI |                       | data: {categories:        |                             |                        |
+|    |                        |                          | Total Monthly             |                       | ["2025-11",               |                             |                        |
+|    |                        |                          | Spend Trend (Last 6       |                       | "2025-12", "2026-01",     |                             |                        |
+|    |                        |                          | Months)                   |                       | "2026-02",                |                             |                        |
+|    |                        |                          |                           |                       | "2026-03", "2026-04",     |                             |                        |
+|    |                        |                          |                           |                       | "2026-05"],               |                             |                        |
+|    |                        |                          |                           |                       | values: [301468.75,       |                             |                        |
+|    |                        |                          |                           |                       | 350762.11,                |                             |                        |
+|    |                        |                          |                           |                       | 1227253.16, 1082803.90,   |                             |                        |
+|    |                        |                          |                           |                       | 1129038.99,               |                             |                        |
+|    |                        |                          |                           |                       | 936865.61, 341456.83]},   |                             |                        |
+|    |                        |                          |                           |                       | x_label:                  |                             |                        |
+|    |                        |                          |                           |                       | "Month", y_label: "Total  |                             |                        |
+|    |                        |                          |                           |                       | Spend"'}                  |                             |                        |
+|    |                        |                          |                           |                       | name='call_analytics_agen |                             |                        |
+|    |                        |                          |                           |                       | t'                        |                             |                        |
+|    |                        |                          |                           |                       | partial_args=None         |                             |                        |
+|    |                        |                          |                           |                       | will_continue=None        |                             |                        |
++----+------------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

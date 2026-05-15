@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_14_compound_ds_pa",
+    "data": [
+      {
+        "query": "For NPI, show top channels by spend and analyze which NPI persona each channel targets",
+        "reference": "NPI channels spend CTV Paid Social Search persona HNW DINK Legacy targeting",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

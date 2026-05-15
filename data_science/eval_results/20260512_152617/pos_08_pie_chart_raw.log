@@ -1,0 +1,134 @@
+2026-05-12 15:33:07,025 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 15:33:15,080 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 15:33:15,080 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 15:33:15,081 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 15:33:15,083 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:33:15,084 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 15:33:15,084 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 15:33:15,085 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 15:33:15,085 - INFO - agent.py:392 - 📍 KM routed 'For NPI, show channel spend share as a pie chart f...' → table=performance (confidence=default)
+2026-05-12 15:33:15,562 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 15:33:15,562 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 15:33:15,744 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:33:20,456 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:33:20,456 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 15:33:20,457 - INFO - agent.py:561 - Tokens: In=7709, Out=43
+2026-05-12 15:33:20,459 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:33:20,459 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 15:33:20,568 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:33:22,879 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:33:22,986 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:33:26,166 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:33:28,801 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:33:30,785 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:33:30,787 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:33:30,787 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:33:30,787 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:33:30,787 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:33:30,885 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:33:36,833 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:33:36,834 - INFO - agent.py:561 - Tokens: In=8452, Out=122
+2026-05-12 15:33:36,835 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:33:36,835 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 15:33:36,932 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:33:36,932 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-12 15:33:38,419 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:33:38,420 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:33:38,420 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:33:39,046 - INFO - tools.py:927 - Chart rendered: NPI Channel Spend Share - Last Quarter (Q1 2026) (58314 bytes)
+2026-05-12 15:33:39,047 - INFO - tools.py:936 - Saved chart: chart_1778600019_db46b4.png v0
+2026-05-12 15:33:39,144 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:33:41,650 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:33:41,652 - INFO - agent.py:561 - Tokens: In=9508, Out=334
+2026-05-12 15:33:41,654 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:33:41,654 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:33:41,654 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:33:41,654 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:33:41,657 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 15:33:41,660 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_08_pie_chart.evalset.json_1778600021.6608775.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.4, 'response_match_score': 0.15} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_08_pie_chart.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_08_pie_chart.evalset.json
+Eval Id: pos_08_channel_share_pie
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: FAILED, Score: 0.0, Threshold: 0.4
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.12121212121212122, Threshold: 0.15
+---------------------------------------------------------------------
+Invocation Details:
++----+-----------------------+-------------------------+---------------------------+---------------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                | expected_response       | actual_response           | expected_tool_calls       | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=======================+=========================+===========================+===========================+===========================+=============================+========================+
+|  0 | For NPI, show channel | pie chart channel share | **Result:**  **NPI        | id=None args={}           | id='adk-397e5c0a-6768-4bb | Status: FAILED, Score:      | Status: FAILED, Score: |
+|    | spend share as a      | spend NPI last          | Channel Spend Share -     | name='call_bigquery_agent | 8-b99b-                   | 0.0                         | 0.12121212121212122    |
+|    | pie chart for last    | quarter                 | Last Quarter (Q1 2026)**  | '                         | b91daa15deb0'             |                             |                        |
+|    | quarter               |                         | | Channel                 | partial_args=None         | args={'query': 'For NPI,  |                             |                        |
+|    |                       |                         | | Total Spend   | Spend   | will_continue=None        | calculate the total spend |                             |                        |
+|    |                       |                         | Share (%) | |:--          | id=None args={}           | by channel for            |                             |                        |
+|    |                       |                         | --------------|:--------- | name='call_analytics_agen | the last quarter (January |                             |                        |
+|    |                       |                         | -----|---------           | t'                        | 1, 2026 to                |                             |                        |
+|    |                       |                         | -------:| | CTV           | partial_args=None         | March 31, 2026).'}        |                             |                        |
+|    |                       |                         | |                         | will_continue=None        | name='call_bigquery_agent |                             |                        |
+|    |                       |                         | $992,613.92   |           |                           | '                         |                             |                        |
+|    |                       |                         | 28.86 | | Paid            |                           | partial_args=None         |                             |                        |
+|    |                       |                         | Social     | $965,429.48  |                           | will_continue=None id=    |                             |                        |
+|    |                       |                         | |                         |                           | 'adk-233590b8-daea-48f8-9 |                             |                        |
+|    |                       |                         | 28.07 | | Search          |                           | ca3-                      |                             |                        |
+|    |                       |                         | | $660,677.83             |                           | f90f2d73837b'             |                             |                        |
+|    |                       |                         | |           19.21 | |     |                           | args={'analysis_request': |                             |                        |
+|    |                       |                         | Demand Gen      |         |                           | 'chart_type="pie",        |                             |                        |
+|    |                       |                         | $504,259.17   |           |                           | title="NPI Channel        |                             |                        |
+|    |                       |                         | 14.66 | |                 |                           | Spend Share - Last        |                             |                        |
+|    |                       |                         | Linear TV       |         |                           | Quarter (Q1 2026)",       |                             |                        |
+|    |                       |                         | $176,086.35   |           |                           | data={"categories":       |                             |                        |
+|    |                       |                         | 5.12 | | Online Audio     |                           | ["CTV", "Paid             |                             |                        |
+|    |                       |                         | | $84,388.86              |                           | Social", "Search",        |                             |                        |
+|    |                       |                         | |            2.45 | | OOH |                           | "Demand Gen", "Linear     |                             |                        |
+|    |                       |                         | |                         |                           | TV", "Online Audio",      |                             |                        |
+|    |                       |                         | $43,087.21    |           |                           | "OOH", "Performance       |                             |                        |
+|    |                       |                         | 1.25 | |                  |                           | Max"], "values": [28.86,  |                             |                        |
+|    |                       |                         | Performance Max |         |                           | 28.07, 19.21,             |                             |                        |
+|    |                       |                         | $12,553.23    |           |                           | 14.66, 5.12, 2.45, 1.25,  |                             |                        |
+|    |                       |                         | 0.37 |  **Explanation:**  |                           | 0.37]}'}                  |                             |                        |
+|    |                       |                         | The table above           |                           | name='call_analytics_agen |                             |                        |
+|    |                       |                         | shows the total spend and |                           | t'                        |                             |                        |
+|    |                       |                         | the                       |                           | partial_args=None         |                             |                        |
+|    |                       |                         | corresponding spend share |                           | will_continue=None        |                             |                        |
+|    |                       |                         | for each                  |                           |                           |                             |                        |
+|    |                       |                         | channel for NPI during    |                           |                           |                             |                        |
+|    |                       |                         | the last quarter          |                           |                           |                             |                        |
+|    |                       |                         | (January 1, 2026 to March |                           |                           |                             |                        |
+|    |                       |                         | 31, 2026).                |                           |                           |                             |                        |
+|    |                       |                         | Channels with zero spend  |                           |                           |                             |                        |
+|    |                       |                         | were excluded             |                           |                           |                             |                        |
+|    |                       |                         | from the analysis.        |                           |                           |                             |                        |
+|    |                       |                         | **Graph:** A pie          |                           |                           |                             |                        |
+|    |                       |                         | chart visualizing the NPI |                           |                           |                             |                        |
+|    |                       |                         | Channel Spend             |                           |                           |                             |                        |
+|    |                       |                         | Share for the last        |                           |                           |                             |                        |
+|    |                       |                         | quarter (Q1 2026) has     |                           |                           |                             |                        |
+|    |                       |                         | been generated.           |                           |                           |                             |                        |
++----+-----------------------+-------------------------+---------------------------+---------------------------+---------------------------+-----------------------------+------------------------+
+
+
+

@@ -1,0 +1,187 @@
+2026-05-12 20:01:03,820 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 20:01:10,830 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 20:01:10,830 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 20:01:10,831 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 20:01:10,833 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 20:01:10,833 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 20:01:10,834 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 20:01:10,834 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 20:01:10,834 - INFO - agent.py:392 - 📍 KM routed 'For NPI, train a saturation model using BQML...' → table=performance (confidence=default)
+2026-05-12 20:01:11,293 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 20:01:11,293 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 20:01:11,495 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:01:12,946 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:01:12,946 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 20:01:12,947 - INFO - agent.py:561 - Tokens: In=7706, Out=13
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 20:01:13,063 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:01:19,128 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:02:03,133 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:02:06,000 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:02:07,025 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:02:14,070 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:02:15,402 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:02:21,153 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:02:22,810 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:02:35,660 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:02:35,667 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 20:02:35,667 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 20:02:35,668 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 20:02:35,668 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 20:02:35,684 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 20:02:35,691 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_11_bqml_train.evalset.json_1778616155.6910298.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_11_bqml_train.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_11_bqml_train.evalset.json
+Eval Id: pos_11_bqml_train
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.046511627906976744, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+------------------------+-----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                 | expected_response     | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+========================+=======================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, train a       | BQML saturation model | I dug deeper into why the |                       | id='adk-d19e9451-4605-42a | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | saturation model using | trained NPI Paid      | saturation                |                       | 1-a42d-                   | 0.0                         | 0.046511627906976744   |
+|    | BQML                   | Search Paid Social    | model failed:  Data       |                       | 72776cd8f7cd'             |                             |                        |
+|    |                        |                       | structure issue           |                       | args={'agent_name':       |                             |                        |
+|    |                        |                       | detected: - 3,471,991     |                       | 'bq_ml_agent'}            |                             |                        |
+|    |                        |                       | rows have spend           |                       | name='transfer_to_agent'  |                             |                        |
+|    |                        |                       | but 0 conversions -       |                       | partial_args=None         |                             |                        |
+|    |                        |                       | 4,408,271 rows have       |                       | will_continue=None id=    |                             |                        |
+|    |                        |                       | conversions but 0 spend - |                       | 'adk-7fe08635-365b-4c16-9 |                             |                        |
+|    |                        |                       | Spend and                 |                       | fea-                      |                             |                        |
+|    |                        |                       | conversions are on        |                       | 007fb1496ec6'             |                             |                        |
+|    |                        |                       | SEPARATE rows in this     |                       | args={'project_id': 'nc-  |                             |                        |
+|    |                        |                       | dataset. This is why the  |                       | ai-chatbot', 'query':     |                             |                        |
+|    |                        |                       | model couldn't            |                       | "\nCREATE OR              |                             |                        |
+|    |                        |                       | learn a relationship.     |                       | REPLACE MODEL `nc-ai-     |                             |                        |
+|    |                        |                       | After aggregating         |                       | chatbot.astrobot_bq       |                             |                        |
+|    |                        |                       | by Date + Channel, real   |                       | ml_models.npi_conversions |                             |                        |
+|    |                        |                       | patterns emerge:          |                       | _saturation`\nO           |                             |                        |
+|    |                        |                       | | Channel | Avg Daily     |                       | PTIONS(model_type='LINEAR |                             |                        |
+|    |                        |                       | Spend | Avg Daily         |                       | _REG',                    |                             |                        |
+|    |                        |                       | Conv | Conv/Dollar |      |                       | input_label_cols=['Conver |                             |                        |
+|    |                        |                       | |:---|:---|:---|:---| |   |                       | sions'])                  |                             |                        |
+|    |                        |                       | Search |                  |                       | AS\nSELECT\n  Channel,\n  |                             |                        |
+|    |                        |                       | $4238.21 | 2.65 | 0.0006  |                       | Cost,\n                   |                             |                        |
+|    |                        |                       | | | Performance           |                       | LN(Cost + 1) AS           |                             |                        |
+|    |                        |                       | Max | $1172.86 | 11.19 |  |                       | log_cost,\n  Clicks,\n    |                             |                        |
+|    |                        |                       | 0.0095 | |                |                       | LN(Clicks + 1) AS         |                             |                        |
+|    |                        |                       | Demand Gen | $934.60 |    |                       | log_clicks,\n             |                             |                        |
+|    |                        |                       | 0.00 | 0.00 | |           |                       | Conversions\nFROM `nc-ai- |                             |                        |
+|    |                        |                       | Social | $0.00 | 63.15 |  |                       | chatbot.Astrobo           |                             |                        |
+|    |                        |                       | N/A |                     |                       | t_NPI.vw_astrobot_npi_nc3 |                             |                        |
+|    |                        |                       | Saturation insights: -    |                       | 60_dashboard`\n           |                             |                        |
+|    |                        |                       | Performance Max           |                       | WHERE Cost > 0\n"}        |                             |                        |
+|    |                        |                       | is the most efficient     |                       | name='execute_sql'        |                             |                        |
+|    |                        |                       | with 0.0095               |                       | partial_args=None         |                             |                        |
+|    |                        |                       | conversions per dollar. - |                       | will_continue=None        |                             |                        |
+|    |                        |                       | Search has a              |                       | id='adk-9015e5da-         |                             |                        |
+|    |                        |                       | low conversion efficiency |                       | ef84-41b5-b806-7f53c98224 |                             |                        |
+|    |                        |                       | at 0.0006                 |                       | 7e'                       |                             |                        |
+|    |                        |                       | conversions per dollar    |                       | args={'query': 'SELECT    |                             |                        |
+|    |                        |                       | despite high              |                       | ROUND(mean_absolute_error |                             |                        |
+|    |                        |                       | spend. - Demand Gen has   |                       | ,4) AS MAE,\n             |                             |                        |
+|    |                        |                       | significant               |                       | ROUND(mean_squared_error, |                             |                        |
+|    |                        |                       | spend with no recorded    |                       | 4)  AS MSE,\n             |                             |                        |
+|    |                        |                       | conversions. This         |                       | ROUND(r2_score,4)         |                             |                        |
+|    |                        |                       | suggests potential wasted |                       | AS R2\nFROM               |                             |                        |
+|    |                        |                       | ad spend. -               |                       | ML.EVALUATE(MODEL `nc-ai- |                             |                        |
+|    |                        |                       | Social shows high         |                       | chatbot.astrobo           |                             |                        |
+|    |                        |                       | conversions with no       |                       | t_bqml_models.npi_convers |                             |                        |
+|    |                        |                       | recorded spend in this    |                       | ions_saturation           |                             |                        |
+|    |                        |                       | aggregated view,          |                       | `);', 'project_id': 'nc-  |                             |                        |
+|    |                        |                       | indicating a data logging |                       | ai-chatbot'}              |                             |                        |
+|    |                        |                       | or attribution            |                       | name='execute_sql'        |                             |                        |
+|    |                        |                       | issue.  For proper ML     |                       | partial_args=None         |                             |                        |
+|    |                        |                       | modeling, I must          |                       | will_continue=None        |                             |                        |
+|    |                        |                       | first aggregate the data  |                       | id='adk-6ef27f54-         |                             |                        |
+|    |                        |                       | by Date and               |                       | 8098-4cfd-a8f5-2c48affd79 |                             |                        |
+|    |                        |                       | Channel.  Want me to: (a) |                       | 5b'                       |                             |                        |
+|    |                        |                       | Train a new               |                       | args={'project_id': 'nc-  |                             |                        |
+|    |                        |                       | saturation model on the   |                       | ai-chatbot',              |                             |                        |
+|    |                        |                       | aggregated daily          |                       | 'query': "SELECT \n  CASE |                             |                        |
+|    |                        |                       | data (b) Show a daily     |                       | WHEN Cost > 0             |                             |                        |
+|    |                        |                       | spend-vs-                 |                       | THEN 'has_spend' ELSE     |                             |                        |
+|    |                        |                       | conversion chart per      |                       | 'zero_spend' END          |                             |                        |
+|    |                        |                       | channel (c)               |                       | AS spend_status,\n  CASE  |                             |                        |
+|    |                        |                       | Investigate Demand Gen's  |                       | WHEN                      |                             |                        |
+|    |                        |                       | zero                      |                       | Conversions > 0 THEN      |                             |                        |
+|    |                        |                       | conversions               |                       | 'has_conv' ELSE           |                             |                        |
+|    |                        |                       |                           |                       | 'zero_conv' END AS        |                             |                        |
+|    |                        |                       |                           |                       | conv_status,\n            |                             |                        |
+|    |                        |                       |                           |                       | COUNT(*) AS               |                             |                        |
+|    |                        |                       |                           |                       | row_count\nFROM `nc-ai-   |                             |                        |
+|    |                        |                       |                           |                       | chatb                     |                             |                        |
+|    |                        |                       |                           |                       | ot.Astrobot_NPI.vw_astrob |                             |                        |
+|    |                        |                       |                           |                       | ot_npi_nc360_da           |                             |                        |
+|    |                        |                       |                           |                       | shboard`\nGROUP BY 1, 2"} |                             |                        |
+|    |                        |                       |                           |                       | name='execute_sql'        |                             |                        |
+|    |                        |                       |                           |                       | partial_args=None         |                             |                        |
+|    |                        |                       |                           |                       | will_continue=None        |                             |                        |
+|    |                        |                       |                           |                       | id='adk-0a482eec-         |                             |                        |
+|    |                        |                       |                           |                       | 70f6-489c-96ec-17a9917f36 |                             |                        |
+|    |                        |                       |                           |                       | 8d'                       |                             |                        |
+|    |                        |                       |                           |                       | args={'query': "WITH      |                             |                        |
+|    |                        |                       |                           |                       | daily AS (\n              |                             |                        |
+|    |                        |                       |                           |                       | SELECT \n    Date, \n     |                             |                        |
+|    |                        |                       |                           |                       | Channel, \n               |                             |                        |
+|    |                        |                       |                           |                       | SUM(Cost) AS spend, \n    |                             |                        |
+|    |                        |                       |                           |                       | SUM(Conversions) AS       |                             |                        |
+|    |                        |                       |                           |                       | conv,\n                   |                             |                        |
+|    |                        |                       |                           |                       | SUM(Clicks) AS clicks,\n  |                             |                        |
+|    |                        |                       |                           |                       | SUM(Impressions) AS       |                             |                        |
+|    |                        |                       |                           |                       | impressions\n  FROM       |                             |                        |
+|    |                        |                       |                           |                       | `nc-ai-chatbot.Astrobot_N |                             |                        |
+|    |                        |                       |                           |                       | PI.vw_astrobot_           |                             |                        |
+|    |                        |                       |                           |                       | npi_nc360_dashboard`\n    |                             |                        |
+|    |                        |                       |                           |                       | WHERE Channel IN          |                             |                        |
+|    |                        |                       |                           |                       | ('Social', 'Search',      |                             |                        |
+|    |                        |                       |                           |                       | 'Demand Gen',             |                             |                        |
+|    |                        |                       |                           |                       | 'Performance Max')\n      |                             |                        |
+|    |                        |                       |                           |                       | GROUP BY Date,            |                             |                        |
+|    |                        |                       |                           |                       | Channel\n)\nSELECT \n     |                             |                        |
+|    |                        |                       |                           |                       | Channel,\n                |                             |                        |
+|    |                        |                       |                           |                       | COUNT(*) AS days,\n       |                             |                        |
+|    |                        |                       |                           |                       | ROUND(AVG(spend),         |                             |                        |
+|    |                        |                       |                           |                       | 2) AS avg_daily_spend,\n  |                             |                        |
+|    |                        |                       |                           |                       | ROUND(AVG(conv), 2) AS    |                             |                        |
+|    |                        |                       |                           |                       | avg_daily_conv,\n         |                             |                        |
+|    |                        |                       |                           |                       | ROUND(SAFE_DIVIDE(SUM(con |                             |                        |
+|    |                        |                       |                           |                       | v),                       |                             |                        |
+|    |                        |                       |                           |                       | SUM(spend)), 4) AS        |                             |                        |
+|    |                        |                       |                           |                       | conv_per_dollar\nFROM     |                             |                        |
+|    |                        |                       |                           |                       | daily\nGROUP BY           |                             |                        |
+|    |                        |                       |                           |                       | Channel\nORDER BY         |                             |                        |
+|    |                        |                       |                           |                       | avg_daily_spend DESC",    |                             |                        |
+|    |                        |                       |                           |                       | 'project_id':             |                             |                        |
+|    |                        |                       |                           |                       | 'nc-ai-chatbot'}          |                             |                        |
+|    |                        |                       |                           |                       | name='execute_sql'        |                             |                        |
+|    |                        |                       |                           |                       | partial_args=None         |                             |                        |
+|    |                        |                       |                           |                       | will_continue=None        |                             |                        |
++----+------------------------+-----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

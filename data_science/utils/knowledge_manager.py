@@ -1,0 +1,280 @@
+"""
+KnowledgeManager — Option A facade over the v3 config + lib/ functions.
+
+Provides:
+  - Routing context injection (which table for this question)
+  - Per-client prompt snippets (rules + taxonomy)
+  - Channel term resolution (delegates to tested lib functions)
+
+Does NOT:
+  - Rewrite user messages (CHASE-SQL handles term normalization)
+  - Auto-detect client_id from keywords (must be explicit)
+  - Introduce a parallel config file (v3 JSON is single source of truth)
+
+Usage:
+    from data_science.utils.knowledge_manager import manager as km
+
+    # In before_agent_callback:
+    ctx = km.route_and_load_context(user_text, client_id="NPI")
+    for k, v in ctx.items():
+        callback_context.state[k] = v
+
+    # In prompts.py:
+    snippet = km.get_prompt_snippet(client_id="NPI", table_id="performance")
+
+    # As an agent tool:
+    channels = km.resolve_term("NPI", "awareness")  # ['Linear TV', 'CTV', ...]
+"""
+
+from typing import Optional
+
+# Import from sibling lib/ package. Three strategies in order:
+#   1. Relative (when imported as data_science.utils.knowledge_manager — adk eval, adk web)
+#   2. Absolute data_science.lib (when data_science package is on sys.path)
+#   3. Plain lib (when running tests with sys.path including data_science/)
+try:
+    from ..lib import (
+        load_config_v3,
+        list_clients,
+        list_tables,
+        get_table,
+        resolve_channel_reference,
+        route_question_to_table,
+        get_applicable_rules,
+        get_channel_column,
+        get_kpi_column,
+        get_table_path,
+        get_duality_info,
+        get_unification_map,
+    )
+except ImportError:
+    try:
+        from data_science.lib import (
+            load_config_v3,
+            list_clients,
+            list_tables,
+            get_table,
+            resolve_channel_reference,
+            route_question_to_table,
+            get_applicable_rules,
+            get_channel_column,
+            get_kpi_column,
+            get_table_path,
+            get_duality_info,
+            get_unification_map,
+        )
+    except ImportError:
+        # Fallback for when sys.path already includes data_science/
+        from lib import (
+            load_config_v3,
+            list_clients,
+            list_tables,
+            get_table,
+            resolve_channel_reference,
+            route_question_to_table,
+            get_applicable_rules,
+            get_channel_column,
+            get_kpi_column,
+            get_table_path,
+            get_duality_info,
+            get_unification_map,
+        )
+
+
+class KnowledgeManager:
+    """
+    Singleton-friendly facade over the v3 config.
+
+    All methods are pure delegators to the tested `lib/` functions —
+    no new business logic. This keeps the existing 94-test foundation
+    valid and adds only a small surface to test (~5 new tests).
+    """
+
+    def __init__(self):
+        # Triggers config load + cache
+        self._config = load_config_v3()
+
+    # ----------------------------------------------------------------
+    # Discovery (multi-client support)
+    # ----------------------------------------------------------------
+
+    @property
+    def data(self) -> dict:
+        """Raw config dict, for read-only inspection."""
+        return self._config
+
+    def list_clients(self) -> list[str]:
+        """All client_ids registered in config."""
+        return list_clients()
+
+    def list_tables(self, client_id: str) -> list[str]:
+        """All table_ids registered for a client."""
+        return list_tables(client_id)
+
+    # ----------------------------------------------------------------
+    # Context injection (called in before_agent_callback)
+    # ----------------------------------------------------------------
+
+    def route_and_load_context(self, question: str, client_id: str) -> dict:
+        """
+        Given a user question + client_id, return ALL the context the agent
+        needs to dispatch the query correctly.
+
+        Returns a dict suitable for `state.update(...)`:
+          - routed_table_id          (e.g. 'performance' or 'pacing')
+          - routed_table_path        (fully-qualified table)
+          - channel_column           (e.g. 'Channel' or 'GVMM_Channel')
+          - kpi_column
+          - client_column
+          - channel_taxonomy         (full taxonomy dict)
+          - duality                  (duality config)
+          - unification_map
+          - applicable_rules         (list of rule_ids)
+          - matched_keywords         (which keywords matched in routing)
+          - routing_confidence
+        """
+        routing = route_question_to_table(question, client_id)
+        table_id = routing["table_id"]
+        table = get_table(client_id, table_id)
+        rules = get_applicable_rules(client_id, table_id)
+
+        # Check if this table is enabled. Tables default to enabled=True.
+        # When enabled=False the agent will return a friendly "not available
+        # yet" message instead of generating broken SQL.
+        table_enabled = table.get("enabled", True)
+
+        return {
+            "client_id": client_id,
+            "routed_table_id": table_id,
+            "routed_table_path": routing["table_full_path"],
+            "table_enabled": table_enabled,
+            "channel_column": routing["channel_column"],
+            "kpi_column": table.get("kpi_column", "Conversions"),
+            "client_column": table.get("client_column", "Client"),
+            "channel_taxonomy": dict(table.get("channel_taxonomy", {})),
+            "duality": dict(table.get("duality", {})),
+            "unification_map": dict(table.get("channel_unification", {})),
+            "applicable_rules": [r["rule_id"] for r in rules],
+            "matched_keywords": routing.get("matched_keywords", []),
+            "routing_confidence": routing.get("confidence", "default"),
+        }
+
+    # ----------------------------------------------------------------
+    # Prompt generation (called in prompts.py)
+    # ----------------------------------------------------------------
+
+    def get_prompt_snippet(
+        self,
+        client_id: str,
+        table_id: str = "performance",
+        max_rules: int = 6,
+        max_chars: int = 1800,
+    ) -> str:
+        """
+        Generate a compact context block to inject into the agent's system prompt.
+
+        Caps:
+          - max_rules: at most N rule lines (default 6)
+          - max_chars: snippet stays under ~450 tokens (default 1800 chars)
+        """
+        try:
+            table = get_table(client_id, table_id)
+        except ValueError as e:
+            return f"## CONTEXT ERROR\n{e}"
+
+        rules = get_applicable_rules(client_id, table_id)[:max_rules]
+        taxonomy = table.get("channel_taxonomy", {})
+        duality = table.get("duality", {})
+
+        lines = [
+            f"## CURRENT CONTEXT",
+            f"- Client: **{client_id}**",
+            f"- Table: `{table['table_full_path']}`",
+            f"- KPI column: `{table.get('kpi_column', 'Conversions')}`",
+            f"- Channel column: `{table.get('channel_column', 'Channel')}`",
+        ]
+
+        if duality.get("has_duality"):
+            lines.append(
+                f"- Channel duality: YES (spend rows have Conv=0; "
+                f"use FULL OUTER JOIN on unified channel)"
+            )
+
+        # Taxonomy hints (cap each list)
+        def fmt_list(items: list, cap: int = 8) -> str:
+            if not items:
+                return "(none)"
+            if len(items) <= cap:
+                return ", ".join(items)
+            return ", ".join(items[:cap]) + f" + {len(items) - cap} more"
+
+        lines.append("")
+        lines.append("## CHANNEL TAXONOMY (use these exact channel names in filters)")
+        for category in ["organic", "paid", "awareness", "direct_response", "mid_funnel", "tv"]:
+            if taxonomy.get(category):
+                lines.append(f"- **{category}**: {fmt_list(taxonomy[category])}")
+
+        if rules:
+            lines.append("")
+            lines.append(f"## ACTIVE RULES")
+            for r in rules:
+                desc = r["description"][:140]
+                lines.append(f"- **{r['rule_id']}**: {desc}")
+
+        snippet = "\n".join(lines)
+        if len(snippet) > max_chars:
+            snippet = snippet[: max_chars - 30] + "\n... (truncated)"
+        return snippet
+
+    # ----------------------------------------------------------------
+    # Channel resolution (LLM calls this as a tool)
+    # ----------------------------------------------------------------
+
+    def resolve_term(
+        self,
+        client_id: str,
+        term: str,
+        table_id: str = "performance",
+    ) -> list[str]:
+        """
+        Resolve a fuzzy term (e.g. 'awareness', 'direct') to the exact
+        channel filter list. Delegates to the tested resolver.
+
+        Raises ValueError if the term is unknown.
+        """
+        return resolve_channel_reference(client_id, term, table_id)
+
+    def resolve_term_safe(
+        self,
+        client_id: str,
+        term: str,
+        table_id: str = "performance",
+    ) -> dict:
+        """
+        Same as resolve_term but returns a structured dict (LLM-tool friendly)
+        instead of raising on unknown terms.
+
+        Returns:
+          {"channels": [...], "sql_filter": "Channel IN (...)", "error": None}
+          {"channels": [], "sql_filter": "", "error": "Unknown term: ..."}
+        """
+        try:
+            channels = resolve_channel_reference(client_id, term, table_id)
+            channel_col = get_channel_column(client_id, table_id)
+            quoted = ", ".join(f"'{c}'" for c in channels)
+            return {
+                "channels": channels,
+                "sql_filter": f"{channel_col} IN ({quoted})",
+                "error": None,
+            }
+        except ValueError as e:
+            return {
+                "channels": [],
+                "sql_filter": "",
+                "error": str(e),
+            }
+
+
+# Singleton instance — import this directly:
+#   from data_science.utils.knowledge_manager import manager
+manager = KnowledgeManager()

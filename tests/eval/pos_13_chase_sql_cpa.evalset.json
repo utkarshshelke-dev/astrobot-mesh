@@ -1,0 +1,9 @@
+[{
+  "name": "pos_13_chase_sql_cpa",
+  "data": [{
+    "query": "For NPI, what is the blended CPA by channel over the last 90 days ranked best to worst",
+    "reference": "CPA cost per acquisition channel NPI SAFE_DIVIDE ranked",
+    "expected_tool_use": []
+  }],
+  "initial_session": {"app_name": "data_science", "user_id": "eval_user", "state": {}}
+}]

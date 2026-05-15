@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_12_venetian_persona",
+    "data": [
+      {
+        "query": "For Venetian, show OOH channel performance and which personas align with it",
+        "reference": "Venetian OOH performance persona Affluent Group Planner Gourmet channel alignment",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

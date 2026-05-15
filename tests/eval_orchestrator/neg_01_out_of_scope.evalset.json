@@ -1,0 +1,17 @@
+[
+  {
+    "name": "neg_01_out_of_scope",
+    "data": [
+      {
+        "query": "What is the weather in Miami today?",
+        "reference": "cannot help weather out of scope marketing analytics only",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

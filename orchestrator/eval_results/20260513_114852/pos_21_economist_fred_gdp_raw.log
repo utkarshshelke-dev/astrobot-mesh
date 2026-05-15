@@ -1,0 +1,103 @@
+2026-05-13 12:25:38,053 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 12:25:48,001 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:25:48,001 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 12:25:48,002 - INFO - agent.py:451 - ▶ before_agent | client=NPI | locked=None | session=session_1778675148 | turn=1 | mode=local-AgentTool
+2026-05-13 12:25:48,061 - INFO - agent.py:576 - ⚡ before_model | client=NPI | turn=1 | last_skill=none
+2026-05-13 12:25:48,179 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:25:50,431 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:25:50,432 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 12:25:50,433 - INFO - agent.py:596 - 🔢 after_model  | tokens in=4406 out=28 total=4511
+2026-05-13 12:25:50,434 - INFO - agent.py:495 - ⚙ before_tool  | tool=call_economist | skill=nl2sql | client=NPI | query=…
+2026-05-13 12:25:50,435 - INFO - agent.py:320 - Orchestrator → Economist | client=NPI | request=What is the FRED GDP data from January 2025 to April 2026?…
+2026-05-13 12:25:57,928 - INFO - agent.py:552 - ✓ after_tool   | tool=call_economist | skill=nl2sql | len=417 | error=False
+2026-05-13 12:25:57,933 - INFO - agent.py:576 - ⚡ before_model | client=NPI | turn=1 | last_skill=none
+2026-05-13 12:25:58,030 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:26:01,142 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:26:01,143 - INFO - agent.py:596 - 🔢 after_model  | tokens in=4703 out=267 total=4970
+2026-05-13 12:26:01,150 - INFO - agent.py:465 - ◀ after_agent  | client=NPI | turn=1 | duration=13.15s | tools_called=1
+2026-05-13 12:26:01,152 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:26:01,152 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:26:01,154 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 12:26:01,158 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/orchestrator/.adk/eval_history/orchestrator_tests_eval_orchestrator_pos_21_economist_fred_gdp.evalset.json_1778675161.1582408.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.05} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval_orchestrator/pos_21_economist_fred_gdp.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval_orchestrator/pos_21_economist_fred_gdp.evalset.json
+Eval Id: pos_21_economist_fred_gdp
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.08695652173913045, Threshold: 0.05
+---------------------------------------------------------------------
+Invocation Details:
++----+---------------------------+-------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                    | expected_response       | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+===========================+=========================+===========================+=======================+===========================+=============================+========================+
+|  0 | What is the FRED GDP data | FRED GDP data 2025 2026 | **Result:** Here is the   |                       | id='adk-773dd58c-32fd-4fe | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | from January              | growth billion          | FRED GDP data             |                       | b-9cb5-                   | 0.0                         | 0.08695652173913045    |
+|    | 2025 to April 2026?       | trillion economic       | from January 2025 to      |                       | 6e5bae6174c2'             |                             |                        |
+|    |                           |                         | April 2026. Please        |                       | args={'economic_request': |                             |                        |
+|    |                           |                         | note that GDP data is     |                       | 'What is the FRED GDP     |                             |                        |
+|    |                           |                         | typically released        |                       | data from January         |                             |                        |
+|    |                           |                         | quarterly, so the data    |                       | 2025 to April 2026?'}     |                             |                        |
+|    |                           |                         | provided is for           |                       | name='call_economist'     |                             |                        |
+|    |                           |                         | the beginning of each     |                       | partial_args=None         |                             |                        |
+|    |                           |                         | quarter within            |                       | will_continue=None        |                             |                        |
+|    |                           |                         | your requested range,     |                       |                           |                             |                        |
+|    |                           |                         | extending to the          |                       |                           |                             |                        |
+|    |                           |                         | most recent available     |                       |                           |                             |                        |
+|    |                           |                         | quarter, January          |                       |                           |                             |                        |
+|    |                           |                         | 2026.  *                  |                       |                           |                             |                        |
+|    |                           |                         | **2025-01-01**: 30042.113 |                       |                           |                             |                        |
+|    |                           |                         | *                         |                       |                           |                             |                        |
+|    |                           |                         | **2025-04-01**: 30485.729 |                       |                           |                             |                        |
+|    |                           |                         | *                         |                       |                           |                             |                        |
+|    |                           |                         | **2025-07-01**: 31098.027 |                       |                           |                             |                        |
+|    |                           |                         | *                         |                       |                           |                             |                        |
+|    |                           |                         | **2025-10-01**: 31422.526 |                       |                           |                             |                        |
+|    |                           |                         | *                         |                       |                           |                             |                        |
+|    |                           |                         | **2026-01-01**: 31856.257 |                       |                           |                             |                        |
+|    |                           |                         | **Explanation:** The      |                       |                           |                             |                        |
+|    |                           |                         | `call_economist`          |                       |                           |                             |                        |
+|    |                           |                         | agent was used to         |                       |                           |                             |                        |
+|    |                           |                         | retrieve the FRED GDP     |                       |                           |                             |                        |
+|    |                           |                         | data for the specified    |                       |                           |                             |                        |
+|    |                           |                         | period.                   |                       |                           |                             |                        |
+|    |                           |                         | **Recommendation:**       |                       |                           |                             |                        |
+|    |                           |                         | Consider how these        |                       |                           |                             |                        |
+|    |                           |                         | GDP trends might          |                       |                           |                             |                        |
+|    |                           |                         | influence consumer        |                       |                           |                             |                        |
+|    |                           |                         | spending and adjust your  |                       |                           |                             |                        |
+|    |                           |                         | marketing                 |                       |                           |                             |                        |
+|    |                           |                         | strategies accordingly.   |                       |                           |                             |                        |
+|    |                           |                         | For example,              |                       |                           |                             |                        |
+|    |                           |                         | sustained growth could    |                       |                           |                             |                        |
+|    |                           |                         | indicate a                |                       |                           |                             |                        |
+|    |                           |                         | favorable environment for |                       |                           |                             |                        |
+|    |                           |                         | increased ad              |                       |                           |                             |                        |
+|    |                           |                         | spend, while a slowdown   |                       |                           |                             |                        |
+|    |                           |                         | might suggest a           |                       |                           |                             |                        |
+|    |                           |                         | need for more targeted,   |                       |                           |                             |                        |
+|    |                           |                         | efficient                 |                       |                           |                             |                        |
+|    |                           |                         | campaigns.                |                       |                           |                             |                        |
++----+---------------------------+-------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

@@ -1,0 +1,865 @@
+"""Tool wrappers — bigquery agent + matplotlib chart generation."""
+import os
+import json
+import logging
+import hashlib
+import time
+import io
+import re
+
+
+
+def _filter_empty_chart_data(values_dict):
+    """Remove channels/categories where ALL values are 0 (would render blank)."""
+    if not isinstance(values_dict, dict):
+        return values_dict
+    
+    filtered = {}
+    for key, vals in values_dict.items():
+        if isinstance(vals, list):
+            # Keep if at least one value is non-zero
+            if any(v not in (0, 0.0, None, "0", "0.0", "0%", "0.00%") for v in vals):
+                filtered[key] = vals
+        else:
+            filtered[key] = vals
+    return filtered
+
+
+def _validate_chart_payload(payload):
+    """Sanity-check chart payload before sending to analytics agent."""
+    issues = []
+    
+    # Check categories
+    cats = payload.get("categories") or payload.get("labels") or []
+    if not cats:
+        issues.append("No categories/labels")
+    
+    # Check values
+    vals = payload.get("values") or payload.get("data") or []
+    if not vals:
+        issues.append("No values/data")
+    
+    # Check for all-zero
+    if vals:
+        if isinstance(vals[0], (int, float)):
+            if all(v == 0 for v in vals):
+                issues.append("All values are zero — chart would be blank")
+        elif isinstance(vals[0], list):
+            if all(all(v == 0 for v in row) for row in vals):
+                issues.append("All values are zero — chart would be blank")
+    
+    return issues
+
+from google.adk.tools import ToolContext
+from google.adk.tools.agent_tool import AgentTool
+from google.genai import types
+
+_logger  = logging.getLogger(__name__)
+_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT", "nc-ai-chatbot")
+
+# Module-level cache for correlation queries (TTL: 1 hour)
+_corr_cache = {}
+_corr_cache_ttl = 3600
+
+def _cache_get(key: str):
+    """Get from cache if not expired."""
+    entry = _corr_cache.get(key)
+    if entry:
+        ts, val = entry
+        if time.time() - ts < _corr_cache_ttl:
+            _logger.info(f"CACHE_HIT: {key}")
+            return val
+        else:
+            del _corr_cache[key]
+    return None
+
+def _cache_set(key: str, val):
+    """Set cache value with timestamp."""
+    _corr_cache[key] = (time.time(), val)
+    _logger.info(f"CACHE_SET: {key}")
+
+
+
+
+async def call_bigquery_agent(query: str, tool_context: ToolContext) -> str:
+    """Calls the BigQuery sub-agent with retry on SQL errors."""
+    q_hash = hashlib.md5(query.encode()).hexdigest()[:8]
+    last_hash = tool_context.state.get("_last_bq_hash", "")
+    steps_done = tool_context.state.get("_chart_steps_done", 0)
+    if q_hash == last_hash and steps_done == 0:
+        _logger.warning("Duplicate BQ call blocked")
+        return tool_context.state.get("last_bq_result", "Already retrieved.")
+    tool_context.state["_last_bq_hash"] = q_hash
+
+    from .sub_agents.bigquery.agent import bigquery_agent
+    agent_tool = AgentTool(agent=bigquery_agent)
+    
+    max_retries = 2
+    last_error = None
+    
+    for attempt in range(max_retries + 1):
+        try:
+            tool_context.state["_retry_count"] = attempt
+            
+            # On retry, hint about the error
+            actual_query = query
+            if attempt > 0 and last_error:
+                actual_query = f"{query}\n\nNOTE: Previous attempt failed with: {last_error[:200]}. Please simplify the SQL — use fewer columns, add WHERE filters for NULL values, and avoid complex joins."
+                _logger.warning(f"BQ RETRY attempt {attempt} for query: {query[:100]}")
+            
+            result = await agent_tool.run_async(
+                args={"request": actual_query},
+                tool_context=tool_context,
+            )
+            
+            # Check if result indicates an error
+            result_str = str(result).lower()
+            error_indicators = [
+                "syntax error", "unrecognized name", "table not found",
+                "does not exist", "invalid query", "sql error"
+            ]
+            
+            if any(ind in result_str for ind in error_indicators):
+                last_error = str(result)[:500]
+                _logger.warning(f"BQ ERROR detected (attempt {attempt}): {last_error[:150]}")
+                if attempt < max_retries:
+                    continue
+            
+            tool_context.state["last_bq_result"] = result
+            tool_context.state["_retry_count"] = 0
+            return result
+            
+        except Exception as e:
+            last_error = str(e)[:500]
+            _logger.error(f"BQ EXCEPTION attempt {attempt}: {last_error[:150]}")
+            if attempt >= max_retries:
+                tool_context.state["_retry_count"] = 0
+                return f"Query failed after {max_retries + 1} attempts: {last_error}"
+    
+    return tool_context.state.get("last_bq_result", "Query failed")
+
+
+
+
+def _compute_correlation_via_bq(labels: list) -> dict:
+    """Run BQ CORR() query directly to get accurate correlations (cached 1h)."""
+    
+    client_id = os.getenv("DEFAULT_CLIENT_ID", "NPI")
+    cache_key = f"corr:{client_id}:{','.join(sorted(labels))}"
+    cached = _cache_get(cache_key)
+    if cached is not None:
+        return cached
+    
+    try:
+        from google.cloud import bigquery
+        project = os.getenv("GOOGLE_CLOUD_PROJECT", "nc-ai-chatbot")
+        client_id = os.getenv("DEFAULT_CLIENT_ID", "NPI")
+        table_map = {
+            "NPI": f"`{project}.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`",
+            "Venetian": f"`{project}.Astrobot_Venetian.sample_astrobot_venetian_nc360_dashboard`",
+            "WinnDixie": f"`{project}.Astrobot_WinnDixie.sample_astrobot_wd_nc360_dashboard`",
+        }
+        table = table_map.get(client_id, table_map["NPI"])
+        
+        corr_parts = []
+        for i, c1 in enumerate(labels):
+            for j, c2 in enumerate(labels):
+                if i < j:
+                    corr_parts.append(f"ROUND(CORR({c1}, {c2}), 4) AS {c1.lower()}_{c2.lower()}_corr")
+        
+        if not corr_parts:
+            return {}
+        
+        null_filter = " AND ".join([f"{c} IS NOT NULL" for c in labels])
+        sql = f"SELECT {', '.join(corr_parts)} FROM {table} WHERE {null_filter}"
+        
+        _logger.info(f"BRUTE_FORCE CORR query: {sql}")
+        
+        client = bigquery.Client(project=project)
+        results = client.query(sql).result()
+        row = next(iter(results), None)
+        
+        if row:
+            corr_dict = {}
+            for i, c1 in enumerate(labels):
+                for j, c2 in enumerate(labels):
+                    if i < j:
+                        key = f"{c1.lower()}_{c2.lower()}_corr"
+                        if hasattr(row, key):
+                            corr_dict[(c1, c2)] = float(getattr(row, key))
+            _logger.info(f"BRUTE_FORCE CORR results: {corr_dict}")
+            _cache_set(cache_key, corr_dict)
+            return corr_dict
+    except Exception as e:
+        _logger.error(f"BRUTE_FORCE CORR failed: {e}")
+    return {}
+
+
+
+def _compute_aggregate_via_bq(metric: str, dimension: str, agg_func: str = "SUM") -> dict:
+    """Run BQ aggregate query directly to get accurate totals/averages."""
+    try:
+        from google.cloud import bigquery
+        project = os.getenv("GOOGLE_CLOUD_PROJECT", "nc-ai-chatbot")
+        client_id = os.getenv("DEFAULT_CLIENT_ID", "NPI")
+        table_map = {
+            "NPI": f"`{project}.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`",
+            "Venetian": f"`{project}.Astrobot_Venetian.sample_astrobot_venetian_nc360_dashboard`",
+            "WinnDixie": f"`{project}.Astrobot_WinnDixie.sample_astrobot_wd_nc360_dashboard`",
+        }
+        table = table_map.get(client_id, table_map["NPI"])
+        
+        agg_func = agg_func.upper()
+        if agg_func not in ("SUM", "AVG", "COUNT", "MIN", "MAX"):
+            agg_func = "SUM"
+        
+        sql = f"""
+        SELECT {dimension} AS dim, ROUND({agg_func}({metric}), 2) AS val
+        FROM {table}
+        WHERE {metric} IS NOT NULL AND {dimension} IS NOT NULL
+        GROUP BY {dimension}
+        ORDER BY val DESC
+        """
+        _logger.info(f"BRUTE_FORCE AGG: {sql.strip()}")
+        
+        client = bigquery.Client(project=project)
+        results = client.query(sql).result()
+        return {row.dim: float(row.val) for row in results if row.val is not None}
+    except Exception as e:
+        _logger.error(f"BRUTE_FORCE AGG failed: {e}")
+    return {}
+
+
+def _validate_chart_data(chart_type: str, data: dict) -> tuple:
+    """Validate chart data, return (is_valid, reason)."""
+    if chart_type in ("bar", "pie"):
+        cats = data.get("categories", [])
+        vals = data.get("values", [])
+        if not cats or not vals:
+            return False, "missing categories or values"
+        if len(cats) != len(vals):
+            return False, "category/value count mismatch"
+        if all(v == 0 for v in vals):
+            return False, "all values are zero"
+        if len(cats) < 2:
+            return False, "need at least 2 categories"
+    elif chart_type in ("scatter", "line"):
+        x = data.get("x", []) or data.get("categories", [])
+        y = data.get("y", []) or data.get("values", [])
+        if len(x) < 2 or len(y) < 2:
+            return False, "need at least 2 points"
+    return True, "ok"
+
+def _render_chart_to_bytes(spec: dict) -> bytes:
+    """Render chart from JSON spec using matplotlib, return PNG bytes."""
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    chart_type = spec.get("chart_type", "bar")
+    
+    # DEBUG: Log full spec for heatmaps
+    if chart_type == "heatmap":
+        _logger.info(f"HEATMAP_DEBUG spec: {spec}")
+    title      = spec.get("title", "")
+    x_label    = spec.get("x_label", "")
+    y_label    = spec.get("y_label", "")
+    data       = spec.get("data", {})
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    if chart_type == "bar":
+        cats = data.get("categories", [])
+        vals = data.get("values", [])
+        bars = ax.bar(cats, vals, color="steelblue", edgecolor="white")
+        ax.bar_label(bars, fmt="$%.2f", padding=3, fontsize=8)
+        plt.xticks(rotation=45, ha="right")
+    elif chart_type == "line":
+        cats = data.get("categories", [])
+        vals = data.get("values", [])
+        ax.plot(cats, vals, marker="o", linewidth=2, color="steelblue")
+        plt.xticks(rotation=45, ha="right")
+    elif chart_type == "scatter":
+        x = data.get("x", [])
+        y = data.get("y", [])
+        ax.scatter(x, y, alpha=0.7, color="steelblue", s=60)
+        if x and y:
+            mn = min(min(x), min(y))
+            mx = max(max(x), max(y))
+            ax.plot([mn, mx], [mn, mx], "r--", lw=2, label="Perfect prediction")
+            ax.legend()
+    elif chart_type == "pie":
+        import numpy as np
+        cats = data.get("categories", [])
+        vals = data.get("values", [])
+        if cats and vals and len(cats) == len(vals):
+            # Filter out zero-value slices for cleaner display
+            filtered = [(c, v) for c, v in zip(cats, vals) if v > 0]
+            if filtered:
+                cats_f = [c for c, v in filtered]
+                vals_f = [v for c, v in filtered]
+                colors = plt.cm.Set3(np.linspace(0, 1, len(cats_f)))
+                wedges, texts, autotexts = ax.pie(
+                    vals_f, labels=cats_f, autopct="%1.1f%%",
+                    colors=colors, startangle=90,
+                    pctdistance=0.80, labeldistance=1.08,
+                    textprops={"fontsize": 10},
+                )
+                for autotext in autotexts:
+                    autotext.set_color("white")
+                    autotext.set_fontweight("bold")
+                    autotext.set_fontsize(11)
+                
+                # Note about excluded zero values
+                excluded = [c for c, v in zip(cats, vals) if v == 0]
+                if excluded:
+                    ax.text(0.02, -0.05,
+                            f"Excluded (zero spend): {', '.join(excluded)}",
+                            transform=ax.transAxes, fontsize=8,
+                            color="gray", ha="left", va="top")
+                ax.axis("equal")
+            else:
+                ax.text(0.5, 0.5, "All values are zero",
+                        ha="center", va="center", transform=ax.transAxes)
+        else:
+            ax.text(0.5, 0.5, "Invalid pie chart data",
+                    ha="center", va="center", transform=ax.transAxes)
+    elif chart_type == "heatmap":
+        import numpy as np
+        import re as _re
+        matrix = data.get("matrix", [])
+        labels = data.get("labels", [])
+        series = data.get("series", {})
+        arr = None
+
+        # PRIORITY 1: BQ CORR() output - series with "_corr" keys, single values
+        if series and not matrix:
+            corr_keys = [k for k in series.keys()
+                         if "_corr" in k.lower() or "_correlation" in k.lower()]
+            single_value = all(
+                isinstance(v, list) and len(v) == 1
+                for v in series.values()
+            )
+            if corr_keys and single_value:
+                corr_dict = {}
+                all_vars = []
+                for key, vals in series.items():
+                    clean = _re.sub(r"_corr(elation)?$", "", key, flags=_re.IGNORECASE)
+                    parts = clean.split("_")
+                    if len(parts) >= 2:
+                        var1 = parts[0].title()
+                        var2 = "_".join(parts[1:]).title()
+                        try:
+                            corr_dict[(var1, var2)] = float(vals[0])
+                            if var1 not in all_vars:
+                                all_vars.append(var1)
+                            if var2 not in all_vars:
+                                all_vars.append(var2)
+                        except (ValueError, TypeError):
+                            pass
+                if all_vars and corr_dict:
+                    labels = all_vars
+                    n = len(labels)
+                    arr = np.eye(n)
+                    for (v1, v2), val in corr_dict.items():
+                        if v1 in labels and v2 in labels:
+                            i = labels.index(v1)
+                            j = labels.index(v2)
+                            arr[i, j] = val
+                            arr[j, i] = val
+
+        # PRIORITY 2: Pre-computed matrix
+        if arr is None and matrix and labels:
+            arr = np.array(matrix)
+
+        # PRIORITY 3: Series with multi-value arrays
+        if arr is None and series:
+            valid = {k: v for k, v in series.items()
+                    if isinstance(v, list) and len(v) > 1}
+            if len(valid) >= 2:
+                labels_p3 = list(valid.keys())
+                arrays = list(valid.values())
+                min_len = min(len(a) for a in arrays)
+                arrays = [np.array(a[:min_len], dtype=float) for a in arrays]
+                
+                non_zero_pct = [float(np.sum(a != 0) / len(a)) for a in arrays]
+                stds = [float(np.std(a)) for a in arrays]
+                _logger.info(f"HEATMAP data quality: rows={min_len}, non_zero_pct={non_zero_pct}, stds={stds}")
+                
+                # FALLBACK: if data is too sparse/small, query BQ directly
+                if min_len < 100 or any(p < 0.5 for p in non_zero_pct):
+                    _logger.warning(f"HEATMAP: sparse data, running direct BQ CORR for {labels_p3}")
+                    bq_corr = _compute_correlation_via_bq(labels_p3)
+                    if bq_corr:
+                        labels = labels_p3
+                        n = len(labels)
+                        arr = np.eye(n)
+                        for (v1, v2), val in bq_corr.items():
+                            if v1 in labels and v2 in labels:
+                                i = labels.index(v1)
+                                j = labels.index(v2)
+                                arr[i, j] = val
+                                arr[j, i] = val
+                        _logger.info(f"HEATMAP: using BQ CORR matrix={arr.tolist()}")
+                    else:
+                        labels = labels_p3
+                        arr = np.corrcoef(arrays)
+                else:
+                    labels = labels_p3
+                    arr = np.corrcoef(arrays)
+                    _logger.info(f"HEATMAP computed corr from sample: {arr.tolist()}")
+
+        # PRIORITY 4: Direct list values in data dict
+        if arr is None:
+            potential_series = {k: v for k, v in data.items()
+                               if isinstance(v, list) and len(v) > 1
+                               and all(isinstance(x, (int, float)) for x in v)}
+            if len(potential_series) >= 2:
+                labels = list(potential_series.keys())
+                arrays = list(potential_series.values())
+                min_len = min(len(a) for a in arrays)
+                arrays = [a[:min_len] for a in arrays]
+                arr = np.corrcoef(arrays)
+
+        # FALLBACK
+        if arr is None:
+            arr = np.array([[1.0]])
+            labels = labels or ["data"]
+
+        im = ax.imshow(arr, cmap="RdBu_r", aspect="auto", vmin=-1, vmax=1)
+        ax.set_xticks(range(len(labels)))
+        ax.set_yticks(range(len(labels)))
+        ax.set_xticklabels(labels, rotation=45, ha="right")
+        ax.set_yticklabels(labels)
+        for i in range(len(labels)):
+            for j in range(len(labels)):
+                val = arr[i, j] if arr.ndim == 2 else 1.0
+                ax.text(j, i, f"{val:.2f}",
+                        ha="center", va="center",
+                        color="white" if abs(val) > 0.5 else "black",
+                        fontsize=10)
+        plt.colorbar(im, ax=ax, label="Correlation")
+    elif chart_type == "funnel":
+        import numpy as np
+        cats = data.get("categories", [])
+        vals = data.get("values", [])
+        if cats and vals and len(cats) == len(vals):
+            # Sort descending
+            paired = sorted(zip(cats, vals), key=lambda x: x[1], reverse=True)
+            cats_sorted = [p[0] for p in paired]
+            vals_sorted = [p[1] for p in paired]
+            
+            max_val = max(vals_sorted) if vals_sorted else 1
+            colors = plt.cm.viridis(np.linspace(0.3, 0.9, len(cats_sorted)))
+            
+            for i, (cat, val) in enumerate(zip(cats_sorted, vals_sorted)):
+                width = val / max_val
+                left = (1 - width) / 2
+                ax.barh(i, width, left=left, color=colors[i], 
+                       edgecolor="white", linewidth=2)
+                # Label inside bar
+                pct = (val / max_val) * 100
+                ax.text(0.5, i, f"{cat}: {val:,.0f} ({pct:.1f}%)",
+                       ha="center", va="center", fontsize=10,
+                       color="white", fontweight="bold")
+            
+            ax.set_yticks([])
+            ax.set_xticks([])
+            ax.invert_yaxis()
+            ax.set_xlim(-0.05, 1.05)
+            for spine in ax.spines.values():
+                spine.set_visible(False)
+    elif chart_type == "waterfall":
+        import numpy as np
+        cats = data.get("categories", [])
+        vals = data.get("values", [])
+        if cats and vals and len(cats) == len(vals):
+            cumulative = 0
+            for i, (cat, val) in enumerate(zip(cats, vals)):
+                color = "green" if val >= 0 else "red"
+                if i == 0 or i == len(cats) - 1:
+                    color = "steelblue"
+                    bottom = 0
+                    height = val
+                else:
+                    bottom = cumulative
+                    height = val
+                
+                ax.bar(i, height, bottom=bottom, color=color, 
+                      edgecolor="white", width=0.6)
+                
+                # Connector lines
+                if i > 0 and i < len(cats) - 1:
+                    ax.plot([i-0.3, i-0.7], [cumulative, cumulative],
+                           "k--", lw=1, alpha=0.5)
+                
+                # Labels
+                label_y = bottom + height + (max(vals) * 0.02)
+                ax.text(i, label_y, f"{val:+,.0f}" if i not in (0, len(cats)-1) else f"{val:,.0f}",
+                       ha="center", fontsize=9, fontweight="bold")
+                
+                cumulative += val
+            
+            ax.set_xticks(range(len(cats)))
+            ax.set_xticklabels(cats, rotation=45, ha="right")
+            ax.axhline(y=0, color="black", linewidth=0.5)
+    elif chart_type == "sankey":
+        # Simple sankey using matplotlib
+        # Note: full sankey requires plotly. This is a simplified flow diagram.
+        sources = data.get("sources", [])
+        targets = data.get("targets", [])
+        values = data.get("values", [])
+        labels_sankey = data.get("labels", [])
+        
+        if sources and targets and values and labels_sankey:
+            from matplotlib.patches import FancyArrowPatch
+            
+            # Place source nodes on left, targets on right
+            unique_sources = list(set(sources))
+            unique_targets = list(set(targets))
+            
+            n_src = len(unique_sources)
+            n_tgt = len(unique_targets)
+            src_y = {s: 1.0 - (i + 0.5) / n_src for i, s in enumerate(unique_sources)}
+            tgt_y = {t: 1.0 - (i + 0.5) / n_tgt for i, t in enumerate(unique_targets)}
+            
+            max_val = max(values)
+            for src, tgt, val in zip(sources, targets, values):
+                width = (val / max_val) * 5
+                arrow = FancyArrowPatch(
+                    (0.1, src_y[src]), (0.9, tgt_y[tgt]),
+                    arrowstyle="->", mutation_scale=15,
+                    lw=width, alpha=0.6, color="steelblue",
+                )
+                ax.add_patch(arrow)
+            
+            # Labels
+            for s, y in src_y.items():
+                ax.text(0.05, y, str(labels_sankey[s] if isinstance(s, int) and s < len(labels_sankey) else s),
+                       ha="right", va="center", fontsize=10, fontweight="bold")
+            for t, y in tgt_y.items():
+                ax.text(0.95, y, str(labels_sankey[t] if isinstance(t, int) and t < len(labels_sankey) else t),
+                       ha="left", va="center", fontsize=10, fontweight="bold")
+            
+            ax.set_xlim(0, 1)
+            ax.set_ylim(0, 1)
+            ax.axis("off")
+    elif chart_type == "cluster_scatter":
+        x        = data.get("x", [])
+        y        = data.get("y", [])
+        clusters = data.get("clusters", [])
+        colors   = ["steelblue", "red", "green", "orange", "purple"]
+        for cid in sorted(set(clusters)):
+            xi = [x[i] for i, c in enumerate(clusters) if c == cid]
+            yi = [y[i] for i, c in enumerate(clusters) if c == cid]
+            ax.scatter(xi, yi, label=f"Cluster {cid}",
+                       color=colors[(cid - 1) % len(colors)],
+                       s=60, alpha=0.7)
+        ax.legend()
+
+    ax.set_title(title)
+    ax.set_xlabel(x_label)
+    ax.set_ylabel(y_label)
+    plt.tight_layout()
+
+    buf = io.BytesIO()
+    plt.savefig(buf, format="png", dpi=120, bbox_inches="tight")
+    buf.seek(0)
+    plt.close(fig)
+    return buf.read()
+
+
+async def call_analytics_agent(
+    analysis_request: str, tool_context: ToolContext
+) -> str:
+    """
+    Calls analytics sub-agent based on ANALYTICS_MODE:
+      - 'json' (default): Get JSON spec, render with matplotlib here
+      - 'code_interpreter': Sub-agent uses sandboxed code, finds chart in artifacts
+    """
+    from .sub_agents.analytics.agent import analytics_agent
+    import glob as _glob
+
+    # Auto-routing — only escalate to code_interpreter for ADVANCED charts
+    # JSON mode now supports: bar, line, scatter, cluster_scatter, heatmap
+    def _needs_code_interpreter(request: str) -> bool:
+        advanced_keywords = [
+            "subplot", "subplots", "small multiple", "facet",
+            "treemap", "sunburst",   
+            "radar", "polar", "candlestick", "ohlc", "violin",
+            "regression line", "trendline", "rolling average",
+            "moving average", "custom", "multi-axis", "dual axis"
+        ]
+        return any(kw in request.lower() for kw in advanced_keywords)
+
+    mode = os.getenv("ANALYTICS_MODE", "json").lower()
+    if _needs_code_interpreter(analysis_request):
+        original_mode = mode
+        mode = "code_interpreter"
+        if original_mode != mode:
+            _logger.info("Auto-routing to code_interpreter for advanced chart")
+
+    # Snapshot for code_interpreter mode
+    artifacts_base = os.path.expanduser("~/astrobot_mesh/.adk/artifacts")
+    if not os.path.exists(artifacts_base):
+        artifacts_base = "/tmp/.adk/artifacts"
+    before = set()
+    if mode == "code_interpreter":
+        before = set(_glob.glob(
+            os.path.join(artifacts_base, "**", "*.png"), recursive=True
+        ))
+
+    call_time = time.time() - 5
+    agent_tool = AgentTool(agent=analytics_agent)
+    result = await agent_tool.run_async(
+        args={"request": analysis_request},
+        tool_context=tool_context,
+    )
+
+    # CODE INTERPRETER MODE — find PNG saved by sandbox
+    if mode == "code_interpreter":
+        after = set(_glob.glob(
+            os.path.join(artifacts_base, "**", "*.png"), recursive=True
+        ))
+        new_pngs = [
+            f for f in (after - before)
+            if os.path.getmtime(f) >= call_time
+            and os.path.getsize(f) > 1000
+        ]
+        if new_pngs:
+            latest = max(new_pngs, key=os.path.getmtime)
+            try:
+                with open(latest, "rb") as f:
+                    img_bytes = f.read()
+                fname = f"chart_{int(time.time())}_{hashlib.md5(latest.encode()).hexdigest()[:6]}.png"
+                artifact = types.Part.from_bytes(data=img_bytes, mime_type="image/png")
+                version = await tool_context.save_artifact(fname, artifact)
+                _logger.info("Code Interpreter chart saved: %s v%s (%d bytes)",
+                             fname, version, len(img_bytes))
+                return f"Generated chart via Code Interpreter ({len(img_bytes)} bytes)"
+            except Exception as e:
+                _logger.warning("CI artifact save failed: %s", e)
+        return "Code Interpreter completed but no chart PNG found"
+
+    # JSON MODE — parse spec and render with matplotlib
+    spec = None
+    try:
+        text = str(result)
+        text = text.replace("```json", "").replace("```", "")
+        match = re.search(r"\{[\s\S]*\}", text)
+        if match:
+            spec = json.loads(match.group(0))
+    except Exception as e:
+        _logger.warning("Could not parse chart spec: %s", e)
+        return f"Chart generation failed — could not parse spec: {e}"
+
+    if not spec or "chart_type" not in spec:
+        _logger.warning("Invalid spec: %s", str(spec)[:200])
+        return "Chart generation failed — invalid spec returned"
+
+    # Render chart
+    try:
+        png_bytes = _render_chart_to_bytes(spec)
+        _logger.info("Chart rendered: %s (%d bytes)",
+                     spec.get("title", "untitled"), len(png_bytes))
+    except Exception as e:
+        _logger.error("Chart rendering failed: %s", e)
+        return f"Chart rendering failed: {e}"
+
+    # Save as artifact in parent session
+    fname = f"chart_{int(time.time())}_{hashlib.md5(str(spec).encode()).hexdigest()[:6]}.png"
+    artifact = types.Part.from_bytes(data=png_bytes, mime_type="image/png")
+    try:
+        version = await tool_context.save_artifact(fname, artifact)
+        _logger.info("Saved chart: %s v%s", fname, version)
+    except Exception as e:
+        _logger.warning("Save failed: %s", e)
+
+    chart_title = spec.get("title", "chart")
+    return f"Generated {spec.get('chart_type')} chart: {chart_title}"
+
+
+def render_value_heatmap(rows, cols, values, title="Heatmap", filename=None):
+    """
+    Static heatmap rendering - bypasses analytics LLM.
+    
+    Use for VALUE heatmaps (raw counts, spend, conversions).
+    Never normalizes. Always shows actual numbers.
+    
+    Args:
+        rows: list of Y-axis labels (e.g., ["Paid Social", "Paid Search"])
+        cols: list of X-axis labels (e.g., ["2025-11", "2025-12"])
+        values: 2D list/matrix of numeric values
+        title: chart title
+        filename: output PNG path (default: /tmp/heatmap_<title>.png)
+    
+    Returns:
+        dict with status and filepath
+    """
+    try:
+        import seaborn as sns
+        import matplotlib.pyplot as plt
+        import matplotlib
+        matplotlib.use("Agg")
+        import numpy as np
+        from matplotlib.colors import LogNorm
+    except ImportError as e:
+        return {"error": f"Missing library: {e}"}
+    
+    matrix = np.array(values, dtype=float)
+    if matrix.size == 0:
+        return {"error": "Empty matrix"}
+    
+    # Filter all-zero rows
+    valid_rows = []
+    valid_labels = []
+    for i, row in enumerate(values):
+        if any(v != 0 for v in row):
+            valid_rows.append(row)
+            valid_labels.append(rows[i])
+    
+    if len(valid_rows) < 1:
+        return {"error": "No non-zero rows to plot"}
+    
+    matrix = np.array(valid_rows, dtype=float)
+    max_val = matrix.max()
+    
+    # Determine fmt based on value range
+    if max_val < 100:
+        fmt = ".0f"
+    else:
+        fmt = ",.0f"
+    
+    # Use log scaling if outliers
+    norm = None
+    if (matrix > 0).any():
+        positive = matrix[matrix > 0]
+        if positive.size > 1:
+            ratio = positive.max() / max(positive.min(), 1)
+            if ratio > 50:
+                norm = LogNorm(vmin=positive.min(), vmax=positive.max())
+    
+    # Render
+    plt.figure(figsize=(max(8, len(cols) * 0.9), max(3, len(valid_labels) * 0.7)))
+    sns.heatmap(
+        matrix,
+        annot=True,
+        fmt=fmt,
+        xticklabels=cols,
+        yticklabels=valid_labels,
+        cmap="YlOrRd",
+        cbar_kws={"label": "Value"},
+        norm=norm,
+    )
+    plt.title(title)
+    plt.xticks(rotation=45, ha="right")
+    plt.tight_layout()
+    
+    if filename is None:
+        import re as _re
+        safe_title = _re.sub(r"[^a-zA-Z0-9_-]", "_", title)
+        filename = f"/tmp/heatmap_{safe_title}.png"
+    
+    plt.savefig(filename, dpi=100, bbox_inches="tight")
+    plt.close()
+    
+    return {
+        "status": "ok",
+        "filepath": filename,
+        "rows_rendered": len(valid_labels),
+        "cols_rendered": len(cols),
+        "max_value": float(max_val),
+    }
+
+
+
+def render_value_heatmap_mpl(rows, cols, values, title="Heatmap", filename=None):
+    """
+    Static heatmap rendering using ONLY matplotlib (no seaborn dependency).
+    Bypasses any LLM-based rendering. Always shows raw values.
+    """
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        import numpy as np
+        from matplotlib.colors import LogNorm
+    except ImportError as e:
+        return {"error": f"Missing library: {e}"}
+    
+    matrix = np.array(values, dtype=float)
+    if matrix.size == 0:
+        return {"error": "Empty matrix"}
+    
+    # Filter all-zero rows
+    valid_rows = []
+    valid_labels = []
+    for i, row in enumerate(values):
+        if any(v != 0 for v in row):
+            valid_rows.append(row)
+            valid_labels.append(rows[i])
+    
+    if len(valid_rows) < 1:
+        return {"error": "No non-zero rows to plot"}
+    
+    matrix = np.array(valid_rows, dtype=float)
+    max_val = matrix.max()
+    
+    # Determine fmt
+    fmt_str = ",.0f" if max_val >= 100 else ".0f"
+    
+    # Use log scaling if outliers
+    norm = None
+    if (matrix > 0).any():
+        positive = matrix[matrix > 0]
+        if positive.size > 1:
+            ratio = positive.max() / max(positive.min(), 1)
+            if ratio > 50:
+                norm = LogNorm(vmin=positive.min(), vmax=positive.max())
+    
+    # Render with matplotlib only
+    fig, ax = plt.subplots(figsize=(max(8, len(cols) * 1.0), max(3, len(valid_labels) * 0.8)))
+    
+    if norm is not None:
+        im = ax.imshow(matrix, cmap="YlOrRd", aspect="auto", norm=norm)
+    else:
+        im = ax.imshow(matrix, cmap="YlOrRd", aspect="auto")
+    
+    ax.set_xticks(np.arange(len(cols)))
+    ax.set_yticks(np.arange(len(valid_labels)))
+    ax.set_xticklabels(cols)
+    ax.set_yticklabels(valid_labels)
+    plt.setp(ax.get_xticklabels(), rotation=45, ha="right", rotation_mode="anchor")
+    
+    # Annotate cells with raw values
+    for i in range(len(valid_labels)):
+        for j in range(len(cols)):
+            val = matrix[i, j]
+            text = format(val, fmt_str)
+            color = "white" if val > max_val * 0.5 else "black"
+            ax.text(j, i, text, ha="center", va="center", color=color, fontsize=9)
+    
+    # Colorbar
+    cbar = plt.colorbar(im, ax=ax)
+    cbar.set_label("Value")
+    
+    ax.set_title(title)
+    fig.tight_layout()
+    
+    if filename is None:
+        import re as _re
+        safe_title = _re.sub(r"[^a-zA-Z0-9_-]", "_", title)
+        filename = f"/tmp/heatmap_{safe_title}.png"
+    
+    fig.savefig(filename, dpi=100, bbox_inches="tight")
+    plt.close(fig)
+    
+    return {
+        "status": "ok",
+        "filepath": filename,
+        "rows_rendered": len(valid_labels),
+        "cols_rendered": len(cols),
+        "max_value": float(max_val),
+        "min_value": float(matrix.min()),
+    }
+

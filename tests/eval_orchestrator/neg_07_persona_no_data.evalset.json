@@ -1,0 +1,17 @@
+[
+  {
+    "name": "neg_07_persona_no_data",
+    "data": [
+      {
+        "query": "For NPI, just tell me about personas without any data",
+        "reference": "NPI persona requires data first call data scientist analytics pipeline",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

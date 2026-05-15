@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_06_blended_cpa",
+    "data": [
+      {
+        "query": "For NPI, what is the blended CPA across all channels last 12 months",
+        "reference": "blended CPA NPI cost per acquisition conversions",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

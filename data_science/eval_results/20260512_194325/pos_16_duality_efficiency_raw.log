@@ -1,0 +1,195 @@
+2026-05-12 20:13:57,785 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 20:14:05,026 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 20:14:05,027 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 20:14:05,027 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 20:14:05,029 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 20:14:05,030 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 20:14:05,031 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 20:14:05,031 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 20:14:05,031 - INFO - agent.py:392 - 📍 KM routed 'For NPI, show channel efficiency with CPA and ROAS...' → table=performance (confidence=medium)
+2026-05-12 20:14:05,569 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 20:14:05,569 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 20:14:05,767 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:14:08,026 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:14:08,027 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 20:14:08,028 - INFO - agent.py:561 - Tokens: In=7711, Out=48
+2026-05-12 20:14:08,029 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 20:14:08,030 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 20:14:08,138 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:14:11,493 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:14:11,625 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:14:20,037 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:14:21,417 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:14:24,805 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:14:25,662 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:14:30,314 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:14:30,317 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 20:14:30,318 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 20:14:30,318 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 20:14:30,318 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 20:14:30,424 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:14:32,048 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:14:32,049 - INFO - agent.py:561 - Tokens: In=8027, Out=32
+2026-05-12 20:14:32,051 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 20:14:32,051 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 20:14:32,187 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:14:35,714 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:14:37,883 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:14:41,726 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:14:41,729 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 20:14:41,729 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 20:14:41,729 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 20:14:41,729 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 20:14:41,839 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 20:14:47,956 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 20:14:47,958 - INFO - agent.py:561 - Tokens: In=8824, Out=821
+2026-05-12 20:14:47,961 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 20:14:47,961 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 20:14:47,961 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 20:14:47,961 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 20:14:47,966 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 20:14:47,971 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_16_duality_efficiency.evalset.json_1778616887.97126.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_16_duality_efficiency.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_16_duality_efficiency.evalset.json
+Eval Id: pos_16_duality_efficiency
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.05090909090909091, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+-----------------------+------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                | expected_response      | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=======================+========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, show channel | channel efficiency CPA | **Result:**  **Channel    |                       | id='adk-f455ec15-4878-490 | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | efficiency with       | ROAS NPI duality       | Efficiency for            |                       | 8-bbcb-                   | 0.0                         | 0.05090909090909091    |
+|    | CPA and ROAS using    | spend conversions      | NPI (CPA, Cost, and       |                       | 0ba984f9a720'             |                             |                        |
+|    | duality-aware         | separate rows unified  | Conversions)**  |         |                       | args={'query': 'For NPI,  |                             |                        |
+|    | aggregation           |                        | Channel          | Cost   |                       | calculate CPA (Cost Per   |                             |                        |
+|    |                       |                        | |                         |                       | Acquisition) and          |                             |                        |
+|    |                       |                        | Conversions | CPA         |                       | ROAS (Return On Ad Spend) |                             |                        |
+|    |                       |                        | | |:----------            |                       | by channel,               |                             |                        |
+|    |                       |                        | -------|--------------:|- |                       | using duality-aware       |                             |                        |
+|    |                       |                        | -----------:|--           |                       | aggregation. Include      |                             |                        |
+|    |                       |                        | ----------:| | Paid       |                       | Cost, Conversions, and    |                             |                        |
+|    |                       |                        | Social      |             |                       | Revenue in the            |                             |                        |
+|    |                       |                        | $2,679,053.73 | 663,625   |                       | results.'} name='call_big |                             |                        |
+|    |                       |                        | | $4.04                   |                       | query_agent'              |                             |                        |
+|    |                       |                        | | | Paid Search      |    |                       | partial_args=None         |                             |                        |
+|    |                       |                        | $37,254.14    |           |                       | will_continue=None id=    |                             |                        |
+|    |                       |                        | 342,599     | $0.11       |                       | 'adk-99251499-15af-4e1b-9 |                             |                        |
+|    |                       |                        | | | Unassigned            |                       | a7a-                      |                             |                        |
+|    |                       |                        | | $0.00         | 233,022 |                       | f10602e91b8a'             |                             |                        |
+|    |                       |                        | | $0.00                   |                       | args={'query': 'For NPI,  |                             |                        |
+|    |                       |                        | | | Cross-network    |    |                       | calculate CPA (Cost Per   |                             |                        |
+|    |                       |                        | $0.00         |           |                       | Acquisition),             |                             |                        |
+|    |                       |                        | 318,451     | $0.00       |                       | Cost, and Conversions by  |                             |                        |
+|    |                       |                        | | | Paid Other            |                       | channel, using            |                             |                        |
+|    |                       |                        | | $0.00         | 81,915  |                       | duality-aware             |                             |                        |
+|    |                       |                        | | $0.00                   |                       | aggregation.'}            |                             |                        |
+|    |                       |                        | | | Direct           |    |                       | name='call_bigquery_agent |                             |                        |
+|    |                       |                        | $0.00         |           |                       | '                         |                             |                        |
+|    |                       |                        | 9,926       | $0.00       |                       | partial_args=None         |                             |                        |
+|    |                       |                        | | | Organic               |                       | will_continue=None        |                             |                        |
+|    |                       |                        | Shopping | $0.00          |                       |                           |                             |                        |
+|    |                       |                        | | 4           |           |                       |                           |                             |                        |
+|    |                       |                        | $0.00       | | Organic   |                       |                           |                             |                        |
+|    |                       |                        | Search   | $0.00          |                       |                           |                             |                        |
+|    |                       |                        | | 65,268      | $0.00     |                       |                           |                             |                        |
+|    |                       |                        | | | Email                 |                       |                           |                             |                        |
+|    |                       |                        | | $0.00         | 3,538   |                       |                           |                             |                        |
+|    |                       |                        | | $0.00                   |                       |                           |                             |                        |
+|    |                       |                        | | | Organic Social   |    |                       |                           |                             |                        |
+|    |                       |                        | $0.00         |           |                       |                           |                             |                        |
+|    |                       |                        | 361,392     | $0.00       |                       |                           |                             |                        |
+|    |                       |                        | | | Display               |                       |                           |                             |                        |
+|    |                       |                        | | $0.00         | 63      |                       |                           |                             |                        |
+|    |                       |                        | | $0.00                   |                       |                           |                             |                        |
+|    |                       |                        | | | Paid Video       |    |                       |                           |                             |                        |
+|    |                       |                        | $0.00         |           |                       |                           |                             |                        |
+|    |                       |                        | 1,705       | $0.00       |                       |                           |                             |                        |
+|    |                       |                        | | | Organic               |                       |                           |                             |                        |
+|    |                       |                        | Video    | $0.00          |                       |                           |                             |                        |
+|    |                       |                        | | 31          |           |                       |                           |                             |                        |
+|    |                       |                        | $0.00       | | Referral  |                       |                           |                             |                        |
+|    |                       |                        | | $0.00                   |                       |                           |                             |                        |
+|    |                       |                        | | 8,288       | $0.00     |                       |                           |                             |                        |
+|    |                       |                        | | | Search                |                       |                           |                             |                        |
+|    |                       |                        | | $1,864,022.03 | 0       |                       |                           |                             |                        |
+|    |                       |                        | | None                    |                       |                           |                             |                        |
+|    |                       |                        | | | OTT              |    |                       |                           |                             |                        |
+|    |                       |                        | $254,608.40   | 0         |                       |                           |                             |                        |
+|    |                       |                        | | None        | | Demand  |                       |                           |                             |                        |
+|    |                       |                        | Gen       |               |                       |                           |                             |                        |
+|    |                       |                        | $1,051,616.31 | 0         |                       |                           |                             |                        |
+|    |                       |                        | | None                    |                       |                           |                             |                        |
+|    |                       |                        | | | Performance Max  |    |                       |                           |                             |                        |
+|    |                       |                        | $135,582.35   | 0         |                       |                           |                             |                        |
+|    |                       |                        | | None        | | CTV     |                       |                           |                             |                        |
+|    |                       |                        | |                         |                       |                           |                             |                        |
+|    |                       |                        | $1,392,794.96 | 0         |                       |                           |                             |                        |
+|    |                       |                        | | None                    |                       |                           |                             |                        |
+|    |                       |                        | | | Online Audio     |    |                       |                           |                             |                        |
+|    |                       |                        | $127,099.84   | 0         |                       |                           |                             |                        |
+|    |                       |                        | | None        | | OOH     |                       |                           |                             |                        |
+|    |                       |                        | |                         |                       |                           |                             |                        |
+|    |                       |                        | $194,522.38   | 0         |                       |                           |                             |                        |
+|    |                       |                        | | None                    |                       |                           |                             |                        |
+|    |                       |                        | | | Linear TV        |    |                       |                           |                             |                        |
+|    |                       |                        | $306,837.33   | 0         |                       |                           |                             |                        |
+|    |                       |                        | | None        | | Print   |                       |                           |                             |                        |
+|    |                       |                        | |                         |                       |                           |                             |                        |
+|    |                       |                        | $12,825.60    | 0         |                       |                           |                             |                        |
+|    |                       |                        | | None                    |                       |                           |                             |                        |
+|    |                       |                        | | | Video            |    |                       |                           |                             |                        |
+|    |                       |                        | $28,658.11    | 0         |                       |                           |                             |                        |
+|    |                       |                        | | None        |           |                       |                           |                             |                        |
+|    |                       |                        | **Explanation:** 1. I     |                       |                           |                             |                        |
+|    |                       |                        | have calculated the Cost  |                       |                           |                             |                        |
+|    |                       |                        | Per Acquisition           |                       |                           |                             |                        |
+|    |                       |                        | (CPA), total Cost, and    |                       |                           |                             |                        |
+|    |                       |                        | total Conversions         |                       |                           |                             |                        |
+|    |                       |                        | for each channel for NPI. |                       |                           |                             |                        |
+|    |                       |                        | 2. Channels               |                       |                           |                             |                        |
+|    |                       |                        | with 0 cost and 0         |                       |                           |                             |                        |
+|    |                       |                        | conversions have a CPA    |                       |                           |                             |                        |
+|    |                       |                        | of $0.00. 3. Channels     |                       |                           |                             |                        |
+|    |                       |                        | with cost but 0           |                       |                           |                             |                        |
+|    |                       |                        | conversions have a CPA of |                       |                           |                             |                        |
+|    |                       |                        | 'None' as it's            |                       |                           |                             |                        |
+|    |                       |                        | undefined. 4. I was       |                       |                           |                             |                        |
+|    |                       |                        | unable to calculate       |                       |                           |                             |                        |
+|    |                       |                        | ROAS (Return On Ad Spend) |                       |                           |                             |                        |
+|    |                       |                        | because                   |                       |                           |                             |                        |
+|    |                       |                        | revenue data              |                       |                           |                             |                        |
+|    |                       |                        | (specifically `Revenue`   |                       |                           |                             |                        |
+|    |                       |                        | or                        |                       |                           |                             |                        |
+|    |                       |                        | `Platform_Revenue`        |                       |                           |                             |                        |
+|    |                       |                        | columns) is not           |                       |                           |                             |                        |
+|    |                       |                        | available in the NPI      |                       |                           |                             |                        |
+|    |                       |                        | dataset.                  |                       |                           |                             |                        |
++----+-----------------------+------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

@@ -1,0 +1,40 @@
+[run]
+source = data_science
+
+omit =
+    */tests/*
+    */test_*.py
+    */_tests/*
+    */__pycache__/*
+    */.venv/*
+    */data_science_tests/*
+    */data_science_evals/*
+    *.bak
+    *.bak_*
+    *.before_*
+    *.broken_*
+    *.final*
+    */chase_sql/dc_prompt_template.py
+    */chase_sql/qp_prompt_template.py
+    data_science/sub_agents/alloydb/*
+
+branch = True
+
+[report]
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    if TYPE_CHECKING:
+    pass
+    \.\.\.
+
+show_missing = True
+skip_covered = False
+precision = 1
+sort = -Cover
+
+[html]
+directory = htmlcov
+title = data_science Coverage

@@ -1,0 +1,59 @@
+"""Tool wrappers for the data science root agent."""
+
+from google.adk.tools import ToolContext
+from google.adk.tools.agent_tool import AgentTool
+import logging
+
+_logger = logging.getLogger(__name__)
+
+
+async def call_bigquery_agent(query: str, tool_context: ToolContext) -> str:
+    """Calls the BigQuery sub-agent to run NL2SQL queries."""
+    from .sub_agents.bigquery.agent import bigquery_agent
+    agent_tool = AgentTool(agent=bigquery_agent)
+    return await agent_tool.run_async(
+        args={"request": query},
+        tool_context=tool_context,
+    )
+
+
+async def call_analytics_agent(
+    analysis_request: str, tool_context: ToolContext
+) -> str:
+    """
+    Calls the Analytics sub-agent to generate charts.
+    The analytics agent saves the chart to GCS and returns a public URL.
+    This function extracts the URL and injects it as a markdown image
+    so the ADK web UI renders it inline — regardless of session.
+    """
+    from .sub_agents.analytics.agent import analytics_agent
+    agent_tool = AgentTool(agent=analytics_agent)
+
+    result = await agent_tool.run_async(
+        args={"request": analysis_request},
+        tool_context=tool_context,
+    )
+
+    if not result:
+        return "Chart generation failed — no response from analytics agent."
+
+    # Extract GCS URL and inject as markdown image for inline rendering
+    if "GCS_URL:" in result:
+        lines     = result.split("\n")
+        url       = None
+        kept      = []
+        for line in lines:
+            stripped = line.strip()
+            if stripped.startswith("GCS_URL:"):
+                url = stripped.replace("GCS_URL:", "").strip()
+                _logger.info("Chart saved to GCS: %s", url)
+            else:
+                kept.append(line)
+
+        if url:
+            tool_context.state["last_chart_url"] = url
+            clean = "\n".join(kept).strip()
+            # Return markdown image — ADK renders this inline in the UI
+            return (clean + "\n\n![Chart](" + url + ")") if clean else "![Chart](" + url + ")"
+
+    return result

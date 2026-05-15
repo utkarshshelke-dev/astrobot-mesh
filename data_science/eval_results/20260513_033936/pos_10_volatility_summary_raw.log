@@ -1,0 +1,209 @@
+2026-05-13 03:50:53,275 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-13 03:51:00,895 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 03:51:00,895 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 03:51:00,896 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 03:51:00,899 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:51:00,899 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 03:51:00,900 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 03:51:00,900 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 03:51:00,900 - INFO - agent.py:339 - 📍 KM routed 'For NPI, give me a channel volatility summary acro...' → table=performance (confidence=low)
+2026-05-13 03:51:01,345 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 03:51:01,345 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 03:51:01,550 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:51:03,370 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:51:03,370 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 03:51:03,371 - INFO - agent.py:489 - Tokens: In=7710, Out=27
+2026-05-13 03:51:03,373 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 03:51:03,374 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 03:51:03,487 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:51:04,738 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:51:13,771 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:51:18,820 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:51:18,822 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:51:18,823 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:51:18,823 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:51:18,823 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:51:18,923 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 03:51:24,922 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 03:51:24,923 - INFO - agent.py:489 - Tokens: In=8815, Out=1045
+2026-05-13 03:51:24,925 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 03:51:24,925 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 03:51:24,925 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 03:51:24,925 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 03:51:24,928 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 03:51:24,934 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_10_volatility_summary.evalset.json_1778644284.934244.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_10_volatility_summary.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_10_volatility_summary.evalset.json
+Eval Id: pos_10_volatility_summary
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.04093567251461988, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+---------------------+-------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt              | expected_response       | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=====================+=========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, give me a  | volatility summary cost | **Result:**  Here's a     |                       | id='adk-e06d717c-617b-42e | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | channel volatility  | conversions             | summary of channel        |                       | e-badd-                   | 0.0                         | 0.04093567251461988    |
+|    | summary across cost | clicks impressions CV   | volatility for NPI across |                       | dd8ce5ae72e2'             |                             |                        |
+|    | conversions clicks  |                         | Cost,                     |                       | args={'query': 'For NPI,  |                             |                        |
+|    | and impressions     |                         | Conversions, Clicks, and  |                       | give me a channel         |                             |                        |
+|    |                     |                         | Impressions:              |                       | volatility summary        |                             |                        |
+|    |                     |                         | **Clicks Volatility:**  * |                       | across cost, conversions, |                             |                        |
+|    |                     |                         | **Most                    |                       | clicks, and               |                             |                        |
+|    |                     |                         | Volatile Channel:**       |                       | impressions.'}            |                             |                        |
+|    |                     |                         | Performance Max (CV:      |                       | name='call_bigquery_agent |                             |                        |
+|    |                     |                         | 1.289) *   **Top Channels |                       | '                         |                             |                        |
+|    |                     |                         | by Clicks                 |                       | partial_args=None         |                             |                        |
+|    |                     |                         | Volatility:**  | Channel  |                       | will_continue=None        |                             |                        |
+|    |                     |                         | | CV                      |                       |                           |                             |                        |
+|    |                     |                         | | Average       | StdDev  |                       |                           |                             |                        |
+|    |                     |                         | | |:----                  |                       |                           |                             |                        |
+|    |                     |                         | ------------|:------|:--- |                       |                           |                             |                        |
+|    |                     |                         | -----------|:--           |                       |                           |                             |                        |
+|    |                     |                         | ------------| |           |                       |                           |                             |                        |
+|    |                     |                         | Performance Max | 1.289   |                       |                           |                             |                        |
+|    |                     |                         | | 19,151.75     |         |                       |                           |                             |                        |
+|    |                     |                         | 24,694.91     | |         |                       |                           |                             |                        |
+|    |                     |                         | Demand Gen      | 0.952 | |                       |                           |                             |                        |
+|    |                     |                         | 254,238.85                |                       |                           |                             |                        |
+|    |                     |                         | | 242,000.84    | | Paid  |                       |                           |                             |                        |
+|    |                     |                         | Social     |              |                       |                           |                             |                        |
+|    |                     |                         | 0.659 | 623,942.92    |   |                       |                           |                             |                        |
+|    |                     |                         | 410,889.31    |           |                       |                           |                             |                        |
+|    |                     |                         | | Search          | 0.384 |                       |                           |                             |                        |
+|    |                     |                         | | 81,168.69               |                       |                           |                             |                        |
+|    |                     |                         | | 31,153.86     |         |                       |                           |                             |                        |
+|    |                     |                         | **Conversions             |                       |                           |                             |                        |
+|    |                     |                         | Volatility:**  *   **Most |                       |                           |                             |                        |
+|    |                     |                         | Volatile                  |                       |                           |                             |                        |
+|    |                     |                         | Channel:** Paid Other     |                       |                           |                             |                        |
+|    |                     |                         | (CV: 1.244) *             |                       |                           |                             |                        |
+|    |                     |                         | **Top Channels by         |                       |                           |                             |                        |
+|    |                     |                         | Conversions               |                       |                           |                             |                        |
+|    |                     |                         | Volatility:**  | Channel  |                       |                           |                             |                        |
+|    |                     |                         | | CV                      |                       |                           |                             |                        |
+|    |                     |                         | | Average      | StdDev   |                       |                           |                             |                        |
+|    |                     |                         | | |:------                |                       |                           |                             |                        |
+|    |                     |                         | ----------|:------|:----- |                       |                           |                             |                        |
+|    |                     |                         | --------|:-----           |                       |                           |                             |                        |
+|    |                     |                         | --------| | Paid Other    |                       |                           |                             |                        |
+|    |                     |                         | | 1.244 |                 |                       |                           |                             |                        |
+|    |                     |                         | 7,268.64     | 9,040.41   |                       |                           |                             |                        |
+|    |                     |                         | | | Paid                  |                       |                           |                             |                        |
+|    |                     |                         | Social     | 1.219 |      |                       |                           |                             |                        |
+|    |                     |                         | 50,991.31    |            |                       |                           |                             |                        |
+|    |                     |                         | 62,136.20    | | Organic  |                       |                           |                             |                        |
+|    |                     |                         | Social  | 1.160           |                       |                           |                             |                        |
+|    |                     |                         | | 27,793.85    |          |                       |                           |                             |                        |
+|    |                     |                         | 32,236.75    | |          |                       |                           |                             |                        |
+|    |                     |                         | Unassigned      | 1.158 | |                       |                           |                             |                        |
+|    |                     |                         | 17,923.08    |            |                       |                           |                             |                        |
+|    |                     |                         | 20,759.79    | | Referral |                       |                           |                             |                        |
+|    |                     |                         | | 0.850                   |                       |                           |                             |                        |
+|    |                     |                         | | 636.69       | 541.29   |                       |                           |                             |                        |
+|    |                     |                         | |  **Cost                 |                       |                           |                             |                        |
+|    |                     |                         | Volatility:**  *   **Most |                       |                           |                             |                        |
+|    |                     |                         | Volatile                  |                       |                           |                             |                        |
+|    |                     |                         | Channel:** Performance    |                       |                           |                             |                        |
+|    |                     |                         | Max (CV: 1.022) *         |                       |                           |                             |                        |
+|    |                     |                         | **Top Channels by Cost    |                       |                           |                             |                        |
+|    |                     |                         | Volatility:**  |          |                       |                           |                             |                        |
+|    |                     |                         | Channel         | CV    | |                       |                           |                             |                        |
+|    |                     |                         | Average                   |                       |                           |                             |                        |
+|    |                     |                         | | StdDev        |         |                       |                           |                             |                        |
+|    |                     |                         | |:----------------|:--    |                       |                           |                             |                        |
+|    |                     |                         | ----|:--------------|:--- |                       |                           |                             |                        |
+|    |                     |                         | -----------| |            |                       |                           |                             |                        |
+|    |                     |                         | Performance Max | 1.022 | |                       |                           |                             |                        |
+|    |                     |                         | 11,104.87                 |                       |                           |                             |                        |
+|    |                     |                         | | 11,346.14     | |       |                       |                           |                             |                        |
+|    |                     |                         | Demand Gen      |         |                       |                           |                             |                        |
+|    |                     |                         | 0.803 | 80,825.46     |   |                       |                           |                             |                        |
+|    |                     |                         | 64,909.71     |           |                       |                           |                             |                        |
+|    |                     |                         | | Search          | 0.436 |                       |                           |                             |                        |
+|    |                     |                         | | 142,883.00              |                       |                           |                             |                        |
+|    |                     |                         | | 62,232.65     | | Paid  |                       |                           |                             |                        |
+|    |                     |                         | Social     |              |                       |                           |                             |                        |
+|    |                     |                         | 0.431 | 205,459.56    |   |                       |                           |                             |                        |
+|    |                     |                         | 88,534.54     |           |                       |                           |                             |                        |
+|    |                     |                         | **Impressions             |                       |                           |                             |                        |
+|    |                     |                         | Volatility:**  *   **Most |                       |                           |                             |                        |
+|    |                     |                         | Volatile Channel:**       |                       |                           |                             |                        |
+|    |                     |                         | Performance Max (CV:      |                       |                           |                             |                        |
+|    |                     |                         | 1.048) *   **Top Channels |                       |                           |                             |                        |
+|    |                     |                         | by Impressions            |                       |                           |                             |                        |
+|    |                     |                         | Volatility:**  | Channel  |                       |                           |                             |                        |
+|    |                     |                         | | CV                      |                       |                           |                             |                        |
+|    |                     |                         | | Average        | StdDev |                       |                           |                             |                        |
+|    |                     |                         | | |:--                    |                       |                           |                             |                        |
+|    |                     |                         | --------------|:------|:- |                       |                           |                             |                        |
+|    |                     |                         | --------------            |                       |                           |                             |                        |
+|    |                     |                         | |:---------------| |      |                       |                           |                             |                        |
+|    |                     |                         | Performance Max |         |                       |                           |                             |                        |
+|    |                     |                         | 1.048 | 368,826.75     |  |                       |                           |                             |                        |
+|    |                     |                         | 386,409.57                |                       |                           |                             |                        |
+|    |                     |                         | | | Demand Gen      |     |                       |                           |                             |                        |
+|    |                     |                         | 1.001 |                   |                       |                           |                             |                        |
+|    |                     |                         | 6,868,999.38   |          |                       |                           |                             |                        |
+|    |                     |                         | 6,876,744.37   | | Paid   |                       |                           |                             |                        |
+|    |                     |                         | Social     | 0.544 |      |                       |                           |                             |                        |
+|    |                     |                         | 12,871,413.00  |          |                       |                           |                             |                        |
+|    |                     |                         | 7,001,467.14   | | Search |                       |                           |                             |                        |
+|    |                     |                         | |                         |                       |                           |                             |                        |
+|    |                     |                         | 0.393 | 891,697.08     |  |                       |                           |                             |                        |
+|    |                     |                         | 350,291.70                |                       |                           |                             |                        |
+|    |                     |                         | |  **Explanation:** 1.    |                       |                           |                             |                        |
+|    |                     |                         | The                       |                       |                           |                             |                        |
+|    |                     |                         | `call_bigquery_agent` was |                       |                           |                             |                        |
+|    |                     |                         | used to                   |                       |                           |                             |                        |
+|    |                     |                         | retrieve a channel        |                       |                           |                             |                        |
+|    |                     |                         | volatility summary        |                       |                           |                             |                        |
+|    |                     |                         | for NPI across the        |                       |                           |                             |                        |
+|    |                     |                         | requested metrics. 2.     |                       |                           |                             |                        |
+|    |                     |                         | The Coefficient of        |                       |                           |                             |                        |
+|    |                     |                         | Variation (CV) is         |                       |                           |                             |                        |
+|    |                     |                         | used to measure           |                       |                           |                             |                        |
+|    |                     |                         | volatility, calculated    |                       |                           |                             |                        |
+|    |                     |                         | as the standard deviation |                       |                           |                             |                        |
+|    |                     |                         | divided by the            |                       |                           |                             |                        |
+|    |                     |                         | mean. A higher CV         |                       |                           |                             |                        |
+|    |                     |                         | indicates greater         |                       |                           |                             |                        |
+|    |                     |                         | volatility. 3.  The       |                       |                           |                             |                        |
+|    |                     |                         | results are               |                       |                           |                             |                        |
+|    |                     |                         | presented for each metric |                       |                           |                             |                        |
+|    |                     |                         | (Clicks,                  |                       |                           |                             |                        |
+|    |                     |                         | Conversions, Cost, and    |                       |                           |                             |                        |
+|    |                     |                         | Impressions),             |                       |                           |                             |                        |
+|    |                     |                         | highlighting the most     |                       |                           |                             |                        |
+|    |                     |                         | volatile channel          |                       |                           |                             |                        |
+|    |                     |                         | and listing the top       |                       |                           |                             |                        |
+|    |                     |                         | channels by their         |                       |                           |                             |                        |
+|    |                     |                         | CV, average, and standard |                       |                           |                             |                        |
+|    |                     |                         | deviation.                |                       |                           |                             |                        |
++----+---------------------+-------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

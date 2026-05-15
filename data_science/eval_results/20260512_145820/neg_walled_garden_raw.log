@@ -1,0 +1,118 @@
+2026-05-12 15:03:28,757 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 15:03:44,496 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 15:03:45,678 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:03:45,679 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 15:03:45,681 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 15:03:45,681 - INFO - agent.py:325 - 🔒 Session LOCKED to client: Venetian
+2026-05-12 15:03:45,682 - INFO - agent.py:351 - 📍 KM routed 'Show me Venetian top channels by spend last quarte...' → table=performance (confidence=default)
+2026-05-12 15:03:46,153 - INFO - tools.py:313 - Found 0 models for Venetian
+2026-05-12 15:03:46,154 - INFO - agent.py:366 - 📋 Models listed for Venetian: 70 chars
+2026-05-12 15:03:46,453 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:03:50,073 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:03:50,073 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 15:03:50,075 - INFO - agent.py:520 - Tokens: In=7795, Out=22
+2026-05-12 15:03:50,078 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:03:50,079 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 15:03:50,202 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:03:54,310 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:03:54,455 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:03:58,938 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:04:00,792 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:04:03,363 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:04:03,367 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:04:03,367 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:04:03,368 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:04:03,368 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:04:03,476 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:04:06,796 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:04:06,798 - INFO - agent.py:520 - Tokens: In=8103, Out=25
+2026-05-12 15:04:06,800 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:04:06,800 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 15:04:06,927 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:04:10,761 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:04:10,884 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:04:14,524 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:04:16,310 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:04:19,147 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:04:19,151 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:04:19,151 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:04:19,151 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:04:19,152 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:04:19,257 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:04:23,619 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:04:23,621 - INFO - agent.py:520 - Tokens: In=8438, Out=200
+2026-05-12 15:04:23,636 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:04:23,636 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:04:23,636 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:04:23,636 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:04:23,641 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 15:04:23,650 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_neg_walled_garden.evalset.json_1778598263.650277.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.4, 'response_match_score': 0.15} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/neg_walled_garden.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/neg_walled_garden.evalset.json
+Eval Id: neg_walled_garden_cross_client
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: FAILED, Score: 0.0, Threshold: 0.4
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.020202020202020204, Threshold: 0.15
+---------------------------------------------------------------------
+Invocation Details:
++----+----------------------+------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt               | expected_response      | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+======================+========================+===========================+=======================+===========================+=============================+========================+
+|  0 | Show me Venetian top | cannot access Venetian | **Result:** The top       |                       | id='adk-58b1e5a7-e3e9-4bd | Status: FAILED, Score:      | Status: FAILED, Score: |
+|    | channels by spend    | session locked         | channels by spend         |                       | c-                        | 0.0                         | 0.020202020202020204   |
+|    | last quarter         | NPI different client   | for Venetian over the     |                       | ba66-34c21e96128d'        |                             |                        |
+|    |                      |                        | last 90 days are:         |                       | args={'query': 'For       |                             |                        |
+|    |                      |                        | | Channel | Total Spend | |                       | Venetian, show me the top |                             |                        |
+|    |                      |                        | |:--------|------------:| |                       | channels by               |                             |                        |
+|    |                      |                        | | Email   |               |                       | spend for the last        |                             |                        |
+|    |                      |                        | $24,397.87  | | OOH     | |                       | quarter.'}                |                             |                        |
+|    |                      |                        | $0.00       |             |                       | name='call_bigquery_agent |                             |                        |
+|    |                      |                        | | DOOH    | $0.00       | |                       | '                         |                             |                        |
+|    |                      |                        | | Search  |               |                       | partial_args=None         |                             |                        |
+|    |                      |                        | $0.00       | | OTT     | |                       | will_continue=None id=    |                             |                        |
+|    |                      |                        | $0.00       |             |                       | 'adk-e3ae3c7c-4b18-41c9-a |                             |                        |
+|    |                      |                        | | Online Video | $0.00    |                       | 03e-                      |                             |                        |
+|    |                      |                        | | | Social                |                       | 44cb55d46383'             |                             |                        |
+|    |                      |                        | | $0.00       | | Display |                       | args={'query': 'For       |                             |                        |
+|    |                      |                        | | $0.00                   |                       | Venetian, show me the top |                             |                        |
+|    |                      |                        | |  **Explanation:** 1.    |                       | channels by               |                             |                        |
+|    |                      |                        | Initially, no             |                       | spend for the last 90     |                             |                        |
+|    |                      |                        | data was found for the    |                       | days.'}                   |                             |                        |
+|    |                      |                        | last quarter. 2.          |                       | name='call_bigquery_agent |                             |                        |
+|    |                      |                        | I expanded the timeframe  |                       | '                         |                             |                        |
+|    |                      |                        | to the last 90            |                       | partial_args=None         |                             |                        |
+|    |                      |                        | days to retrieve the      |                       | will_continue=None        |                             |                        |
+|    |                      |                        | available spend           |                       |                           |                             |                        |
+|    |                      |                        | data for Venetian. 3. The |                       |                           |                             |                        |
+|    |                      |                        | table above               |                       |                           |                             |                        |
+|    |                      |                        | shows the total spend for |                       |                           |                             |                        |
+|    |                      |                        | each channel              |                       |                           |                             |                        |
+|    |                      |                        | during this period,       |                       |                           |                             |                        |
+|    |                      |                        | ranked from highest       |                       |                           |                             |                        |
+|    |                      |                        | to lowest.                |                       |                           |                             |                        |
++----+----------------------+------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

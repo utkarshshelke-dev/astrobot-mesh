@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_17_duality_blended_cpa",
+    "data": [
+      {
+        "query": "For NPI, what is the blended CPA by channel for last 12 months?",
+        "reference": "blended CPA channel NPI FULL OUTER JOIN Cost Conversions Paid Search Performance Max Demand Gen",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

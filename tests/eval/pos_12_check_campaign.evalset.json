@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_12_check_campaign",
+    "data": [
+      {
+        "query": "For NPI, show campaign performance for Brand Awareness campaigns last quarter",
+        "reference": "NPI campaign Brand Awareness spend cost conversions channel performance",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

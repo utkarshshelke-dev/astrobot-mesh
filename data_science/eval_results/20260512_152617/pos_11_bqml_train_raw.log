@@ -1,0 +1,101 @@
+2026-05-12 15:35:26,153 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 15:35:32,858 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 15:35:32,859 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 15:35:32,859 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 15:35:32,861 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:35:32,862 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 15:35:32,863 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 15:35:32,863 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 15:35:32,863 - INFO - agent.py:392 - 📍 KM routed 'For NPI, train a saturation model using BQML...' → table=performance (confidence=default)
+2026-05-12 15:35:33,289 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 15:35:33,289 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 15:35:33,473 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:35:35,216 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:35:35,216 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 15:35:35,217 - INFO - agent.py:561 - Tokens: In=7706, Out=13
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 15:35:35,324 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:35:37,034 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:35:37,761 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:35:39,257 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:35:40,143 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:35:43,041 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:35:43,045 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:35:43,045 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:35:43,046 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:35:43,046 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:35:43,049 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 15:35:43,052 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_11_bqml_train.evalset.json_1778600143.0521328.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.4, 'response_match_score': 0.15} custom_metrics=None user_simulator_config=None
+Models contained in 'nc-ai-chatbot.astrobot_bqml_models':
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_11_bqml_train.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_11_bqml_train.evalset.json
+Eval Id: pos_11_bqml_train
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: FAILED, Score: 0.0, Threshold: 0.4
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.09302325581395349, Threshold: 0.15
+---------------------------------------------------------------------
+Invocation Details:
++----+------------------------+-----------------------+---------------------------+---------------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                 | expected_response     | actual_response           | expected_tool_calls       | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+========================+=======================+===========================+===========================+===========================+=============================+========================+
+|  0 | For NPI, train a       | BQML saturation model | The current model         | id=None args={}           | id='adk-10647785-c0c7-4a8 | Status: FAILED, Score:      | Status: FAILED, Score: |
+|    | saturation model using | trained NPI Paid      | `npi_conversions_saturati | name='call_bigquery_agent | 8-8cb7-                   | 0.0                         | 0.09302325581395349    |
+|    | BQML                   | Search Paid Social    | on` has issues:           | '                         | e7f45b6041f0'             |                             |                        |
+|    |                        |                       | - R² score: None - This   | partial_args=None         | args={'agent_name':       |                             |                        |
+|    |                        |                       | appears to be a           | will_continue=None        | 'bq_ml_agent'}            |                             |                        |
+|    |                        |                       | broken model, likely      |                           | name='transfer_to_agent'  |                             |                        |
+|    |                        |                       | predicting constant       |                           | partial_args=None         |                             |                        |
+|    |                        |                       | values.  I can retrain    |                           | will_continue=None id=    |                             |                        |
+|    |                        |                       | this model with           |                           | 'adk-27c99f2a-599b-4d15-9 |                             |                        |
+|    |                        |                       | proper parameters for     |                           | f4a-                      |                             |                        |
+|    |                        |                       | saturation                |                           | 19f8b4b15ff8'             |                             |                        |
+|    |                        |                       | analysis: - Target:       |                           | args={'dataset_id': 'nc-  |                             |                        |
+|    |                        |                       | Conversions -             |                           | ai-chatbot.astrobot_bqml_ |                             |                        |
+|    |                        |                       | Features: Channel, Cost   |                           | models'}                  |                             |                        |
+|    |                        |                       | (with log_cost            |                           | name='check_bq_models'    |                             |                        |
+|    |                        |                       | transformation), Clicks   |                           | partial_args=None         |                             |                        |
+|    |                        |                       | (with log_clicks          |                           | will_continue=None        |                             |                        |
+|    |                        |                       | transformation) - Type:   |                           | id='adk-78a40506-         |                             |                        |
+|    |                        |                       | LINEAR_REG -              |                           | 82b8-42ef-a77c-5ced592e0d |                             |                        |
+|    |                        |                       | Training data: NPI multi- |                           | 06'                       |                             |                        |
+|    |                        |                       | year data from            |                           | args={'query': 'SELECT    |                             |                        |
+|    |                        |                       | `nc-ai-chatbot.Astrobot_N |                           | ROUND(mean_absolute_error |                             |                        |
+|    |                        |                       | PI.vw_astrobot_           |                           | ,4) AS MAE,               |                             |                        |
+|    |                        |                       | npi_nc360_dashboard`      |                           | ROUND(mean_squared_error, |                             |                        |
+|    |                        |                       | where Cost > 0.           |                           | 4) AS MSE,                |                             |                        |
+|    |                        |                       | Should I retrain it now?  |                           | ROUND(r2_score,4) AS R2   |                             |                        |
+|    |                        |                       | (~30 seconds)             |                           | FROM                      |                             |                        |
+|    |                        |                       |                           |                           | ML.EVALUATE(MODEL `nc-ai- |                             |                        |
+|    |                        |                       |                           |                           | chatbot.astrobo           |                             |                        |
+|    |                        |                       |                           |                           | t_bqml_models.npi_convers |                             |                        |
+|    |                        |                       |                           |                           | ions_saturation           |                             |                        |
+|    |                        |                       |                           |                           | `)', 'project_id': 'nc-   |                             |                        |
+|    |                        |                       |                           |                           | ai-chatbot'}              |                             |                        |
+|    |                        |                       |                           |                           | name='execute_sql'        |                             |                        |
+|    |                        |                       |                           |                           | partial_args=None         |                             |                        |
+|    |                        |                       |                           |                           | will_continue=None        |                             |                        |
++----+------------------------+-----------------------+---------------------------+---------------------------+---------------------------+-----------------------------+------------------------+
+
+
+

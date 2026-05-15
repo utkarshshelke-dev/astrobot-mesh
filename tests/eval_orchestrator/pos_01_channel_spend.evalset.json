@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_01_channel_spend",
+    "data": [
+      {
+        "query": "For NPI, show top 5 channels by spend last quarter",
+        "reference": "NPI top channels spend CTV Paid Social Search cost quarter",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

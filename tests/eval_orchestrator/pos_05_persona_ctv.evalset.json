@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_05_persona_ctv",
+    "data": [
+      {
+        "query": "For NPI, which persona responds best to our CTV spend?",
+        "reference": "NPI persona CTV HNW Luxury Seeker DINK Legacy Family awareness targeting",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

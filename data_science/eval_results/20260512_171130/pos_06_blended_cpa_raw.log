@@ -1,0 +1,91 @@
+2026-05-12 17:17:55,508 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 17:18:02,342 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 17:18:02,342 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 17:18:02,343 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 17:18:02,345 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 17:18:02,346 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 17:18:02,346 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 17:18:02,347 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 17:18:02,347 - INFO - agent.py:392 - 📍 KM routed 'For NPI, what is the blended CPA across all channe...' → table=performance (confidence=low)
+2026-05-12 17:18:02,841 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 17:18:02,841 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 17:18:03,024 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 17:18:05,073 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 17:18:05,073 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 17:18:05,075 - INFO - agent.py:561 - Tokens: In=7711, Out=39
+2026-05-12 17:18:05,077 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 17:18:05,077 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 17:18:05,186 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 17:18:08,174 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 17:18:08,286 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 17:18:11,653 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 17:18:15,627 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 17:18:17,394 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 17:18:17,396 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 17:18:17,396 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 17:18:17,396 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 17:18:17,396 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 17:18:17,496 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 17:18:19,598 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 17:18:19,599 - INFO - agent.py:561 - Tokens: In=7917, Out=104
+2026-05-12 17:18:19,601 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 17:18:19,601 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 17:18:19,602 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 17:18:19,602 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 17:18:19,605 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 17:18:19,608 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_06_blended_cpa.evalset.json_1778606299.6079385.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_06_blended_cpa.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval/pos_06_blended_cpa.evalset.json
+Eval Id: pos_06_blended_cpa
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.2, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+----------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt               | expected_response        | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+======================+==========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, what is the | blended CPA NPI cost per | **Result:**  | Metric     |                       | id='adk-731e1565-63bf-4cf | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | blended CPA across   | acquisition              | | Value                   |                       | b-8ec0-                   | 0.0                         | 0.2                    |
+|    | all channels last 12 | conversions              | | |:------------------|-- |                       | 39bb8d0d62d8'             |                             |                        |
+|    | months               |                          | ------------:|            |                       | args={'query': 'For NPI,  |                             |                        |
+|    |                      |                          | | Blended CPA       |     |                       | calculate the blended CPA |                             |                        |
+|    |                      |                          | $3.87 | |                 |                       | across all                |                             |                        |
+|    |                      |                          | Total Cost        |       |                       | channels for the last 12  |                             |                        |
+|    |                      |                          | $8,084,875.19 | |         |                       | months. I need            |                             |                        |
+|    |                      |                          | Total Conversions |       |                       | the total cost and total  |                             |                        |
+|    |                      |                          | 2,089,827   |             |                       | conversions to            |                             |                        |
+|    |                      |                          | **Explanation:** The      |                       | calculate the CPA.'}      |                             |                        |
+|    |                      |                          | blended CPA for NPI       |                       | name='call_bigquery_agent |                             |                        |
+|    |                      |                          | across all channels for   |                       | '                         |                             |                        |
+|    |                      |                          | the last 12               |                       | partial_args=None         |                             |                        |
+|    |                      |                          | months was calculated by  |                       | will_continue=None        |                             |                        |
+|    |                      |                          | dividing the              |                       |                           |                             |                        |
+|    |                      |                          | total cost by the total   |                       |                           |                             |                        |
+|    |                      |                          | conversions.              |                       |                           |                             |                        |
++----+----------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

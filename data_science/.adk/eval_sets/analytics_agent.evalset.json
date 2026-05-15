@@ -1,0 +1,1217 @@
+{
+  "eval_set_id": "analytics_agent_eval_v1",
+  "name": "Analytics Sub-Agent (data_science/sub_agents/analytics) Eval",
+  "description": "Tests spend, revenue, ROAS, CPA, creative, geo, device, date resolution, anomaly detection, and reporting inside the analytics sub-agent.",
+  "eval_cases": [
+    {
+      "eval_id": "analytics_001_date_last_year_disambiguate",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_001",
+          "user_content": {
+            "parts": [
+              {
+                "text": "last year"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "By 'last year' I can use:\n\u2022 L12M \u2014 trailing 12 months from today\n\u2022 CY2024 \u2014 Jan 1 to Dec 31 2024\n\u2022 FY2024 \u2014 your fiscal year 2024\n\u2022 BY2024 \u2014 your business year 2024\nWhich do you prefer?"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_001_a",
+                "name": "disambiguate_date_period",
+                "args": {
+                  "raw_input": "last year",
+                  "candidate_flags": [
+                    "L12M",
+                    "CY2024",
+                    "FY2024",
+                    "BY2024"
+                  ]
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_002_total_spend",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_002",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What was total ad spend for L12M?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Total ad spend (L12M): $X. Channel breakdown: Paid Search $X (X%), Paid Social $X (X%), Programmatic $X (X%)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_002_a",
+                "name": "get_total_spend",
+                "args": {
+                  "date_flag": "L12M",
+                  "breakdown": "channel"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_003_revenue_by_month",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_003",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show revenue by month for CY2024."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Revenue by month (CY2024):\nJan $X | Feb $X | Mar $X | Apr $X | May $X | Jun $X | Jul $X | Aug $X | Sep $X | Oct $X | Nov $X | Dec $X\nTotal: $X. Best month: [Month] at $X."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_003_a",
+                "name": "get_revenue",
+                "args": {
+                  "date_flag": "CY2024",
+                  "breakdown": "month"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_004_roas_by_channel",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_004",
+          "user_content": {
+            "parts": [
+              {
+                "text": "ROAS by channel for L30D"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "ROAS by channel (L30D): Paid Search X.Xx | Paid Social X.Xx | Programmatic X.Xx | Blended X.Xx."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_004_a",
+                "name": "get_roas",
+                "args": {
+                  "date_flag": "L30D",
+                  "breakdown": "channel"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_005_cpa_vs_target",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_005",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Is our CPA above or below target this month?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "CPA vs target (MTD): Blended $X vs target $X \u2014 [X% above / on target / below]. Paid Social is the main driver of the gap at $X CPA vs $X target."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_005_a",
+                "name": "get_cpa",
+                "args": {
+                  "date_flag": "MTD",
+                  "breakdown": "channel",
+                  "compare_to_target": true
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_006_brand_vs_nonbrand",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_006",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What is our brand vs non-brand spend split in paid search?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Paid Search (L30D): Brand X% ($X) | Non-Brand X% ($X). Brand ROAS: X.Xx | Non-Brand ROAS: X.Xx."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_006_a",
+                "name": "get_spend_by_dimension",
+                "args": {
+                  "channel": "paid_search",
+                  "dimension": "brand_flag",
+                  "date_flag": "L30D"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_007_top_creatives_ctr",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_007",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Top 5 creatives by CTR last week"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Top 5 creatives by CTR (L7D):\n1. [Creative A] \u2014 X%\n2. [Creative B] \u2014 X%\n3. [Creative C] \u2014 X%\n4. [Creative D] \u2014 X%\n5. [Creative E] \u2014 X%"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_007_a",
+                "name": "get_creatives_ranked",
+                "args": {
+                  "metric": "CTR",
+                  "date_flag": "L7D",
+                  "sort": "desc",
+                  "limit": 5
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_008_creative_fatigue",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_008",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Are any creatives fatigued?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Creative fatigue scan (L14D): [Creative A] \u2014 CTR down -X% WoW, frequency X.X \u2014 flagged. [Creative B] \u2014 stable. Recommend rotating [Creative A]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_008_a",
+                "name": "get_creative_fatigue_signals",
+                "args": {
+                  "date_flag": "L14D",
+                  "ctr_decline_threshold_pct": 20,
+                  "min_frequency": 3.0
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_009_top_geos_roas",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_009",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Top geos by ROAS last month"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Top 10 geos by ROAS (L1M): [ranked table with geo, ROAS, spend, CPA]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_009_a",
+                "name": "get_performance_by_geo",
+                "args": {
+                  "metric": "ROAS",
+                  "date_flag": "L1M",
+                  "sort": "desc",
+                  "limit": 10
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_010_device_mix",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_010",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Device mix this month"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Device mix (MTD): Mobile X% | Desktop X% | Tablet X%. Mobile ROAS X.Xx | Desktop ROAS X.Xx."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_010_a",
+                "name": "get_spend_by_dimension",
+                "args": {
+                  "dimension": "device",
+                  "date_flag": "MTD",
+                  "include_roas": true
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_011_spend_pacing",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_011",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Are we on pace to hit our monthly budget?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Budget pacing (MTD): $X spent of $X budget \u2014 X% through. Daily run rate implies end-of-month spend of $X \u2014 [on track / overpacing / underpacing by X%]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_011_a",
+                "name": "get_budget_pacing",
+                "args": {
+                  "date_flag": "MTD",
+                  "compare_to": "monthly_budget"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_012_roas_wow_anomaly",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_012",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Did ROAS change significantly week over week?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "WoW ROAS: last week X.Xx vs prior week X.Xx \u2014 [+/-]X%. [Channel] had the largest swing. Possible causes: [fatigue / seasonality / tracking issue]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_012_a",
+                "name": "get_roas_wow",
+                "args": {
+                  "reference_period": "L7D",
+                  "compare_to": "prior_7d",
+                  "anomaly_threshold_pct": 15
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_013_stoplight",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_013",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Weekly stoplight report"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Weekly Stoplight (L7D):\n\ud83d\udfe2 Spend pacing\n\ud83d\udfe1 ROAS\n\ud83d\udd34 CPA\n\ud83d\udfe2 Creative health\n\ud83d\udfe1 Data freshness\nTop actions: [list]"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_013_a",
+                "name": "generate_stoplight_report",
+                "args": {
+                  "date_flag": "L7D",
+                  "sections": [
+                    "spend_pacing",
+                    "roas",
+                    "cpa",
+                    "creative_health",
+                    "data_freshness"
+                  ]
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_014_marginal_roas",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_014",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Are we hitting diminishing returns on Paid Social?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Marginal ROAS for Paid Social (L90D): at current spend levels marginal ROAS is X.Xx \u2014 below breakeven of 1.0x. Recommend evaluating spend reallocation above $X/day."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_014_a",
+                "name": "get_marginal_roas",
+                "args": {
+                  "channel": "paid_social",
+                  "date_flag": "L90D",
+                  "breakeven_roas": 1.0
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_015_concentration_risk",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_015",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Are we over-concentrated in any channel?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Concentration check (L30D): [Channel] is X% of total spend \u2014 above the 40% risk threshold. Consider diversification."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_analytics_015_a",
+                "name": "get_spend_concentration",
+                "args": {
+                  "date_flag": "L30D",
+                  "threshold_pct": 40
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_016_lead_driver_correlation",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_016",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Which specific channel has the highest statistical correlation with total Transactions?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Correlation analysis (Pearson r, L12M): [Channel] shows the strongest correlation with total Transactions at r=X.XX (p<0.05). Ranked: 1. [Channel A] r=X.XX | 2. [Channel B] r=X.XX | 3. [Channel C] r=X.XX. Note: correlation \u2260 causation \u2014 recommend holdout test to confirm incrementality."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a016_a",
+                "name": "compute_channel_transaction_correlation",
+                "args": {
+                  "method": "pearson",
+                  "target": "transactions",
+                  "date_flag": "L12M",
+                  "rank": true
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_017_cpa_by_channel_monthly",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_017",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Which channel has the lowest Cost Per Acquisition (CPA) on a monthly basis?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Monthly CPA by channel (L12M avg): [Channel A] $X.XX \u2014 lowest consistent CPA. Full ranking: [table with channel, avg CPA, min CPA month, max CPA month, stddev]. Note: channels with very low volume may have artificially low CPA \u2014 minimum threshold of X transactions/month applied."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a017_a",
+                "name": "get_cpa_by_channel_monthly",
+                "args": {
+                  "date_flag": "L12M",
+                  "breakdown": "month",
+                  "min_transaction_threshold": 10,
+                  "sort": "avg_cpa_asc"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_018_saturation_point",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_018",
+          "user_content": {
+            "parts": [
+              {
+                "text": "At what spend level does Social or Search stop producing incremental Transactions \u2014 the saturation point?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Saturation analysis (L12M):\nPaid Search: marginal transaction rate flattens at ~$X/day spend. Saturation point: $X/month (above this, each additional $1 produces <X transactions).\nPaid Social: saturation point at $X/month.\nMethod: diminishing returns curve fit using log-log regression. Recommend BQML model for tighter confidence intervals."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a018_a",
+                "name": "compute_saturation_point",
+                "args": {
+                  "channels": [
+                    "paid_search",
+                    "paid_social"
+                  ],
+                  "target": "transactions",
+                  "date_flag": "L12M",
+                  "method": "log_log_regression"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_019_efficiency_ranking_bottom3",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_019",
+          "user_content": {
+            "parts": [
+              {
+                "text": "If we ranked channels by Transactions per Dollar Spent, which three channels consistently sit at the bottom?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Transactions per Dollar Spent ranking (L12M, consistent = bottom quartile in \u22659 of 12 months):\nBottom 3: 1. [Channel X] \u2014 $X.XX per transaction | 2. [Channel Y] \u2014 $X.XX | 3. [Channel Z] \u2014 $X.XX.\nThese channels were in the bottom quartile in [N]/12 months respectively. Recommend reviewing their role \u2014 they may serve awareness rather than direct response."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a019_a",
+                "name": "rank_channels_by_efficiency",
+                "args": {
+                  "metric": "transactions_per_dollar",
+                  "date_flag": "L12M",
+                  "consistency_window": "monthly",
+                  "bottom_n": 3
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_020_budget_reallocation_100k",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_020",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Based on historical performance, how should the next $100k be distributed across channels to maximize total Transactions?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Optimal $100k allocation to maximize Transactions (based on L12M marginal ROAS curves):\n[Channel A]: $X,XXX (X%) \u2014 highest marginal efficiency below saturation\n[Channel B]: $X,XXX (X%)\n[Channel C]: $X,XXX (X%)\n[Remaining channels]: $X,XXX (X%)\nPredicted incremental transactions: +X. Current allocation would yield +X \u2014 delta: +X transactions. Confidence: medium (recommend holdout validation)."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a020_a",
+                "name": "optimize_budget_allocation",
+                "args": {
+                  "total_budget": 100000,
+                  "objective": "maximize_transactions",
+                  "date_flag": "L12M",
+                  "method": "marginal_efficiency_curves",
+                  "respect_saturation_points": true
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_021_tv_halo_effect",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_021",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Does an increase in Linear TV or Connected TV spend result in a measurable lift in Direct or Search transactions in the same or following month?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "TV Halo analysis (L12M, same-month and +1 month lag):\nLinear TV \u2192 Direct transactions: r=X.XX same month, r=X.XX at 30-day lag \u2014 [significant/not significant at p<0.05]\nCTV \u2192 Search transactions: r=X.XX same month, r=X.XX at 30-day lag \u2014 [significant/not significant]\nStrongest signal: [best pairing]. Caveat: this is observational \u2014 confounders (seasonality, budget cycles) not fully controlled."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a021_a",
+                "name": "compute_lagged_correlation",
+                "args": {
+                  "source_channels": [
+                    "linear_tv",
+                    "ctv"
+                  ],
+                  "target_channels": [
+                    "direct",
+                    "paid_search"
+                  ],
+                  "lags_months": [
+                    0,
+                    1
+                  ],
+                  "date_flag": "L12M",
+                  "method": "pearson"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_022_online_video_social_synergy",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_022",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Do Transactions increase more when Online Video and Social are active simultaneously compared to when they run in isolation?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Cross-channel synergy analysis (L12M):\nMonths both Online Video + Social active: avg X transactions\nMonths only Online Video active: avg X transactions\nMonths only Social active: avg X transactions\nSynergy lift: +X% vs best single-channel baseline \u2014 [statistically significant / not significant]. This [supports / does not support] a multiplicative interaction effect between the two channels."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a022_a",
+                "name": "compute_channel_synergy",
+                "args": {
+                  "channel_pair": [
+                    "online_video",
+                    "social"
+                  ],
+                  "target": "transactions",
+                  "date_flag": "L12M",
+                  "active_threshold_spend": 1000
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_023_pmax_cannibalization",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_023",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Does the introduction or increase of Performance Max spend lead to a statistically significant decrease in Search or Shopping transactions?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "P-Max cannibalization test (interrupted time series, L12M):\nSearch transactions before vs after P-Max spend increase: [+/-]X% change (p=X.XX \u2014 [significant/not significant])\nShopping transactions: [+/-]X% change (p=X.XX)\nBlended transactions (Search + Shopping + P-Max): [+/-]X% \u2014 net [additive / cannibalistic].\nConclusion: P-Max [is / is not] cannibalizing Search/Shopping at current spend levels."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a023_a",
+                "name": "test_cannibalization",
+                "args": {
+                  "treatment_channel": "pmax",
+                  "affected_channels": [
+                    "paid_search",
+                    "shopping"
+                  ],
+                  "target": "transactions",
+                  "method": "interrupted_time_series",
+                  "date_flag": "L12M"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_024_upper_funnel_lagged_correlation",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_024",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Which upper-funnel channels (Audio, Video, TV) show the strongest correlation with a spike in lower-funnel channels (Search, Email) 30 days later?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Upper-to-lower funnel correlation at 30-day lag (L12M):\n1. [Channel A] \u2192 Search: r=X.XX (strongest)\n2. [Channel B] \u2192 Email: r=X.XX\n3. [Channel C] \u2192 Search: r=X.XX\nAll correlations tested at p<0.05. [Channel A] shows the most consistent lead indicator pattern \u2014 a 10% increase in [Channel A] spend correlates with +X% Search transactions 30 days later."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a024_a",
+                "name": "compute_lagged_correlation",
+                "args": {
+                  "source_channels": [
+                    "audio",
+                    "online_video",
+                    "linear_tv",
+                    "ctv"
+                  ],
+                  "target_channels": [
+                    "paid_search",
+                    "email"
+                  ],
+                  "lags_months": [
+                    1
+                  ],
+                  "date_flag": "L12M",
+                  "rank": true
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_025_peak_organic_efficiency",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_025",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Which month of the year shows the highest Organic Efficiency \u2014 highest Transactions with the lowest paid channel spend?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Organic Efficiency index (Transactions / Total Paid Spend, L24M avg by month):\nHighest: [Month] \u2014 X transactions at $X paid spend (efficiency index X.XX)\nFull ranking: [month table sorted by efficiency desc]\nThis month likely reflects strong brand pull or seasonal organic demand \u2014 consider reducing paid investment and testing organic-only performance."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a025_a",
+                "name": "compute_organic_efficiency_by_month",
+                "args": {
+                  "date_flag": "L24M",
+                  "metric": "transactions_per_paid_dollar",
+                  "group_by": "calendar_month"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_026_holiday_channel_mix_shift",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_026",
+          "user_content": {
+            "parts": [
+              {
+                "text": "How does the channel mix shift during peak months (Nov/Dec) compared to trough months, and is that shift actually profitable?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Channel mix shift \u2014 Peak (Nov/Dec) vs Trough (defined as bottom 2 months by transactions, L12M):\nPeak mix: [channel share table] | Trough mix: [channel share table]\nLargest shifts: [Channel A] +X pp | [Channel B] -X pp\nProfitability of shift: Peak blended ROAS X.Xx vs Trough X.Xx \u2014 [peak is more / less / equally] profitable. CPA: Peak $X vs Trough $X. The holiday mix shift [is / is not] justified by the efficiency data."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a026_a",
+                "name": "compare_channel_mix_periods",
+                "args": {
+                  "peak_months": [
+                    11,
+                    12
+                  ],
+                  "trough_method": "bottom_2_by_transactions",
+                  "date_flag": "L12M",
+                  "include_roas": true,
+                  "include_cpa": true
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_027_channel_volatility",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_027",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Which channel's performance is the most volatile month-over-month?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "MoM volatility ranking by coefficient of variation (CV = stddev/mean, L12M transactions per dollar):\n1. [Channel A] \u2014 CV X.XX (most volatile)\n2. [Channel B] \u2014 CV X.XX\n3. [Channel C] \u2014 CV X.XX\nLeast volatile: [Channel Z] CV X.XX \u2014 most predictable. High volatility in [Channel A] makes it harder to budget reliably \u2014 consider smoothing spend or shifting to lower-CV channels for core budget."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a027_a",
+                "name": "compute_channel_volatility",
+                "args": {
+                  "metric": "transactions_per_dollar",
+                  "date_flag": "L12M",
+                  "method": "coefficient_of_variation",
+                  "sort": "desc"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_028_awareness_vs_dr_ratio",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_028",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What is the current spend ratio between Awareness channels (TV, Audio, Video) vs Direct Response channels (Search, Shopping, Email)?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Awareness vs Direct Response spend ratio (L30D):\nAwareness (TV + Audio + Video): $X (X% of total)\nDirect Response (Search + Shopping + Email): $X (X% of total)\nRatio: X.X:1 DR-to-Awareness.\nIndustry benchmark (your category): typically X:1. You are [over/under]-investing in awareness relative to benchmark."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a028_a",
+                "name": "get_spend_by_funnel_stage",
+                "args": {
+                  "date_flag": "L30D",
+                  "awareness_channels": [
+                    "linear_tv",
+                    "ctv",
+                    "audio",
+                    "online_video"
+                  ],
+                  "dr_channels": [
+                    "paid_search",
+                    "shopping",
+                    "email"
+                  ]
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_029_brand_independence_direct",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_029",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Is the percentage of Direct transactions growing or shrinking relative to paid channel transactions? This measures brand equity."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Direct transaction share trend (L12M, monthly):\n[month table: Direct %, Paid %, total transactions]\nTrend: Direct share is [growing/shrinking] \u2014 from X% (12 months ago) to X% (current month). MoM slope: [+/-]X pp/month.\nInterpretation: [growing direct share = strengthening brand equity / shrinking = increasing paid dependency]. Correlation with brand spend: r=X.XX."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a029_a",
+                "name": "compute_direct_share_trend",
+                "args": {
+                  "date_flag": "L12M",
+                  "breakdown": "month",
+                  "channels_paid": "all_except_direct"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "analytics_030_demand_gen_search_lift",
+      "conversation": [
+        {
+          "invocation_id": "inv_analytics_030",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Does Demand Gen spend actually generate new Search volume, or is it just capturing existing demand?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Demand Gen \u2192 Search lift analysis (L12M, 0 and 30-day lag):\nCorrelation of Demand Gen spend with Search transactions (same month): r=X.XX\nWith 30-day lag: r=X.XX\nIf lag correlation > same-month correlation, this suggests Demand Gen is creating new demand that converts later via Search.\nConclusion: Demand Gen [appears to be / does not appear to be] generating incremental Search demand. Recommend geo-split holdout test to confirm."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_a030_a",
+                "name": "compute_lagged_correlation",
+                "args": {
+                  "source_channels": [
+                    "demand_gen"
+                  ],
+                  "target_channels": [
+                    "paid_search"
+                  ],
+                  "lags_months": [
+                    0,
+                    1
+                  ],
+                  "date_flag": "L12M"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    }
+  ]
+}

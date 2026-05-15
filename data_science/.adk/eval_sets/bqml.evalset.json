@@ -1,0 +1,583 @@
+{
+  "eval_set_id": "bqml_agent_eval_v1",
+  "name": "BQML Sub-Agent (data_science/sub_agents/bqml) Eval",
+  "description": "Tests BigQuery ML capabilities: ARIMA_PLUS spend/revenue forecasting, linear regression for ROAS prediction, anomaly detection models, and model metadata/status queries.",
+  "eval_cases": [
+    {
+      "eval_id": "bqml_001_spend_forecast",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_001",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Forecast our total spend for the next 30 days."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "ARIMA_PLUS spend forecast (next 30 days): Projected spend $X with 80% confidence interval [$X, $X]. Trend: [upward/flat/downward] vs L30D actuals."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml_001_a",
+                "name": "run_bqml_forecast",
+                "args": {
+                  "model": "ARIMA_PLUS",
+                  "target_metric": "spend",
+                  "horizon_days": 30,
+                  "training_window": "L90D"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_002_revenue_forecast",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_002",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What will our revenue look like next quarter?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "ARIMA_PLUS revenue forecast (next 90 days / Q): Projected revenue $X, confidence interval [$X, $X]. Monthly breakdown: Month 1 $X | Month 2 $X | Month 3 $X."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml_002_a",
+                "name": "run_bqml_forecast",
+                "args": {
+                  "model": "ARIMA_PLUS",
+                  "target_metric": "revenue",
+                  "horizon_days": 90,
+                  "training_window": "L12M",
+                  "breakdown": "month"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_003_roas_regression",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_003",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Can you predict ROAS based on spend level for Paid Search?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Linear regression (BQML) \u2014 Paid Social ROAS vs spend (L90D):\nAt $X/day spend \u2192 predicted ROAS X.Xx\nAt $X/day spend \u2192 predicted ROAS X.Xx\nModel R\u00b2: X.XX. Diminishing returns inflection at ~$X/day."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml_003_a",
+                "name": "run_bqml_regression",
+                "args": {
+                  "model": "LINEAR_REG",
+                  "target": "ROAS",
+                  "feature": "spend",
+                  "channel": "paid_search",
+                  "training_window": "L90D"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_004_anomaly_detection",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_004",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Use the ML model to flag any spend anomalies in the last 30 days."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "BQML anomaly detection (L30D spend): [N] anomalies flagged:\n\u2022 [Date] \u2014 spend $X vs expected $X (z-score: X.X)\n\u2022 [Date] \u2014 spend $X vs expected $X (z-score: X.X)\nAll other days within expected range."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml_004_a",
+                "name": "run_bqml_anomaly_detection",
+                "args": {
+                  "model": "ARIMA_PLUS",
+                  "target_metric": "spend",
+                  "date_flag": "L30D",
+                  "z_score_threshold": 2.5
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_005_model_status",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_005",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What BQML models do we have and when were they last trained?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "BQML model registry:\n\u2022 spend_forecast_arima \u2014 last trained [date], training data L90D, MAE $X\n\u2022 revenue_forecast_arima \u2014 last trained [date], training data L12M, MAE $X\n\u2022 roas_regression_paid_search \u2014 last trained [date], R\u00b2 X.XX"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml_005_a",
+                "name": "list_bqml_models",
+                "args": {
+                  "include_metrics": true,
+                  "include_training_date": true
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_006_forecast_by_channel",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_006",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Forecast spend by channel for next month."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Per-channel spend forecast (next 30 days):\nPaid Search: $X [$X, $X]\nPaid Social: $X [$X, $X]\nProgrammatic: $X [$X, $X]\nTotal: $X"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml_006_a",
+                "name": "run_bqml_forecast",
+                "args": {
+                  "model": "ARIMA_PLUS",
+                  "target_metric": "spend",
+                  "horizon_days": 30,
+                  "breakdown": "channel",
+                  "training_window": "L90D"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_007_cpa_regression",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_007",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Predict CPA given our planned spend increase of 20% next month."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "CPA prediction at +20% spend (BQML regression): Current spend $X/day \u2192 CPA $X. At 120% ($X/day) \u2192 predicted CPA $X. [Increase/decrease] of X% vs current. Assumes no creative or audience changes."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml_007_a",
+                "name": "run_bqml_regression",
+                "args": {
+                  "model": "LINEAR_REG",
+                  "target": "CPA",
+                  "feature": "spend",
+                  "spend_multiplier": 1.2,
+                  "training_window": "L90D"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_008_next_quarter_transaction_forecast",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_008",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Based on the last 12 months of data, what is the predicted transaction volume for the next quarter?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Transaction forecast \u2014 next quarter (ARIMA_PLUS, trained on L12M):\nQ total: X transactions (80% CI: [X, X])\nMonth 1: X | Month 2: X | Month 3: X\nExpected trend: [upward/flat/downward] vs same quarter last year (+/-X% YoY). Key risk: forecast assumes no major campaign changes or seasonality shifts."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml008_a",
+                "name": "run_bqml_forecast",
+                "args": {
+                  "model": "ARIMA_PLUS",
+                  "target_metric": "transactions",
+                  "horizon_days": 90,
+                  "training_window": "L12M",
+                  "breakdown": "month",
+                  "confidence_interval": 0.8
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_009_mmm_channel_weight",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_009",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Can we assign a Weight of Influence score to each channel that accounts for the fact that Linear TV is not clickable?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Media Mix Model (MMM) \u2014 Weight of Influence by channel (L12M, Bayesian Ridge with ad-stock transformation):\n[Channel table: channel, raw coefficient, ad-stock adjusted weight, % of total influence]\nLinear TV influence estimated via exposure proxy (GRPs) rather than clicks. Top influencers: [1. Channel A X% | 2. Channel B X% | 3. Channel C X%]. Note: non-clickable channels (TV, Audio) are modeled using lagged spend as proxy for exposure. Model R\u00b2: X.XX."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml009_a",
+                "name": "run_bqml_mmm",
+                "args": {
+                  "model": "BAYESIAN_RIDGE",
+                  "target": "transactions",
+                  "channels": "all",
+                  "non_clickable_channels": [
+                    "linear_tv",
+                    "audio"
+                  ],
+                  "ad_stock_transform": true,
+                  "date_flag": "L12M"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_010_video_adstock_decay",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_010",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What is the ad-stock or decay rate for Video ads? How many weeks does a Video impression continue to influence a transaction after the ad stops running?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Video ad-stock decay analysis (L12M, geometric decay model):\nEstimated decay rate (\u03bb): X.XX\nHalf-life: ~X weeks (impression influence drops to 50% after X weeks)\nFull decay (below 5% influence): ~X weeks\nPractical implication: pausing Video spend does not immediately zero out its contribution \u2014 expect X weeks of residual transaction lift. Recommend maintaining some Video continuity rather than on/off flighting."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml010_a",
+                "name": "run_bqml_adstock_decay",
+                "args": {
+                  "channel": "online_video",
+                  "target": "transactions",
+                  "decay_model": "geometric",
+                  "date_flag": "L12M",
+                  "max_lag_weeks": 12
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_011_black_swan_outlier_detection",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_011",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Were there any black swan events \u2014 months where Transactions moved independently of all channel spend? What caused them?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Outlier detection (BQML anomaly model, L24M):\n[N] black swan months detected where transaction volume was >[X] standard deviations from model prediction given spend levels:\n\u2022 [Month A]: +X% above predicted \u2014 likely cause: [viral event / PR spike / competitor outage]\n\u2022 [Month B]: -X% below predicted \u2014 likely cause: [site outage / payment issue / macro event]\nResidual not explained by any channel spend. These months are flagged and excluded from saturation/MMM models by default."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml011_a",
+                "name": "run_bqml_anomaly_detection",
+                "args": {
+                  "model": "ARIMA_PLUS",
+                  "target_metric": "transactions",
+                  "control_for": "all_channel_spend",
+                  "date_flag": "L24M",
+                  "z_score_threshold": 2.5,
+                  "return_residuals": true
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_012_cluster_analysis_performance_months",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_012",
+          "user_content": {
+            "parts": [
+              {
+                "text": "If we group months into High, Medium, and Low performance, what specific channel mix defines a High performance month?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "K-means cluster analysis (k=3, L24M, features: all channel spend shares + transactions):\nHigh performance cluster (X months):\n\u2022 Avg transactions: X | Avg total spend: $X\n\u2022 Defining channel mix: [Channel A] X% | [Channel B] X% | [Channel C] X%\n\u2022 Notably higher than average: [Channel A +X pp], [Channel B +X pp]\nMedium cluster (X months): [...]\nLow cluster (X months): [...]\nHigh-performance months are characterized by [description of distinguishing mix pattern]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml012_a",
+                "name": "run_bqml_clustering",
+                "args": {
+                  "model": "KMEANS",
+                  "k": 3,
+                  "features": "channel_spend_shares_plus_transactions",
+                  "date_flag": "L24M",
+                  "label_by": "transaction_volume"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_013_display_elasticity",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_013",
+          "user_content": {
+            "parts": [
+              {
+                "text": "If we cut the Display budget by 50% tomorrow, what is the predicted percentage drop in total Transactions?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Display elasticity simulation (L12M regression model):\nCurrent Display spend: $X/month \u2192 baseline transactions: X\nSimulated at 50% Display spend ($X/month): predicted transactions: X\nPredicted drop: -X% (X transactions)\nElasticity coefficient: X.XX (X% spend change \u2192 X% transaction change)\nNote: this assumes other channels hold constant and no ad-stock tail from prior Display spend (conservative estimate). Full decay considered: -X% adjusted."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml013_a",
+                "name": "run_bqml_elasticity_simulation",
+                "args": {
+                  "channel": "display",
+                  "spend_change_pct": -50,
+                  "target": "transactions",
+                  "hold_other_channels_constant": true,
+                  "include_adstock_tail": true,
+                  "date_flag": "L12M"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bqml_014_ott_audience_uniqueness",
+      "conversation": [
+        {
+          "invocation_id": "inv_bqml_014",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Is OTT providing a unique audience, or is it perfectly correlated with Social, suggesting we are reaching the same people twice?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "OTT vs Social audience overlap analysis (L12M):\nCorrelation of OTT spend with Social transactions: r=X.XX\nCorrelation of OTT spend with OTT-attributed transactions: r=X.XX\nIf OTT and Social are highly correlated (r>0.8) with no incremental transaction lift when both are active, they likely reach the same audience.\nConclusion: OTT and Social correlation = X.XX \u2014 [high overlap / distinct audiences]. Synergy test (both active vs single): [+/-]X% incremental lift. OTT [is / is not] reaching a meaningfully unique audience."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bqml014_a",
+                "name": "compute_channel_correlation_matrix",
+                "args": {
+                  "channels": [
+                    "ott",
+                    "social"
+                  ],
+                  "metric": "spend",
+                  "date_flag": "L12M"
+                }
+              },
+              {
+                "id": "tu_bqml014_b",
+                "name": "compute_channel_synergy",
+                "args": {
+                  "channel_pair": [
+                    "ott",
+                    "social"
+                  ],
+                  "target": "transactions",
+                  "date_flag": "L12M",
+                  "active_threshold_spend": 1000
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    }
+  ]
+}

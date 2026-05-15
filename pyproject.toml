@@ -1,0 +1,32 @@
+[project]
+name            = "astrobot-mesh"
+version         = "1.0.0"
+description     = "Astro.bot Multi-Agent Mesh — NetConversion"
+requires-python = ">=3.12"
+
+dependencies = [
+    "google-cloud-aiplatform[agent_engines,adk]>=1.87.0",
+    "google-adk>=1.0.0",
+    "google-cloud-bigquery>=3.11.0",
+    "google-cloud-firestore>=2.13.0",
+    "vertexai>=1.40.0",
+    "httpx>=0.27.0",
+    "flask>=3.0.0",
+    "python-dotenv>=1.0.0",
+    "immutabledict>=4.2.0",
+]
+
+[build-system]
+requires      = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "orchestrator",
+    "persona_aggregator",
+    "economist",
+    "project_manager",
+    "scheduler",
+    "shared",
+    "deployment",
+]

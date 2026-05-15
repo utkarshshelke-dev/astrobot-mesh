@@ -1,0 +1,175 @@
+# cloudbuild.yaml — Astro.bot Multi-Agent Mesh
+# Triggers on push to main.
+# Deploys specialist agents first, Orchestrator last (needs endpoints set).
+#
+# Required Cloud Build SA roles:
+#   Vertex AI User, Cloud Run Admin, Firestore Editor,
+#   BigQuery Data Editor + Job User, Service Account Token Creator,
+#   Storage Object Admin
+
+substitutions:
+  _PROJECT_ID:    "nc-ai-chatbot"
+  _LOCATION:      "us-central1"
+  _BUCKET:        "nc-ai-chatbot-adk-staging"
+  _AGENT_SA:      "astrobot-agent@nc-ai-chatbot.iam.gserviceaccount.com"
+  _GEMINI_MODEL:  "gemini-2.5-flash"
+
+options:
+  logging:     CLOUD_LOGGING_ONLY
+  machineType: "E2_HIGHCPU_8"
+
+steps:
+
+  # ── 1. Install ──────────────────────────────────────────────────────────────
+  - name: "python:3.12"
+    id: install
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv sync --quiet
+
+  # ── 2. Tests ────────────────────────────────────────────────────────────────
+  - name: "python:3.12"
+    id: test
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv run pytest tests/test_mesh.py -v --tb=short -q
+    env:
+      - "GOOGLE_CLOUD_PROJECT=${_PROJECT_ID}"
+      - "GOOGLE_CLOUD_LOCATION=${_LOCATION}"
+      - "GOOGLE_GENAI_USE_VERTEXAI=1"
+    waitFor: ["install"]
+
+  # ── 3. Setup Firestore + BQ (idempotent) ────────────────────────────────────
+  - name: "python:3.12"
+    id: setup-infra
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv run python deployment/setup_firestore.py
+    env:
+      - "GOOGLE_CLOUD_PROJECT=${_PROJECT_ID}"
+      - "GOOGLE_CLOUD_LOCATION=${_LOCATION}"
+    waitFor: ["test"]
+
+  # ── 4. Build wheel ──────────────────────────────────────────────────────────
+  - name: "python:3.12"
+    id: build-wheel
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv build --wheel --out-dir dist/
+        ls -lh dist/*.whl
+    waitFor: ["setup-infra"]
+
+  # ── 5. Deploy specialist agents (parallel where possible) ───────────────────
+  - name: "python:3.12"
+    id: deploy-persona
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv run python deployment/deploy_mesh.py --action deploy --agent persona_aggregator
+    env:
+      - "GOOGLE_CLOUD_PROJECT=${_PROJECT_ID}"
+      - "GOOGLE_CLOUD_LOCATION=${_LOCATION}"
+      - "STAGING_BUCKET=gs://${_BUCKET}"
+      - "GOOGLE_IMPERSONATE_SERVICE_ACCOUNT=${_AGENT_SA}"
+      - "GEMINI_MODEL=${_GEMINI_MODEL}"
+    waitFor: ["build-wheel"]
+
+  - name: "python:3.12"
+    id: deploy-economist
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv run python deployment/deploy_mesh.py --action deploy --agent economist
+    env:
+      - "GOOGLE_CLOUD_PROJECT=${_PROJECT_ID}"
+      - "GOOGLE_CLOUD_LOCATION=${_LOCATION}"
+      - "STAGING_BUCKET=gs://${_BUCKET}"
+      - "GOOGLE_IMPERSONATE_SERVICE_ACCOUNT=${_AGENT_SA}"
+      - "GEMINI_MODEL=${_GEMINI_MODEL}"
+    waitFor: ["build-wheel"]
+
+  - name: "python:3.12"
+    id: deploy-pm
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv run python deployment/deploy_mesh.py --action deploy --agent project_manager
+    env:
+      - "GOOGLE_CLOUD_PROJECT=${_PROJECT_ID}"
+      - "GOOGLE_CLOUD_LOCATION=${_LOCATION}"
+      - "STAGING_BUCKET=gs://${_BUCKET}"
+      - "GOOGLE_IMPERSONATE_SERVICE_ACCOUNT=${_AGENT_SA}"
+    waitFor: ["build-wheel"]
+
+  - name: "python:3.12"
+    id: deploy-scheduler
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv run python deployment/deploy_mesh.py --action deploy --agent scheduler
+    env:
+      - "GOOGLE_CLOUD_PROJECT=${_PROJECT_ID}"
+      - "GOOGLE_CLOUD_LOCATION=${_LOCATION}"
+      - "STAGING_BUCKET=gs://${_BUCKET}"
+      - "GOOGLE_IMPERSONATE_SERVICE_ACCOUNT=${_AGENT_SA}"
+    waitFor: ["build-wheel"]
+
+  # ── 6. Deploy Orchestrator last (needs all endpoints in Firestore) ──────────
+  - name: "python:3.12"
+    id: deploy-orchestrator
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv run python deployment/deploy_mesh.py --action deploy --agent orchestrator
+    env:
+      - "GOOGLE_CLOUD_PROJECT=${_PROJECT_ID}"
+      - "GOOGLE_CLOUD_LOCATION=${_LOCATION}"
+      - "STAGING_BUCKET=gs://${_BUCKET}"
+      - "GOOGLE_IMPERSONATE_SERVICE_ACCOUNT=${_AGENT_SA}"
+      - "GEMINI_MODEL=${_GEMINI_MODEL}"
+    waitFor:
+      - deploy-persona
+      - deploy-economist
+      - deploy-pm
+      - deploy-scheduler
+
+  # ── 7. Deploy Cloud Run webhook ─────────────────────────────────────────────
+  - name: "gcr.io/cloud-builders/gcloud"
+    id: deploy-webhook
+    args:
+      - run
+      - deploy
+      - astrobot-webhook
+      - --source=.
+      - --region=${_LOCATION}
+      - --project=${_PROJECT_ID}
+      - --no-allow-unauthenticated
+      - --set-env-vars=GOOGLE_CLOUD_PROJECT=${_PROJECT_ID},GOOGLE_CLOUD_LOCATION=${_LOCATION}
+      - --memory=512Mi
+      - --timeout=120
+      - --service-account=${_AGENT_SA}
+    waitFor: ["deploy-orchestrator"]
+
+timeout: "3600s"

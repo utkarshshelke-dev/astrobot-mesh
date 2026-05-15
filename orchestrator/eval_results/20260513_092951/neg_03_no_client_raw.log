@@ -1,0 +1,138 @@
+2026-05-13 10:00:05,804 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 10:00:15,628 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 10:00:15,629 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 10:00:15,630 - INFO - agent.py:406 - ⚠️ No client detected — defaulting to NPI
+2026-05-13 10:00:15,630 - INFO - agent.py:413 - ▶ before_agent | client=NPI | locked=None | session=session_1778666415 | turn=1 | mode=local-AgentTool
+2026-05-13 10:00:15,689 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=none
+2026-05-13 10:00:15,814 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 10:00:19,810 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 10:00:19,811 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 10:00:19,812 - INFO - agent.py:558 - 🔢 after_model  | tokens in=4234 out=14 total=4604
+2026-05-13 10:00:19,813 - INFO - agent.py:457 - ⚙ before_tool  | tool=call_data_scientist | skill=nl2sql | client=NPI | query=Show top channels by spend for NPI…
+2026-05-13 10:00:19,813 - INFO - agent.py:163 - Routing to LOCAL DS agent
+2026-05-13 10:00:20,628 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 10:00:20,628 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 10:00:20,629 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+2026-05-13 10:00:20,629 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 10:00:20,630 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 10:00:20,630 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 10:00:20,631 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 10:00:20,631 - INFO - agent.py:339 - 📍 KM routed '[Client: NPI] Show top channels by spend for NPI...' → table=performance (confidence=default)
+2026-05-13 10:00:21,054 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 10:00:21,055 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 10:00:21,549 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 10:00:24,133 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 10:00:24,135 - INFO - agent.py:489 - Tokens: In=7708, Out=15
+2026-05-13 10:00:24,136 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 10:00:24,137 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 10:00:24,258 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 10:00:26,213 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 10:00:26,331 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 10:00:29,684 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 10:00:32,744 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 10:00:36,894 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 10:00:36,896 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 10:00:36,897 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 10:00:36,897 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 10:00:36,897 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 10:00:36,996 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 10:00:39,713 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 10:00:39,714 - INFO - agent.py:489 - Tokens: In=8038, Out=278
+2026-05-13 10:00:39,715 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 10:00:39,715 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 10:00:39,715 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 10:00:39,715 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 10:00:39,721 - INFO - agent.py:514 - ✓ after_tool   | tool=call_data_scientist | skill=nl2sql | len=723 | error=False
+2026-05-13 10:00:39,727 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=nl2sql
+2026-05-13 10:00:39,820 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 10:00:43,011 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 10:00:43,012 - INFO - agent.py:558 - 🔢 after_model  | tokens in=4888 out=303 total=5191
+2026-05-13 10:00:43,019 - INFO - agent.py:427 - ◀ after_agent  | client=NPI | turn=1 | duration=27.39s | tools_called=1
+2026-05-13 10:00:43,021 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 10:00:43,021 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 10:00:43,024 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 10:00:43,027 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/orchestrator/.adk/eval_history/orchestrator_tests_eval_orchestrator_neg_03_no_client.evalset.json_1778666443.0278358.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.05} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval_orchestrator/neg_03_no_client.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval_orchestrator/neg_03_no_client.evalset.json
+Eval Id: neg_03_no_client
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.013793103448275864, Threshold: 0.05
+---------------------------------------------------------------------
+Invocation Details:
++----+-------------------------+---------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                  | expected_response         | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=========================+===========================+===========================+=======================+===========================+=============================+========================+
+|  0 | Show me top channels by | which client NPI Venetian | **Result:**  The top      |                       | id='adk-0d9b3767-32f8-47c | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | spend                   | WinnDixie                 | channels by spend         |                       | b-                        | 0.0                         | 0.013793103448275864   |
+|    |                         | please specify client     | for NPI over the last 12  |                       | ac5f-1d5d333f4507'        |                             |                        |
+|    |                         | cannot proceed            | months are:  |            |                       | args={'query': 'Show      |                             |                        |
+|    |                         |                           | Channel | Total Spend |   |                       | top channels by spend for |                             |                        |
+|    |                         |                           | |:----------------|:----- |                       | NPI'}                     |                             |                        |
+|    |                         |                           | ---------| |              |                       | name='call_data_scientist |                             |                        |
+|    |                         |                           | Paid Social |             |                       | '                         |                             |                        |
+|    |                         |                           | $2,670,974.34 | | Search  |                       | partial_args=None         |                             |                        |
+|    |                         |                           | |                         |                       | will_continue=None        |                             |                        |
+|    |                         |                           | $1,857,479.00 | | CTV |   |                       |                           |                             |                        |
+|    |                         |                           | $1,392,794.96 |           |                       |                           |                             |                        |
+|    |                         |                           | | Demand Gen |            |                       |                           |                             |                        |
+|    |                         |                           | $1,050,730.97 | | Linear  |                       |                           |                             |                        |
+|    |                         |                           | TV | $303,639.40 | | OTT  |                       |                           |                             |                        |
+|    |                         |                           | | $241,877.98 |           |                       |                           |                             |                        |
+|    |                         |                           | | OOH | $194,522.38 | |   |                       |                           |                             |                        |
+|    |                         |                           | Performance Max           |                       |                           |                             |                        |
+|    |                         |                           | | $133,258.44 | | Online  |                       |                           |                             |                        |
+|    |                         |                           | Audio |                   |                       |                           |                             |                        |
+|    |                         |                           | $125,416.27 | | Paid      |                       |                           |                             |                        |
+|    |                         |                           | Search | $36,547.27       |                       |                           |                             |                        |
+|    |                         |                           | |  **Explanation:** 1. I  |                       |                           |                             |                        |
+|    |                         |                           | queried the               |                       |                           |                             |                        |
+|    |                         |                           | BigQuery agent to         |                       |                           |                             |                        |
+|    |                         |                           | retrieve the top          |                       |                           |                             |                        |
+|    |                         |                           | channels by spend for     |                       |                           |                             |                        |
+|    |                         |                           | NPI. 2. The query         |                       |                           |                             |                        |
+|    |                         |                           | returned the total spend  |                       |                           |                             |                        |
+|    |                         |                           | for each                  |                       |                           |                             |                        |
+|    |                         |                           | channel over the last 12  |                       |                           |                             |                        |
+|    |                         |                           | months, ordered           |                       |                           |                             |                        |
+|    |                         |                           | from highest to lowest    |                       |                           |                             |                        |
+|    |                         |                           | spend.                    |                       |                           |                             |                        |
+|    |                         |                           | **Recommendation:**       |                       |                           |                             |                        |
+|    |                         |                           | Consider analyzing        |                       |                           |                             |                        |
+|    |                         |                           | the performance metrics   |                       |                           |                             |                        |
+|    |                         |                           | (e.g.,                    |                       |                           |                             |                        |
+|    |                         |                           | conversions, CPA) for the |                       |                           |                             |                        |
+|    |                         |                           | top-spending              |                       |                           |                             |                        |
+|    |                         |                           | channels like Paid Social |                       |                           |                             |                        |
+|    |                         |                           | and Search to             |                       |                           |                             |                        |
+|    |                         |                           | ensure efficient          |                       |                           |                             |                        |
+|    |                         |                           | allocation of budget      |                       |                           |                             |                        |
+|    |                         |                           | and identify              |                       |                           |                             |                        |
+|    |                         |                           | opportunities for         |                       |                           |                             |                        |
+|    |                         |                           | optimization.             |                       |                           |                             |                        |
++----+-------------------------+---------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

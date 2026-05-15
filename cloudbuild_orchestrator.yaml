@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-f', 'orchestrator/Dockerfile', '-t', 'gcr.io/nc-ai-chatbot/astrobot-orchestrator:latest', '.']
+images:
+- 'gcr.io/nc-ai-chatbot/astrobot-orchestrator:latest'
+timeout: '1200s'

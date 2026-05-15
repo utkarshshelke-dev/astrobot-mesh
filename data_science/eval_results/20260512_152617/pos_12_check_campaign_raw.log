@@ -1,0 +1,87 @@
+2026-05-12 15:36:01,212 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 15:36:08,152 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 15:36:08,153 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 15:36:08,153 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 15:36:08,155 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:36:08,156 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 15:36:08,157 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 15:36:08,157 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 15:36:08,157 - INFO - agent.py:392 - 📍 KM routed 'For NPI, check status of campaign 'Brand Awareness...' → table=performance (confidence=low)
+2026-05-12 15:36:08,698 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 15:36:08,698 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 15:36:08,880 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:36:10,755 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:36:10,755 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 15:36:10,757 - INFO - agent.py:561 - Tokens: In=7713, Out=27
+2026-05-12 15:36:10,758 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 15:36:10,758 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 15:36:10,866 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:36:12,300 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:36:13,237 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:36:15,741 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:36:16,637 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:36:18,146 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:36:20,741 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:36:22,020 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:36:22,023 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:36:22,023 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:36:22,023 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:36:22,023 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:36:22,123 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 15:36:23,658 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 15:36:23,660 - INFO - agent.py:561 - Tokens: In=7902, Out=61
+2026-05-12 15:36:23,662 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 15:36:23,662 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 15:36:23,662 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 15:36:23,662 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 15:36:23,665 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 15:36:23,667 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_12_check_campaign.evalset.json_1778600183.6673567.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.4, 'response_match_score': 0.15} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_12_check_campaign.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_12_check_campaign.evalset.json
+Eval Id: pos_12_check_campaign
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: FAILED, Score: 0.0, Threshold: 0.4
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.2272727272727273, Threshold: 0.15
+---------------------------------------------------------------------
+Invocation Details:
++----+--------------------------+---------------------------+---------------------------+---------------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                   | expected_response         | actual_response           | expected_tool_calls       | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+==========================+===========================+===========================+===========================+===========================+=============================+========================+
+|  0 | For NPI, check status of | campaign status NPI Brand | **Result:**  No campaign  | id=None args={}           | id='adk-7cf05a00-a201-4ba | Status: FAILED, Score:      | Status: PASSED, Score: |
+|    | campaign 'Brand          | Awareness Q4              | with the name             | name='call_bigquery_agent | 6-90d4-                   | 0.0                         | 0.2272727272727273     |
+|    | Awareness Q4 2025'       | active paused             | 'Brand Awareness Q4 2025' | '                         | 356f89cf80e3'             |                             |                        |
+|    |                          |                           | was found.                | partial_args=None         | args={'query': "For NPI,  |                             |                        |
+|    |                          |                           | **Explanation:** The      | will_continue=None        | check the status of       |                             |                        |
+|    |                          |                           | campaign 'Brand           |                           | campaign 'Brand           |                             |                        |
+|    |                          |                           | Awareness Q4 2025' could  |                           | Awareness Q4 2025'"}      |                             |                        |
+|    |                          |                           | not be found in           |                           | name='call_bigquery_agent |                             |                        |
+|    |                          |                           | the database for NPI.     |                           | '                         |                             |                        |
+|    |                          |                           | Please check the          |                           | partial_args=None         |                             |                        |
+|    |                          |                           | campaign name and try     |                           | will_continue=None        |                             |                        |
+|    |                          |                           | again.                    |                           |                           |                             |                        |
++----+--------------------------+---------------------------+---------------------------+---------------------------+---------------------------+-----------------------------+------------------------+
+
+
+

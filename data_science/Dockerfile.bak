@@ -1,0 +1,68 @@
+FROM python:3.12-slim
+
+ENV PYTHONUNBUFFERED=1
+ENV PIP_NO_CACHE_DIR=1
+
+WORKDIR /workspace
+
+# System libraries for matplotlib + build tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libexpat1 \
+    libfreetype6 \
+    libpng16-16 \
+    libjpeg62-turbo \
+    fonts-dejavu-core \
+    gcc \
+    g++ \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --upgrade pip
+
+# Install dependencies
+RUN pip install \
+      "google-adk>=1.14" \
+      "google-cloud-aiplatform[adk,agent-engines]>=1.93.0" \
+      "google-cloud-storage" \
+      "google-cloud-logging" \
+      "google-cloud-bigquery" \
+      "python-dotenv>=1.0.1" \
+      "immutabledict>=4.2.1" \
+      "sqlglot>=26.10.1" \
+      "db-dtypes>=1.4.2" \
+      "regex>=2024.11.6" \
+      "tabulate>=0.9.0" \
+      "absl-py>=2.2.2" \
+      "pydantic>=2.11.3" \
+      "pandas>=2.3.0" \
+      "numpy>=2.3.1" \
+      "toolbox-core>=0.3.0" \
+      "opentelemetry-sdk>=1.36.0" \
+      "opentelemetry-exporter-otlp-proto-http>=1.36.0" \
+      "pg8000>=1.31.2" \
+      "matplotlib>=3.8.0" \
+      "seaborn" \
+      "scikit-learn" \
+      "fastapi" \
+      "uvicorn[standard]"
+
+# Copy everything into data_science folder
+COPY . /workspace/data_science/
+
+# Make config file accessible at the path agent.py expects
+# (It checks DATASET_CONFIG_FILE env var, default /app/ad_campaign_dataset_config.json)
+RUN cp /workspace/data_science/ad_campaign_dataset_config_v3.json /app/ad_campaign_dataset_config_v3.json 2>/dev/null \
+    || mkdir -p /app && cp /workspace/data_science/ad_campaign_dataset_config_v3.json /app/ad_campaign_dataset_config_v3.json 2>/dev/null \
+    || echo "WARNING: ad_campaign_dataset_config.json not in build context"
+
+EXPOSE 8080
+ENV PORT=8080
+ENV SERVE_WEB_INTERFACE=true
+ENV ANALYTICS_MODE=json
+ENV DATASET_CONFIG_FILE=/app/ad_campaign_dataset_config.json
+
+CMD adk web \
+    --host 0.0.0.0 \
+    --port ${PORT} \
+    --allow_origins "*" \
+    --artifact_service_uri "gs://nc-ai-chatbot-astrobot-artifacts" \
+    /workspace

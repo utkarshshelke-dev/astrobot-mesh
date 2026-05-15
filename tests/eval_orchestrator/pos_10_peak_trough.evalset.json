@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_10_peak_trough",
+    "data": [
+      {
+        "query": "For NPI, show channel mix shift between peak months Nov Dec and trough months as 2 bar charts",
+        "reference": "NPI peak trough channel mix Nov Dec cost conversion bar chart shift",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

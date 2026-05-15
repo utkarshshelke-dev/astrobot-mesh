@@ -1,0 +1,13 @@
+[{
+  "name": "pos_17_economist_venetian_vertical",
+  "data": [{
+    "query": "My client is The Venetian Resort Las Vegas. What vertical do you classify this client under and what signals will you monitor?",
+    "reference": "Venetian hospitality gaming resort luxury vertical signals monitor CPI consumer sentiment travel",
+    "expected_tool_use": []
+  }],
+  "initial_session": {
+    "app_name": "orchestrator",
+    "user_id": "eval_user",
+    "state": {"client_id": "Venetian", "LOCKED_CLIENT": "Venetian", "client_lock": "Venetian"}
+  }
+}]

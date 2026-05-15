@@ -1,0 +1,13 @@
+[{
+  "name": "pos_19_economist_flight_price_impact",
+  "data": [{
+    "query": "If flight prices increase by 20% to Las Vegas, how would that affect The Venetian Resort bookings and which personas would be most impacted?",
+    "reference": "flight price increase Venetian booking impact persona travel elastic demand",
+    "expected_tool_use": []
+  }],
+  "initial_session": {
+    "app_name": "orchestrator",
+    "user_id": "eval_user",
+    "state": {"client_id": "Venetian", "LOCKED_CLIENT": "Venetian", "client_lock": "Venetian"}
+  }
+}]

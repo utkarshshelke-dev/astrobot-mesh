@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_03_forecast",
+    "data": [
+      {
+        "query": "For NPI, forecast spend for the next 14 days",
+        "reference": "NPI forecast spend ARIMA 14 days prediction weekly",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

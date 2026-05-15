@@ -1,0 +1,13 @@
+[{
+  "name": "pos_18_economist_winndixie_vertical",
+  "data": [{
+    "query": "My client is WinnDixie. What vertical do you classify this client under and what signals will you monitor?",
+    "reference": "WinnDixie grocery retail food consumer staples CPI vertical signals monitor",
+    "expected_tool_use": []
+  }],
+  "initial_session": {
+    "app_name": "orchestrator",
+    "user_id": "eval_user",
+    "state": {"client_id": "WinnDixie", "LOCKED_CLIENT": "WinnDixie", "client_lock": "WinnDixie"}
+  }
+}]

@@ -1,0 +1,13 @@
+[{
+  "name": "pos_23_economist_creative_positioning",
+  "data": [{
+    "query": "How would you position creative in order to capitalize on upcoming travel trends for Nassau Paradise Island in the coming months?",
+    "reference": "NPI creative positioning travel trends upcoming months capitalize beach tourism",
+    "expected_tool_use": []
+  }],
+  "initial_session": {
+    "app_name": "orchestrator",
+    "user_id": "eval_user",
+    "state": {"client_id": "NPI", "LOCKED_CLIENT": "NPI", "client_lock": "NPI"}
+  }
+}]

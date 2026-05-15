@@ -1,0 +1,119 @@
+2026-05-12 19:47:37,652 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-12 19:47:44,883 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 19:47:44,883 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 19:47:44,884 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-12 19:47:44,886 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 19:47:44,886 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-12 19:47:44,887 - INFO - agent.py:290 - Session initialized — awaiting client selection
+2026-05-12 19:47:44,887 - INFO - agent.py:366 - 🔒 Session LOCKED to client: NPI
+2026-05-12 19:47:44,888 - INFO - agent.py:392 - 📍 KM routed 'For NPI, build a saturation model for next 100k in...' → table=performance (confidence=default)
+2026-05-12 19:47:45,318 - INFO - tools.py:313 - Found 26 models for NPI
+2026-05-12 19:47:45,318 - INFO - agent.py:407 - 📋 Models listed for NPI: 1235 chars
+2026-05-12 19:47:45,509 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 19:47:47,013 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 19:47:47,013 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-12 19:47:47,014 - INFO - agent.py:561 - Tokens: In=7710, Out=32
+2026-05-12 19:47:47,016 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-12 19:47:47,016 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-12 19:47:47,133 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 19:47:50,466 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 19:47:50,872 - INFO - agent.py:75 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-12 19:47:50,872 - WARNING - agent.py:578 - DATASET_CONFIG_FILE not set
+2026-05-12 19:47:50,872 - INFO - agent.py:625 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+2026-05-12 19:47:50,881 - INFO - tools.py:1068 - compute_saturation_curve: aggregating for NPI, 4 unification rules, lookback=12mo
+2026-05-12 19:47:53,317 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 19:47:58,154 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 19:47:58,157 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 19:47:58,158 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 19:47:58,158 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 19:47:58,158 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 19:47:58,265 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 19:49:44,491 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 19:49:44,501 - INFO - agent.py:561 - Tokens: In=8297, Out=26136
+2026-05-12 19:49:44,502 - WARNING - tools.py:183 - Duplicate BQ call blocked
+2026-05-12 19:49:44,609 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-12 19:54:06,702 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-12 19:54:06,732 - INFO - agent.py:561 - Tokens: In=34971, Out=65428
+2026-05-12 19:54:06,735 - INFO - runners.py:1611 - Closing runner...
+2026-05-12 19:54:06,735 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-12 19:54:06,736 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-12 19:54:06,736 - INFO - runners.py:1619 - Runner closed.
+2026-05-12 19:54:06,740 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-12 19:54:06,782 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_03_saturation.evalset.json_1778615646.7822814.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_03_saturation.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval/pos_03_saturation.evalset.json
+Eval Id: pos_03_saturation_100k
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.175, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+----------------------+----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt               | expected_response    | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+======================+======================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, build a     | saturation model NPI | **Result:**  **Saturation |                       | id='adk-2acc910b-4b2e-47f | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | saturation model for | allocation channels  | Model for NPI             |                       | 8-baab-                   | 0.0                         | 0.175                  |
+|    | next 100k investment | Paid Search          | with $100k Investment**   |                       | 638a70478065'             |                             |                        |
+|    |                      |                      | | Metric                  |                       | args={'query': 'Build a   |                             |                        |
+|    |                      |                      | | Value       |           |                       | saturation model for NPI  |                             |                        |
+|    |                      |                      | |:----------------------  |                       | with $100k                |                             |                        |
+|    |                      |                      | ------|------------:| |   |                       | investment. Use the       |                             |                        |
+|    |                      |                      | Total Budget              |                       | deterministic             |                             |                        |
+|    |                      |                      | | $100,000    | |         |                       | compute_saturation_curve  |                             |                        |
+|    |                      |                      | Expected Monthly          |                       | tool.'}                   |                             |                        |
+|    |                      |                      | Conversions| 19,125       |                       | name='call_bigquery_agent |                             |                        |
+|    |                      |                      | |  **Allocation           |                       | '                         |                             |                        |
+|    |                      |                      | by Channel:**  | Channel  |                       | partial_args=None         |                             |                        |
+|    |                      |                      | | Allocation              |                       | will_continue=None        |                             |                        |
+|    |                      |                      | | |:-----------|--------- |                       | id='adk-                  |                             |                        |
+|    |                      |                      | --:| | Paid               |                       | fce0bcb0-9440-4d54-bdd8-e |                             |                        |
+|    |                      |                      | Search| $100,000   |      |                       | 5f024323d13'              |                             |                        |
+|    |                      |                      | **Details for Paid        |                       | args={'query': 'Build a   |                             |                        |
+|    |                      |                      | Search:**  | Metric       |                       | saturation model          |                             |                        |
+|    |                      |                      | | Value     | |:--------- |                       | for NPI with $100k        |                             |                        |
+|    |                      |                      | ---------------           |                       | investment. Use the       |                             |                        |
+|    |                      |                      | -----|----------:| |      |                       | deterministic             |                             |                        |
+|    |                      |                      | Current Avg Daily         |                       | compute_saturation_curve  |                             |                        |
+|    |                      |                      | Conversions| 938.63    |  |                       | tool.'} name='call_bigque |                             |                        |
+|    |                      |                      | | Current Avg             |                       | ry_agent'                 |                             |                        |
+|    |                      |                      | Daily Spend      |        |                       | partial_args=None         |                             |                        |
+|    |                      |                      | $5,208.98 | | Current     |                       | will_continue=None        |                             |                        |
+|    |                      |                      | Conversions per Dollar|   |                       |                           |                             |                        |
+|    |                      |                      | 0.18      | |             |                       |                           |                             |                        |
+|    |                      |                      | Fit Quality (R²)          |                       |                           |                             |                        |
+|    |                      |                      | | 0.865                   |                       |                           |                             |                        |
+|    |                      |                      | | | Saturation Alpha      |                       |                           |                             |                        |
+|    |                      |                      | (Exponent)  |             |                       |                           |                             |                        |
+|    |                      |                      | 0.8646    | | Saturation  |                       |                           |                             |                        |
+|    |                      |                      | Kappa                     |                       |                           |                             |                        |
+|    |                      |                      | (Efficiency Constant)|    |                       |                           |                             |                        |
+|    |                      |                      | 0.5736    |               |                       |                           |                             |                        |
+|    |                      |                      | **Excluded Channels:**  | |                       |                           |                             |                        |
+|    |                      |                      | Reason                    |                       |                           |                             |                        |
+|    |                      |                      | | Channels                |                       |                           |                             |                        |
++----+----------------------+----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

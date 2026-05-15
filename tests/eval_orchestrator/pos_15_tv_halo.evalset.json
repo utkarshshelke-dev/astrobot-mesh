@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_15_tv_halo",
+    "data": [
+      {
+        "query": "For NPI, is there a TV halo effect \u2014 does TV spend correlate with Search conversions?",
+        "reference": "NPI TV halo correlation Linear TV CTV Search conversions Pearson",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

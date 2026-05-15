@@ -1,0 +1,94 @@
+# cloudbuild.yaml
+# Cloud Build trigger for Astrobot Data Scientist Agent
+# Deploys to Vertex AI Agent Engine on push to main.
+#
+# Required Cloud Build SA roles:
+#   Vertex AI User, BigQuery User + Data Viewer,
+#   Storage Object Admin, Service Account Token Creator
+
+substitutions:
+  _PROJECT_ID:    "project-4-workndemos"
+  _LOCATION:      "us-central1"
+  _BUCKET_NAME:   "project-4-workndemos-adk-staging"
+  _AGENT_SA:      "data-scientist-agent@project-4-workndemos.iam.gserviceaccount.com"
+  _DATASET_CONFIG: "./ad_campaign_dataset_config.json"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: "E2_HIGHCPU_8"
+
+steps:
+  # ── 1. Install uv and sync dependencies ───────────────────────────────────
+  - name: "python:3.12"
+    id: install
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv sync --quiet
+
+  # ── 2. Run tests ───────────────────────────────────────────────────────────
+  - name: "python:3.12"
+    id: test
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv run pytest tests/ -v --tb=short -q
+    env:
+      - "GOOGLE_CLOUD_PROJECT=${_PROJECT_ID}"
+      - "GOOGLE_CLOUD_LOCATION=${_LOCATION}"
+      - "BQ_DATA_PROJECT_ID=${_PROJECT_ID}"
+      - "BQ_COMPUTE_PROJECT_ID=${_PROJECT_ID}"
+      - "BQ_DATASET_ID=ad_campaign"
+      - "DATASET_CONFIG_FILE=${_DATASET_CONFIG}"
+      - "NL2SQL_METHOD=BASELINE"
+      - "GOOGLE_GENAI_USE_VERTEXAI=1"
+    waitFor: ["install"]
+
+  # ── 3. Build the .whl package ──────────────────────────────────────────────
+  - name: "python:3.12"
+    id: build-wheel
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv build --wheel --out-dir deployment/
+        ls -lh deployment/*.whl
+    waitFor: ["test"]
+
+  # ── 4. Deploy to Agent Engine ──────────────────────────────────────────────
+  - name: "python:3.12"
+    id: deploy
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        pip install uv --quiet
+        uv run python deployment/deploy.py \
+          --create \
+          --project_id=${_PROJECT_ID} \
+          --location=${_LOCATION} \
+          --bucket=${_BUCKET_NAME}
+    env:
+      - "GOOGLE_CLOUD_PROJECT=${_PROJECT_ID}"
+      - "GOOGLE_CLOUD_LOCATION=${_LOCATION}"
+      - "GOOGLE_IMPERSONATE_SERVICE_ACCOUNT=${_AGENT_SA}"
+      - "BQ_DATA_PROJECT_ID=${_PROJECT_ID}"
+      - "BQ_COMPUTE_PROJECT_ID=${_PROJECT_ID}"
+      - "BQ_DATASET_ID=ad_campaign"
+      - "BQML_DATASET_ID=ad_campaign_models"
+      - "DATASET_CONFIG_FILE=${_DATASET_CONFIG}"
+      - "NL2SQL_METHOD=BASELINE"
+      - "GOOGLE_GENAI_USE_VERTEXAI=1"
+      - "ROOT_AGENT_MODEL=gemini-2.5-flash"
+      - "ANALYTICS_AGENT_MODEL=gemini-2.5-flash"
+      - "BIGQUERY_AGENT_MODEL=gemini-2.5-flash"
+      - "BASELINE_NL2SQL_MODEL=gemini-2.5-flash"
+      - "BQML_AGENT_MODEL=gemini-2.5-flash"
+    waitFor: ["build-wheel"]
+
+timeout: "2400s"

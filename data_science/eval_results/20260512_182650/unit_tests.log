@@ -1,0 +1,28 @@
+..s....F.....................s.......................................... [ 21%]
+........................................................................ [ 43%]
+.....s...FFF....F......................s..................ss............ [ 65%]
+...........................sssssssssssss................................ [ 87%]
+..........................................                               [100%]
+=================================== FAILURES ===================================
+/home/utkarsh_shelke/astrobot_mesh/data_science_tests/test_agent_callbacks.py:60: AssertionError: assert ('Venetian' in 'Use explicit column names or add LIMIT — SELECT * without LIMIT is blocked.' or 'NPI' in 'Use explicit column names or add LIMIT — SELECT * without LIMIT is blocked.')
+/home/utkarsh_shelke/astrobot_mesh/data_science_tests/test_coverage_boost2.py:52: ImportError: cannot import name '_clean_floats' from 'data_science.tools' (/home/utkarsh_shelke/astrobot_mesh/data_science/tools.py)
+/home/utkarsh_shelke/astrobot_mesh/data_science_tests/test_coverage_boost2.py:60: ImportError: cannot import name '_clean_floats' from 'data_science.tools' (/home/utkarsh_shelke/astrobot_mesh/data_science/tools.py)
+/home/utkarsh_shelke/astrobot_mesh/data_science_tests/test_coverage_boost2.py:68: ImportError: cannot import name '_clean_floats' from 'data_science.tools' (/home/utkarsh_shelke/astrobot_mesh/data_science/tools.py)
+/home/utkarsh_shelke/astrobot_mesh/data_science_tests/test_coverage_boost2.py:101: ImportError: cannot import name 'list_all_extensions' from 'data_science.utils.reference_guide_RAG' (/home/utkarsh_shelke/astrobot_mesh/data_science/utils/reference_guide_RAG.py)
+=============================== warnings summary ===============================
+test_coverage_boost2.py::test_main_module_loads
+  /home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/fast_api.py:204: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+    credential_service = InMemoryCredentialService()
+
+test_coverage_boost2.py::test_main_module_loads
+  /home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+    super().__init__()
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED data_science_tests/test_agent_callbacks.py::test_ac5_walled_garden_check_blocks_cross_client
+FAILED data_science_tests/test_coverage_boost2.py::test_clean_floats_dict - I...
+FAILED data_science_tests/test_coverage_boost2.py::test_clean_floats_list - I...
+FAILED data_science_tests/test_coverage_boost2.py::test_clean_floats_nested
+FAILED data_science_tests/test_coverage_boost2.py::test_list_all_extensions_callable
+5 failed, 306 passed, 19 skipped, 2 warnings in 36.02s

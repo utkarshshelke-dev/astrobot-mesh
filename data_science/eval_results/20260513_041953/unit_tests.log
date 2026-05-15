@@ -1,0 +1,38 @@
+..s....s.....................s.......................................... [ 11%]
+........................................................................ [ 22%]
+.....s..........s......................s..................ss............ [ 34%]
+........................................................................ [ 45%]
+.......................s................................................ [ 57%]
+........................................................................ [ 68%]
+........................................................................ [ 80%]
+.......................................sssssssssssss.................... [ 91%]
+......................................................                   [100%]
+=============================== warnings summary ===============================
+test_coverage_boost2.py::test_main_module_loads
+  /home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/fast_api.py:204: UserWarning: [EXPERIMENTAL] InMemoryCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+    credential_service = InMemoryCredentialService()
+
+test_coverage_boost2.py::test_main_module_loads
+  /home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/auth/credential_service/in_memory_credential_service.py:33: UserWarning: [EXPERIMENTAL] BaseCredentialService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+    super().__init__()
+
+test_coverage_boost6.py::test_sql_translator_instantiate
+test_coverage_boost6.py::test_llm_utils_all_public_executed
+test_coverage_boost7.py::test_sql_translator_init_with_str_model
+test_coverage_boost7.py::test_sql_translator_init_defaults
+test_coverage_boost7.py::test_sql_translator_translate_executes
+test_coverage_boost7.py::test_sql_translator_translate_input_errors
+test_coverage_boost7.py::test_sql_translator_all_methods_execute
+test_coverage_boost7.py::test_llm_utils_gemini_model_class
+test_coverage_boost7.py::test_llm_utils_generate_executes
+  /home/utkarsh_shelke/.local/lib/python3.12/site-packages/vertexai/generative_models/_generative_models.py:433: UserWarning: This feature is deprecated as of June 24, 2025 and will be removed on June 24, 2026. For details, see https://cloud.google.com/vertex-ai/generative-ai/docs/deprecations/genai-vertexai-sdk.
+    warning_logs.show_deprecation_warning()
+
+test_coverage_boost6.py::test_create_bq_load_csv_bad_path
+test_coverage_boost6.py::test_create_bq_main_executes
+test_coverage_boost6.py::test_create_bq_main_executes
+  /home/utkarsh_shelke/astrobot_mesh/data_science/utils/create_bq_table.py:44: PendingDeprecationWarning: Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+    dataset_ref = client.dataset(dataset_name)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+608 passed, 22 skipped, 14 warnings in 1139.59s (0:18:59)

@@ -1,0 +1,4 @@
+timestamp,test_name,category,eval_id,prompt,agent_response,tools_called,tool_count,duration_sec,tool_trajectory_score,response_match_score,verdict,expected_outcome,peak_mem_mb,figures_leaked,gc_objects_delta,leak_score,error_summary
+20260512_164202,unit_tests,unit,all,N/A,N/A,pytest,252,36,N/A,N/A,FAIL,unit-tests-pass,5-failed
+20260512_164202,pos_01_top_channels,positive,pos_01_top_channels,"For NPI; show top 5 channels by spend last quarter as a bar chart ","expected_tool_calls ","call_analytics_agent|call_bigquery_agent",2,61,0.0,0.2391304347826087,FAIL,"answer_with_tools_and_data",1462.8,0,-277,"🔴 HIGH",""
+20260512_164202,pos_02_volatility,positive,pos_02_volatility_cost,"For NPI; which channels are most volatile in cost over last 12 months ","expected_tool_calls ","call_analytics_agent|call_bigquery_agent",2,43,0.0,0.1518987341772152,FAIL,"answer_with_tools_and_data",1326.3,0,-277,"🔴 HIGH",""

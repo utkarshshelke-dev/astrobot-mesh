@@ -1,0 +1,116 @@
+2026-05-13 12:09:36,970 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 12:09:46,391 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:09:46,392 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 12:09:46,393 - INFO - agent.py:439 - 🔒 Orchestrator session LOCKED to client: WinnDixie
+2026-05-13 12:09:46,393 - INFO - agent.py:451 - ▶ before_agent | client=WinnDixie | locked=WinnDixie | session=session_1778674186 | turn=1 | mode=local-AgentTool
+2026-05-13 12:09:46,460 - INFO - agent.py:576 - ⚡ before_model | client=WinnDixie | turn=1 | last_skill=none
+2026-05-13 12:09:46,585 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:09:47,989 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:09:47,989 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 12:09:47,991 - INFO - agent.py:596 - 🔢 after_model  | tokens in=4397 out=17 total=4514
+2026-05-13 12:09:47,993 - INFO - agent.py:495 - ⚙ before_tool  | tool=call_data_scientist | skill=nl2sql | client=WinnDixie | query=Show ViVs by channel for WinnDixie last quarter…
+2026-05-13 12:09:47,993 - INFO - agent.py:163 - Routing to LOCAL DS agent
+2026-05-13 12:09:48,885 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 12:09:48,885 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 12:09:48,886 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+2026-05-13 12:09:48,886 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:09:48,887 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 12:09:48,888 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 12:09:48,888 - INFO - agent.py:315 - 🔒 Session LOCKED to client: WinnDixie
+2026-05-13 12:09:48,888 - INFO - agent.py:339 - 📍 KM routed '[Client: WinnDixie] Show ViVs by channel for WinnD...' → table=performance (confidence=low)
+2026-05-13 12:09:49,330 - INFO - tools.py:313 - Found 0 models for WinnDixie
+2026-05-13 12:09:49,331 - INFO - agent.py:354 - 📋 Models listed for WinnDixie: 71 chars
+2026-05-13 12:09:49,787 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:09:53,748 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:09:53,750 - INFO - agent.py:489 - Tokens: In=7712, Out=52
+2026-05-13 12:09:53,751 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 12:09:53,752 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 12:09:53,860 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:09:57,639 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:09:57,749 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:10:01,819 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:10:03,592 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:10:05,840 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:10:05,843 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:10:05,843 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 12:10:05,843 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 12:10:05,843 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:10:05,941 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:10:08,908 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:10:08,910 - INFO - agent.py:489 - Tokens: In=8266, Out=43
+2026-05-13 12:10:08,911 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:10:08,911 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 12:10:08,911 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 12:10:08,911 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:10:08,912 - INFO - agent.py:552 - ✓ after_tool   | tool=call_data_scientist | skill=nl2sql | len=115 | error=False
+2026-05-13 12:10:08,918 - INFO - agent.py:576 - ⚡ before_model | client=WinnDixie | turn=1 | last_skill=nl2sql
+2026-05-13 12:10:09,015 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 12:10:12,261 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 12:10:12,263 - INFO - agent.py:596 - 🔢 after_model  | tokens in=4563 out=121 total=4799
+2026-05-13 12:10:12,266 - INFO - agent.py:465 - ◀ after_agent  | client=WinnDixie | turn=1 | duration=25.87s | tools_called=1
+2026-05-13 12:10:12,268 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 12:10:12,268 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 12:10:12,272 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 12:10:12,275 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/orchestrator/.adk/eval_history/orchestrator_tests_eval_orchestrator_pos_13_winndixie_vivs.evalset.json_1778674212.275104.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.05} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval_orchestrator/pos_13_winndixie_vivs.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval_orchestrator/pos_13_winndixie_vivs.evalset.json
+Eval Id: pos_13_winndixie_vivs
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.07058823529411765, Threshold: 0.05
+---------------------------------------------------------------------
+Invocation Details:
++----+--------------------------+------------------------+--------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                   | expected_response      | actual_response          | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+==========================+========================+==========================+=======================+===========================+=============================+========================+
+|  0 | For WinnDixie, show ViVs | WinnDixie ViVs OTT CTV | **Result:**  No data was |                       | id='adk-19a70479-6c0b-48e | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | by channel last          | Linear TV              | found for ViVs           |                       | c-9a98-                   | 0.0                         | 0.07058823529411765    |
+|    | quarter                  | streaming performance  | by Channel for WinnDixie |                       | 476fb02386d8'             |                             |                        |
+|    |                          | channel                | for the last             |                       | args={'query': 'Show ViVs |                             |                        |
+|    |                          |                        | quarter (Jan 1, 2026 -   |                       | by channel for WinnDixie  |                             |                        |
+|    |                          |                        | Mar 31, 2026).           |                       | last quarter'}            |                             |                        |
+|    |                          |                        | **Explanation:** The     |                       | name='call_data_scientist |                             |                        |
+|    |                          |                        | `call_data_scientist`    |                       | '                         |                             |                        |
+|    |                          |                        | agent was used to        |                       | partial_args=None         |                             |                        |
+|    |                          |                        | retrieve the ViVs by     |                       | will_continue=None        |                             |                        |
+|    |                          |                        | channel for              |                       |                           |                             |                        |
+|    |                          |                        | WinnDixie for the last   |                       |                           |                             |                        |
+|    |                          |                        | quarter. However,        |                       |                           |                             |                        |
+|    |                          |                        | no data was returned for |                       |                           |                             |                        |
+|    |                          |                        | this specific            |                       |                           |                             |                        |
+|    |                          |                        | query.                   |                       |                           |                             |                        |
+|    |                          |                        | **Recommendation:**      |                       |                           |                             |                        |
+|    |                          |                        | Please check             |                       |                           |                             |                        |
+|    |                          |                        | if the data for ViVs by  |                       |                           |                             |                        |
+|    |                          |                        | channel is               |                       |                           |                             |                        |
+|    |                          |                        | available for WinnDixie  |                       |                           |                             |                        |
+|    |                          |                        | for the                  |                       |                           |                             |                        |
+|    |                          |                        | specified period, or try |                       |                           |                             |                        |
+|    |                          |                        | a different              |                       |                           |                             |                        |
+|    |                          |                        | metric or time frame.    |                       |                           |                             |                        |
++----+--------------------------+------------------------+--------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

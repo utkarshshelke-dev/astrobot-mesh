@@ -1,0 +1,67 @@
+test_name,category,difficulty,question,expected_keywords,forbidden_keywords,ground_truth
+C1_Q1_lead_driver_correlation,Channel Efficiency,medium,"For NPI, which specific channel has the highest statistical correlation with total Conversions over the last 24 months? Compute Pearson correlation between each channel's daily spend and total daily conversions across the dataset.",,,"[
+  {
+    ""social_corr"": 0.604,
+    ""search_corr"": 0.655,
+    ""demand_corr"": 0.672,
+    ""tv_corr"": 0.241
+  }
+]"
+C1_Q2_cpa_per_channel,Channel Efficiency,easy,"For NPI, which channel has the lowest CPA (Cost Per Conversion) over the last 12 months? Use UNIFIED CTE pattern.","Demand Gen,P-Max",,"[
+  {
+    ""Channel"": ""Demand Gen + P-Max"",
+    ""spend"": 1172642.68,
+    ""conv"": 307779,
+    ""cpa"": 3.81
+  }
+]"
+C1_Q3_saturation_point,Channel Efficiency,hard,"For NPI, at what daily spend level does Paid Social stop producing incremental conversions? Use NTILE(10) decile bucketing on daily Paid Social spend last 12 months. Identify the decile where conv/$ drops below 50% of peak.","decile,saturation,11","3,436,938,4,404,369,$4,241.67,$921.91","[
+  {
+    ""decile"": 1,
+    ""min_spend"": 956.0,
+    ""max_spend"": 3220.0,
+    ""avg_spend"": 2955.0,
+    ""avg_conv"": 0.0,
+    ""conv_per_dollar"": 0.0
+  },
+  {
+    ""decile"": 2,
+    ""min_spend"": 3226.0,
+    ""max_spend"": 3847.0,
+    ""avg_spend"": 3547.0,
+    ""avg_conv"": 0.0,
+    ""conv_per_dollar"": 0.0
+  },
+  {
+    ""decile"": 3,
+    ""min_spend"": 3856.0,
+    ""max_spend"": 5016.0,
+    ""avg_spend"": 4348.0,
+    ""avg_conv"": 0.0,
+    ""conv_per_dollar"": 0.0
+  },
+  {
+    ""decile"": 4,
+    ""min_spend"": 5073.0,
+    ""m"
+C1_Q4_worst_3_channels,Channel Efficiency,medium,"For NPI, rank channels by Conversions per Dollar Spent. Show the 3 worst-performing channels using FULL OUTER JOIN unified pattern.","Online Audio,Print,OOH","Performance Max,Demand Gen","[
+  {
+    ""Channel"": ""CTV"",
+    ""spend"": 1343237.96,
+    ""conv"": null,
+    ""conv_per_dollar"": null
+  },
+  {
+    ""Channel"": ""Demand Gen"",
+    ""spend"": 1027593.09,
+    ""conv"": null,
+    ""conv_per_dollar"": null
+  },
+  {
+    ""Channel"": ""Search"",
+    ""spend"": 1874777.93,
+    ""conv"": null,
+    ""conv_per_dollar"": null
+  }
+]"
+C1_Q5_budget_100k,Channel Efficiency,hard,"For NPI, based on last 12 months unified channel performance, how should the next $100k be distributed to maximize total Conversions?","Demand Gen,Paid Social,Paid Search,$100,000","OOH,Print,Online Audio",(no SQL provided - manual review needed)

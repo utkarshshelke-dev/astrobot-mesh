@@ -1,0 +1,17 @@
+[
+  {
+    "name": "neg_12_duality_broken_model",
+    "data": [
+      {
+        "query": "For NPI, train a linear regression model to predict conversions using cost directly from the table without any joins",
+        "reference": "duality NPI FULL OUTER JOIN aggregated daily data required before training model",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "data_science",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

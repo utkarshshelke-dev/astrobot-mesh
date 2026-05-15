@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_11_clustering",
+    "data": [
+      {
+        "query": "For NPI, cluster campaigns by performance and show which clusters perform best",
+        "reference": "NPI campaign cluster KMEANS performance spend conversions group segment",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]

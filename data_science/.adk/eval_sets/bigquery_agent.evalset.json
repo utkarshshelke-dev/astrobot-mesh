@@ -1,0 +1,488 @@
+{
+  "eval_set_id": "bigquery_agent_eval_v1",
+  "name": "BigQuery Sub-Agent (data_science/sub_agents/bigquery) Eval",
+  "description": "Tests BigQuery data access: raw metric queries, dataset config adherence (ad_campaign_dataset_config.json), cross-dataset joins (cross_dataset_relations.json), data freshness, zero-data checks, and spend reconciliation.",
+  "eval_cases": [
+    {
+      "eval_id": "bq_001_raw_metrics_query",
+      "conversation": [
+        {
+          "invocation_id": "inv_bq_001",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Pull impressions, clicks, and spend for all campaigns in L7D."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Queried BigQuery (ad_campaign_dataset_config): [table with campaign_id, impressions, clicks, spend for L7D]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bq_001_a",
+                "name": "run_bigquery_query",
+                "args": {
+                  "metrics": [
+                    "impressions",
+                    "clicks",
+                    "spend"
+                  ],
+                  "dimensions": [
+                    "campaign_id"
+                  ],
+                  "date_flag": "L7D",
+                  "dataset_config": "ad_campaign_dataset_config.json"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bq_002_cross_dataset_roas",
+      "conversation": [
+        {
+          "invocation_id": "inv_bq_002",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Join campaign spend with revenue to compute ROAS by campaign for L30D."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Cross-dataset ROAS by campaign (L30D): [table \u2014 spend from ads dataset joined with revenue from revenue dataset per cross_dataset_relations.json]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bq_002_a",
+                "name": "run_cross_dataset_query",
+                "args": {
+                  "relations_config": "cross_dataset_relations.json",
+                  "computed_metric": "ROAS",
+                  "dimensions": [
+                    "campaign_id"
+                  ],
+                  "date_flag": "L30D"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bq_003_data_freshness",
+      "conversation": [
+        {
+          "invocation_id": "inv_bq_003",
+          "user_content": {
+            "parts": [
+              {
+                "text": "When was the BigQuery data last updated?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "BigQuery data freshness:\n\u2705 Google Ads table: last updated [timestamp]\n\u2705 Meta Ads table: last updated [timestamp]\n\u26a0\ufe0f DV360 table: last updated [timestamp] \u2014 Xh ago, exceeds 6h SLA"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bq_003_a",
+                "name": "check_table_freshness",
+                "args": {
+                  "tables": "all",
+                  "sla_hours": 6
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bq_004_zero_data_check",
+      "conversation": [
+        {
+          "invocation_id": "inv_bq_004",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Are there any tables with zero rows for today?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Zero-row check for today: [N] tables returned 0 rows \u2014 [table names]. These had data yesterday. Likely pipeline lag or ingestion failure."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bq_004_a",
+                "name": "check_zero_rows",
+                "args": {
+                  "date_flag": "TODAY",
+                  "compare_previous_day": true
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bq_005_spend_reconciliation",
+      "conversation": [
+        {
+          "invocation_id": "inv_bq_005",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Does the spend in BigQuery match the platform numbers?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Spend reconciliation (L7D):\nGoogle Ads: BQ $X vs Platform $X \u2014 delta $X (X%) \u2705\nMeta: BQ $X vs Platform $X \u2014 delta $X (X%) \u26a0\ufe0f exceeds 2% tolerance"
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bq_005_a",
+                "name": "reconcile_spend_bq_vs_platform",
+                "args": {
+                  "date_flag": "L7D",
+                  "tolerance_pct": 2,
+                  "channels": "all"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bq_006_campaign_filter",
+      "conversation": [
+        {
+          "invocation_id": "inv_bq_006",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Show me spend and ROAS for only Paid Search campaigns in L30D."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Paid Search campaigns (L30D): [table filtered to channel=paid_search \u2014 campaign, spend, revenue, ROAS]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bq_006_a",
+                "name": "run_bigquery_query",
+                "args": {
+                  "metrics": [
+                    "spend",
+                    "revenue",
+                    "ROAS"
+                  ],
+                  "dimensions": [
+                    "campaign_id",
+                    "campaign_name"
+                  ],
+                  "filters": {
+                    "channel": "paid_search"
+                  },
+                  "date_flag": "L30D",
+                  "dataset_config": "ad_campaign_dataset_config.json"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bq_007_geo_breakdown",
+      "conversation": [
+        {
+          "invocation_id": "inv_bq_007",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Pull spend by state from BigQuery for MTD."
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Spend by state (MTD from BigQuery): [table with state, spend, impressions, clicks sorted by spend desc]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bq_007_a",
+                "name": "run_bigquery_query",
+                "args": {
+                  "metrics": [
+                    "spend",
+                    "impressions",
+                    "clicks"
+                  ],
+                  "dimensions": [
+                    "state"
+                  ],
+                  "date_flag": "MTD",
+                  "sort": "spend_desc",
+                  "dataset_config": "ad_campaign_dataset_config.json"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bq_008_utm_coverage",
+      "conversation": [
+        {
+          "invocation_id": "inv_bq_008",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What percentage of sessions in BigQuery have complete UTM coverage?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "UTM coverage (L30D): X% of sessions have all 5 UTM params. Missing: utm_medium on X campaigns, utm_content on X ad groups."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bq_008_a",
+                "name": "audit_utm_coverage_bq",
+                "args": {
+                  "date_flag": "L30D",
+                  "required_params": [
+                    "utm_source",
+                    "utm_medium",
+                    "utm_campaign",
+                    "utm_content",
+                    "utm_term"
+                  ]
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bq_009_dark_traffic_percentage",
+      "conversation": [
+        {
+          "invocation_id": "inv_bq_009",
+          "user_content": {
+            "parts": [
+              {
+                "text": "What percentage of total Transactions are currently attributed to Not Defined or NA?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Dark traffic audit (L30D):\nTotal transactions: X\nAttributed to 'Not Defined' or 'NA': X (X% of total)\nTrend: dark traffic share is [growing/shrinking] MoM \u2014 from X% (last month) to X% (this month).\nTop affected channels by null attribution: [list]. Recommend UTM audit and referral traffic inspection."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bq009_a",
+                "name": "run_bigquery_query",
+                "args": {
+                  "query_type": "attribution_null_check",
+                  "target": "transactions",
+                  "null_values": [
+                    "not_defined",
+                    "na",
+                    "none",
+                    "(not set)"
+                  ],
+                  "date_flag": "L30D",
+                  "include_trend": true
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bq_010_tracking_leakage_detection",
+      "conversation": [
+        {
+          "invocation_id": "inv_bq_010",
+          "user_content": {
+            "parts": [
+              {
+                "text": "In months where Transactions are high but channel spend is low, can we identify which tracking parameters likely failed?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Tracking leakage scan (L12M):\nMonths with high transactions + low spend (z-score anomaly): [Month A], [Month B]\nFor each flagged month \u2014 missing/null parameter breakdown:\n\u2022 utm_source null: X% of sessions\n\u2022 utm_medium null: X% of sessions\n\u2022 gclid absent: X% of paid search sessions\nMost likely failure: [parameter]. These months likely had [redirect stripping / pixel misfires / server-side tracking gaps]."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bq010_a",
+                "name": "detect_spend_transaction_anomaly_months",
+                "args": {
+                  "date_flag": "L12M",
+                  "condition": "high_transactions_low_spend",
+                  "z_score_threshold": 1.5
+                }
+              },
+              {
+                "id": "tu_bq010_b",
+                "name": "audit_utm_coverage_bq",
+                "args": {
+                  "date_flag": "ANOMALY_MONTHS",
+                  "required_params": [
+                    "utm_source",
+                    "utm_medium",
+                    "utm_campaign",
+                    "gclid"
+                  ]
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    },
+    {
+      "eval_id": "bq_011_email_direct_attribution_gap",
+      "conversation": [
+        {
+          "invocation_id": "inv_bq_011",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Is there a correlation between Email spend and Direct transactions that suggests our Email attribution is under-reporting?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [
+              {
+                "text": "Email \u2192 Direct correlation (L12M):\nPearson r between Email spend and Direct transactions: r=X.XX (p=X.XX)\nIf r is high and positive, Email sends are likely driving Direct traffic (users typing URL or using bookmarks after seeing email \u2014 not click-tracked).\nConclusion: [Strong/Weak] evidence of Email attribution under-reporting. Estimated under-attributed transactions: ~X/month based on regression residuals. Recommend implementing UTM parameters on all email CTAs and server-side open tracking."
+              }
+            ],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {
+                "id": "tu_bq011_a",
+                "name": "compute_channel_transaction_correlation",
+                "args": {
+                  "source": "email_spend",
+                  "target": "direct_transactions",
+                  "date_flag": "L12M",
+                  "method": "pearson"
+                }
+              },
+              {
+                "id": "tu_bq011_b",
+                "name": "run_bigquery_query",
+                "args": {
+                  "query_type": "regression_residuals",
+                  "predictor": "email_spend",
+                  "target": "direct_transactions",
+                  "date_flag": "L12M"
+                }
+              }
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ]
+    }
+  ]
+}

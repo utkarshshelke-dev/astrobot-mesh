@@ -1,0 +1,117 @@
+2026-05-13 06:45:22,222 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-13 06:45:30,900 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 06:45:30,900 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 06:45:30,901 - INFO - agent.py:401 - 🔒 Orchestrator session LOCKED to client: NPI
+2026-05-13 06:45:30,901 - INFO - agent.py:413 - ▶ before_agent | client=NPI | locked=NPI | session=session_1778654730 | turn=1 | mode=local-AgentTool
+2026-05-13 06:45:30,971 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=none
+2026-05-13 06:45:31,120 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:45:33,524 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:45:33,524 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-13 06:45:33,525 - INFO - agent.py:558 - 🔢 after_model  | tokens in=4243 out=22 total=4327
+2026-05-13 06:45:33,527 - INFO - agent.py:457 - ⚙ before_tool  | tool=call_data_scientist | skill=anomaly | client=NPI | query=Detect any unusual spend patterns or anomalies for…
+2026-05-13 06:45:33,527 - INFO - agent.py:163 - Routing to LOCAL DS agent
+2026-05-13 06:45:34,483 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-13 06:45:34,483 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-13 06:45:34,484 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+2026-05-13 06:45:34,484 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 06:45:34,487 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 06:45:34,488 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-13 06:45:34,488 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-13 06:45:34,488 - INFO - agent.py:339 - 📍 KM routed '[Client: NPI] Detect any unusual spend patterns or...' → table=performance (confidence=default)
+2026-05-13 06:45:35,429 - INFO - tools.py:313 - Found 27 models for NPI
+2026-05-13 06:45:35,429 - INFO - agent.py:354 - 📋 Models listed for NPI: 1273 chars
+2026-05-13 06:45:35,544 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:45:36,671 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:45:36,672 - INFO - agent.py:489 - Tokens: In=7716, Out=13
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-13 06:45:36,786 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:45:38,780 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:45:39,345 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:45:42,103 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:45:42,215 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:45:45,087 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:45:47,463 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:46:04,415 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:46:04,419 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-13 06:46:04,419 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-13 06:46:04,520 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:46:04,520 - INFO - models.py:8416 - AFC is enabled with max remote calls: 10.
+2026-05-13 06:46:26,049 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:46:26,050 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 06:46:26,050 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 06:46:26,508 - INFO - category.py:224 - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-13 06:46:26,511 - INFO - category.py:224 - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2026-05-13 06:46:27,204 - INFO - agent.py:124 - BQML chart rendered: NPI Daily Spend Anomalies (Last 6 Months) (79737 bytes)
+2026-05-13 06:46:27,205 - INFO - agent.py:131 - BQML chart saved: chart_1778654787_504bfd.png v0
+2026-05-13 06:46:27,305 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:46:28,608 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:46:28,612 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 06:46:28,612 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-13 06:46:28,612 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-13 06:46:28,612 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 06:46:28,617 - INFO - agent.py:514 - ✓ after_tool   | tool=call_data_scientist | skill=anomaly | len=83 | error=False
+2026-05-13 06:46:28,622 - INFO - agent.py:538 - ⚡ before_model | client=NPI | turn=1 | last_skill=anomaly
+2026-05-13 06:46:28,717 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-13 06:46:31,164 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-13 06:46:31,165 - INFO - agent.py:558 - 🔢 after_model  | tokens in=4354 out=79 total=4433
+2026-05-13 06:46:31,167 - INFO - agent.py:427 - ◀ after_agent  | client=NPI | turn=1 | duration=60.27s | tools_called=1
+2026-05-13 06:46:31,169 - INFO - runners.py:1611 - Closing runner...
+2026-05-13 06:46:31,169 - INFO - runners.py:1619 - Runner closed.
+2026-05-13 06:46:31,172 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-13 06:46:31,175 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/orchestrator/.adk/eval_history/orchestrator_tests_eval_orchestrator_pos_04_anomaly.evalset.json_1778654791.1750844.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.05} custom_metrics=None user_simulator_config=None
+Models contained in 'nc-ai-chatbot.astrobot_bqml_models':
+*********************************************************************
+Eval Run Summary
+tests/eval_orchestrator/pos_04_anomaly.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval_orchestrator/pos_04_anomaly.evalset.json
+Eval Id: pos_04_anomaly
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.15625, Threshold: 0.05
+---------------------------------------------------------------------
+Invocation Details:
++----+-----------------------+-----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                | expected_response     | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+=======================+=======================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, detect any   | NPI anomaly detection | **Result:** I have        |                       | id='adk-6a6e87d3-a63b-4e4 | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | unusual spend         | spend unusual         | detected and              |                       | 8-a44b-                   | 0.0                         | 0.15625                |
+|    | patterns or anomalies | spike outlier channel | visualized the anomalies  |                       | 51fa63f8a332'             |                             |                        |
+|    | last 6 months         |                       | in NPI's spend            |                       | args={'query': 'Detect    |                             |                        |
+|    |                       |                       | for the last 6 months.    |                       | any                       |                             |                        |
+|    |                       |                       | **Explanation:**          |                       | unusual spend patterns or |                             |                        |
+|    |                       |                       | The `call_data_scientist` |                       | anomalies for             |                             |                        |
+|    |                       |                       | agent was used            |                       | NPI for the last 6        |                             |                        |
+|    |                       |                       | to detect unusual spend   |                       | months'}                  |                             |                        |
+|    |                       |                       | patterns or               |                       | name='call_data_scientist |                             |                        |
+|    |                       |                       | anomalies for NPI for the |                       | '                         |                             |                        |
+|    |                       |                       | last 6 months.            |                       | partial_args=None         |                             |                        |
+|    |                       |                       | **Recommendation:**       |                       | will_continue=None        |                             |                        |
+|    |                       |                       | Review the detected       |                       |                           |                             |                        |
+|    |                       |                       | anomalies to understand   |                       |                           |                             |                        |
+|    |                       |                       | the underlying            |                       |                           |                             |                        |
+|    |                       |                       | causes and take           |                       |                           |                             |                        |
+|    |                       |                       | appropriate action to     |                       |                           |                             |                        |
+|    |                       |                       | optimize spend.           |                       |                           |                             |                        |
++----+-----------------------+-----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

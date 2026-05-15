@@ -1,0 +1,262 @@
+{
+  "eval_set_id": "astrobot_v2_evalset",
+  "name": "Astrobot DS Agent v2 — KM + Validator + Walled Garden",
+  "description": "Multi-turn evaluation of the v2 behaviors: KnowledgeManager routing, SQL validator retries, walled-garden enforcement, and channel taxonomy resolution. Uses rubric-based judge for fuzzy assertions and tool trajectory matching for deterministic checks.",
+  "eval_cases": [
+
+    {
+      "eval_id": "case_E1_npi_cpa_performance",
+      "conversation": [
+        {
+          "invocation_id": "inv_1",
+          "user_content": {
+            "parts": [{"text": "For NPI, which channel has the lowest CPA over the last 12 months?"}],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{
+              "text": "The channel with the lowest CPA for NPI over the last 12 months is shown in the table below. The answer should reference vw_astrobot_npi_nc360_dashboard, use SAFE_DIVIDE for CPA calculation, group by a unified channel, and not contain 'DEFAULT'."
+            }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {"name": "call_bigquery_agent", "args": {"question": "..."}}
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "data_science",
+        "user_id": "eval_user_e1",
+        "state": {}
+      }
+    },
+
+    {
+      "eval_id": "case_E2_npi_pacing_routes_correctly",
+      "conversation": [
+        {
+          "invocation_id": "inv_1",
+          "user_content": {
+            "parts": [{"text": "For NPI, what's the budget remaining by channel this month?"}],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{
+              "text": "The agent should route this question to the pacing table (vw_astrobot_npi_nc360_budget), group by GVMM_Channel, and report Budget_Remaining or related columns."
+            }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {"name": "call_bigquery_agent", "args": {}}
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "data_science",
+        "user_id": "eval_user_e2",
+        "state": {}
+      }
+    },
+
+    {
+      "eval_id": "case_E3_volatility_uses_cv_not_stddev",
+      "conversation": [
+        {
+          "invocation_id": "inv_1",
+          "user_content": {
+            "parts": [{"text": "For NPI, which channel is the most volatile in the last 6 months?"}],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{
+              "text": "The agent should compute Coefficient of Variation (CV = STDDEV / AVG) using SAFE_DIVIDE with NULLIF, and rank channels by CV. Raw STDDEV without dividing by AVG is incorrect."
+            }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {"name": "call_bigquery_agent", "args": {}}
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "data_science",
+        "user_id": "eval_user_e3",
+        "state": {}
+      }
+    },
+
+    {
+      "eval_id": "case_E4_direct_not_default",
+      "conversation": [
+        {
+          "invocation_id": "inv_1",
+          "user_content": {
+            "parts": [{"text": "For NPI, show me Direct conversions over the last 12 months"}],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{
+              "text": "The agent should filter Channel = 'Direct' (capitalized), NOT Channel = 'DEFAULT'. 'DEFAULT' is unmapped data and must never appear in user-facing queries for direct conversions."
+            }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {"name": "call_bigquery_agent", "args": {}}
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "data_science",
+        "user_id": "eval_user_e4",
+        "state": {}
+      }
+    },
+
+    {
+      "eval_id": "case_E5_awareness_all_9_channels",
+      "conversation": [
+        {
+          "invocation_id": "inv_1",
+          "user_content": {
+            "parts": [{"text": "For NPI, what's our total awareness spend over the last 12 months?"}],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{
+              "text": "The agent should call resolve_channel_reference_tool for 'awareness' and produce SQL with Channel IN that includes the full awareness taxonomy: Linear TV, CTV, OTT, Online Audio, Online Video, Paid Video, Video, OOH, Print. NEVER guess a subset of channels."
+            }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {"name": "resolve_channel_reference_tool", "args": {"client_id": "NPI", "term": "awareness"}},
+              {"name": "call_bigquery_agent", "args": {}}
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "data_science",
+        "user_id": "eval_user_e5",
+        "state": {}
+      }
+    },
+
+    {
+      "eval_id": "case_E6_client_lock_persists_multi_turn",
+      "conversation": [
+        {
+          "invocation_id": "inv_1",
+          "user_content": {
+            "parts": [{"text": "For NPI, which channel has the lowest CPA?"}],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{
+              "text": "The agent should lock the session to NPI and answer the CPA question against the NPI dashboard table."
+            }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [{"name": "call_bigquery_agent", "args": {}}],
+            "intermediate_responses": []
+          }
+        },
+        {
+          "invocation_id": "inv_2",
+          "user_content": {
+            "parts": [{"text": "Now compare with Venetian's spend"}],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{
+              "text": "The agent should refuse to query Venetian's data because the session is locked to NPI. It should explain the lock and suggest starting a new session for Venetian."
+            }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "data_science",
+        "user_id": "eval_user_e6",
+        "state": {}
+      }
+    },
+
+    {
+      "eval_id": "case_E7_bqml_forecast_works",
+      "conversation": [
+        {
+          "invocation_id": "inv_1",
+          "user_content": {
+            "parts": [{"text": "Forecast NPI conversions for the next quarter"}],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{
+              "text": "The agent should delegate to bqml_agent which uses ML.FORECAST against an ARIMA model in astrobot_bqml_models. Forecast horizon should be 90 days. Results should be aggregated to weekly before charting."
+            }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [
+              {"name": "transfer_to_agent", "args": {"agent_name": "bqml_agent"}}
+            ],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "data_science",
+        "user_id": "eval_user_e7",
+        "state": {}
+      }
+    },
+
+    {
+      "eval_id": "case_E8_no_client_asks_for_client",
+      "conversation": [
+        {
+          "invocation_id": "inv_1",
+          "user_content": {
+            "parts": [{"text": "Show me the lowest CPA channel"}],
+            "role": "user"
+          },
+          "final_response": {
+            "parts": [{
+              "text": "The agent should ask which client to analyze (NPI, Venetian, or WinnDixie). It MUST NOT call call_bigquery_agent or execute_sql without a locked client."
+            }],
+            "role": "model"
+          },
+          "intermediate_data": {
+            "tool_uses": [],
+            "intermediate_responses": []
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "data_science",
+        "user_id": "eval_user_e8",
+        "state": {}
+      }
+    }
+
+  ]
+}

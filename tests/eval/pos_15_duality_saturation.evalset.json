@@ -1,0 +1,9 @@
+[{
+  "name": "pos_15_duality_saturation",
+  "data": [{
+    "query": "For NPI, build a saturation model and show where to allocate next $500k investment",
+    "reference": "saturation model NPI allocation budget $500k channels duality FULL OUTER JOIN",
+    "expected_tool_use": []
+  }],
+  "initial_session": {"app_name": "data_science", "user_id": "eval_user", "state": {}}
+}]

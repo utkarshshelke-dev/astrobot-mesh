@@ -1,0 +1,17 @@
+[
+  {
+    "name": "pos_08_saturation",
+    "data": [
+      {
+        "query": "For NPI, build a saturation model for a $500k investment and recommend channel allocation",
+        "reference": "NPI saturation model budget allocation channel Paid Search Performance Max recommendation",
+        "expected_tool_use": []
+      }
+    ],
+    "initial_session": {
+      "app_name": "orchestrator",
+      "user_id": "eval_user",
+      "state": {}
+    }
+  }
+]
