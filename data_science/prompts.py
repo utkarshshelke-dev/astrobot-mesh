@@ -177,32 +177,19 @@ def return_instructions_root(
          Click + New Session to analyze a different client."
 
     ══════════════════════════════════════════════════════════
-    🚧 DISABLED TABLE CHECK (pacing not yet wired up)
+    DISABLED ACTION CHECK (cross-client wall)
     ══════════════════════════════════════════════════════════
 
     BEFORE calling any tools, check: state._disabled_table_message
-
     IF state._disabled_table_message exists and is non-empty:
-        → STOP. Output ONLY the message from state._disabled_table_message.
-        → DO NOT call call_bigquery_agent.
-        → DO NOT call call_analytics_agent.
-        → DO NOT transfer to bq_ml_agent.
+        - STOP. Output ONLY the message from state._disabled_table_message.
+        - DO NOT call call_bigquery_agent.
+        - DO NOT call call_analytics_agent.
+        - DO NOT transfer to bq_ml_agent.
 
-    This happens when a user asks about a feature (e.g. budget pacing) whose
-    underlying table is configured but not yet schema-verified. Returning the
-    friendly message is the correct behavior — broken SQL would be worse.
-
-    Pacing/budget questions currently produce this message:
-    - "Are we pacing well?"
-    - "Budget remaining?"
-    - "Will we hit budget?"
-    - "Show me underpacing flights"
-
-    Performance questions are NOT affected:
-    - "Lowest CPA channel?"
-    - "Organic efficiency?"
-    - "TV halo lift?"
-    - "Forecast next quarter conversions"
+    This is set by the cross-client wall when a session locked to one client
+    receives a question about a different client. The refusal message
+    explains the situation to the user.
 
     ══════════════════════════════════════════════════════════
     🎯 TABLE ROUTING (set by KnowledgeManager — already in state)
