@@ -152,51 +152,6 @@ def parse_result(text):
     return result
 
 
-def _persist_result(result, log_file, eval_json, category):
-    """
-    Append one JSONL line to judge_results.jsonl.
-
-    Resolution order for output directory:
-      1. $EVAL_RUN_DIR (set by run_full_eval.sh — preferred)
-      2. Same directory as the log_file (sensible default)
-      3. Current working directory (fallback)
-
-    Errors are swallowed — judge() must never fail because of disk issues.
-    """
-    import datetime
-    try:
-        run_dir = os.environ.get("EVAL_RUN_DIR")
-        if not run_dir:
-            log_dir = os.path.dirname(os.path.abspath(log_file)) if log_file else ""
-            run_dir = log_dir if log_dir and os.path.isdir(log_dir) else os.getcwd()
-
-        out_path = os.path.join(run_dir, "judge_results.jsonl")
-        record = {
-            "timestamp": datetime.datetime.utcnow().isoformat() + "Z",
-            "log_file": os.path.basename(log_file) if log_file else None,
-            "eval_json": os.path.basename(eval_json) if eval_json else None,
-            "category": category,
-            "verdict": result.get("verdict"),
-            "reason": result.get("reason"),
-            "judge_model": result.get("judge_model"),
-            "scores": {
-                k: result.get(k)
-                for k in (
-                    "hallucination_score", "answer_quality", "grounding_score",
-                    "refusal_quality", "leaked_data"
-                )
-                if k in result
-            },
-            "response_preview": result.get("response_preview", "")[:300],
-        }
-        with open(out_path, "a") as f:
-            f.write(json.dumps(record) + "\n")
-    except Exception as e:
-        # Never break the eval pipeline because of persistence issues
-        print(f"[_persist_result WARN] could not write judge_results.jsonl: {e}",
-              file=sys.stderr)
-
-
 def judge(log_file, eval_json, category):
     data = json.load(open(eval_json))
     question = data[0]["data"][0]["query"]
@@ -218,5 +173,4 @@ if __name__ == "__main__":
     log_file, eval_json, category = sys.argv[1], sys.argv[2], sys.argv[3]
     result = judge(log_file, eval_json, category)
     print(f"[DEBUG] Response: {result.get('response_preview','')[:200]}", file=sys.stderr)
-    _persist_result(result, log_file, eval_json, category)
     print(json.dumps(result, indent=2))
