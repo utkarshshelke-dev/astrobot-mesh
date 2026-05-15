@@ -24,9 +24,7 @@
               "Organic Search",
               "Organic Social",
               "Organic Video",
-              "Direct",LATEST=$(ls -t ad_campaign_dataset_config_v3.json.before_auto_onboard_test_* 2>/dev/null | head -1)
-cp "$LATEST" ad_campaign_dataset_config_v3.json
-echo "Restored from $LATEST"
+              "Direct",
               "Referral",
               "Email"
             ],
