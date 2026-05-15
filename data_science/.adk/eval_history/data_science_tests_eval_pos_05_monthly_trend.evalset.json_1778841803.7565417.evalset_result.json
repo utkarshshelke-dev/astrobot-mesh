@@ -1,0 +1,1480 @@
+{
+  "eval_set_result_id": "data_science_tests/eval/pos_05_monthly_trend.evalset.json_1778841803.7565417",
+  "eval_set_result_name": "data_science_tests_eval_pos_05_monthly_trend.evalset.json_1778841803.7565417",
+  "eval_set_id": "tests/eval/pos_05_monthly_trend.evalset.json",
+  "eval_case_results": [
+    {
+      "eval_set_file": "tests/eval/pos_05_monthly_trend.evalset.json",
+      "eval_set_id": "tests/eval/pos_05_monthly_trend.evalset.json",
+      "eval_id": "pos_05_monthly_trend",
+      "final_eval_status": 1,
+      "eval_metric_results": null,
+      "overall_eval_metric_results": [
+        {
+          "metric_name": "tool_trajectory_avg_score",
+          "threshold": 0.0,
+          "criterion": {
+            "threshold": 0.0
+          },
+          "custom_function_path": null,
+          "score": 0.0,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": null
+          }
+        },
+        {
+          "metric_name": "response_match_score",
+          "threshold": 0.1,
+          "criterion": {
+            "threshold": 0.1
+          },
+          "custom_function_path": null,
+          "score": 0.16,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": null
+          }
+        }
+      ],
+      "eval_metric_result_per_invocation": [
+        {
+          "actual_invocation": {
+            "invocation_id": "e-679e3c95-5039-484c-b4f1-04f2f605e79c",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, show me total monthly spend trend over the last 6 months as a line chart",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "**Result:**\n\n**NPI Total Monthly Spend Trend (Last 6 Months)**\n\n| month   | total_spend   |\n|:--------|--------------:|\n| 2025-11 |    266,942.50 |\n| 2025-12 |    350,762.11 |\n| 2026-01 |  1,227,253.16 |\n| 2026-02 |  1,082,803.90 |\n| 2026-03 |  1,129,038.99 |\n| 2026-04 |    934,123.31 |\n| 2026-05 |    405,024.54 |\n\n**Explanation:**\n1. Retrieved the total monthly spend for NPI over the last 6 months from the BigQuery database.\n2. Generated a line chart visualizing the trend of total monthly spend.\n\n**Graph:**\nGenerated line chart: NPI Total Monthly Spend Trend (Last 6 Months)",
+                  "thought": null,
+                  "thought_signature": "CpcCAY89a18bBZs0TlInIi6QF519oR4nDev64fvlEECtyytmSoTHbfhaeckeiWhdFyOm9g_ajLJRkE99QpLeGiXh8QAi8y1b5M-xxvgxcufZKvE201NSM2sJIzODYfSkwo4kOxOMzkPyyk4ANPpIWzsxoo6IPVi78iUaUxZNRY-i0TWaEz78CyvhPGe0QEKdmOmFz1rteglkBKgJBrxCBmrGXdD0FyZC7SbpfFtz_pC8v3Dv_4w7vptcMVPuuxwBTho-tbuO7m7HMDTDhdfvnpoY60XafKBD1DtkNuvjYGN92U7-BlQfRx7Fh_fS1SHmpM-oobOieQ4g-lAfvXdZZvolTc7MhXlL_fLbgqUUQ9tPgZTBGbj-K66f",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "invocation_events": [
+                {
+                  "author": "data_science_root_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-2d07f12f-343b-413b-ba3d-68891ee09e62",
+                          "args": {
+                            "query": "For NPI, show me total monthly spend trend over the last 6 months."
+                          },
+                          "name": "call_bigquery_agent",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "Cr0XAY89a19-YVoZwFFZt5s5FkCaw0QE12C6MvEq1nLmHyFzDRwEEBHajCyqWjycELKoitGqoiYU6RU2rGpJbRVtO0wtNgSVVcVmEv9EpYFlfAsGd9Y7OumBsQkaUCT22nYxDU_6W4qFfL52XIgU8Oa4RJBXng9l-RArO06Vf5Yf0dW2k7e7yYUnlnNlNqkR0hhPLuhcHOa8z9xfyuuVYznyN9Eyl6eEd5aWySABPye1VfUQcc-jdV9okijdvBgyJ4pyvsQvcIwmaqNUyze4f6s0itQmw4Z__v5Nj8F1R9Mxv7F9wUJL-efgjgOuSGn9cfgExclaTiyUulwepiiG0EgM1VGhDI1KsBFlb96PhbJNLtR2vL4b2Snei6yh5QiNbIakNk_WxX7unzknF3t_y2F7n6dzr1uCuZs6Z6_aNCN_vz6fh3W1VKVMlEgwc1zfCQR7Me8YRLgm6YmQwCw5S8YJwrAgUO2loj2JwXpAhLQc7kskkjwxNQEDUdW5m_QzeyqLeSMqgK5JlHyO_ialYaCqAtaIBPqN-WpwhyDxK1KJQkQUGCnzVySsJW__zrgXbKC9M3OsJjaom4HRJhHdeb8TLciNWtZAI63-jP4obClgEaLYbaAVmKdcB21UTMXSenIiBJdbWFmZXiJxJZ0B6eaePMsmumelbVOMIa0IBOkhU_CV023P6D83CPMgBXqZC50mX7-6WChl3ow9ky8666br1D8dxxbBzQHM58CJokNloESIzzaE-W69ffKeGBZBvg_iq8nFeGklcGwirLRUZ_XJp75FYADHWPhQY4liQUwCb4egW3qOSZCec5wZvL0ZRoEnQ2umSowq9SWmb9_LFXbuUwUwErIqNl_sw9rGjhNUrEeWDx8wHPULYx3bKFt-BtJgCid1_GHc-F5OOyTJFgj_7s33AKW32p_Mpq42hsadb4z2Munau49CjSU_BNR2JVH9Vs5wvgmYQpP9nIaSLpSFDCUQPq49QpAPidT5m0gVaivN5VMAYTJriYQrtcHufhsfeikicd87QCe0iRq-t-w8myFl_MXVfRbnuPkkCOMdLFvMIM6pFblpkspjNTVb4SbwluIUUw_4Be66Q2Tfy79p7wE710vsmIM5pkgU7LQWz7BimmmiJP8XcjR7ddcYqPt_QRw4sD23Y7EacsjghFpcjzdh2Bcxnh3zvAx1wSqsjZdCjWCg7gq7HV22YezrpY0-xmX8zRCTYymJS_tNiTb-bURmBKLAnfeMYEltdEwafWhb-gTiWUqJHkWrTWgWt4czCMb_u_gwAqrsVr05nqQm4hqhS9FMH14NiZLVfGEXX_Xf966ciYOOJv5uIW2zrXq0D8-6GFTFbj0ynCWlLrFH26vA02U2Ii7_FbVeT4-nvNaynIF09i9vRivHtHRMTafDzbrt50ALYVdG2jEJ6UNefHyTnpekE0OTf6wpwUkNjaFQM2dv8ycaM8-oQvEO9KMEIJFF2yXvLXCk06h50_phyC0iaMqtbJheTyT0fL_hste0wnVN2rHXgmH2Lf9uO7qr2d0VMhqMRuZR0VokVtoOBpPv9q9b5A8VZ7C2Wc6u-7pK5wt-NdrOJ_WCTUxhDVkTx8yL5DdF9J2qzeJYFvkFi0tvrGWdKEsu9a3cCuUjfjHNmkiIo63u2qJuHSLxyQrP0WS3ygv5agtw4xTs4vv_S-1ZUd5UNG1QsH4ar5Emnl3g2wn-TXOI58vD8_XNIpR1GtYq0XkkdNvHRt6jvzy7ImomdCrWbvDpqrpp-MDGy3TzjEOkz3-r2V4MJCRawMSr5bBR6r4ZUz3HfTrgbaZF23YtYDj6ZTx_5KOd9CN_s7kbf3qoTb3DW_lMiRbx--fbERW_PMUvbfFLO11s4wYGQxdIN2zp0vXZIRtZ0bzfoYA8MdODdFnvE5TrwXNsrfxMNG-k-6rM-Zcy9KBV6K0CnFwJk9nFEXy50jzZsEmzB4_THs7XbeZ8aFiTSRxS-rb-ywie6Js3Hg_cRWs1pfXPBL0O1iuYS7sK9UY9oKLhk5p3Yzb_Q3TY0QNKJJAGsuIehuBxDPWGjPHhHlXJkP_ECTK88xC783168JNaqJGY7Z9nlWMSsJSuO3AoEXKie_Y9NlLyu_TjgSNkGE8CUNicisEDS8wfGttn5z4Rf40j8wmKMvF4KSnV1LL8TTY6DE2WTJqfzBOHq0cBwcoNuf2Tf6ePl5wGHpxw6p5mdWhuzCaIzsvVlko6aNAVbaELbU8K2HsKzUQlbBnQf2SMgRrpp-LtEGFlmIHViIHWtb72TLIuyfLDDN5cO51rl3qoXBGjmk0RTXEjzpuIBHOHH6nC5SIBQx4h0NroXNJKpx9C2dqfFnBj7hsqXZPjxcIG4vs2Nm4U3NMWniyAZIfYTETEjJQnQYU_TES1OCeEYyAyZJPfrcIN5-h4Q4z4Jlb8qS8odu_xdJIX29IKfxdWIqzNli0j5LbLOHxWuaiyzdzyJo6Y467-UQc5qeZgj-ylF5AeEoeZkIl9UIzqBgQMndTQMGe8WLz3AEYzruGmgMfkQxatmacIDlL9r9-ct49K-QEeChPcvIj6gGGx9SbMwRiURRwxJdBbiWZPuj4w1tLHAVEG_6ZBCegNBajO0MppIMv6plKLOj9jrS4drihVcz_znGCClCEvQCvsy3GsH_YQbtA5cTftxJfx5BVwGlYDysspvKAJqEhuLBGYRb_jSrHOXzqtu25zgAqz6nYw1u6ZcJ8a9XSyAFEYLzfp8QBLl0SyhmpjnFGQqmnuS8HxQvfpPIOYyOlJx2e2NGF0ZsifkGoMNZ89d3GUJbv2le4BS6HWmCllCzypz-qyjEqFNwuv8RZNWLoRPQLBSZrEW8jal9mO7PvsgzL9m88fY3BkzLBswycOKH2j370539S89-CfOIho0FBaZ4bgAIqWC9CBILX_WHADFSfCthTJiWY9VvTLlzDq2Zooiv2ujO-qzVFTJr4SeJrU8YLGC-Gn-BWQ2DVf61BlWPJb3FSCmjEc41xiVEUt256NcMzUVAX_lp_JcmOxneQG8DCdFtXs-JXaSlYu1j1I4saP_-1N8tS2hEvQ0pptMv10_CthI2ZPELwO8_RW3k_20pt-mpT87amGN4PzLq12IcsCZREsG8Kpp_e9UR8uKUyvY_tRddKNdRXAdzzdrVJqqkOR_4ZF5RMKtoo2pCEqwyfnwWCb50hNwSewLl4mjXb3V3RkhmHVW8BNSYzP9yuBgY8ZKwpTwwPmyWWSiQ0YyHUbD0iRfKghPXqy3vjdRulrxDiJNoi5TUBjbf0VhPYrkdBYl31UZEjZCdrqMd-jO99gSU_1BjDfxUUW5YpiqjzlLjJ_9mSSOKjE_7J7_1-jSEfajAln2lCLZTJtkC4wck8tGli6qWjAfU8qghrPGpKBJhUBbfEtBL5MugRP8tQHKt37rIethLRT8leeuG6dGfmTKah3EqMBmtHuD9POspbrTQATBuC5FEiyyv3wOKGlyKIgXPRHept6QSep2hR_iqhnoC6V4EqOaCJ0vgnypCcjCngkFGnaCAc6t6d8Ib0hzwTwtVfvGryDQacynKb9tf1QOvhvnyIEPZ0N6zY_y8656rV65zjZ6dvEXcxrS47C2t6YfLN_j0Xu-L3TrNWUP6jBBHVTKlMqNBMz58u_T2WNpoy-wsRMcaz51CzeNN5MKCdF60S68GbMKEVU4HjO0fuBpFrRRq7Ge3HtbESKP2L0yISTqyzUq8kzXpPVBc4iOY0w5dJ9ao_DXKzrz_HK6f26dPdI5jw5cfbolb033t1UPy_rHR2ghHhQEQ70uY9vwxesjJU9hHLqn4ikCOMHKOqfek1eBqqfvpCIGVOtDQc25HXiq8jYESYlKNhh2PvoRVmj22b-WUfdfsKSQRw8NLg0bH00VARcmgM7-5Ol3kGcr-VFJGSX4rCyfRRD-pu3ZkSTQT6-kQvKCabGzdiS9xtKah1_kRpn_Z837y6NsVsjiMg8C1_J0kBUEvmmOfNTSbeM5aC3dI8=",
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "data_science_root_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-2d07f12f-343b-413b-ba3d-68891ee09e62",
+                          "name": "call_bigquery_agent",
+                          "response": {
+                            "result": "Here is the total monthly spend trend for NPI over the last 6 months:\n\n| month   | total_spend   |\n|:--------|:--------------|\n| 2025-11 | 266942.49613  |\n| 2025-12 | 350762.110746 |\n| 2026-01 | 1227253.16137 |\n| 2026-02 | 1082803.89934 |\n| 2026-03 | 1129038.9918  |\n| 2026-04 | 934123.312241 |\n| 2026-05 | 405024.537037 |"
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                },
+                {
+                  "author": "data_science_root_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-50473925-5327-4102-ba06-c6aa587ee3d5",
+                          "args": {
+                            "analysis_request": "chart_type: \"line\", title: \"NPI Total Monthly Spend Trend (Last 6 Months)\", data: {categories: [\"2025-11\", \"2025-12\", \"2026-01\", \"2026-02\", \"2026-03\", \"2026-04\", \"2026-05\"], series: {\"Total Spend\": [266942.49613, 350762.110746, 1227253.16137, 1082803.89934, 1129038.9918, 934123.312241, 405024.537037]}}"
+                          },
+                          "name": "call_analytics_agent",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "CscJAY89a19GHBuayPeO4rmozuzwUefUabhH-2cWt6B1fgLhQy5LBs6bVhtDPqyX0rWZRcWnUpGP4twtFt346ascW5FRFNCyyYFoJJ3V834iy08GmtXl5iFCvqeMnww8ZtnfuoUrFhc_Ub7-wUQoSpJJ1DT5Ew9RjknIaV18VdjvO1IeEkDVWQD0nJIic_8oRLYzOqfKFJDdsfAmJNrn-fsf6VW3_5s_mAkNKaVCC9vJN1NWODPv4vvTU1vVlNnYHJkqJ7Ha-DUPdc_k0C1ko5BmCq3CPbw94YLbpdAb2HAexChhd_L5zN09MnUyH0DKkVAcLap9Jk_SOQy9B2TT_q4nNuA6_GC7R1lLsoDSBLq0HIXt_Sc_0zKO15p4MKWTs4VWuPi18JrrUte58JamWYxLxApgOlQfli1tMRdqH4adg8yFukj-TFCxj1Yj3QyTMOl9So7aysfv_9iBc3bwzzM4nqbOp2K6YlqYDLMcTM67ReCH8CHcT3D3doFqUFSHno9hqW8Qxx006CS4r7JQC-x0mvioXJykDE2HCIRz7pu8liA4r1KyAv0DQX316w-zbOkw458zVYYgFiGZKIJCh9Q5WRxKxsZvcUwpfEuTUYnnk5ydm_7_cBoUsCOSoUQRveDFqD-GyCftcZK1WAvI-loPUrXSDSfFV7ocUV4HtG4ZHknrzuqEU23hoaOeQySTgi15wE4w3AdXztXl5oQDP5g5A7b1Y3PyIunHcxeeiux9v3oheZt1IC13r9xMvpgEISBDFqS0Vu845hzsJcSiqstPVNhfnMU7HPGUfVQr6UaHsj7CIgq4ScBT2VWvmbxDJQbSMIUnSf38LIDj9rLEDn8-TQ1BDyv4cScixQG5NSrthWoOKyotANfel4vfQK0fDIUOu7Xo3sGkbCCpTjkevctdL9dIUj7wNA31dBHUMzAtXeKcLhFTm4ZTeQiIFenTs1ORPm4HU8TF-w-uI0_BQHoWZQycj4XwGqqhYi4lMK1JE4Ipe40SQ6HextF7ZUAsAZlT1RmoCjTNmKrSr_gegkmQ9_U8aqdMYZ7PzBNj37x00cyl7JwJ0LvyfiuwH8qy4xiKgiPS1JawTsXszO1YLA3QdYlY6cBqt0d22N4A18ojB_ZsBswkG3-TAHnqeXnFWn61JD3DkSh505YxyxPhFruezYLgND-B3o4C9AtREORAJ9IIcKxIyGQc3xGVBgMrpJO_7TGY-wHBCgoO5yCpTRP2ja5x53AniVsKqOi0fzOyRMvaAMMKMFwWjK7uou3xlk2CXOnmTiRJnKSPsIYUPJM-vMO_-v15PBO9JxhvNOozGKkcQ1m_-bSt6OvGxvu98mw3YU6M1mvgj78nQNqxVF-RMPSJH7blnWeWu3leKXQlkF3YVbYIoM9ifvdvAdD6WVT65Lot-5s_8Xg96E7FwRwu9tJCN7Vqg23NhseyEoscBznrgOlyTwekvns2B2pPOZtGabdxRj8zarec1fCSKSr8IQBZpHdz8L5Rf-Aapsdv7-lwPCu5MuRQfqgVDmNfmUlInK1sJY7hM7IWrTbudxI2tABOGmsYg2-AeAXVSCu55EAwLMfqjcvb5P5JFd8jo7M5Bqy3CrL3giyhzsQwCTel--mMdNUuEcI=",
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "data_science_root_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-50473925-5327-4102-ba06-c6aa587ee3d5",
+                          "name": "call_analytics_agent",
+                          "response": {
+                            "result": "Generated line chart: NPI Total Monthly Spend Trend (Last 6 Months)"
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                }
+              ]
+            },
+            "creation_timestamp": 1778841774.2368624,
+            "rubrics": null,
+            "app_details": {
+              "agent_details": {
+                "data_science_root_agent": {
+                  "name": "data_science_root_agent",
+                  "instructions": "You are a Data Science and Analytics Multi Agent System.\nToday's date: 2026-05-15\n\n\n\n    📊 CHART_DATA_QUALITY — filter before plotting:\n    \n    Before sending data to call_analytics_agent, ALWAYS:\n    \n    1. REMOVE channels/categories with ALL zeros across ALL data points\n       - If \"Display\" has 0% cost AND 0% conversions in every month -> exclude it\n       - If a channel only has zero values, it adds noise, not information\n    \n    2. SEPARATE charts when data has mixed scales:\n       - Cost % chart: include only channels with cost > 0\n       - Conversion % chart: include only channels with conversions > 0\n       - Don't put both groups in one chart -- the result looks half-empty\n    \n    3. SANITY CHECK before calling analytics agent:\n       - The chart renderer AUTO-FILTERS all-zero rows and series.\n       - You can send the data AS-IS - the renderer handles sparsity.\n       - Only fall back to TEXT TABLE if the data is COMPLETELY EMPTY\n         (zero rows total, not just some zero values).\n       - DO NOT pre-filter aggressively. Trust the renderer.\n\n    4. The chart spec MUST have:\n       - chart_type: a string like \"bar\" / \"line\" / \"stacked_bar\"\n       - title: a string\n       - data: contains categories list + either values list (single\n         series) OR a series dict (multiple grouped series)\n       - When using grouped series, the data.series field is a MAP\n         from series-name to value-list, not a list of dicts.\n       - Matching array lengths: categories has N items, every series\n         value list has N items.\n    \n    EXAMPLE for \"channel mix peak vs trough\":\n    \n    BAD (what produces blank chart):\n    categories=[\"Demand Gen\",\"Paid Social\",\"Search\",\"Cross-network\",\"Direct\",\"Display\",...]\n    Sept_conv=[0.00, 5.23, 0.00, 11.76, 0.51, 0.00, 0.09, 3.39, 23.87, 0.00, ...]\n    -> Many zero rows, chart looks empty\n    \n    GOOD:\n    For Cost chart: filter to only channels where ANY month has Cost % > 0\n    categories=[\"Demand Gen\",\"Paid Social\",\"Performance Max\",\"Search\"]\n    Sept_cost=[6.71, 43.83, 3.40, 46.06]\n    Nov_cost =[20.13, 47.88, 4.11, 27.88]\n    Dec_cost =[21.21, 47.25, 1.00, 30.54]\n    \n    For Conversion chart: filter to only channels where ANY month has Conv % > 0\n    categories=[\"Cross-network\",\"Organic Search\",\"Organic Social\",\"Paid Other\",\"Paid Search\",\"Paid Social\",\"Unassigned\"]\n    Sept_conv=[11.76, 3.39, 23.87, 12.41, 17.27, 5.23, 25.30]\n    Nov_conv =[8.41, 2.93, 37.67, 3.34, 13.51, 9.71, 23.54]\n    Dec_conv =[11.03, 4.63, 12.32, 0.87, 18.48, 45.99, 5.72]\n    \n    Both charts have meaningful data and render properly.\n    \n\n\n    ══════════════════════════════════════════════════════════\n    🌊 SEASONAL_COMPARISON_HINT - for peak/trough questions\n    ══════════════════════════════════════════════════════════\n\n    If the user asks for \"peak vs trough\", \"Nov/Dec vs rest\", \"holiday\n    vs non-holiday\", \"seasonal mix shift\", or compares one time-slice\n    vs another:\n\n    DO NOT try to compute percentages yourself. Instead:\n\n    1. Call call_bigquery_agent with a clear NL request mentioning\n       \"peak vs trough\" or \"seasonal comparison\" - the BQ sub-agent\n       has a pre-built SQL pattern that returns peak_cost_pct,\n       trough_cost_pct, peak_conv_pct, trough_conv_pct in a single\n       query.\n\n    2. ONE BQ call returns all data needed for BOTH charts.\n\n    3. Pass that data to call_analytics_agent TWICE:\n       - Once with peak_cost_pct + trough_cost_pct  -> cost chart\n       - Once with peak_conv_pct + trough_conv_pct  -> conversion chart\n\n    4. Chart spec format - describe in words, NOT braces:\n       - chart_type is \"bar\"\n       - title is the chart title string\n       - data.categories is the list of channels\n       - data.series is a MAP (dict) where the keys are the two\n         labels \"Peak (Nov/Dec)\" and \"Trough (Jan-Oct)\" and each\n         value is the corresponding list of percentages.\n       - DO NOT pass series as a list of dicts. Pass it as a map.\n\n\n\n\n    ══════════════════════════════════════════════════════════\n    🚨 CLIENT LOCK — CHECK FIRST EVERY TIME\n    ══════════════════════════════════════════════════════════\n\n    STEP 1: Read state.LOCKED_CLIENT (or state.client_lock).\n\n    DECISION LOGIC:\n    - IF user message contains \"NPI\", \"Venetian\", or \"WinnDixie\":\n        → Lock to that client. Continue with their request.\n    - ELIF state.LOCKED_CLIENT exists:\n        → Session is locked. Use that client. NEVER re-ask \"which client\".\n    - ELSE:\n        → STOP. Output ONLY: \"Please specify which client: NPI, Venetian, or WinnDixie.\"\n        → DO NOT call any tools.\n\n    ONCE LOCKED:\n    - Never ask \"which client\" again in the same session.\n    - If user mentions a DIFFERENT client mid-session:\n        \"Session is locked to {state.LOCKED_CLIENT}.\n         Click + New Session to analyze a different client.\"\n\n    ══════════════════════════════════════════════════════════\n    DISABLED ACTION CHECK (cross-client wall)\n    ══════════════════════════════════════════════════════════\n\n    BEFORE calling any tools, check: state._disabled_table_message\n    IF state._disabled_table_message exists and is non-empty:\n        - STOP. Output ONLY the message from state._disabled_table_message.\n        - DO NOT call call_bigquery_agent.\n        - DO NOT call call_analytics_agent.\n        - DO NOT transfer to bq_ml_agent.\n\n    This is set by the cross-client wall when a session locked to one client\n    receives a question about a different client. The refusal message\n    explains the situation to the user.\n\n    ══════════════════════════════════════════════════════════\n    🎯 TABLE ROUTING (set by KnowledgeManager — already in state)\n    ══════════════════════════════════════════════════════════\n\n    The KnowledgeManager has already routed this question to the right table.\n    Read these state fields before generating SQL:\n    - state.routed_table_id        → which table to query (performance | pacing)\n    - state.routed_table_path      → fully-qualified path to use in FROM clause\n    - state.channel_column         → which column is the channel (Channel | GVMM_Channel)\n    - state.kpi_column             → primary KPI column (Conversions | KPI | ViVs)\n    - state.channel_taxonomy       → dict of category → list of channels\n    - state.applicable_rules       → list of rule_ids that apply\n    - state.duality                → {has_duality, spend_rows_filter, conv_rows_filter}\n\n    If state.routed_table_id == 'pacing':\n        → This is a budget/flight/pacing question\n        → Use GVMM_Channel for grouping, NOT Channel\n        → Exclude GVMM_Channel = 'DEFAULT' unless explicitly asked\n        → Apply pacing-specific rules (days remaining, forecast totals)\n\n    If state.routed_table_id == 'performance' (default):\n        → This is a performance/CPA/forecast/correlation question\n        → Use Channel for grouping\n        → If duality.has_duality, use FULL OUTER JOIN unified CTE pattern\n\n\n    ══════════════════════════════════════════════════════════\n    🔥 DUALITY ENFORCEMENT (read state.duality.has_duality)\n    ══════════════════════════════════════════════════════════\n\n    If state.duality.has_duality is True, Cost and Conversions\n    are on SEPARATE rows in the data. Spend rows have Cost > 0\n    and Conversions = 0; conversion rows have the inverse.\n\n    ANY analysis that needs BOTH Cost AND Conversions MUST\n    pre-aggregate using a unified CTE with FULL OUTER JOIN:\n\n      WITH spend AS (\n        SELECT Date, Channel, SUM(Cost) AS cost\n        FROM <table>\n        WHERE Client = '<client>' AND Cost > 0\n        GROUP BY Date, Channel\n      ),\n      conv AS (\n        SELECT Date, Channel, SUM(Conversions) AS conversions\n        FROM <table>\n        WHERE Client = '<client>' AND Conversions > 0\n        GROUP BY Date, Channel\n      )\n      SELECT\n        COALESCE(s.Date, c.Date) AS date,\n        COALESCE(s.Channel, c.Channel) AS channel,\n        COALESCE(s.cost, 0) AS cost,\n        COALESCE(c.conversions, 0) AS conversions\n      FROM spend s\n      FULL OUTER JOIN conv c USING (Date, Channel)\n\n    APPLIES TO: linear regression, saturation models, CPA,\n    ROAS, CORR(Cost, Conversions), efficiency analysis,\n    any cost-vs-conversion modeling.\n\n    NEVER train BQML models on raw per-row data when duality\n    is True — every row has either Cost or Conversions, never\n    both. Models trained on raw rows produce zero correlation\n    and useless predictions.\n\n    Pre-aggregate FIRST, then model on the aggregated dataset.\n\n\n\n    ══════════════════════════════════════════════════════════\n    📈 SATURATION & UNIFICATION — use existing tools, DO NOT rebuild\n    ══════════════════════════════════════════════════════════\n\n    A unification map ALREADY EXISTS and is APPLIED AUTOMATICALLY\n    by the saturation tool. You do NOT need to build one. You do NOT\n    need to draft SQL for it. You do NOT need to diagnose duality.\n\n    The system already handles all of this:\n      • channel_unification map lives in config v3\n      • compute_saturation_curve reads the map and applies CASE WHEN\n        BEFORE the FULL OUTER JOIN that aggregates spend ↔ conv\n      • Duality is resolved internally — spend rows + conv rows are\n        joined on (Date, unified_channel) automatically\n      • Channels that can't be modeled (awareness, organic, etc.) are\n        returned in the \"excluded\" field with reasons — this is BY DESIGN\n\n    ROUTING RULES — when user asks about saturation, allocation, or modeling:\n\n    Root agent ONLY has: call_bigquery_agent, call_analytics_agent.\n    The deterministic tools (compute_saturation_curve, train_saturation_model_bqml,\n    compute_channel_volatility, etc.) live inside the BigQuery SUB-AGENT.\n\n    To use them: invoke call_bigquery_agent with a clear natural-language\n    request. The sub-agent will internally select the right deterministic tool.\n\n    1. \"where should I spend\", \"next $X investment\", \"saturation curve\",\n       \"diminishing returns\", \"what's the saturation model\", \"allocation\"\n       → via call_bigquery_agent (BQ sub-agent owns this tool):\n         call_bigquery_agent(\n           \"Build a saturation model for [CLIENT] with $[BUDGET] investment. \"\n           \"Use the deterministic compute_saturation_curve tool.\"\n         )\n       → ~5 sec response with fitted channels + allocation + excluded list\n\n    2. \"train a saturation model\", \"build the model\", \"create the model\",\n       \"refresh the saturation model\"\n       → via call_bigquery_agent — use compute_saturation_curve (per-channel fits):\n         call_bigquery_agent(\n           \"Build a saturation model for [CLIENT]. \"\n           \"Use compute_saturation_curve and report fitted alpha/kappa/r-squared per channel.\"\n         )\n       → ~5 sec, returns per-channel fitted parameters\n       → Note: BQML-persisted training (train_saturation_model_bqml) is\n         currently disabled pending per-channel training architecture work.\n\n    NEVER:\n      • Draft your own unification SQL — the tool already has one\n      • Train BQML linear regression on raw row-level Cost vs Conversions\n        — that fails because of duality, which the tool already handles\n      • Tell the user \"we need to build a unification map\" — we have one\n      • Manually aggregate Cost and Conversions by Date+Channel in Python\n        — the tool's SQL does this server-side\n      • Diagnose duality as if it's new — the tool already reports\n        spend_only and conv_only channels in its \"excluded\" field\n\n    WHEN saturation results come back from the BQ sub-agent:\n\n      \"channels\": Ellipsis                ← These are FITTED. Show in main table.\n      \"excluded.spend_only\": [...]     ← These have spend but no conv (awareness,\n                                          OR a naming mismatch we haven't mapped).\n                                          Report under \"Excluded: awareness/unmapped.\"\n      \"excluded.conv_only\": [...]      ← Organic / attribution channels with no\n                                          spend. Report under \"Excluded: organic.\"\n      \"recommended_allocation\": Ellipsis  ← Use this for budget split. Don't recompute.\n      \"unification_map_used\": Ellipsis    ← Echo this so user sees which rules ran.\n\n    IF a channel the user expected appears in spend_only or conv_only:\n      → Tell the user the channel may need a unification rule update in config\n      → DO NOT try to fix it yourself or write your own SQL\n      → The fix is in ad_campaign_dataset_config_v3.json, not in this conversation\n\n\n    ══════════════════════════════════════════════════════════\n    📊 CHANNEL TAXONOMY (use exact names from state.channel_taxonomy)\n    ══════════════════════════════════════════════════════════\n\n    When user mentions a channel CATEGORY (organic, awareness, paid, etc),\n    DO NOT guess which channels belong to it.\n    USE state.channel_taxonomy[<category>] for the exact channel list.\n\n    Example:\n      User: \"Show me awareness spend\"\n      → Read state.channel_taxonomy[\"awareness\"]\n      → That gives the exact list: [\"Linear TV\", \"CTV\", \"OTT\", ...]\n      → Build SQL: WHERE Channel IN ('Linear TV', 'CTV', 'OTT', ...)\n\n    NEVER use:\n      - \"Linear TV\" alone when user said \"awareness\"\n      - \"OTT\" alone when user said \"TV\"\n      - \"DEFAULT\" when user said \"Direct\" (Direct is its own value)\n    ══════════════════════════════════════════════════════════\n    📊 CHART RENDERING — explicit user request ONLY\n    ══════════════════════════════════════════════════════════\n\n    DEFAULT BEHAVIOR: present results as text + markdown table.\n    DO NOT auto-render charts. DO NOT call call_analytics_agent\n    based on data shape or \"would look nice\" reasoning.\n\n    ONLY call call_analytics_agent when user EXPLICITLY says:\n      - \"chart\" / \"graph\" / \"plot\" / \"visualize\" / \"visualization\"\n      - Named type: \"bar chart\", \"line chart\", \"pie chart\",\n        \"heatmap\", \"scatter\", \"funnel\", \"waterfall\", \"treemap\",\n        \"gantt\", \"sankey\", \"bullet\", \"stacked bar\", \"histogram\"\n      - \"draw\" / \"render\" / \"diagram\"\n      - \"show as a chart\" / \"as a graph\" / \"make a chart\"\n\n    Words that DO NOT trigger charts (these are textual answers):\n      - \"show me\" / \"show\" (alone, without \"chart\")\n      - \"build\" / \"create\" / \"make\" / \"produce\" (without \"chart\")\n      - \"model\" / \"analyze\" / \"analyze\" / \"breakdown\" / \"report\"\n      - \"demonstrate\" / \"illustrate\"\n      - \"across channels\" / \"by channel\" (these are tables)\n      - Large/multidimensional data — text + table is fine\n\n    SPECIFIC EXAMPLES — text only, NO chart:\n      • \"build a saturation model for next $100k\"\n      • \"which channels are most volatile in cost\"\n      • \"top channels by spend last quarter\"\n      • \"compare CPA by partner\"\n      • \"what's the CPA across channels\"\n      • \"show me the channel mix\"\n\n    SPECIFIC EXAMPLES — chart REQUIRED:\n      • \"show a bar chart of CPA by channel\"\n      • \"plot monthly conversions\"\n      • \"visualize the saturation curve\"\n      • \"heatmap of correlation between Cost, Clicks\"\n      • \"channel mix as a pie chart\"\n\n    CHART COUNT RULE:\n      • User says \"chart\" / \"graph\" / \"plot\" (singular, no number) → render 1 chart\n      • User says \"2 charts\" / \"3 charts\" / \"side-by-side charts\" → render that many\n      • User says \"charts\" (plural, no number) → ask: \"How many charts would you like?\"\n      • User doesn't mention charts at all → render 0 charts (text/table only)\n\n      Never render more charts than the user explicitly requested.\n      Never render fewer charts than the user explicitly requested.\n\n    After producing a text answer, you MAY append:\n      \"Want this as a chart? Ask: 'show as a [bar/line/pie] chart'\"\n\n    When the user DOES explicitly ask for a chart:\n      1. call_bigquery_agent to fetch data\n      2. call_analytics_agent with the data + chart_type spec\n      3. Then write Result + Explanation\n\n    NEVER:\n      • Auto-render a chart that wasn't explicitly requested\n      • Describe what a chart WOULD look like — return text/table\n      • Render ASCII / Unicode charts inline\n\n        ══════════════════════════════════════════════════════════\n\n    If the user request involves ANY visualization word, you MUST call\n    call_analytics_agent with chart data. NO EXCEPTIONS.\n\n    Visualization triggers (case-insensitive):\n      chart, graph, plot, visualize, visualization, show me a, display a,\n      heatmap, scatter, bar, line, pie, histogram, dashboard\n\n    Workflow when triggered:\n      1. call_bigquery_agent to fetch the data\n      2. The BQ sub-agent will internally call select_chart_type() if no\n         explicit chart type was named — it returns chart_type + config\n      3. call_analytics_agent with the data + chart_type spec\n      4. ONLY THEN write Result + Explanation\n\n    NEVER:\n      • Output ONLY a markdown table when user asked for a chart\n      • Skip step 3 because \"the data is small\"\n      • Describe what a chart WOULD show — just render it\n      • Try to render charts inline via ASCII / Unicode\n\n    Chart type selection (when user didn't name one) is handled by\n    select_chart_type() — defers to data shape + question intent:\n      • time-series, 1 metric, ≥12 points → line\n      • time-series, ≤12 points → bar\n      • time-series, 2 metrics, different scales → dual-axis line\n      • 1 category + 1 metric → bar\n      • ≤8 categories + composition question → pie\n      • 2 categorical dimensions + 1 metric → heatmap (values, YlOrRd)\n      • Correlation matrix → heatmap (-1 to 1, RdYlGn)\n      • 2 numeric \"vs\"/correlation question → scatter\n      • single scalar → no chart, text only\n\n    When sending to call_analytics_agent:\n      • Pre-aggregate data (no raw rows from the database)\n      • Filter all-zero rows\n      • Cap to 30 categories or 5 series (top-N + \"Other\" if more)\n      • Keep payload under 4000 chars total\n      • Format: dict with chart_type, title, x_label, y_label, data fields\n\n\n    ══════════════════════════════════════════════════════════\n    🚫 ABSOLUTE_NO_EMBEDDED_CODE (critical, prevents crashes)\n    ══════════════════════════════════════════════════════════\n\n    NEVER include in call_analytics_agent or any function arg:\n    - Triple quotes\n    - Multi-line string literals\n    - Python loops (for, while)\n    - Function definitions\n    - List comprehensions\n    - import statements\n    - Variable assignments inside the call\n    - Any Python code\n\n    Function arguments MUST be:\n    - Single-line strings under 4000 chars\n    - Simple pre-computed values\n    - Just data, no logic\n\n    GOOD:\n      categories = [\"Paid Social\", \"Demand Gen\", \"Paid Search\"]\n      values = [47.5, 28.3, 18.2]\n      call_analytics_agent(\"Bar chart. categories=\" + str(categories) +\n                           \" values=\" + str(values) +\n                           \" Title: NPI Cost % by Channel\")\n\n    ══════════════════════════════════════════════════════════\n    🔥 CHART RULES\n    ══════════════════════════════════════════════════════════\n\n    Before sending to call_analytics_agent:\n    1. REMOVE channels with all-zero values (filter at SQL level)\n    2. Keep arguments under 4000 chars total\n    3. Max 30 items per chart\n    4. Match array lengths (categories=10 → values=10)\n\n    Chart type selection:\n    - Correlation between 2 vars → SCATTER PLOT (most common)\n    - Time series of 2 vars → DUAL-AXIS LINE\n    - 5+ correlations → BAR of coefficients\n    - Matrix of pairwise → CORRELATION HEATMAP\n\n    Heatmap types:\n    - VALUE heatmap (raw counts): cmap=YlOrRd, fmt=comma\n    - CORRELATION heatmap ([-1,1]): cmap=RdYlGn, vmin=-1, vmax=1\n\n\n    ══════════════════════════════════════════════════════════\n    🎨 CHART ENFORCEMENT — non-negotiable\n    ══════════════════════════════════════════════════════════\n\n    If the user's question contains ANY of these words:\n      heatmap, chart, plot, graph, visualize, visualization,\n      bar chart, line chart, scatter, pie, histogram, correlation matrix\n\n    THEN the response MUST include a call to call_analytics_agent\n    after the data is fetched. NEVER output just a text table —\n    the user explicitly asked for a chart.\n\n    Order of operations:\n    1. call_bigquery_agent to fetch data\n    2. call_analytics_agent with the aggregated data\n    3. Then write Result + Explanation\n\n    If you skip step 2, you have failed the user request.\n\n\n    ══════════════════════════════════════════════════════════\n    💪 TRY_HARDER RULE\n    ══════════════════════════════════════════════════════════\n\n    For complex questions (lift, attribution, causality, MMM):\n    1. Translate vague terms using state.channel_taxonomy\n    2. Run the closest available analysis\n    3. Show whatever data IS available\n    4. State limitations AT THE END, not as an excuse to skip\n\n    Closest available:\n    - \"Lift\" → CORR(channel_spend, target_metric) by month\n    - \"Attribution\" → distribution of conversions by Channel\n    - \"Causality\" → CORR with disclaimer\n    - \"MMM\" → CORR matrix across all channels\n\n    NEVER return \"I cannot do this.\" ALWAYS RETURN DATA.\n\n    ══════════════════════════════════════════════════════════\n    📊 ALWAYS_SHOW_AVAILABLE_DATA\n    ══════════════════════════════════════════════════════════\n\n    BAD: \"There isn't enough data. Should I proceed?\"\n    GOOD: Show available data immediately. State limitation after.\n\n    Never ask permission to retrieve. Just retrieve and report.\n\n    ══════════════════════════════════════════════════════════\n    🎯 USE_AVAILABLE_MODELS_FIRST\n    ══════════════════════════════════════════════════════════\n\n    Before saying \"no model exists for X\":\n    1. Check state.available_models_summary\n    2. Match by keyword:\n       - \"conversions/transactions\" → arima_npi_all_conversions\n       - \"revenue\" → npi_arima_revenue\n       - \"spend\" → npi_arima_spend\n       - \"search sessions\" → npi_arima_search_sessions\n       - \"predict search conv\" → npi_linear_conversions_search\n       - \"predict social conv\" → npi_linear_conversions_social\n       - \"saturation\" → npi_conversions_saturation\n    3. Use the existing model with disclaimer if needed.\n    4. Transfer to bq_ml_agent for ML.FORECAST execution.\n\n    NEVER hardcode model names. ALWAYS use the live list.\n\n    ══════════════════════════════════════════════════════════\n    🔄 AUTO_RECOVERY FROM ZERO DATA\n    ══════════════════════════════════════════════════════════\n\n    If query returns 0 rows, automatically fix and re-run:\n\n    Transactions is ALWAYS zero. Auto-replace:\n      Transactions → Conversions (NPI) or KPI (Venetian, WinnDixie)\n\n    NC_Paid correct values: 'Paid' and 'Non Paid' (NOT 'Yes'/'No')\n\n    Status: 'Enabled' for active (NOT 'Active')\n\n    Date filters: if month returns nothing, check MIN/MAX date first.\n\n    Organic Efficiency pattern:\n      SUM(Conversions) AS Total_Conversions,\n      SUM(CASE WHEN NC_Paid = 'Paid' THEN Cost ELSE 0 END) AS Paid_Spend,\n      SAFE_DIVIDE(\n        SUM(Conversions),\n        NULLIF(SUM(CASE WHEN NC_Paid = 'Paid' THEN Cost ELSE 0 END), 0)\n      ) AS Organic_Efficiency_Score\n\n    NEVER ask user to fix the query. Just fix it and re-run.\n    Max 2 retries per query.\n\n    ══════════════════════════════════════════════════════════\n    🛠️ TOOLS AND SUB-AGENTS\n    ══════════════════════════════════════════════════════════\n\n    TOOLS:\n      call_bigquery_agent(query)    → SQL queries (pass natural language)\n      call_analytics_agent(request) → Charts (always pre-aggregated data)\n\n    SUB-AGENTS:\n      bq_ml_agent → clustering, forecasting, anomaly detection, training\n\n    ══════════════════════════════════════════════════════════\n    📋 EXECUTION ORDER\n    ══════════════════════════════════════════════════════════\n\n    Identify ALL tasks first:\n    - \"bar/line/plot/visualize\" → CHART\n    - \"scatter/predicted vs actual\" → SCATTER\n    - \"cluster/KMEANS/segment\" → ML\n    - \"forecast/ARIMA/predict\" → ML\n    - \"anomaly/unusual\" → ML\n    - data retrieval only → SQL\n\n    Multi-task order:\n    1. ALL chart tasks first (bigquery + analytics)\n    2. ALL scatter tasks next\n    3. ML tasks LAST (transfer to bq_ml_agent)\n\n    Example: \"bar chart, then scatter, then cluster\":\n    1. call_bigquery_agent (data)\n    2. call_analytics_agent (bar chart)\n    3. call_bigquery_agent (ML.PREDICT)\n    4. call_analytics_agent (scatter)\n    5. transfer_to_agent(bq_ml_agent) for clustering\n\n    NEVER transfer to bq_ml_agent first if there are chart steps.\n\n    ══════════════════════════════════════════════════════════\n    ⚠️ STRICT RULES\n    ══════════════════════════════════════════════════════════\n\n    1.  ALWAYS markdown tables with pipes |---|---|\n    2.  NEVER narrate before tool calls (no \"I will first...\")\n    3.  WAIT for ALL tools before generating final response\n    4.  NEVER write \"Result:\" until ALL tool calls done\n    5.  NEVER repeat same result section twice\n    6.  ONE final response per user request\n    7.  NEVER write SQL directly — always call_bigquery_agent\n    8.  NEVER write Python directly — always call_analytics_agent\n    9.  NEVER use call_analytics_agent without actual data values\n    10. ALWAYS use SAFE_DIVIDE for ratios\n    11. ONE client per session — never cross-client\n    12. Schema is in <DATASETS> tags — never ask db agent for schema\n\n    ══════════════════════════════════════════════════════════\n    📄 RESPONSE FORMAT\n    ══════════════════════════════════════════════════════════\n\n    **Result:**\n\n    [Title]\n\n    | Column         | Column      |\n    |:---------------|------------:|\n    | text value     |  $1,234.56  |\n\n    - Text → left align :---\n    - Numbers → right align ---:\n    - Dates → center align :---:\n    - Currency → $1,234.56\n    - Large numbers → 1,234,567\n    - Max 10 rows (then \"... and X more rows\")\n    - Cluster: 3-5 row summary only\n    - Predicted vs Actual: max 15 rows\n\n    **Explanation:**\n    1. Step one\n    2. Step two\n\n    **Graph:** (only if chart generated)\n\n    ══════════════════════════════════════════════════════════\n    \n    SCHEDULING/DELIVERY: Feature currently disabled.\n    If users ask about scheduling, inform them it is not available.\n    \n    ══════════════════════════════════════════════════════════\n\n    You work for NetConversion (netconversion.com) — marketing analytics\n    company. Primary product: Conversionomics ('CX').\n\n    Today's date: see global_instruction.\n\n    Current state shortcuts:\n    - LOCKED_CLIENT: {state.LOCKED_CLIENT}\n    - routed_table_id: {state.routed_table_id}\n    - routed_table_path: {state.routed_table_path}\n    - channel_column: {state.channel_column}\n    - kpi_column: {state.kpi_column}\n    - available_models_summary: {state.available_models_summary}\n\n    ANTI-SYCOPHANCY RULES (always apply):\n    - Always verify the user's premise. If the user asserts something\n      (for example \"Why did spend spike?\") but the data shows otherwise\n      (spend was flat), you MUST correct the user with the actual data.\n    - Zero or null is a valid result. If a BigQuery query returns no rows\n      or zero values, report that honestly. Do NOT invent data to fill\n      the gap or to appear helpful.\n    - Only report values present in the tool response. Never use industry\n      averages, benchmarks, or training-data estimates unless the user\n      explicitly asks for a benchmark comparison.\n    - If a tool returns an error or empty result, say so plainly. Do not\n      substitute a plausible-sounding number.\n\n    CHAIN OF VERIFICATION (always apply before responding):\n    Step 1 - DRAFT: After tool calls return, extract the raw numbers/values\n       from the tool response into a draft answer.\n    Step 2 - VERIFY: Before emitting the response, re-read the tool output\n       and check each number/value in your draft against it. If any number\n       in the draft does not appear verbatim in the tool output, remove it\n       or replace it with the actual value.\n    Step 3 - EMIT: Only output values that survived Step 2. If a value the\n       user asked about is not in the tool output, say so explicitly rather\n       than estimating.\n    \n<DATASETS>\n\n</DATASETS>\n\n\nYou are an agent. Your internal name is \"data_science_root_agent\".\n\n\nYou have a list of other agents to transfer to:\n\n\nAgent name: bq_ml_agent\nAgent description: \n\n\nIf you are the best to answer the question according to your description,\nyou can answer it.\n\nIf another agent is better for answering the question according to its\ndescription, call `transfer_to_agent` function to transfer the question to that\nagent. When transferring, do not generate any text other than the function\ncall.\n\n**NOTE**: the only available agents for `transfer_to_agent` function are\n`bq_ml_agent`.\n",
+                  "tool_declarations": [
+                    {
+                      "retrieval": null,
+                      "computer_use": null,
+                      "file_search": null,
+                      "google_search": null,
+                      "google_maps": null,
+                      "code_execution": null,
+                      "enterprise_web_search": null,
+                      "function_declarations": [
+                        {
+                          "description": "Transfer the question to another agent.\n\n  This tool hands off control to another agent when it's more suitable to\n  answer the user's question according to the agent's description.\n\n  Note:\n    For most use cases, you should use TransferToAgentTool instead of this\n    function directly. TransferToAgentTool provides additional enum constraints\n    that prevent LLMs from hallucinating invalid agent names.\n\n  Args:\n    agent_name: the agent name to transfer to.\n  ",
+                          "name": "transfer_to_agent",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "agent_name": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": [
+                                  "bq_ml_agent"
+                                ],
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "agent_name"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "NULL"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "Calls analytics sub-agent based on ANALYTICS_MODE.",
+                          "name": "call_analytics_agent",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "analysis_request": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "analysis_request"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "Calls the BigQuery sub-agent with retry on SQL errors.",
+                          "name": "call_bigquery_agent",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "query": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "query"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        }
+                      ],
+                      "google_search_retrieval": null,
+                      "parallel_ai_search": null,
+                      "url_context": null,
+                      "mcp_servers": null
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_invocation": {
+            "invocation_id": "1be1b729-a83a-4937-b0d4-96425ec6885b",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, show me total monthly spend trend over the last 6 months as a line chart",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "monthly spend trend line chart NPI 6 months",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "tool_uses": [],
+              "tool_responses": [],
+              "intermediate_responses": []
+            },
+            "creation_timestamp": 1778841773.7602684,
+            "rubrics": null,
+            "app_details": null
+          },
+          "eval_metric_results": [
+            {
+              "metric_name": "tool_trajectory_avg_score",
+              "threshold": 0.0,
+              "criterion": {
+                "threshold": 0.0
+              },
+              "custom_function_path": null,
+              "score": 0.0,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": null
+              }
+            },
+            {
+              "metric_name": "response_match_score",
+              "threshold": 0.1,
+              "criterion": {
+                "threshold": 0.1
+              },
+              "custom_function_path": null,
+              "score": 0.16,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": null
+              }
+            }
+          ]
+        }
+      ],
+      "session_id": "___eval___session___01e3ce78-36d2-4329-ae44-35bc49243eb0",
+      "session_details": {
+        "id": "___eval___session___01e3ce78-36d2-4329-ae44-35bc49243eb0",
+        "app_name": "data_science",
+        "user_id": "eval_user",
+        "state": {
+          "database_settings": {},
+          "client_lock": "NPI",
+          "client_id": "NPI",
+          "_sql_retry_count": 0,
+          "_seen_hashes": [],
+          "_chart_steps_done": 0,
+          "_multi_step_mode": false,
+          "_last_user_question": "For NPI, show me total monthly spend trend over the last 6 months as a line chart",
+          "LOCKED_CLIENT": "NPI",
+          "routed_table_id": "performance",
+          "routed_table_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+          "table_enabled": true,
+          "channel_column": "Channel",
+          "kpi_column": "Conversions",
+          "client_column": "Client",
+          "channel_taxonomy": {
+            "organic": [
+              "Organic Search",
+              "Organic Social",
+              "Organic Video",
+              "Direct",
+              "Referral",
+              "Email"
+            ],
+            "paid": [
+              "Paid Social",
+              "Paid Search",
+              "Search",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max",
+              "Display",
+              "OTT",
+              "CTV",
+              "Linear TV",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print",
+              "Online Audio"
+            ],
+            "awareness": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Audio",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print"
+            ],
+            "direct_response": [
+              "Search",
+              "Paid Search",
+              "Email",
+              "Shopping"
+            ],
+            "mid_funnel": [
+              "Paid Social",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "tv": [
+              "Linear TV",
+              "CTV",
+              "OTT"
+            ],
+            "social": [
+              "Paid Social",
+              "Organic Social"
+            ],
+            "search": [
+              "Paid Search",
+              "Search",
+              "Organic Search"
+            ]
+          },
+          "duality": {
+            "has_duality": true,
+            "spend_rows_filter": "Cost > 0",
+            "conv_rows_filter": "Conversions > 0",
+            "note": "Spend rows have Conversions=0; conv rows have Cost=0. Use FULL OUTER JOIN."
+          },
+          "unification_map": {
+            "Paid Search": [
+              "Search",
+              "Paid Search"
+            ],
+            "Demand Gen + P-Max": [
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "Paid Social": [
+              "Paid Social"
+            ],
+            "Video/CTV/OTT/TV": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Video",
+              "Paid Video",
+              "Video"
+            ]
+          },
+          "applicable_rules": [
+            "always_filter_by_client",
+            "always_use_date_range_filter",
+            "never_select_star_without_limit",
+            "use_safe_divide_for_ratios",
+            "blended_cpa_use_unified_cte",
+            "ranking_use_unified_cte",
+            "channel_mix_use_unified_cte",
+            "volatility_use_cv_not_stddev",
+            "organic_efficiency_use_organic_filter",
+            "tv_halo_use_correlation",
+            "forecast_aggregate_to_weekly_for_chart",
+            "always_resolve_channel_terms_via_taxonomy"
+          ],
+          "matched_keywords": [],
+          "routing_confidence": "default",
+          "available_models_summary": "📋 Available models for NPI (35 total):\nLocation: `nc-ai-chatbot.astrobot_bqml_models.<model_name>`\n\n🔮 FORECASTING (ARIMA_PLUS):\n  • arima_npi_all_conversions\n  • npi_arima_conversions\n  • npi_arima_revenue\n  • npi_arima_search_sessions\n  • npi_arima_spend\n\n🌳 BOOSTED TREE (BOOSTED_TREE_REGRESSOR):\n  • npi_boosted_conversions\n  • npi_boosted_conversions_daily\n\n🔵 CLUSTERING (KMEANS):\n  • npi_campaign_clusters\n\n📈 LINEAR PREDICTION (LINEAR_REGRESSION):\n  • npi_conversions_by_channel_impact\n  • npi_conversions_saturation\n  • npi_conversions_saturation_agg\n  • npi_conversions_saturation_aggregated\n  • npi_conversions_saturation_daily\n  • npi_conversions_saturation_v2\n  • npi_linear_clicks_from_cost_ctv\n  • npi_linear_clicks_from_cost_demandgen\n  • npi_linear_clicks_from_cost_display\n  • npi_linear_clicks_from_cost_paidsearch\n  • npi_linear_clicks_from_cost_paidsocial\n  • npi_linear_clicks_from_cost_performancemax\n  • npi_linear_clicks_from_cost_search\n  • npi_linear_clicks_from_cost_video\n  • npi_linear_conversions_demand_gen\n  • npi_linear_conversions_performance_max\n  • npi_linear_conversions_search\n  • npi_linear_conversions_social\n  • npi_linear_cost\n  • npi_linear_cost_v2\n  • npi_social_conversions_cost_linear_reg\n  • npi_social_search_conversions_lr\n  • npi_total_conversions_vs_spend_lr\n  • npi_transactions_saturation\n  • npi_transactions_saturation_agg\n  • npi_transactions_saturation_v2\n\n🎯 CLASSIFICATION (LOGISTIC_REGRESSION):\n  • npi_campaign_classifier\n\nUSAGE: Use EXACT names above. If a needed model is missing,\noffer to train a new one with CREATE OR REPLACE MODEL syntax.",
+          "_models_listed_for": "NPI",
+          "__llm_request_key__": "a6712aa8-a7e0-4a96-a6d4-27913bfe7253",
+          "_last_bq_hash": "",
+          "_retry_count": 0,
+          "bigquery_query_result": "Here is the total monthly spend trend for NPI over the last 6 months:\n\n| month   | total_spend   |\n|:--------|:--------------|\n| 2025-11 | 266942.49613  |\n| 2025-12 | 350762.110746 |\n| 2026-01 | 1227253.16137 |\n| 2026-02 | 1082803.89934 |\n| 2026-03 | 1129038.9918  |\n| 2026-04 | 934123.312241 |\n| 2026-05 | 405024.537037 |",
+          "last_bq_result": "Here is the total monthly spend trend for NPI over the last 6 months:\n\n| month   | total_spend   |\n|:--------|:--------------|\n| 2025-11 | 266942.49613  |\n| 2025-12 | 350762.110746 |\n| 2026-01 | 1227253.16137 |\n| 2026-02 | 1082803.89934 |\n| 2026-03 | 1129038.9918  |\n| 2026-04 | 934123.312241 |\n| 2026-05 | 405024.537037 |"
+        },
+        "events": [
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, show me total monthly spend trend over the last 6 months as a line chart",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-679e3c95-5039-484c-b4f1-04f2f605e79c",
+            "author": "user",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {},
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "8d7bdd93-761d-4aa7-9f31-7288efa6e284",
+            "timestamp": 1778841773.7630336
+          },
+          {
+            "model_version": null,
+            "content": null,
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-679e3c95-5039-484c-b4f1-04f2f605e79c",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "database_settings": {},
+                "client_lock": "NPI",
+                "client_id": "NPI",
+                "_sql_retry_count": 0,
+                "_seen_hashes": [],
+                "_chart_steps_done": 0,
+                "_multi_step_mode": false,
+                "_last_user_question": "For NPI, show me total monthly spend trend over the last 6 months as a line chart",
+                "LOCKED_CLIENT": "NPI",
+                "routed_table_id": "performance",
+                "routed_table_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+                "table_enabled": true,
+                "channel_column": "Channel",
+                "kpi_column": "Conversions",
+                "client_column": "Client",
+                "channel_taxonomy": {
+                  "organic": [
+                    "Organic Search",
+                    "Organic Social",
+                    "Organic Video",
+                    "Direct",
+                    "Referral",
+                    "Email"
+                  ],
+                  "paid": [
+                    "Paid Social",
+                    "Paid Search",
+                    "Search",
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max",
+                    "Display",
+                    "OTT",
+                    "CTV",
+                    "Linear TV",
+                    "Online Video",
+                    "Paid Video",
+                    "Video",
+                    "OOH",
+                    "Print",
+                    "Online Audio"
+                  ],
+                  "awareness": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT",
+                    "Online Audio",
+                    "Online Video",
+                    "Paid Video",
+                    "Video",
+                    "OOH",
+                    "Print"
+                  ],
+                  "direct_response": [
+                    "Search",
+                    "Paid Search",
+                    "Email",
+                    "Shopping"
+                  ],
+                  "mid_funnel": [
+                    "Paid Social",
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max"
+                  ],
+                  "tv": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT"
+                  ],
+                  "social": [
+                    "Paid Social",
+                    "Organic Social"
+                  ],
+                  "search": [
+                    "Paid Search",
+                    "Search",
+                    "Organic Search"
+                  ]
+                },
+                "duality": {
+                  "has_duality": true,
+                  "spend_rows_filter": "Cost > 0",
+                  "conv_rows_filter": "Conversions > 0",
+                  "note": "Spend rows have Conversions=0; conv rows have Cost=0. Use FULL OUTER JOIN."
+                },
+                "unification_map": {
+                  "Paid Search": [
+                    "Search",
+                    "Paid Search"
+                  ],
+                  "Demand Gen + P-Max": [
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max"
+                  ],
+                  "Paid Social": [
+                    "Paid Social"
+                  ],
+                  "Video/CTV/OTT/TV": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT",
+                    "Online Video",
+                    "Paid Video",
+                    "Video"
+                  ]
+                },
+                "applicable_rules": [
+                  "always_filter_by_client",
+                  "always_use_date_range_filter",
+                  "never_select_star_without_limit",
+                  "use_safe_divide_for_ratios",
+                  "blended_cpa_use_unified_cte",
+                  "ranking_use_unified_cte",
+                  "channel_mix_use_unified_cte",
+                  "volatility_use_cv_not_stddev",
+                  "organic_efficiency_use_organic_filter",
+                  "tv_halo_use_correlation",
+                  "forecast_aggregate_to_weekly_for_chart",
+                  "always_resolve_channel_terms_via_taxonomy"
+                ],
+                "matched_keywords": [],
+                "routing_confidence": "default",
+                "available_models_summary": "📋 Available models for NPI (35 total):\nLocation: `nc-ai-chatbot.astrobot_bqml_models.<model_name>`\n\n🔮 FORECASTING (ARIMA_PLUS):\n  • arima_npi_all_conversions\n  • npi_arima_conversions\n  • npi_arima_revenue\n  • npi_arima_search_sessions\n  • npi_arima_spend\n\n🌳 BOOSTED TREE (BOOSTED_TREE_REGRESSOR):\n  • npi_boosted_conversions\n  • npi_boosted_conversions_daily\n\n🔵 CLUSTERING (KMEANS):\n  • npi_campaign_clusters\n\n📈 LINEAR PREDICTION (LINEAR_REGRESSION):\n  • npi_conversions_by_channel_impact\n  • npi_conversions_saturation\n  • npi_conversions_saturation_agg\n  • npi_conversions_saturation_aggregated\n  • npi_conversions_saturation_daily\n  • npi_conversions_saturation_v2\n  • npi_linear_clicks_from_cost_ctv\n  • npi_linear_clicks_from_cost_demandgen\n  • npi_linear_clicks_from_cost_display\n  • npi_linear_clicks_from_cost_paidsearch\n  • npi_linear_clicks_from_cost_paidsocial\n  • npi_linear_clicks_from_cost_performancemax\n  • npi_linear_clicks_from_cost_search\n  • npi_linear_clicks_from_cost_video\n  • npi_linear_conversions_demand_gen\n  • npi_linear_conversions_performance_max\n  • npi_linear_conversions_search\n  • npi_linear_conversions_social\n  • npi_linear_cost\n  • npi_linear_cost_v2\n  • npi_social_conversions_cost_linear_reg\n  • npi_social_search_conversions_lr\n  • npi_total_conversions_vs_spend_lr\n  • npi_transactions_saturation\n  • npi_transactions_saturation_agg\n  • npi_transactions_saturation_v2\n\n🎯 CLASSIFICATION (LOGISTIC_REGRESSION):\n  • npi_campaign_classifier\n\nUSAGE: Use EXACT names above. If a needed model is missing,\noffer to train a new one with CREATE OR REPLACE MODEL syntax.",
+                "_models_listed_for": "NPI"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "43bcf19a-5a61-4a1e-8027-a4c42b1719a3",
+            "timestamp": 1778841774.2366767
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-2d07f12f-343b-413b-ba3d-68891ee09e62",
+                    "args": {
+                      "query": "For NPI, show me total monthly spend trend over the last 6 months."
+                    },
+                    "name": "call_bigquery_agent",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "Cr0XAY89a19-YVoZwFFZt5s5FkCaw0QE12C6MvEq1nLmHyFzDRwEEBHajCyqWjycELKoitGqoiYU6RU2rGpJbRVtO0wtNgSVVcVmEv9EpYFlfAsGd9Y7OumBsQkaUCT22nYxDU_6W4qFfL52XIgU8Oa4RJBXng9l-RArO06Vf5Yf0dW2k7e7yYUnlnNlNqkR0hhPLuhcHOa8z9xfyuuVYznyN9Eyl6eEd5aWySABPye1VfUQcc-jdV9okijdvBgyJ4pyvsQvcIwmaqNUyze4f6s0itQmw4Z__v5Nj8F1R9Mxv7F9wUJL-efgjgOuSGn9cfgExclaTiyUulwepiiG0EgM1VGhDI1KsBFlb96PhbJNLtR2vL4b2Snei6yh5QiNbIakNk_WxX7unzknF3t_y2F7n6dzr1uCuZs6Z6_aNCN_vz6fh3W1VKVMlEgwc1zfCQR7Me8YRLgm6YmQwCw5S8YJwrAgUO2loj2JwXpAhLQc7kskkjwxNQEDUdW5m_QzeyqLeSMqgK5JlHyO_ialYaCqAtaIBPqN-WpwhyDxK1KJQkQUGCnzVySsJW__zrgXbKC9M3OsJjaom4HRJhHdeb8TLciNWtZAI63-jP4obClgEaLYbaAVmKdcB21UTMXSenIiBJdbWFmZXiJxJZ0B6eaePMsmumelbVOMIa0IBOkhU_CV023P6D83CPMgBXqZC50mX7-6WChl3ow9ky8666br1D8dxxbBzQHM58CJokNloESIzzaE-W69ffKeGBZBvg_iq8nFeGklcGwirLRUZ_XJp75FYADHWPhQY4liQUwCb4egW3qOSZCec5wZvL0ZRoEnQ2umSowq9SWmb9_LFXbuUwUwErIqNl_sw9rGjhNUrEeWDx8wHPULYx3bKFt-BtJgCid1_GHc-F5OOyTJFgj_7s33AKW32p_Mpq42hsadb4z2Munau49CjSU_BNR2JVH9Vs5wvgmYQpP9nIaSLpSFDCUQPq49QpAPidT5m0gVaivN5VMAYTJriYQrtcHufhsfeikicd87QCe0iRq-t-w8myFl_MXVfRbnuPkkCOMdLFvMIM6pFblpkspjNTVb4SbwluIUUw_4Be66Q2Tfy79p7wE710vsmIM5pkgU7LQWz7BimmmiJP8XcjR7ddcYqPt_QRw4sD23Y7EacsjghFpcjzdh2Bcxnh3zvAx1wSqsjZdCjWCg7gq7HV22YezrpY0-xmX8zRCTYymJS_tNiTb-bURmBKLAnfeMYEltdEwafWhb-gTiWUqJHkWrTWgWt4czCMb_u_gwAqrsVr05nqQm4hqhS9FMH14NiZLVfGEXX_Xf966ciYOOJv5uIW2zrXq0D8-6GFTFbj0ynCWlLrFH26vA02U2Ii7_FbVeT4-nvNaynIF09i9vRivHtHRMTafDzbrt50ALYVdG2jEJ6UNefHyTnpekE0OTf6wpwUkNjaFQM2dv8ycaM8-oQvEO9KMEIJFF2yXvLXCk06h50_phyC0iaMqtbJheTyT0fL_hste0wnVN2rHXgmH2Lf9uO7qr2d0VMhqMRuZR0VokVtoOBpPv9q9b5A8VZ7C2Wc6u-7pK5wt-NdrOJ_WCTUxhDVkTx8yL5DdF9J2qzeJYFvkFi0tvrGWdKEsu9a3cCuUjfjHNmkiIo63u2qJuHSLxyQrP0WS3ygv5agtw4xTs4vv_S-1ZUd5UNG1QsH4ar5Emnl3g2wn-TXOI58vD8_XNIpR1GtYq0XkkdNvHRt6jvzy7ImomdCrWbvDpqrpp-MDGy3TzjEOkz3-r2V4MJCRawMSr5bBR6r4ZUz3HfTrgbaZF23YtYDj6ZTx_5KOd9CN_s7kbf3qoTb3DW_lMiRbx--fbERW_PMUvbfFLO11s4wYGQxdIN2zp0vXZIRtZ0bzfoYA8MdODdFnvE5TrwXNsrfxMNG-k-6rM-Zcy9KBV6K0CnFwJk9nFEXy50jzZsEmzB4_THs7XbeZ8aFiTSRxS-rb-ywie6Js3Hg_cRWs1pfXPBL0O1iuYS7sK9UY9oKLhk5p3Yzb_Q3TY0QNKJJAGsuIehuBxDPWGjPHhHlXJkP_ECTK88xC783168JNaqJGY7Z9nlWMSsJSuO3AoEXKie_Y9NlLyu_TjgSNkGE8CUNicisEDS8wfGttn5z4Rf40j8wmKMvF4KSnV1LL8TTY6DE2WTJqfzBOHq0cBwcoNuf2Tf6ePl5wGHpxw6p5mdWhuzCaIzsvVlko6aNAVbaELbU8K2HsKzUQlbBnQf2SMgRrpp-LtEGFlmIHViIHWtb72TLIuyfLDDN5cO51rl3qoXBGjmk0RTXEjzpuIBHOHH6nC5SIBQx4h0NroXNJKpx9C2dqfFnBj7hsqXZPjxcIG4vs2Nm4U3NMWniyAZIfYTETEjJQnQYU_TES1OCeEYyAyZJPfrcIN5-h4Q4z4Jlb8qS8odu_xdJIX29IKfxdWIqzNli0j5LbLOHxWuaiyzdzyJo6Y467-UQc5qeZgj-ylF5AeEoeZkIl9UIzqBgQMndTQMGe8WLz3AEYzruGmgMfkQxatmacIDlL9r9-ct49K-QEeChPcvIj6gGGx9SbMwRiURRwxJdBbiWZPuj4w1tLHAVEG_6ZBCegNBajO0MppIMv6plKLOj9jrS4drihVcz_znGCClCEvQCvsy3GsH_YQbtA5cTftxJfx5BVwGlYDysspvKAJqEhuLBGYRb_jSrHOXzqtu25zgAqz6nYw1u6ZcJ8a9XSyAFEYLzfp8QBLl0SyhmpjnFGQqmnuS8HxQvfpPIOYyOlJx2e2NGF0ZsifkGoMNZ89d3GUJbv2le4BS6HWmCllCzypz-qyjEqFNwuv8RZNWLoRPQLBSZrEW8jal9mO7PvsgzL9m88fY3BkzLBswycOKH2j370539S89-CfOIho0FBaZ4bgAIqWC9CBILX_WHADFSfCthTJiWY9VvTLlzDq2Zooiv2ujO-qzVFTJr4SeJrU8YLGC-Gn-BWQ2DVf61BlWPJb3FSCmjEc41xiVEUt256NcMzUVAX_lp_JcmOxneQG8DCdFtXs-JXaSlYu1j1I4saP_-1N8tS2hEvQ0pptMv10_CthI2ZPELwO8_RW3k_20pt-mpT87amGN4PzLq12IcsCZREsG8Kpp_e9UR8uKUyvY_tRddKNdRXAdzzdrVJqqkOR_4ZF5RMKtoo2pCEqwyfnwWCb50hNwSewLl4mjXb3V3RkhmHVW8BNSYzP9yuBgY8ZKwpTwwPmyWWSiQ0YyHUbD0iRfKghPXqy3vjdRulrxDiJNoi5TUBjbf0VhPYrkdBYl31UZEjZCdrqMd-jO99gSU_1BjDfxUUW5YpiqjzlLjJ_9mSSOKjE_7J7_1-jSEfajAln2lCLZTJtkC4wck8tGli6qWjAfU8qghrPGpKBJhUBbfEtBL5MugRP8tQHKt37rIethLRT8leeuG6dGfmTKah3EqMBmtHuD9POspbrTQATBuC5FEiyyv3wOKGlyKIgXPRHept6QSep2hR_iqhnoC6V4EqOaCJ0vgnypCcjCngkFGnaCAc6t6d8Ib0hzwTwtVfvGryDQacynKb9tf1QOvhvnyIEPZ0N6zY_y8656rV65zjZ6dvEXcxrS47C2t6YfLN_j0Xu-L3TrNWUP6jBBHVTKlMqNBMz58u_T2WNpoy-wsRMcaz51CzeNN5MKCdF60S68GbMKEVU4HjO0fuBpFrRRq7Ge3HtbESKP2L0yISTqyzUq8kzXpPVBc4iOY0w5dJ9ao_DXKzrz_HK6f26dPdI5jw5cfbolb033t1UPy_rHR2ghHhQEQ70uY9vwxesjJU9hHLqn4ikCOMHKOqfek1eBqqfvpCIGVOtDQc25HXiq8jYESYlKNhh2PvoRVmj22b-WUfdfsKSQRw8NLg0bH00VARcmgM7-5Ol3kGcr-VFJGSX4rCyfRRD-pu3ZkSTQT6-kQvKCabGzdiS9xtKah1_kRpn_Z837y6NsVsjiMg8C1_J0kBUEvmmOfNTSbeM5aC3dI8=",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "9c9f0f8c-7a9c-44ef-8628-6d43957eb0ff"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 7713
+                }
+              ],
+              "cached_content_token_count": 7713,
+              "candidates_token_count": 24,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 24
+                }
+              ],
+              "prompt_token_count": 7982,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 7982
+                }
+              ],
+              "thoughts_token_count": 803,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 8809,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -6.755119323730469,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-679e3c95-5039-484c-b4f1-04f2f605e79c",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "9c9f0f8c-7a9c-44ef-8628-6d43957eb0ff"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": [],
+            "branch": null,
+            "id": "44379347-b400-4ae4-a1b8-15cc8134e770",
+            "timestamp": 1778841774.3001037
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-2d07f12f-343b-413b-ba3d-68891ee09e62",
+                    "name": "call_bigquery_agent",
+                    "response": {
+                      "result": "Here is the total monthly spend trend for NPI over the last 6 months:\n\n| month   | total_spend   |\n|:--------|:--------------|\n| 2025-11 | 266942.49613  |\n| 2025-12 | 350762.110746 |\n| 2026-01 | 1227253.16137 |\n| 2026-02 | 1082803.89934 |\n| 2026-03 | 1129038.9918  |\n| 2026-04 | 934123.312241 |\n| 2026-05 | 405024.537037 |"
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-679e3c95-5039-484c-b4f1-04f2f605e79c",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "_last_bq_hash": "b47fbaac",
+                "_retry_count": 0,
+                "__llm_request_key__": "95775dcc-f471-4686-8c90-53556acb49c1",
+                "bigquery_query_result": "Here is the total monthly spend trend for NPI over the last 6 months:\n\n| month   | total_spend   |\n|:--------|:--------------|\n| 2025-11 | 266942.49613  |\n| 2025-12 | 350762.110746 |\n| 2026-01 | 1227253.16137 |\n| 2026-02 | 1082803.89934 |\n| 2026-03 | 1129038.9918  |\n| 2026-04 | 934123.312241 |\n| 2026-05 | 405024.537037 |",
+                "last_bq_result": "Here is the total monthly spend trend for NPI over the last 6 months:\n\n| month   | total_spend   |\n|:--------|:--------------|\n| 2025-11 | 266942.49613  |\n| 2025-12 | 350762.110746 |\n| 2026-01 | 1227253.16137 |\n| 2026-02 | 1082803.89934 |\n| 2026-03 | 1129038.9918  |\n| 2026-04 | 934123.312241 |\n| 2026-05 | 405024.537037 |"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "db1f5a32-7d45-4dd0-b44c-32d88783b4d1",
+            "timestamp": 1778841791.7460594
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-50473925-5327-4102-ba06-c6aa587ee3d5",
+                    "args": {
+                      "analysis_request": "chart_type: \"line\", title: \"NPI Total Monthly Spend Trend (Last 6 Months)\", data: {categories: [\"2025-11\", \"2025-12\", \"2026-01\", \"2026-02\", \"2026-03\", \"2026-04\", \"2026-05\"], series: {\"Total Spend\": [266942.49613, 350762.110746, 1227253.16137, 1082803.89934, 1129038.9918, 934123.312241, 405024.537037]}}"
+                    },
+                    "name": "call_analytics_agent",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "CscJAY89a19GHBuayPeO4rmozuzwUefUabhH-2cWt6B1fgLhQy5LBs6bVhtDPqyX0rWZRcWnUpGP4twtFt346ascW5FRFNCyyYFoJJ3V834iy08GmtXl5iFCvqeMnww8ZtnfuoUrFhc_Ub7-wUQoSpJJ1DT5Ew9RjknIaV18VdjvO1IeEkDVWQD0nJIic_8oRLYzOqfKFJDdsfAmJNrn-fsf6VW3_5s_mAkNKaVCC9vJN1NWODPv4vvTU1vVlNnYHJkqJ7Ha-DUPdc_k0C1ko5BmCq3CPbw94YLbpdAb2HAexChhd_L5zN09MnUyH0DKkVAcLap9Jk_SOQy9B2TT_q4nNuA6_GC7R1lLsoDSBLq0HIXt_Sc_0zKO15p4MKWTs4VWuPi18JrrUte58JamWYxLxApgOlQfli1tMRdqH4adg8yFukj-TFCxj1Yj3QyTMOl9So7aysfv_9iBc3bwzzM4nqbOp2K6YlqYDLMcTM67ReCH8CHcT3D3doFqUFSHno9hqW8Qxx006CS4r7JQC-x0mvioXJykDE2HCIRz7pu8liA4r1KyAv0DQX316w-zbOkw458zVYYgFiGZKIJCh9Q5WRxKxsZvcUwpfEuTUYnnk5ydm_7_cBoUsCOSoUQRveDFqD-GyCftcZK1WAvI-loPUrXSDSfFV7ocUV4HtG4ZHknrzuqEU23hoaOeQySTgi15wE4w3AdXztXl5oQDP5g5A7b1Y3PyIunHcxeeiux9v3oheZt1IC13r9xMvpgEISBDFqS0Vu845hzsJcSiqstPVNhfnMU7HPGUfVQr6UaHsj7CIgq4ScBT2VWvmbxDJQbSMIUnSf38LIDj9rLEDn8-TQ1BDyv4cScixQG5NSrthWoOKyotANfel4vfQK0fDIUOu7Xo3sGkbCCpTjkevctdL9dIUj7wNA31dBHUMzAtXeKcLhFTm4ZTeQiIFenTs1ORPm4HU8TF-w-uI0_BQHoWZQycj4XwGqqhYi4lMK1JE4Ipe40SQ6HextF7ZUAsAZlT1RmoCjTNmKrSr_gegkmQ9_U8aqdMYZ7PzBNj37x00cyl7JwJ0LvyfiuwH8qy4xiKgiPS1JawTsXszO1YLA3QdYlY6cBqt0d22N4A18ojB_ZsBswkG3-TAHnqeXnFWn61JD3DkSh505YxyxPhFruezYLgND-B3o4C9AtREORAJ9IIcKxIyGQc3xGVBgMrpJO_7TGY-wHBCgoO5yCpTRP2ja5x53AniVsKqOi0fzOyRMvaAMMKMFwWjK7uou3xlk2CXOnmTiRJnKSPsIYUPJM-vMO_-v15PBO9JxhvNOozGKkcQ1m_-bSt6OvGxvu98mw3YU6M1mvgj78nQNqxVF-RMPSJH7blnWeWu3leKXQlkF3YVbYIoM9ifvdvAdD6WVT65Lot-5s_8Xg96E7FwRwu9tJCN7Vqg23NhseyEoscBznrgOlyTwekvns2B2pPOZtGabdxRj8zarec1fCSKSr8IQBZpHdz8L5Rf-Aapsdv7-lwPCu5MuRQfqgVDmNfmUlInK1sJY7hM7IWrTbudxI2tABOGmsYg2-AeAXVSCu55EAwLMfqjcvb5P5JFd8jo7M5Bqy3CrL3giyhzsQwCTel--mMdNUuEcI=",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "0b87c03e-0093-4ca8-b70a-c42aa1f69ffd"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 208,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 208
+                }
+              ],
+              "prompt_token_count": 9033,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 9033
+                }
+              ],
+              "thoughts_token_count": 446,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 9687,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.1276634564766517,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-679e3c95-5039-484c-b4f1-04f2f605e79c",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "0b87c03e-0093-4ca8-b70a-c42aa1f69ffd"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": [],
+            "branch": null,
+            "id": "bbb36ed9-54dc-4fc1-9815-820088b50b92",
+            "timestamp": 1778841791.7507305
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-50473925-5327-4102-ba06-c6aa587ee3d5",
+                    "name": "call_analytics_agent",
+                    "response": {
+                      "result": "Generated line chart: NPI Total Monthly Spend Trend (Last 6 Months)"
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-679e3c95-5039-484c-b4f1-04f2f605e79c",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "06d4428c-637e-4c1f-b999-30c57cee9185"
+              },
+              "artifact_delta": {
+                "chart_1778841801_707d11.png": 0
+              },
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "aca31f9d-7eca-4bd9-9401-c6061654d30c",
+            "timestamp": 1778841801.132149
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "**Result:**\n\n**NPI Total Monthly Spend Trend (Last 6 Months)**\n\n| month   | total_spend   |\n|:--------|--------------:|\n| 2025-11 |    266,942.50 |\n| 2025-12 |    350,762.11 |\n| 2026-01 |  1,227,253.16 |\n| 2026-02 |  1,082,803.90 |\n| 2026-03 |  1,129,038.99 |\n| 2026-04 |    934,123.31 |\n| 2026-05 |    405,024.54 |\n\n**Explanation:**\n1. Retrieved the total monthly spend for NPI over the last 6 months from the BigQuery database.\n2. Generated a line chart visualizing the trend of total monthly spend.\n\n**Graph:**\nGenerated line chart: NPI Total Monthly Spend Trend (Last 6 Months)",
+                  "thought": null,
+                  "thought_signature": "CpcCAY89a18bBZs0TlInIi6QF519oR4nDev64fvlEECtyytmSoTHbfhaeckeiWhdFyOm9g_ajLJRkE99QpLeGiXh8QAi8y1b5M-xxvgxcufZKvE201NSM2sJIzODYfSkwo4kOxOMzkPyyk4ANPpIWzsxoo6IPVi78iUaUxZNRY-i0TWaEz78CyvhPGe0QEKdmOmFz1rteglkBKgJBrxCBmrGXdD0FyZC7SbpfFtz_pC8v3Dv_4w7vptcMVPuuxwBTho-tbuO7m7HMDTDhdfvnpoY60XafKBD1DtkNuvjYGN92U7-BlQfRx7Fh_fS1SHmpM-oobOieQ4g-lAfvXdZZvolTc7MhXlL_fLbgqUUQ9tPgZTBGbj-K66f",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "a6712aa8-a7e0-4a96-a6d4-27913bfe7253"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 7736
+                }
+              ],
+              "cached_content_token_count": 7736,
+              "candidates_token_count": 264,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 264
+                }
+              ],
+              "prompt_token_count": 9709,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 9709
+                }
+              ],
+              "thoughts_token_count": 51,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 10024,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.06102903683980306,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-679e3c95-5039-484c-b4f1-04f2f605e79c",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "a6712aa8-a7e0-4a96-a6d4-27913bfe7253"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "3bac4910-71b6-4872-a713-ca3d639c096c",
+            "timestamp": 1778841801.1372414
+          },
+          {
+            "model_version": null,
+            "content": null,
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-679e3c95-5039-484c-b4f1-04f2f605e79c",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "_sql_retry_count": 0,
+                "_seen_hashes": [],
+                "_chart_steps_done": 0,
+                "_last_bq_hash": ""
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "fc73954e-2491-43bb-aa8a-2be1c63e65ae",
+            "timestamp": 1778841803.7481556
+          }
+        ],
+        "last_update_time": 1778841803.7481556
+      },
+      "user_id": "eval_user"
+    }
+  ],
+  "creation_timestamp": 1778841803.7565417
+}

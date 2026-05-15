@@ -1,0 +1,264 @@
+2026-05-15 10:59:42,411 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-15 10:59:49,751 - WARNING - tools.py:180 - config_writer not available in tools: No module named 'lib'
+2026-05-15 10:59:49,751 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-15 10:59:49,751 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-15 10:59:49,752 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-15 10:59:49,755 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-15 10:59:49,756 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-15 10:59:49,757 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-15 10:59:49,757 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-15 10:59:49,758 - INFO - agent.py:339 - 📍 KM routed 'For NPI, build a saturation model and show where t...' → table=performance (confidence=low)
+2026-05-15 10:59:50,189 - INFO - tools.py:363 - Found 35 models for NPI
+2026-05-15 10:59:50,189 - INFO - agent.py:354 - 📋 Models listed for NPI: 1601 chars
+2026-05-15 10:59:50,396 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:59:51,672 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:59:51,672 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-15 10:59:51,674 - INFO - agent.py:489 - Tokens: In=7982, Out=13
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-15 10:59:51,784 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:59:56,955 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:59:57,712 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 11:00:14,258 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 11:00:15,638 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 11:00:27,433 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 11:00:28,271 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 11:00:35,706 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 11:00:36,780 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 11:00:42,787 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 11:00:42,793 - INFO - runners.py:1611 - Closing runner...
+2026-05-15 11:00:42,793 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-15 11:00:42,793 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-15 11:00:42,794 - INFO - runners.py:1619 - Runner closed.
+2026-05-15 11:00:42,803 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-15 11:00:42,807 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_15_duality_saturation.evalset.json_1778842842.807036.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+Models contained in 'nc-ai-chatbot.astrobot_bqml_models':
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_15_duality_saturation.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_15_duality_saturation.evalset.json
+Eval Id: pos_15_duality_saturation
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.06722689075630252, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+------------------------+------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                 | expected_response      | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+========================+========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, build a       | saturation model NPI   | The current model         |                       | id='adk-62869a96-c58a-402 | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | saturation model and   | allocation budget      | `npi_conversions_saturati |                       | 5-926b-                   | 0.0                         | 0.06722689075630252    |
+|    | show where to allocate | $500k channels duality | on` has issues:           |                       | 61015616a606'             |                             |                        |
+|    | next $500k             | FULL OUTER JOIN        | - It predicts 0           |                       | args={'agent_name':       |                             |                        |
+|    | investment             |                        | conversions even for      |                       | 'bq_ml_agent'}            |                             |                        |
+|    |                        |                        | 'Paid Social', which      |                       | name='transfer_to_agent'  |                             |                        |
+|    |                        |                        | historically has          |                       | partial_args=None         |                             |                        |
+|    |                        |                        | non-zero conversions.     |                       | will_continue=None id=    |                             |                        |
+|    |                        |                        | This suggests the         |                       | 'adk-890dcfbc-a4eb-461f-a |                             |                        |
+|    |                        |                        | model is not capturing    |                       | d49-                      |                             |                        |
+|    |                        |                        | the relationship          |                       | 918238153764'             |                             |                        |
+|    |                        |                        | between spend and         |                       | args={'dataset_id': 'nc-  |                             |                        |
+|    |                        |                        | conversions. - This       |                       | ai-chatbot.astrobot_bqml_ |                             |                        |
+|    |                        |                        | appears to be a broken    |                       | models'}                  |                             |                        |
+|    |                        |                        | model.  I can             |                       | name='check_bq_models'    |                             |                        |
+|    |                        |                        | retrain this model with   |                       | partial_args=None         |                             |                        |
+|    |                        |                        | proper                    |                       | will_continue=None        |                             |                        |
+|    |                        |                        | parameters, creating a    |                       | id='adk-                  |                             |                        |
+|    |                        |                        | new version: -            |                       | ebcdf751-25be-4fa9-bd7c-a |                             |                        |
+|    |                        |                        | Target: Conversions -     |                       | ccde60c7dac'              |                             |                        |
+|    |                        |                        | Features:                 |                       | args={'query':            |                             |                        |
+|    |                        |                        | `Channel`, `Cost`,        |                       | "\nSELECT\n  Channel,\n   |                             |                        |
+|    |                        |                        | `LN(Cost + 1)` (for       |                       | AVG(Cost) AS              |                             |                        |
+|    |                        |                        | saturation effect),       |                       | avg_daily_cost,\n         |                             |                        |
+|    |                        |                        | `Clicks`, `LN(Clicks      |                       | AVG(Clicks) AS            |                             |                        |
+|    |                        |                        | + 1)` - Type:             |                       | avg_daily_clicks,\n       |                             |                        |
+|    |                        |                        | LINEAR_REGRESSION -       |                       | AVG(Conversions) AS       |                             |                        |
+|    |                        |                        | Training data: NPI multi- |                       | avg_daily_conversions\nFR |                             |                        |
+|    |                        |                        | year data from            |                       | OM `nc-ai-chatb           |                             |                        |
+|    |                        |                        | `nc-ai-chatbot.Astrobot_N |                       | ot.Astrobot_NPI.vw_astrob |                             |                        |
+|    |                        |                        | PI.vw_astrobot_           |                       | ot_npi_nc360_da           |                             |                        |
+|    |                        |                        | npi_nc360_dashboard`      |                       | shboard`\nWHERE Date      |                             |                        |
+|    |                        |                        | where Cost > 0.           |                       | BETWEEN                   |                             |                        |
+|    |                        |                        | Should I retrain it now   |                       | '2026-02-15' AND          |                             |                        |
+|    |                        |                        | as                        |                       | '2026-05-15'\nGROUP BY    |                             |                        |
+|    |                        |                        | `npi_conversions_saturati |                       | Channel\nHAVING           |                             |                        |
+|    |                        |                        | on_v2`? (This             |                       | avg_daily_cost >          |                             |                        |
+|    |                        |                        | process usually takes ~30 |                       | 0\nORDER BY               |                             |                        |
+|    |                        |                        | seconds)                  |                       | avg_daily_cost DESC\n",   |                             |                        |
+|    |                        |                        |                           |                       | 'project_id': 'nc-ai-     |                             |                        |
+|    |                        |                        |                           |                       | chatbot'}                 |                             |                        |
+|    |                        |                        |                           |                       | name='execute_sql'        |                             |                        |
+|    |                        |                        |                           |                       | partial_args=None         |                             |                        |
+|    |                        |                        |                           |                       | will_continue=None        |                             |                        |
+|    |                        |                        |                           |                       | id='adk-b14d3573-         |                             |                        |
+|    |                        |                        |                           |                       | 9cf3-49a6-babf-74d76b4890 |                             |                        |
+|    |                        |                        |                           |                       | 3b'                       |                             |                        |
+|    |                        |                        |                           |                       | args={'project_id': 'nc-  |                             |                        |
+|    |                        |                        |                           |                       | ai-chatbot',              |                             |                        |
+|    |                        |                        |                           |                       | 'query': "\nSELECT\n      |                             |                        |
+|    |                        |                        |                           |                       | Channel,\n                |                             |                        |
+|    |                        |                        |                           |                       | Cost,\n  Clicks,\n        |                             |                        |
+|    |                        |                        |                           |                       | predicted_Conversions\nFR |                             |                        |
+|    |                        |                        |                           |                       | OM                        |                             |                        |
+|    |                        |                        |                           |                       | ML.PREDICT(\n  MODEL `nc- |                             |                        |
+|    |                        |                        |                           |                       | ai-chatbot.astr           |                             |                        |
+|    |                        |                        |                           |                       | obot_bqml_models.npi_conv |                             |                        |
+|    |                        |                        |                           |                       | ersions_saturat           |                             |                        |
+|    |                        |                        |                           |                       | ion`,\n  (SELECT\n        |                             |                        |
+|    |                        |                        |                           |                       | 'Paid Social' AS          |                             |                        |
+|    |                        |                        |                           |                       | Channel,\n    2.81 AS     |                             |                        |
+|    |                        |                        |                           |                       | Cost,\n    LN(2.81        |                             |                        |
+|    |                        |                        |                           |                       | + 1) AS log_cost,\n       |                             |                        |
+|    |                        |                        |                           |                       | 4.06 AS Clicks,\n         |                             |                        |
+|    |                        |                        |                           |                       | LN(4.06 + 1) AS           |                             |                        |
+|    |                        |                        |                           |                       | log_clicks,\n    0 AS     |                             |                        |
+|    |                        |                        |                           |                       | Conversions #             |                             |                        |
+|    |                        |                        |                           |                       | Placeholder, not used for |                             |                        |
+|    |                        |                        |                           |                       | prediction\n  UNION ALL\n |                             |                        |
+|    |                        |                        |                           |                       | SELECT\n                  |                             |                        |
+|    |                        |                        |                           |                       | 'Paid Social' AS          |                             |                        |
+|    |                        |                        |                           |                       | Channel,\n    100.0 AS    |                             |                        |
+|    |                        |                        |                           |                       | Cost,\n    LN(100.0 + 1)  |                             |                        |
+|    |                        |                        |                           |                       | AS log_cost,\n            |                             |                        |
+|    |                        |                        |                           |                       | (100.0 * 4.06 / 2.81) AS  |                             |                        |
+|    |                        |                        |                           |                       | Clicks,\n                 |                             |                        |
+|    |                        |                        |                           |                       | LN(100.0 * 4.06 / 2.81 +  |                             |                        |
+|    |                        |                        |                           |                       | 1) AS                     |                             |                        |
+|    |                        |                        |                           |                       | log_clicks,\n    0 AS     |                             |                        |
+|    |                        |                        |                           |                       | Conversions #             |                             |                        |
+|    |                        |                        |                           |                       | Placeholder, not used for |                             |                        |
+|    |                        |                        |                           |                       | prediction\n              |                             |                        |
+|    |                        |                        |                           |                       | UNION ALL\n  SELECT\n     |                             |                        |
+|    |                        |                        |                           |                       | 'Performance              |                             |                        |
+|    |                        |                        |                           |                       | Max' AS Channel,\n        |                             |                        |
+|    |                        |                        |                           |                       | 26.24 AS Cost,\n          |                             |                        |
+|    |                        |                        |                           |                       | LN(26.24 + 1) AS          |                             |                        |
+|    |                        |                        |                           |                       | log_cost,\n    47.79 AS   |                             |                        |
+|    |                        |                        |                           |                       | Clicks,\n    LN(47.79 +   |                             |                        |
+|    |                        |                        |                           |                       | 1) AS                     |                             |                        |
+|    |                        |                        |                           |                       | log_clicks,\n    0 AS     |                             |                        |
+|    |                        |                        |                           |                       | Conversions #             |                             |                        |
+|    |                        |                        |                           |                       | Placeholder, not used for |                             |                        |
+|    |                        |                        |                           |                       | prediction\n              |                             |                        |
+|    |                        |                        |                           |                       | UNION ALL\n  SELECT\n     |                             |                        |
+|    |                        |                        |                           |                       | 'Performance              |                             |                        |
+|    |                        |                        |                           |                       | Max' AS Channel,\n        |                             |                        |
+|    |                        |                        |                           |                       | 500.0 AS Cost,\n          |                             |                        |
+|    |                        |                        |                           |                       | LN(500.0 + 1) AS          |                             |                        |
+|    |                        |                        |                           |                       | log_cost,\n    (500.0 *   |                             |                        |
+|    |                        |                        |                           |                       | 47.79 / 26.24) AS         |                             |                        |
+|    |                        |                        |                           |                       | Clicks,\n    LN(500.0     |                             |                        |
+|    |                        |                        |                           |                       | * 47.79 / 26.24 + 1) AS   |                             |                        |
+|    |                        |                        |                           |                       | log_clicks,\n             |                             |                        |
+|    |                        |                        |                           |                       | 0 AS Conversions #        |                             |                        |
+|    |                        |                        |                           |                       | Placeholder, not used     |                             |                        |
+|    |                        |                        |                           |                       | for prediction\n          |                             |                        |
+|    |                        |                        |                           |                       | )\n)\n"}                  |                             |                        |
+|    |                        |                        |                           |                       | name='execute_sql'        |                             |                        |
+|    |                        |                        |                           |                       | partial_args=None         |                             |                        |
+|    |                        |                        |                           |                       | will_continue=None        |                             |                        |
+|    |                        |                        |                           |                       | id='adk-4426888e-         |                             |                        |
+|    |                        |                        |                           |                       | d825-42b7-8aaa-e43d3c8fec |                             |                        |
+|    |                        |                        |                           |                       | 2c'                       |                             |                        |
+|    |                        |                        |                           |                       | args={'query':            |                             |                        |
+|    |                        |                        |                           |                       | "\nSELECT\n  Channel,\n   |                             |                        |
+|    |                        |                        |                           |                       | Cost,\n  Clicks,\n        |                             |                        |
+|    |                        |                        |                           |                       | predicted_Conversions\nFR |                             |                        |
+|    |                        |                        |                           |                       | OM                        |                             |                        |
+|    |                        |                        |                           |                       | ML.PREDICT(\n  MODEL `nc- |                             |                        |
+|    |                        |                        |                           |                       | ai-chatbot.astr           |                             |                        |
+|    |                        |                        |                           |                       | obot_bqml_models.npi_conv |                             |                        |
+|    |                        |                        |                           |                       | ersions_saturat           |                             |                        |
+|    |                        |                        |                           |                       | ion`,\n  (SELECT\n        |                             |                        |
+|    |                        |                        |                           |                       | 'Paid Social' AS          |                             |                        |
+|    |                        |                        |                           |                       | Channel,\n    CAST(2.81   |                             |                        |
+|    |                        |                        |                           |                       | AS FLOAT64) AS            |                             |                        |
+|    |                        |                        |                           |                       | Cost,\n    LN(2.81 + 1)   |                             |                        |
+|    |                        |                        |                           |                       | AS log_cost,\n            |                             |                        |
+|    |                        |                        |                           |                       | CAST(ROUND(4.06, 0) AS    |                             |                        |
+|    |                        |                        |                           |                       | INT64) AS                 |                             |                        |
+|    |                        |                        |                           |                       | Clicks,\n                 |                             |                        |
+|    |                        |                        |                           |                       | LN(CAST(ROUND(4.06, 0) AS |                             |                        |
+|    |                        |                        |                           |                       | INT64) + 1) AS            |                             |                        |
+|    |                        |                        |                           |                       | log_clicks,\n    0 AS     |                             |                        |
+|    |                        |                        |                           |                       | Conversions #             |                             |                        |
+|    |                        |                        |                           |                       | Placeholder, not used for |                             |                        |
+|    |                        |                        |                           |                       | prediction\n  UNION ALL\n |                             |                        |
+|    |                        |                        |                           |                       | SELECT\n                  |                             |                        |
+|    |                        |                        |                           |                       | 'Paid Social' AS          |                             |                        |
+|    |                        |                        |                           |                       | Channel,\n                |                             |                        |
+|    |                        |                        |                           |                       | CAST(100.0 AS FLOAT64) AS |                             |                        |
+|    |                        |                        |                           |                       | Cost,\n                   |                             |                        |
+|    |                        |                        |                           |                       | LN(100.0 + 1) AS          |                             |                        |
+|    |                        |                        |                           |                       | log_cost,\n               |                             |                        |
+|    |                        |                        |                           |                       | CAST(ROUND((100.0 * 4.06  |                             |                        |
+|    |                        |                        |                           |                       | / 2.81), 0) AS            |                             |                        |
+|    |                        |                        |                           |                       | INT64) AS Clicks,\n       |                             |                        |
+|    |                        |                        |                           |                       | LN(CAST(ROUND((100.0 *    |                             |                        |
+|    |                        |                        |                           |                       | 4.06 / 2.81), 0)          |                             |                        |
+|    |                        |                        |                           |                       | AS INT64) + 1) AS         |                             |                        |
+|    |                        |                        |                           |                       | log_clicks,\n    0 AS     |                             |                        |
+|    |                        |                        |                           |                       | Conversions #             |                             |                        |
+|    |                        |                        |                           |                       | Placeholder, not used for |                             |                        |
+|    |                        |                        |                           |                       | prediction\n  UNION ALL\n |                             |                        |
+|    |                        |                        |                           |                       | SELECT\n                  |                             |                        |
+|    |                        |                        |                           |                       | 'Performance Max' AS      |                             |                        |
+|    |                        |                        |                           |                       | Channel,\n                |                             |                        |
+|    |                        |                        |                           |                       | CAST(26.24 AS FLOAT64) AS |                             |                        |
+|    |                        |                        |                           |                       | Cost,\n                   |                             |                        |
+|    |                        |                        |                           |                       | LN(26.24 + 1) AS          |                             |                        |
+|    |                        |                        |                           |                       | log_cost,\n               |                             |                        |
+|    |                        |                        |                           |                       | CAST(ROUND(47.79, 0) AS   |                             |                        |
+|    |                        |                        |                           |                       | INT64) AS                 |                             |                        |
+|    |                        |                        |                           |                       | Clicks,\n                 |                             |                        |
+|    |                        |                        |                           |                       | LN(CAST(ROUND(47.79, 0)   |                             |                        |
+|    |                        |                        |                           |                       | AS                        |                             |                        |
+|    |                        |                        |                           |                       | INT64) + 1) AS            |                             |                        |
+|    |                        |                        |                           |                       | log_clicks,\n    0 AS     |                             |                        |
+|    |                        |                        |                           |                       | Conversions #             |                             |                        |
+|    |                        |                        |                           |                       | Placeholder, not used for |                             |                        |
+|    |                        |                        |                           |                       | prediction\n  UNION ALL\n |                             |                        |
+|    |                        |                        |                           |                       | SELECT\n                  |                             |                        |
+|    |                        |                        |                           |                       | 'Performance Max' AS      |                             |                        |
+|    |                        |                        |                           |                       | Channel,\n                |                             |                        |
+|    |                        |                        |                           |                       | CAST(500.0 AS FLOAT64) AS |                             |                        |
+|    |                        |                        |                           |                       | Cost,\n                   |                             |                        |
+|    |                        |                        |                           |                       | LN(500.0 + 1) AS          |                             |                        |
+|    |                        |                        |                           |                       | log_cost,\n               |                             |                        |
+|    |                        |                        |                           |                       | CAST(ROUND((500.0 * 47.79 |                             |                        |
+|    |                        |                        |                           |                       | / 26.24), 0)              |                             |                        |
+|    |                        |                        |                           |                       | AS INT64) AS Clicks,\n    |                             |                        |
+|    |                        |                        |                           |                       | LN(CAST(ROUND((500.0 *    |                             |                        |
+|    |                        |                        |                           |                       | 47.79 / 26.24),           |                             |                        |
+|    |                        |                        |                           |                       | 0) AS INT64) + 1) AS      |                             |                        |
+|    |                        |                        |                           |                       | log_clicks,\n    0        |                             |                        |
+|    |                        |                        |                           |                       | AS Conversions #          |                             |                        |
+|    |                        |                        |                           |                       | Placeholder, not used     |                             |                        |
+|    |                        |                        |                           |                       | for prediction\n          |                             |                        |
+|    |                        |                        |                           |                       | )\n)\n", 'project_id':    |                             |                        |
+|    |                        |                        |                           |                       | 'nc-ai-chatbot'}          |                             |                        |
+|    |                        |                        |                           |                       | name='execute_sql'        |                             |                        |
+|    |                        |                        |                           |                       | partial_args=None         |                             |                        |
+|    |                        |                        |                           |                       | will_continue=None        |                             |                        |
++----+------------------------+------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

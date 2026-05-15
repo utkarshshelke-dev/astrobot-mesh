@@ -1,0 +1,207 @@
+2026-05-15 10:39:46,691 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-15 10:39:53,813 - WARNING - tools.py:180 - config_writer not available in tools: No module named 'lib'
+2026-05-15 10:39:53,814 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-15 10:39:53,814 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-15 10:39:53,814 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-15 10:39:53,816 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-15 10:39:53,817 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-15 10:39:53,817 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-15 10:39:53,818 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-15 10:39:53,818 - INFO - agent.py:339 - 📍 KM routed 'For NPI, build a saturation model for next 100k in...' → table=performance (confidence=low)
+2026-05-15 10:39:54,287 - INFO - tools.py:363 - Found 35 models for NPI
+2026-05-15 10:39:54,287 - INFO - agent.py:354 - 📋 Models listed for NPI: 1601 chars
+2026-05-15 10:39:54,481 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:39:56,126 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:39:56,126 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-15 10:39:56,127 - INFO - agent.py:489 - Tokens: In=7978, Out=32
+2026-05-15 10:39:56,129 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-15 10:39:56,129 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-15 10:39:56,239 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:39:58,851 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:39:58,864 - INFO - tools.py:1118 - compute_saturation_curve: aggregating for NPI, 4 unification rules, lookback=12mo
+2026-05-15 10:40:02,068 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:40:06,324 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:40:06,327 - INFO - runners.py:1611 - Closing runner...
+2026-05-15 10:40:06,327 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-15 10:40:06,327 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-15 10:40:06,327 - INFO - runners.py:1619 - Runner closed.
+2026-05-15 10:40:06,432 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:40:11,522 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:40:11,523 - INFO - agent.py:489 - Tokens: In=8618, Out=712
+2026-05-15 10:40:11,525 - INFO - runners.py:1611 - Closing runner...
+2026-05-15 10:40:11,525 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-15 10:40:11,526 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-15 10:40:11,526 - INFO - runners.py:1619 - Runner closed.
+2026-05-15 10:40:11,528 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-15 10:40:11,534 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_03_saturation.evalset.json_1778841611.534436.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_03_saturation.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_03_saturation.evalset.json
+Eval Id: pos_03_saturation_100k
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.043209876543209874, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+----------------------+----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt               | expected_response    | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+======================+======================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, build a     | saturation model NPI | **Result:**  **Saturation |                       | id='adk-58e5909a-028b-401 | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | saturation model for | allocation channels  | Model for NPI             |                       | 5-b574-                   | 0.0                         | 0.043209876543209874   |
+|    | next 100k investment | Paid Search          | with $100,000             |                       | 8b36bd34f615'             |                             |                        |
+|    |                      |                      | Investment**  | Metric    |                       | args={'query': 'Build a   |                             |                        |
+|    |                      |                      | | Value         |         |                       | saturation model for NPI  |                             |                        |
+|    |                      |                      | |:--------------------    |                       | with $100k                |                             |                        |
+|    |                      |                      | --------------------|---- |                       | investment. Use the       |                             |                        |
+|    |                      |                      | ----------:| |            |                       | deterministic             |                             |                        |
+|    |                      |                      | Recommended Allocation    |                       | compute_saturation_curve  |                             |                        |
+|    |                      |                      | (Paid Search)             |                       | tool.'}                   |                             |                        |
+|    |                      |                      | |    $100,000   | |       |                       | name='call_bigquery_agent |                             |                        |
+|    |                      |                      | Expected Monthly          |                       | '                         |                             |                        |
+|    |                      |                      | Conversions            |  |                       | partial_args=None         |                             |                        |
+|    |                      |                      | 19,135    |               |                       | will_continue=None        |                             |                        |
+|    |                      |                      | **Details for Paid        |                       |                           |                             |                        |
+|    |                      |                      | Search:**  | Metric       |                       |                           |                             |                        |
+|    |                      |                      | | Value      |            |                       |                           |                             |                        |
+|    |                      |                      | |:----------------------- |                       |                           |                             |                        |
+|    |                      |                      | ---------|-----------:| | |                       |                           |                             |                        |
+|    |                      |                      | Current                   |                       |                           |                             |                        |
+|    |                      |                      | Average Daily Conversions |                       |                           |                             |                        |
+|    |                      |                      | | 934.73     |            |                       |                           |                             |                        |
+|    |                      |                      | | Current Average Daily   |                       |                           |                             |                        |
+|    |                      |                      | Spend     |               |                       |                           |                             |                        |
+|    |                      |                      | $5,183.83  | | Current    |                       |                           |                             |                        |
+|    |                      |                      | Conversions per           |                       |                           |                             |                        |
+|    |                      |                      | Dollar  | 0.18       | |  |                       |                           |                             |                        |
+|    |                      |                      | Fit Quality               |                       |                           |                             |                        |
+|    |                      |                      | (R²)                |     |                       |                           |                             |                        |
+|    |                      |                      | 0.865      | |            |                       |                           |                             |                        |
+|    |                      |                      | Saturation Alpha          |                       |                           |                             |                        |
+|    |                      |                      | | 0.8634                  |                       |                           |                             |                        |
+|    |                      |                      | | | Number of Paired      |                       |                           |                             |                        |
+|    |                      |                      | Observations   |          |                       |                           |                             |                        |
+|    |                      |                      | 364        |  **Channels  |                       |                           |                             |                        |
+|    |                      |                      | Excluded from             |                       |                           |                             |                        |
+|    |                      |                      | Allocation:**  *          |                       |                           |                             |                        |
+|    |                      |                      | **Conversions with no     |                       |                           |                             |                        |
+|    |                      |                      | spend (likely organic or  |                       |                           |                             |                        |
+|    |                      |                      | attribution-              |                       |                           |                             |                        |
+|    |                      |                      | only):**     *   Direct   |                       |                           |                             |                        |
+|    |                      |                      | (9,893 total              |                       |                           |                             |                        |
+|    |                      |                      | conversions)     *        |                       |                           |                             |                        |
+|    |                      |                      | Organic Search            |                       |                           |                             |                        |
+|    |                      |                      | (64,885 total             |                       |                           |                             |                        |
+|    |                      |                      | conversions)     *        |                       |                           |                             |                        |
+|    |                      |                      | Organic Social (361,233   |                       |                           |                             |                        |
+|    |                      |                      | total                     |                       |                           |                             |                        |
+|    |                      |                      | conversions)     *   Paid |                       |                           |                             |                        |
+|    |                      |                      | Other (76,497             |                       |                           |                             |                        |
+|    |                      |                      | total conversions)     *  |                       |                           |                             |                        |
+|    |                      |                      | Referral                  |                       |                           |                             |                        |
+|    |                      |                      | (8,302 total conversions) |                       |                           |                             |                        |
+|    |                      |                      | *                         |                       |                           |                             |                        |
+|    |                      |                      | Unassigned (233,112 total |                       |                           |                             |                        |
+|    |                      |                      | conversions)              |                       |                           |                             |                        |
+|    |                      |                      | *   Display (63 total     |                       |                           |                             |                        |
+|    |                      |                      | conversions)     *        |                       |                           |                             |                        |
+|    |                      |                      | Email (3,535 total        |                       |                           |                             |                        |
+|    |                      |                      | conversions)     *        |                       |                           |                             |                        |
+|    |                      |                      | Organic Video (31 total   |                       |                           |                             |                        |
+|    |                      |                      | conversions)              |                       |                           |                             |                        |
+|    |                      |                      | *   Organic Shopping (4   |                       |                           |                             |                        |
+|    |                      |                      | total                     |                       |                           |                             |                        |
+|    |                      |                      | conversions) *   **Low    |                       |                           |                             |                        |
+|    |                      |                      | Quality Fit               |                       |                           |                             |                        |
+|    |                      |                      | (model unreliable for     |                       |                           |                             |                        |
+|    |                      |                      | budget                    |                       |                           |                             |                        |
+|    |                      |                      | allocation):**     *      |                       |                           |                             |                        |
+|    |                      |                      | Demand Gen +              |                       |                           |                             |                        |
+|    |                      |                      | P-Max: R² too low         |                       |                           |                             |                        |
+|    |                      |                      | (0.439); need ≥0.5 for    |                       |                           |                             |                        |
+|    |                      |                      | reliable saturation       |                       |                           |                             |                        |
+|    |                      |                      | curve.     *   Paid       |                       |                           |                             |                        |
+|    |                      |                      | Social: R² too low        |                       |                           |                             |                        |
+|    |                      |                      | (0.372) and alpha         |                       |                           |                             |                        |
+|    |                      |                      | (1.962) suggests          |                       |                           |                             |                        |
+|    |                      |                      | increasing returns,       |                       |                           |                             |                        |
+|    |                      |                      | which is economically     |                       |                           |                             |                        |
+|    |                      |                      | implausible for           |                       |                           |                             |                        |
+|    |                      |                      | advertising.     *        |                       |                           |                             |                        |
+|    |                      |                      | Video/CTV/OTT/TV:         |                       |                           |                             |                        |
+|    |                      |                      | R² too low (0.040) and    |                       |                           |                             |                        |
+|    |                      |                      | only 20 paired            |                       |                           |                             |                        |
+|    |                      |                      | days of data (need ≥30    |                       |                           |                             |                        |
+|    |                      |                      | for robust fit).          |                       |                           |                             |                        |
+|    |                      |                      | *   **Spend with no       |                       |                           |                             |                        |
+|    |                      |                      | conversions (likely       |                       |                           |                             |                        |
+|    |                      |                      | awareness or naming       |                       |                           |                             |                        |
+|    |                      |                      | mismatch):**     *        |                       |                           |                             |                        |
+|    |                      |                      | Online Audio ($122,049    |                       |                           |                             |                        |
+|    |                      |                      | total spend)              |                       |                           |                             |                        |
+|    |                      |                      | *   Print ($10,902 total  |                       |                           |                             |                        |
+|    |                      |                      | spend)     *              |                       |                           |                             |                        |
+|    |                      |                      | OOH ($203,890 total       |                       |                           |                             |                        |
+|    |                      |                      | spend)                    |                       |                           |                             |                        |
+|    |                      |                      | **Explanation:** 1.  A    |                       |                           |                             |                        |
+|    |                      |                      | saturation model          |                       |                           |                             |                        |
+|    |                      |                      | was built for NPI to      |                       |                           |                             |                        |
+|    |                      |                      | determine the             |                       |                           |                             |                        |
+|    |                      |                      | optimal allocation for a  |                       |                           |                             |                        |
+|    |                      |                      | $100,000                  |                       |                           |                             |                        |
+|    |                      |                      | investment. 2.  The model |                       |                           |                             |                        |
+|    |                      |                      | recommends                |                       |                           |                             |                        |
+|    |                      |                      | allocating the entire     |                       |                           |                             |                        |
+|    |                      |                      | $100,000 to Paid          |                       |                           |                             |                        |
+|    |                      |                      | Search, which is          |                       |                           |                             |                        |
+|    |                      |                      | projected to yield        |                       |                           |                             |                        |
+|    |                      |                      | 19,135 monthly            |                       |                           |                             |                        |
+|    |                      |                      | conversions. 3.  Detailed |                       |                           |                             |                        |
+|    |                      |                      | metrics for Paid Search,  |                       |                           |                             |                        |
+|    |                      |                      | including                 |                       |                           |                             |                        |
+|    |                      |                      | current performance and   |                       |                           |                             |                        |
+|    |                      |                      | model fit                 |                       |                           |                             |                        |
+|    |                      |                      | quality, are provided. 4. |                       |                           |                             |                        |
+|    |                      |                      | Several                   |                       |                           |                             |                        |
+|    |                      |                      | channels were excluded    |                       |                           |                             |                        |
+|    |                      |                      | from the                  |                       |                           |                             |                        |
+|    |                      |                      | allocation due to either  |                       |                           |                             |                        |
+|    |                      |                      | having                    |                       |                           |                             |                        |
+|    |                      |                      | conversions with no       |                       |                           |                             |                        |
+|    |                      |                      | associated spend          |                       |                           |                             |                        |
+|    |                      |                      | (indicating organic or    |                       |                           |                             |                        |
+|    |                      |                      | attribution-only          |                       |                           |                             |                        |
+|    |                      |                      | channels), a low-quality  |                       |                           |                             |                        |
+|    |                      |                      | model fit                 |                       |                           |                             |                        |
+|    |                      |                      | (making them unreliable   |                       |                           |                             |                        |
+|    |                      |                      | for budget                |                       |                           |                             |                        |
+|    |                      |                      | allocation), or spend     |                       |                           |                             |                        |
+|    |                      |                      | with no                   |                       |                           |                             |                        |
+|    |                      |                      | conversions (suggesting   |                       |                           |                             |                        |
+|    |                      |                      | awareness-                |                       |                           |                             |                        |
+|    |                      |                      | focused channels or       |                       |                           |                             |                        |
+|    |                      |                      | naming mismatches).       |                       |                           |                             |                        |
++----+----------------------+----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

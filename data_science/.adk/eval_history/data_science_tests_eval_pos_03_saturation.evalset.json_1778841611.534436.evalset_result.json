@@ -1,0 +1,1241 @@
+{
+  "eval_set_result_id": "data_science_tests/eval/pos_03_saturation.evalset.json_1778841611.534436",
+  "eval_set_result_name": "data_science_tests_eval_pos_03_saturation.evalset.json_1778841611.534436",
+  "eval_set_id": "tests/eval/pos_03_saturation.evalset.json",
+  "eval_case_results": [
+    {
+      "eval_set_file": "tests/eval/pos_03_saturation.evalset.json",
+      "eval_set_id": "tests/eval/pos_03_saturation.evalset.json",
+      "eval_id": "pos_03_saturation_100k",
+      "final_eval_status": 2,
+      "eval_metric_results": null,
+      "overall_eval_metric_results": [
+        {
+          "metric_name": "tool_trajectory_avg_score",
+          "threshold": 0.0,
+          "criterion": {
+            "threshold": 0.0
+          },
+          "custom_function_path": null,
+          "score": 0.0,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": null
+          }
+        },
+        {
+          "metric_name": "response_match_score",
+          "threshold": 0.1,
+          "criterion": {
+            "threshold": 0.1
+          },
+          "custom_function_path": null,
+          "score": 0.043209876543209874,
+          "eval_status": 2,
+          "details": {
+            "rubric_scores": null
+          }
+        }
+      ],
+      "eval_metric_result_per_invocation": [
+        {
+          "actual_invocation": {
+            "invocation_id": "e-8c2956f8-610b-4504-91e9-855710ffc279",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, build a saturation model for next 100k investment",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "**Result:**\n\n**Saturation Model for NPI with $100,000 Investment**\n\n| Metric                                  | Value         |\n|:----------------------------------------|--------------:|\n| Recommended Allocation (Paid Search)    |    $100,000   |\n| Expected Monthly Conversions            |     19,135    |\n\n**Details for Paid Search:**\n\n| Metric                          | Value      |\n|:--------------------------------|-----------:|\n| Current Average Daily Conversions | 934.73     |\n| Current Average Daily Spend     | $5,183.83  |\n| Current Conversions per Dollar  | 0.18       |\n| Fit Quality (R²)                | 0.865      |\n| Saturation Alpha                | 0.8634     |\n| Number of Paired Observations   | 364        |\n\n**Channels Excluded from Allocation:**\n\n*   **Conversions with no spend (likely organic or attribution-only):**\n    *   Direct (9,893 total conversions)\n    *   Organic Search (64,885 total conversions)\n    *   Organic Social (361,233 total conversions)\n    *   Paid Other (76,497 total conversions)\n    *   Referral (8,302 total conversions)\n    *   Unassigned (233,112 total conversions)\n    *   Display (63 total conversions)\n    *   Email (3,535 total conversions)\n    *   Organic Video (31 total conversions)\n    *   Organic Shopping (4 total conversions)\n*   **Low Quality Fit (model unreliable for budget allocation):**\n    *   Demand Gen + P-Max: R² too low (0.439); need ≥0.5 for reliable saturation curve.\n    *   Paid Social: R² too low (0.372) and alpha (1.962) suggests increasing returns, which is economically implausible for advertising.\n    *   Video/CTV/OTT/TV: R² too low (0.040) and only 20 paired days of data (need ≥30 for robust fit).\n*   **Spend with no conversions (likely awareness or naming mismatch):**\n    *   Online Audio ($122,049 total spend)\n    *   Print ($10,902 total spend)\n    *   OOH ($203,890 total spend)\n\n**Explanation:**\n1.  A saturation model was built for NPI to determine the optimal allocation for a $100,000 investment.\n2.  The model recommends allocating the entire $100,000 to Paid Search, which is projected to yield 19,135 monthly conversions.\n3.  Detailed metrics for Paid Search, including current performance and model fit quality, are provided.\n4.  Several channels were excluded from the allocation due to either having conversions with no associated spend (indicating organic or attribution-only channels), a low-quality model fit (making them unreliable for budget allocation), or spend with no conversions (suggesting awareness-focused channels or naming mismatches).",
+                  "thought": null,
+                  "thought_signature": "CoMDAY89a1-GMxSrqpiatFxURFgws-lT_Tl9rvzuACS57yl49OrR3b9QVE3hBQTnUktWRcvYaldGeEmZZ3I0Ltdufe7RG9Dq8X5dLNHc_ayzDNp3ZypUNVM1hGwdbPKFPBvqxzGI-VNAiO-VOaU1YhbagN_Avxxv1vUGXtilgY2-OelttJ4zHQnKY-MvU4TEye5er39SFGqy-7c3q-a8IYDRMYTmAxhaqgWdY1Q4sfwJUCyU2i-yXjIIH69Jy1mTKFV-Ef3Ui85W5hBPucl3EisNquHBwKxOwT2QSjHlnXADv7FyReJ0u_34lZYSOej3uGUopeyE-Jkp_PXcnS_Ptbbjb_xnXrPuHG0jYCYeMIVXxWRWqjla-sq2RAhuAjcoeZqAEWPE4bK2pbkib0YtoeNlKoq5oQTFiEuEnbHdEmLWiWmZJ3pZfcsxN0U0IgtUy0yBnpUbNZEkZ-2KJgzOMERdANcv31u8GsRdOTVBCd9q-ddIw674ZU5XBEaxb_Kzbf1s_Apd",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "invocation_events": [
+                {
+                  "author": "data_science_root_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-58e5909a-028b-4015-b574-8b36bd34f615",
+                          "args": {
+                            "query": "Build a saturation model for NPI with $100k investment. Use the deterministic compute_saturation_curve tool."
+                          },
+                          "name": "call_bigquery_agent",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "Cq8CAY89a19wTuhS-olm0VnrEIlRWTraJSUK9Y2zOd6BHC0jOswjOHoSApz4vW9P5km903tM6eNjl_BBXD-pM-tBZ0rRLkK6wsdVrlcd-LsGsuTpVAPNxmb8wnT0P5-etsSXz4-ZHEl2JxhFMKz6vWDLiPuehuNDNGe3hK8HmPQ2Oko2Q15v3Hu_HQfs2-l_i1slJahg--UstCNc8MvGBW9D4q1S_gNzGFNbDbAiKibrYrscOqvLKoK5pmqK4XB-lEvDYj_p7M2kCcm5eCzxAiRmx_HnKU0FKVt0bEUWexiGq5yQI7orinYwWHN66EVMjgUr_E8859PfMXygIlr7IUcdB8m-yBONRYpsspFzYn9lPnkH2FwaUOi_yTA06RwvX0XvkmZli2SRes9Kj9bJ85y8",
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "data_science_root_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-58e5909a-028b-4015-b574-8b36bd34f615",
+                          "name": "call_bigquery_agent",
+                          "response": {
+                            "result": "The saturation model for NPI has been built.\n\n**Recommended Allocation for $100,000 Investment:**\n\n*   **Paid Search:** $100,000\n*   **Expected Monthly Conversions (from this allocation):** 19,135\n\n**Details for Paid Search:**\n\n*   **Current Average Daily Conversions:** 934.73\n*   **Current Average Daily Spend:** $5,183.83\n*   **Current Conversions per Dollar:** 0.18\n*   **Fit Quality (R²):** 0.865 (indicating a good fit)\n*   **Saturation Alpha:** 0.8634\n*   **Number of Paired Observations:** 364\n\n**Channels Excluded from Allocation (and why):**\n\n*   **Conversions with no spend (likely organic or attribution-only):**\n    *   Direct (9,893 total conversions)\n    *   Organic Search (64,885 total conversions)\n    *   Organic Social (361,233 total conversions)\n    *   Paid Other (76,497 total conversions)\n    *   Referral (8,302 total conversions)\n    *   Unassigned (233,112 total conversions)\n    *   Display (63 total conversions)\n    *   Email (3,535 total conversions)\n    *   Organic Video (31 total conversions)\n    *   Organic Shopping (4 total conversions)\n*   **Low Quality Fit (model unreliable for budget allocation):**\n    *   **Demand Gen + P-Max:** R² too low (0.439); need ≥0.5 for reliable saturation curve.\n    *   **Paid Social:** R² too low (0.372) and alpha (1.962) suggests increasing returns, which is economically implausible for advertising.\n    *   **Video/CTV/OTT/TV:** R² too low (0.040) and only 20 paired days of data (need ≥30 for robust fit).\n*   **Spend with no conversions (likely awareness or naming mismatch):**\n    *   Online Audio ($122,049 total spend)\n    *   Print ($10,902 total spend)\n    *   OOH ($203,890 total spend)"
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                }
+              ]
+            },
+            "creation_timestamp": 1778841594.2880046,
+            "rubrics": null,
+            "app_details": {
+              "agent_details": {
+                "data_science_root_agent": {
+                  "name": "data_science_root_agent",
+                  "instructions": "You are a Data Science and Analytics Multi Agent System.\nToday's date: 2026-05-15\n\n\n\n    📊 CHART_DATA_QUALITY — filter before plotting:\n    \n    Before sending data to call_analytics_agent, ALWAYS:\n    \n    1. REMOVE channels/categories with ALL zeros across ALL data points\n       - If \"Display\" has 0% cost AND 0% conversions in every month -> exclude it\n       - If a channel only has zero values, it adds noise, not information\n    \n    2. SEPARATE charts when data has mixed scales:\n       - Cost % chart: include only channels with cost > 0\n       - Conversion % chart: include only channels with conversions > 0\n       - Don't put both groups in one chart -- the result looks half-empty\n    \n    3. SANITY CHECK before calling analytics agent:\n       - The chart renderer AUTO-FILTERS all-zero rows and series.\n       - You can send the data AS-IS - the renderer handles sparsity.\n       - Only fall back to TEXT TABLE if the data is COMPLETELY EMPTY\n         (zero rows total, not just some zero values).\n       - DO NOT pre-filter aggressively. Trust the renderer.\n\n    4. The chart spec MUST have:\n       - chart_type: a string like \"bar\" / \"line\" / \"stacked_bar\"\n       - title: a string\n       - data: contains categories list + either values list (single\n         series) OR a series dict (multiple grouped series)\n       - When using grouped series, the data.series field is a MAP\n         from series-name to value-list, not a list of dicts.\n       - Matching array lengths: categories has N items, every series\n         value list has N items.\n    \n    EXAMPLE for \"channel mix peak vs trough\":\n    \n    BAD (what produces blank chart):\n    categories=[\"Demand Gen\",\"Paid Social\",\"Search\",\"Cross-network\",\"Direct\",\"Display\",...]\n    Sept_conv=[0.00, 5.23, 0.00, 11.76, 0.51, 0.00, 0.09, 3.39, 23.87, 0.00, ...]\n    -> Many zero rows, chart looks empty\n    \n    GOOD:\n    For Cost chart: filter to only channels where ANY month has Cost % > 0\n    categories=[\"Demand Gen\",\"Paid Social\",\"Performance Max\",\"Search\"]\n    Sept_cost=[6.71, 43.83, 3.40, 46.06]\n    Nov_cost =[20.13, 47.88, 4.11, 27.88]\n    Dec_cost =[21.21, 47.25, 1.00, 30.54]\n    \n    For Conversion chart: filter to only channels where ANY month has Conv % > 0\n    categories=[\"Cross-network\",\"Organic Search\",\"Organic Social\",\"Paid Other\",\"Paid Search\",\"Paid Social\",\"Unassigned\"]\n    Sept_conv=[11.76, 3.39, 23.87, 12.41, 17.27, 5.23, 25.30]\n    Nov_conv =[8.41, 2.93, 37.67, 3.34, 13.51, 9.71, 23.54]\n    Dec_conv =[11.03, 4.63, 12.32, 0.87, 18.48, 45.99, 5.72]\n    \n    Both charts have meaningful data and render properly.\n    \n\n\n    ══════════════════════════════════════════════════════════\n    🌊 SEASONAL_COMPARISON_HINT - for peak/trough questions\n    ══════════════════════════════════════════════════════════\n\n    If the user asks for \"peak vs trough\", \"Nov/Dec vs rest\", \"holiday\n    vs non-holiday\", \"seasonal mix shift\", or compares one time-slice\n    vs another:\n\n    DO NOT try to compute percentages yourself. Instead:\n\n    1. Call call_bigquery_agent with a clear NL request mentioning\n       \"peak vs trough\" or \"seasonal comparison\" - the BQ sub-agent\n       has a pre-built SQL pattern that returns peak_cost_pct,\n       trough_cost_pct, peak_conv_pct, trough_conv_pct in a single\n       query.\n\n    2. ONE BQ call returns all data needed for BOTH charts.\n\n    3. Pass that data to call_analytics_agent TWICE:\n       - Once with peak_cost_pct + trough_cost_pct  -> cost chart\n       - Once with peak_conv_pct + trough_conv_pct  -> conversion chart\n\n    4. Chart spec format - describe in words, NOT braces:\n       - chart_type is \"bar\"\n       - title is the chart title string\n       - data.categories is the list of channels\n       - data.series is a MAP (dict) where the keys are the two\n         labels \"Peak (Nov/Dec)\" and \"Trough (Jan-Oct)\" and each\n         value is the corresponding list of percentages.\n       - DO NOT pass series as a list of dicts. Pass it as a map.\n\n\n\n\n    ══════════════════════════════════════════════════════════\n    🚨 CLIENT LOCK — CHECK FIRST EVERY TIME\n    ══════════════════════════════════════════════════════════\n\n    STEP 1: Read state.LOCKED_CLIENT (or state.client_lock).\n\n    DECISION LOGIC:\n    - IF user message contains \"NPI\", \"Venetian\", or \"WinnDixie\":\n        → Lock to that client. Continue with their request.\n    - ELIF state.LOCKED_CLIENT exists:\n        → Session is locked. Use that client. NEVER re-ask \"which client\".\n    - ELSE:\n        → STOP. Output ONLY: \"Please specify which client: NPI, Venetian, or WinnDixie.\"\n        → DO NOT call any tools.\n\n    ONCE LOCKED:\n    - Never ask \"which client\" again in the same session.\n    - If user mentions a DIFFERENT client mid-session:\n        \"Session is locked to {state.LOCKED_CLIENT}.\n         Click + New Session to analyze a different client.\"\n\n    ══════════════════════════════════════════════════════════\n    DISABLED ACTION CHECK (cross-client wall)\n    ══════════════════════════════════════════════════════════\n\n    BEFORE calling any tools, check: state._disabled_table_message\n    IF state._disabled_table_message exists and is non-empty:\n        - STOP. Output ONLY the message from state._disabled_table_message.\n        - DO NOT call call_bigquery_agent.\n        - DO NOT call call_analytics_agent.\n        - DO NOT transfer to bq_ml_agent.\n\n    This is set by the cross-client wall when a session locked to one client\n    receives a question about a different client. The refusal message\n    explains the situation to the user.\n\n    ══════════════════════════════════════════════════════════\n    🎯 TABLE ROUTING (set by KnowledgeManager — already in state)\n    ══════════════════════════════════════════════════════════\n\n    The KnowledgeManager has already routed this question to the right table.\n    Read these state fields before generating SQL:\n    - state.routed_table_id        → which table to query (performance | pacing)\n    - state.routed_table_path      → fully-qualified path to use in FROM clause\n    - state.channel_column         → which column is the channel (Channel | GVMM_Channel)\n    - state.kpi_column             → primary KPI column (Conversions | KPI | ViVs)\n    - state.channel_taxonomy       → dict of category → list of channels\n    - state.applicable_rules       → list of rule_ids that apply\n    - state.duality                → {has_duality, spend_rows_filter, conv_rows_filter}\n\n    If state.routed_table_id == 'pacing':\n        → This is a budget/flight/pacing question\n        → Use GVMM_Channel for grouping, NOT Channel\n        → Exclude GVMM_Channel = 'DEFAULT' unless explicitly asked\n        → Apply pacing-specific rules (days remaining, forecast totals)\n\n    If state.routed_table_id == 'performance' (default):\n        → This is a performance/CPA/forecast/correlation question\n        → Use Channel for grouping\n        → If duality.has_duality, use FULL OUTER JOIN unified CTE pattern\n\n\n    ══════════════════════════════════════════════════════════\n    🔥 DUALITY ENFORCEMENT (read state.duality.has_duality)\n    ══════════════════════════════════════════════════════════\n\n    If state.duality.has_duality is True, Cost and Conversions\n    are on SEPARATE rows in the data. Spend rows have Cost > 0\n    and Conversions = 0; conversion rows have the inverse.\n\n    ANY analysis that needs BOTH Cost AND Conversions MUST\n    pre-aggregate using a unified CTE with FULL OUTER JOIN:\n\n      WITH spend AS (\n        SELECT Date, Channel, SUM(Cost) AS cost\n        FROM <table>\n        WHERE Client = '<client>' AND Cost > 0\n        GROUP BY Date, Channel\n      ),\n      conv AS (\n        SELECT Date, Channel, SUM(Conversions) AS conversions\n        FROM <table>\n        WHERE Client = '<client>' AND Conversions > 0\n        GROUP BY Date, Channel\n      )\n      SELECT\n        COALESCE(s.Date, c.Date) AS date,\n        COALESCE(s.Channel, c.Channel) AS channel,\n        COALESCE(s.cost, 0) AS cost,\n        COALESCE(c.conversions, 0) AS conversions\n      FROM spend s\n      FULL OUTER JOIN conv c USING (Date, Channel)\n\n    APPLIES TO: linear regression, saturation models, CPA,\n    ROAS, CORR(Cost, Conversions), efficiency analysis,\n    any cost-vs-conversion modeling.\n\n    NEVER train BQML models on raw per-row data when duality\n    is True — every row has either Cost or Conversions, never\n    both. Models trained on raw rows produce zero correlation\n    and useless predictions.\n\n    Pre-aggregate FIRST, then model on the aggregated dataset.\n\n\n\n    ══════════════════════════════════════════════════════════\n    📈 SATURATION & UNIFICATION — use existing tools, DO NOT rebuild\n    ══════════════════════════════════════════════════════════\n\n    A unification map ALREADY EXISTS and is APPLIED AUTOMATICALLY\n    by the saturation tool. You do NOT need to build one. You do NOT\n    need to draft SQL for it. You do NOT need to diagnose duality.\n\n    The system already handles all of this:\n      • channel_unification map lives in config v3\n      • compute_saturation_curve reads the map and applies CASE WHEN\n        BEFORE the FULL OUTER JOIN that aggregates spend ↔ conv\n      • Duality is resolved internally — spend rows + conv rows are\n        joined on (Date, unified_channel) automatically\n      • Channels that can't be modeled (awareness, organic, etc.) are\n        returned in the \"excluded\" field with reasons — this is BY DESIGN\n\n    ROUTING RULES — when user asks about saturation, allocation, or modeling:\n\n    Root agent ONLY has: call_bigquery_agent, call_analytics_agent.\n    The deterministic tools (compute_saturation_curve, train_saturation_model_bqml,\n    compute_channel_volatility, etc.) live inside the BigQuery SUB-AGENT.\n\n    To use them: invoke call_bigquery_agent with a clear natural-language\n    request. The sub-agent will internally select the right deterministic tool.\n\n    1. \"where should I spend\", \"next $X investment\", \"saturation curve\",\n       \"diminishing returns\", \"what's the saturation model\", \"allocation\"\n       → via call_bigquery_agent (BQ sub-agent owns this tool):\n         call_bigquery_agent(\n           \"Build a saturation model for [CLIENT] with $[BUDGET] investment. \"\n           \"Use the deterministic compute_saturation_curve tool.\"\n         )\n       → ~5 sec response with fitted channels + allocation + excluded list\n\n    2. \"train a saturation model\", \"build the model\", \"create the model\",\n       \"refresh the saturation model\"\n       → via call_bigquery_agent — use compute_saturation_curve (per-channel fits):\n         call_bigquery_agent(\n           \"Build a saturation model for [CLIENT]. \"\n           \"Use compute_saturation_curve and report fitted alpha/kappa/r-squared per channel.\"\n         )\n       → ~5 sec, returns per-channel fitted parameters\n       → Note: BQML-persisted training (train_saturation_model_bqml) is\n         currently disabled pending per-channel training architecture work.\n\n    NEVER:\n      • Draft your own unification SQL — the tool already has one\n      • Train BQML linear regression on raw row-level Cost vs Conversions\n        — that fails because of duality, which the tool already handles\n      • Tell the user \"we need to build a unification map\" — we have one\n      • Manually aggregate Cost and Conversions by Date+Channel in Python\n        — the tool's SQL does this server-side\n      • Diagnose duality as if it's new — the tool already reports\n        spend_only and conv_only channels in its \"excluded\" field\n\n    WHEN saturation results come back from the BQ sub-agent:\n\n      \"channels\": Ellipsis                ← These are FITTED. Show in main table.\n      \"excluded.spend_only\": [...]     ← These have spend but no conv (awareness,\n                                          OR a naming mismatch we haven't mapped).\n                                          Report under \"Excluded: awareness/unmapped.\"\n      \"excluded.conv_only\": [...]      ← Organic / attribution channels with no\n                                          spend. Report under \"Excluded: organic.\"\n      \"recommended_allocation\": Ellipsis  ← Use this for budget split. Don't recompute.\n      \"unification_map_used\": Ellipsis    ← Echo this so user sees which rules ran.\n\n    IF a channel the user expected appears in spend_only or conv_only:\n      → Tell the user the channel may need a unification rule update in config\n      → DO NOT try to fix it yourself or write your own SQL\n      → The fix is in ad_campaign_dataset_config_v3.json, not in this conversation\n\n\n    ══════════════════════════════════════════════════════════\n    📊 CHANNEL TAXONOMY (use exact names from state.channel_taxonomy)\n    ══════════════════════════════════════════════════════════\n\n    When user mentions a channel CATEGORY (organic, awareness, paid, etc),\n    DO NOT guess which channels belong to it.\n    USE state.channel_taxonomy[<category>] for the exact channel list.\n\n    Example:\n      User: \"Show me awareness spend\"\n      → Read state.channel_taxonomy[\"awareness\"]\n      → That gives the exact list: [\"Linear TV\", \"CTV\", \"OTT\", ...]\n      → Build SQL: WHERE Channel IN ('Linear TV', 'CTV', 'OTT', ...)\n\n    NEVER use:\n      - \"Linear TV\" alone when user said \"awareness\"\n      - \"OTT\" alone when user said \"TV\"\n      - \"DEFAULT\" when user said \"Direct\" (Direct is its own value)\n    ══════════════════════════════════════════════════════════\n    📊 CHART RENDERING — explicit user request ONLY\n    ══════════════════════════════════════════════════════════\n\n    DEFAULT BEHAVIOR: present results as text + markdown table.\n    DO NOT auto-render charts. DO NOT call call_analytics_agent\n    based on data shape or \"would look nice\" reasoning.\n\n    ONLY call call_analytics_agent when user EXPLICITLY says:\n      - \"chart\" / \"graph\" / \"plot\" / \"visualize\" / \"visualization\"\n      - Named type: \"bar chart\", \"line chart\", \"pie chart\",\n        \"heatmap\", \"scatter\", \"funnel\", \"waterfall\", \"treemap\",\n        \"gantt\", \"sankey\", \"bullet\", \"stacked bar\", \"histogram\"\n      - \"draw\" / \"render\" / \"diagram\"\n      - \"show as a chart\" / \"as a graph\" / \"make a chart\"\n\n    Words that DO NOT trigger charts (these are textual answers):\n      - \"show me\" / \"show\" (alone, without \"chart\")\n      - \"build\" / \"create\" / \"make\" / \"produce\" (without \"chart\")\n      - \"model\" / \"analyze\" / \"analyze\" / \"breakdown\" / \"report\"\n      - \"demonstrate\" / \"illustrate\"\n      - \"across channels\" / \"by channel\" (these are tables)\n      - Large/multidimensional data — text + table is fine\n\n    SPECIFIC EXAMPLES — text only, NO chart:\n      • \"build a saturation model for next $100k\"\n      • \"which channels are most volatile in cost\"\n      • \"top channels by spend last quarter\"\n      • \"compare CPA by partner\"\n      • \"what's the CPA across channels\"\n      • \"show me the channel mix\"\n\n    SPECIFIC EXAMPLES — chart REQUIRED:\n      • \"show a bar chart of CPA by channel\"\n      • \"plot monthly conversions\"\n      • \"visualize the saturation curve\"\n      • \"heatmap of correlation between Cost, Clicks\"\n      • \"channel mix as a pie chart\"\n\n    CHART COUNT RULE:\n      • User says \"chart\" / \"graph\" / \"plot\" (singular, no number) → render 1 chart\n      • User says \"2 charts\" / \"3 charts\" / \"side-by-side charts\" → render that many\n      • User says \"charts\" (plural, no number) → ask: \"How many charts would you like?\"\n      • User doesn't mention charts at all → render 0 charts (text/table only)\n\n      Never render more charts than the user explicitly requested.\n      Never render fewer charts than the user explicitly requested.\n\n    After producing a text answer, you MAY append:\n      \"Want this as a chart? Ask: 'show as a [bar/line/pie] chart'\"\n\n    When the user DOES explicitly ask for a chart:\n      1. call_bigquery_agent to fetch data\n      2. call_analytics_agent with the data + chart_type spec\n      3. Then write Result + Explanation\n\n    NEVER:\n      • Auto-render a chart that wasn't explicitly requested\n      • Describe what a chart WOULD look like — return text/table\n      • Render ASCII / Unicode charts inline\n\n        ══════════════════════════════════════════════════════════\n\n    If the user request involves ANY visualization word, you MUST call\n    call_analytics_agent with chart data. NO EXCEPTIONS.\n\n    Visualization triggers (case-insensitive):\n      chart, graph, plot, visualize, visualization, show me a, display a,\n      heatmap, scatter, bar, line, pie, histogram, dashboard\n\n    Workflow when triggered:\n      1. call_bigquery_agent to fetch the data\n      2. The BQ sub-agent will internally call select_chart_type() if no\n         explicit chart type was named — it returns chart_type + config\n      3. call_analytics_agent with the data + chart_type spec\n      4. ONLY THEN write Result + Explanation\n\n    NEVER:\n      • Output ONLY a markdown table when user asked for a chart\n      • Skip step 3 because \"the data is small\"\n      • Describe what a chart WOULD show — just render it\n      • Try to render charts inline via ASCII / Unicode\n\n    Chart type selection (when user didn't name one) is handled by\n    select_chart_type() — defers to data shape + question intent:\n      • time-series, 1 metric, ≥12 points → line\n      • time-series, ≤12 points → bar\n      • time-series, 2 metrics, different scales → dual-axis line\n      • 1 category + 1 metric → bar\n      • ≤8 categories + composition question → pie\n      • 2 categorical dimensions + 1 metric → heatmap (values, YlOrRd)\n      • Correlation matrix → heatmap (-1 to 1, RdYlGn)\n      • 2 numeric \"vs\"/correlation question → scatter\n      • single scalar → no chart, text only\n\n    When sending to call_analytics_agent:\n      • Pre-aggregate data (no raw rows from the database)\n      • Filter all-zero rows\n      • Cap to 30 categories or 5 series (top-N + \"Other\" if more)\n      • Keep payload under 4000 chars total\n      • Format: dict with chart_type, title, x_label, y_label, data fields\n\n\n    ══════════════════════════════════════════════════════════\n    🚫 ABSOLUTE_NO_EMBEDDED_CODE (critical, prevents crashes)\n    ══════════════════════════════════════════════════════════\n\n    NEVER include in call_analytics_agent or any function arg:\n    - Triple quotes\n    - Multi-line string literals\n    - Python loops (for, while)\n    - Function definitions\n    - List comprehensions\n    - import statements\n    - Variable assignments inside the call\n    - Any Python code\n\n    Function arguments MUST be:\n    - Single-line strings under 4000 chars\n    - Simple pre-computed values\n    - Just data, no logic\n\n    GOOD:\n      categories = [\"Paid Social\", \"Demand Gen\", \"Paid Search\"]\n      values = [47.5, 28.3, 18.2]\n      call_analytics_agent(\"Bar chart. categories=\" + str(categories) +\n                           \" values=\" + str(values) +\n                           \" Title: NPI Cost % by Channel\")\n\n    ══════════════════════════════════════════════════════════\n    🔥 CHART RULES\n    ══════════════════════════════════════════════════════════\n\n    Before sending to call_analytics_agent:\n    1. REMOVE channels with all-zero values (filter at SQL level)\n    2. Keep arguments under 4000 chars total\n    3. Max 30 items per chart\n    4. Match array lengths (categories=10 → values=10)\n\n    Chart type selection:\n    - Correlation between 2 vars → SCATTER PLOT (most common)\n    - Time series of 2 vars → DUAL-AXIS LINE\n    - 5+ correlations → BAR of coefficients\n    - Matrix of pairwise → CORRELATION HEATMAP\n\n    Heatmap types:\n    - VALUE heatmap (raw counts): cmap=YlOrRd, fmt=comma\n    - CORRELATION heatmap ([-1,1]): cmap=RdYlGn, vmin=-1, vmax=1\n\n\n    ══════════════════════════════════════════════════════════\n    🎨 CHART ENFORCEMENT — non-negotiable\n    ══════════════════════════════════════════════════════════\n\n    If the user's question contains ANY of these words:\n      heatmap, chart, plot, graph, visualize, visualization,\n      bar chart, line chart, scatter, pie, histogram, correlation matrix\n\n    THEN the response MUST include a call to call_analytics_agent\n    after the data is fetched. NEVER output just a text table —\n    the user explicitly asked for a chart.\n\n    Order of operations:\n    1. call_bigquery_agent to fetch data\n    2. call_analytics_agent with the aggregated data\n    3. Then write Result + Explanation\n\n    If you skip step 2, you have failed the user request.\n\n\n    ══════════════════════════════════════════════════════════\n    💪 TRY_HARDER RULE\n    ══════════════════════════════════════════════════════════\n\n    For complex questions (lift, attribution, causality, MMM):\n    1. Translate vague terms using state.channel_taxonomy\n    2. Run the closest available analysis\n    3. Show whatever data IS available\n    4. State limitations AT THE END, not as an excuse to skip\n\n    Closest available:\n    - \"Lift\" → CORR(channel_spend, target_metric) by month\n    - \"Attribution\" → distribution of conversions by Channel\n    - \"Causality\" → CORR with disclaimer\n    - \"MMM\" → CORR matrix across all channels\n\n    NEVER return \"I cannot do this.\" ALWAYS RETURN DATA.\n\n    ══════════════════════════════════════════════════════════\n    📊 ALWAYS_SHOW_AVAILABLE_DATA\n    ══════════════════════════════════════════════════════════\n\n    BAD: \"There isn't enough data. Should I proceed?\"\n    GOOD: Show available data immediately. State limitation after.\n\n    Never ask permission to retrieve. Just retrieve and report.\n\n    ══════════════════════════════════════════════════════════\n    🎯 USE_AVAILABLE_MODELS_FIRST\n    ══════════════════════════════════════════════════════════\n\n    Before saying \"no model exists for X\":\n    1. Check state.available_models_summary\n    2. Match by keyword:\n       - \"conversions/transactions\" → arima_npi_all_conversions\n       - \"revenue\" → npi_arima_revenue\n       - \"spend\" → npi_arima_spend\n       - \"search sessions\" → npi_arima_search_sessions\n       - \"predict search conv\" → npi_linear_conversions_search\n       - \"predict social conv\" → npi_linear_conversions_social\n       - \"saturation\" → npi_conversions_saturation\n    3. Use the existing model with disclaimer if needed.\n    4. Transfer to bq_ml_agent for ML.FORECAST execution.\n\n    NEVER hardcode model names. ALWAYS use the live list.\n\n    ══════════════════════════════════════════════════════════\n    🔄 AUTO_RECOVERY FROM ZERO DATA\n    ══════════════════════════════════════════════════════════\n\n    If query returns 0 rows, automatically fix and re-run:\n\n    Transactions is ALWAYS zero. Auto-replace:\n      Transactions → Conversions (NPI) or KPI (Venetian, WinnDixie)\n\n    NC_Paid correct values: 'Paid' and 'Non Paid' (NOT 'Yes'/'No')\n\n    Status: 'Enabled' for active (NOT 'Active')\n\n    Date filters: if month returns nothing, check MIN/MAX date first.\n\n    Organic Efficiency pattern:\n      SUM(Conversions) AS Total_Conversions,\n      SUM(CASE WHEN NC_Paid = 'Paid' THEN Cost ELSE 0 END) AS Paid_Spend,\n      SAFE_DIVIDE(\n        SUM(Conversions),\n        NULLIF(SUM(CASE WHEN NC_Paid = 'Paid' THEN Cost ELSE 0 END), 0)\n      ) AS Organic_Efficiency_Score\n\n    NEVER ask user to fix the query. Just fix it and re-run.\n    Max 2 retries per query.\n\n    ══════════════════════════════════════════════════════════\n    🛠️ TOOLS AND SUB-AGENTS\n    ══════════════════════════════════════════════════════════\n\n    TOOLS:\n      call_bigquery_agent(query)    → SQL queries (pass natural language)\n      call_analytics_agent(request) → Charts (always pre-aggregated data)\n\n    SUB-AGENTS:\n      bq_ml_agent → clustering, forecasting, anomaly detection, training\n\n    ══════════════════════════════════════════════════════════\n    📋 EXECUTION ORDER\n    ══════════════════════════════════════════════════════════\n\n    Identify ALL tasks first:\n    - \"bar/line/plot/visualize\" → CHART\n    - \"scatter/predicted vs actual\" → SCATTER\n    - \"cluster/KMEANS/segment\" → ML\n    - \"forecast/ARIMA/predict\" → ML\n    - \"anomaly/unusual\" → ML\n    - data retrieval only → SQL\n\n    Multi-task order:\n    1. ALL chart tasks first (bigquery + analytics)\n    2. ALL scatter tasks next\n    3. ML tasks LAST (transfer to bq_ml_agent)\n\n    Example: \"bar chart, then scatter, then cluster\":\n    1. call_bigquery_agent (data)\n    2. call_analytics_agent (bar chart)\n    3. call_bigquery_agent (ML.PREDICT)\n    4. call_analytics_agent (scatter)\n    5. transfer_to_agent(bq_ml_agent) for clustering\n\n    NEVER transfer to bq_ml_agent first if there are chart steps.\n\n    ══════════════════════════════════════════════════════════\n    ⚠️ STRICT RULES\n    ══════════════════════════════════════════════════════════\n\n    1.  ALWAYS markdown tables with pipes |---|---|\n    2.  NEVER narrate before tool calls (no \"I will first...\")\n    3.  WAIT for ALL tools before generating final response\n    4.  NEVER write \"Result:\" until ALL tool calls done\n    5.  NEVER repeat same result section twice\n    6.  ONE final response per user request\n    7.  NEVER write SQL directly — always call_bigquery_agent\n    8.  NEVER write Python directly — always call_analytics_agent\n    9.  NEVER use call_analytics_agent without actual data values\n    10. ALWAYS use SAFE_DIVIDE for ratios\n    11. ONE client per session — never cross-client\n    12. Schema is in <DATASETS> tags — never ask db agent for schema\n\n    ══════════════════════════════════════════════════════════\n    📄 RESPONSE FORMAT\n    ══════════════════════════════════════════════════════════\n\n    **Result:**\n\n    [Title]\n\n    | Column         | Column      |\n    |:---------------|------------:|\n    | text value     |  $1,234.56  |\n\n    - Text → left align :---\n    - Numbers → right align ---:\n    - Dates → center align :---:\n    - Currency → $1,234.56\n    - Large numbers → 1,234,567\n    - Max 10 rows (then \"... and X more rows\")\n    - Cluster: 3-5 row summary only\n    - Predicted vs Actual: max 15 rows\n\n    **Explanation:**\n    1. Step one\n    2. Step two\n\n    **Graph:** (only if chart generated)\n\n    ══════════════════════════════════════════════════════════\n    \n    SCHEDULING/DELIVERY: Feature currently disabled.\n    If users ask about scheduling, inform them it is not available.\n    \n    ══════════════════════════════════════════════════════════\n\n    You work for NetConversion (netconversion.com) — marketing analytics\n    company. Primary product: Conversionomics ('CX').\n\n    Today's date: see global_instruction.\n\n    Current state shortcuts:\n    - LOCKED_CLIENT: {state.LOCKED_CLIENT}\n    - routed_table_id: {state.routed_table_id}\n    - routed_table_path: {state.routed_table_path}\n    - channel_column: {state.channel_column}\n    - kpi_column: {state.kpi_column}\n    - available_models_summary: {state.available_models_summary}\n\n    ANTI-SYCOPHANCY RULES (always apply):\n    - Always verify the user's premise. If the user asserts something\n      (for example \"Why did spend spike?\") but the data shows otherwise\n      (spend was flat), you MUST correct the user with the actual data.\n    - Zero or null is a valid result. If a BigQuery query returns no rows\n      or zero values, report that honestly. Do NOT invent data to fill\n      the gap or to appear helpful.\n    - Only report values present in the tool response. Never use industry\n      averages, benchmarks, or training-data estimates unless the user\n      explicitly asks for a benchmark comparison.\n    - If a tool returns an error or empty result, say so plainly. Do not\n      substitute a plausible-sounding number.\n\n    CHAIN OF VERIFICATION (always apply before responding):\n    Step 1 - DRAFT: After tool calls return, extract the raw numbers/values\n       from the tool response into a draft answer.\n    Step 2 - VERIFY: Before emitting the response, re-read the tool output\n       and check each number/value in your draft against it. If any number\n       in the draft does not appear verbatim in the tool output, remove it\n       or replace it with the actual value.\n    Step 3 - EMIT: Only output values that survived Step 2. If a value the\n       user asked about is not in the tool output, say so explicitly rather\n       than estimating.\n    \n<DATASETS>\n\n</DATASETS>\n\n\nYou are an agent. Your internal name is \"data_science_root_agent\".\n\n\nYou have a list of other agents to transfer to:\n\n\nAgent name: bq_ml_agent\nAgent description: \n\n\nIf you are the best to answer the question according to your description,\nyou can answer it.\n\nIf another agent is better for answering the question according to its\ndescription, call `transfer_to_agent` function to transfer the question to that\nagent. When transferring, do not generate any text other than the function\ncall.\n\n**NOTE**: the only available agents for `transfer_to_agent` function are\n`bq_ml_agent`.\n",
+                  "tool_declarations": [
+                    {
+                      "retrieval": null,
+                      "computer_use": null,
+                      "file_search": null,
+                      "google_search": null,
+                      "google_maps": null,
+                      "code_execution": null,
+                      "enterprise_web_search": null,
+                      "function_declarations": [
+                        {
+                          "description": "Transfer the question to another agent.\n\n  This tool hands off control to another agent when it's more suitable to\n  answer the user's question according to the agent's description.\n\n  Note:\n    For most use cases, you should use TransferToAgentTool instead of this\n    function directly. TransferToAgentTool provides additional enum constraints\n    that prevent LLMs from hallucinating invalid agent names.\n\n  Args:\n    agent_name: the agent name to transfer to.\n  ",
+                          "name": "transfer_to_agent",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "agent_name": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": [
+                                  "bq_ml_agent"
+                                ],
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "agent_name"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "NULL"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "Calls analytics sub-agent based on ANALYTICS_MODE.",
+                          "name": "call_analytics_agent",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "analysis_request": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "analysis_request"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "Calls the BigQuery sub-agent with retry on SQL errors.",
+                          "name": "call_bigquery_agent",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "query": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "query"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        }
+                      ],
+                      "google_search_retrieval": null,
+                      "parallel_ai_search": null,
+                      "url_context": null,
+                      "mcp_servers": null
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_invocation": {
+            "invocation_id": "2265119a-6c3f-4f89-98f6-bc8bf3ae0693",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, build a saturation model for next 100k investment",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "saturation model NPI allocation channels Paid Search",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "tool_uses": [],
+              "tool_responses": [],
+              "intermediate_responses": []
+            },
+            "creation_timestamp": 1778841593.8150313,
+            "rubrics": null,
+            "app_details": null
+          },
+          "eval_metric_results": [
+            {
+              "metric_name": "tool_trajectory_avg_score",
+              "threshold": 0.0,
+              "criterion": {
+                "threshold": 0.0
+              },
+              "custom_function_path": null,
+              "score": 0.0,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": null
+              }
+            },
+            {
+              "metric_name": "response_match_score",
+              "threshold": 0.1,
+              "criterion": {
+                "threshold": 0.1
+              },
+              "custom_function_path": null,
+              "score": 0.043209876543209874,
+              "eval_status": 2,
+              "details": {
+                "rubric_scores": null
+              }
+            }
+          ]
+        }
+      ],
+      "session_id": "___eval___session___0fd6a16e-ec53-4992-a52e-bfcf6967bccb",
+      "session_details": {
+        "id": "___eval___session___0fd6a16e-ec53-4992-a52e-bfcf6967bccb",
+        "app_name": "data_science",
+        "user_id": "eval_user",
+        "state": {
+          "database_settings": {},
+          "client_lock": "NPI",
+          "client_id": "NPI",
+          "_sql_retry_count": 0,
+          "_seen_hashes": [],
+          "_chart_steps_done": 0,
+          "_multi_step_mode": false,
+          "_last_user_question": "For NPI, build a saturation model for next 100k investment",
+          "LOCKED_CLIENT": "NPI",
+          "routed_table_id": "performance",
+          "routed_table_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+          "table_enabled": true,
+          "channel_column": "Channel",
+          "kpi_column": "Conversions",
+          "client_column": "Client",
+          "channel_taxonomy": {
+            "organic": [
+              "Organic Search",
+              "Organic Social",
+              "Organic Video",
+              "Direct",
+              "Referral",
+              "Email"
+            ],
+            "paid": [
+              "Paid Social",
+              "Paid Search",
+              "Search",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max",
+              "Display",
+              "OTT",
+              "CTV",
+              "Linear TV",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print",
+              "Online Audio"
+            ],
+            "awareness": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Audio",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print"
+            ],
+            "direct_response": [
+              "Search",
+              "Paid Search",
+              "Email",
+              "Shopping"
+            ],
+            "mid_funnel": [
+              "Paid Social",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "tv": [
+              "Linear TV",
+              "CTV",
+              "OTT"
+            ],
+            "social": [
+              "Paid Social",
+              "Organic Social"
+            ],
+            "search": [
+              "Paid Search",
+              "Search",
+              "Organic Search"
+            ]
+          },
+          "duality": {
+            "has_duality": true,
+            "spend_rows_filter": "Cost > 0",
+            "conv_rows_filter": "Conversions > 0",
+            "note": "Spend rows have Conversions=0; conv rows have Cost=0. Use FULL OUTER JOIN."
+          },
+          "unification_map": {
+            "Paid Search": [
+              "Search",
+              "Paid Search"
+            ],
+            "Demand Gen + P-Max": [
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "Paid Social": [
+              "Paid Social"
+            ],
+            "Video/CTV/OTT/TV": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Video",
+              "Paid Video",
+              "Video"
+            ]
+          },
+          "applicable_rules": [
+            "always_filter_by_client",
+            "always_use_date_range_filter",
+            "never_select_star_without_limit",
+            "use_safe_divide_for_ratios",
+            "blended_cpa_use_unified_cte",
+            "ranking_use_unified_cte",
+            "channel_mix_use_unified_cte",
+            "volatility_use_cv_not_stddev",
+            "organic_efficiency_use_organic_filter",
+            "tv_halo_use_correlation",
+            "forecast_aggregate_to_weekly_for_chart",
+            "always_resolve_channel_terms_via_taxonomy"
+          ],
+          "matched_keywords": [
+            "saturation"
+          ],
+          "routing_confidence": "low",
+          "available_models_summary": "📋 Available models for NPI (35 total):\nLocation: `nc-ai-chatbot.astrobot_bqml_models.<model_name>`\n\n🔮 FORECASTING (ARIMA_PLUS):\n  • arima_npi_all_conversions\n  • npi_arima_conversions\n  • npi_arima_revenue\n  • npi_arima_search_sessions\n  • npi_arima_spend\n\n🌳 BOOSTED TREE (BOOSTED_TREE_REGRESSOR):\n  • npi_boosted_conversions\n  • npi_boosted_conversions_daily\n\n🔵 CLUSTERING (KMEANS):\n  • npi_campaign_clusters\n\n📈 LINEAR PREDICTION (LINEAR_REGRESSION):\n  • npi_conversions_by_channel_impact\n  • npi_conversions_saturation\n  • npi_conversions_saturation_agg\n  • npi_conversions_saturation_aggregated\n  • npi_conversions_saturation_daily\n  • npi_conversions_saturation_v2\n  • npi_linear_clicks_from_cost_ctv\n  • npi_linear_clicks_from_cost_demandgen\n  • npi_linear_clicks_from_cost_display\n  • npi_linear_clicks_from_cost_paidsearch\n  • npi_linear_clicks_from_cost_paidsocial\n  • npi_linear_clicks_from_cost_performancemax\n  • npi_linear_clicks_from_cost_search\n  • npi_linear_clicks_from_cost_video\n  • npi_linear_conversions_demand_gen\n  • npi_linear_conversions_performance_max\n  • npi_linear_conversions_search\n  • npi_linear_conversions_social\n  • npi_linear_cost\n  • npi_linear_cost_v2\n  • npi_social_conversions_cost_linear_reg\n  • npi_social_search_conversions_lr\n  • npi_total_conversions_vs_spend_lr\n  • npi_transactions_saturation\n  • npi_transactions_saturation_agg\n  • npi_transactions_saturation_v2\n\n🎯 CLASSIFICATION (LOGISTIC_REGRESSION):\n  • npi_campaign_classifier\n\nUSAGE: Use EXACT names above. If a needed model is missing,\noffer to train a new one with CREATE OR REPLACE MODEL syntax.",
+          "_models_listed_for": "NPI",
+          "__llm_request_key__": "9c8b52bb-41d3-4736-847d-f79e3f137059",
+          "_last_bq_hash": "",
+          "_retry_count": 0,
+          "last_bq_result": "The saturation model for NPI has been built.\n\n**Recommended Allocation for $100,000 Investment:**\n\n*   **Paid Search:** $100,000\n*   **Expected Monthly Conversions (from this allocation):** 19,135\n\n**Details for Paid Search:**\n\n*   **Current Average Daily Conversions:** 934.73\n*   **Current Average Daily Spend:** $5,183.83\n*   **Current Conversions per Dollar:** 0.18\n*   **Fit Quality (R²):** 0.865 (indicating a good fit)\n*   **Saturation Alpha:** 0.8634\n*   **Number of Paired Observations:** 364\n\n**Channels Excluded from Allocation (and why):**\n\n*   **Conversions with no spend (likely organic or attribution-only):**\n    *   Direct (9,893 total conversions)\n    *   Organic Search (64,885 total conversions)\n    *   Organic Social (361,233 total conversions)\n    *   Paid Other (76,497 total conversions)\n    *   Referral (8,302 total conversions)\n    *   Unassigned (233,112 total conversions)\n    *   Display (63 total conversions)\n    *   Email (3,535 total conversions)\n    *   Organic Video (31 total conversions)\n    *   Organic Shopping (4 total conversions)\n*   **Low Quality Fit (model unreliable for budget allocation):**\n    *   **Demand Gen + P-Max:** R² too low (0.439); need ≥0.5 for reliable saturation curve.\n    *   **Paid Social:** R² too low (0.372) and alpha (1.962) suggests increasing returns, which is economically implausible for advertising.\n    *   **Video/CTV/OTT/TV:** R² too low (0.040) and only 20 paired days of data (need ≥30 for robust fit).\n*   **Spend with no conversions (likely awareness or naming mismatch):**\n    *   Online Audio ($122,049 total spend)\n    *   Print ($10,902 total spend)\n    *   OOH ($203,890 total spend)",
+          "bigquery_query_result": "The saturation model for NPI has been built.\n\n**Recommended Allocation for $100,000 Investment:**\n\n*   **Paid Search:** $100,000\n*   **Expected Monthly Conversions (from this allocation):** 19,135\n\n**Details for Paid Search:**\n\n*   **Current Average Daily Conversions:** 934.73\n*   **Current Average Daily Spend:** $5,183.83\n*   **Current Conversions per Dollar:** 0.18\n*   **Fit Quality (R²):** 0.865 (indicating a good fit)\n*   **Saturation Alpha:** 0.8634\n*   **Number of Paired Observations:** 364\n\n**Channels Excluded from Allocation (and why):**\n\n*   **Conversions with no spend (likely organic or attribution-only):**\n    *   Direct (9,893 total conversions)\n    *   Organic Search (64,885 total conversions)\n    *   Organic Social (361,233 total conversions)\n    *   Paid Other (76,497 total conversions)\n    *   Referral (8,302 total conversions)\n    *   Unassigned (233,112 total conversions)\n    *   Display (63 total conversions)\n    *   Email (3,535 total conversions)\n    *   Organic Video (31 total conversions)\n    *   Organic Shopping (4 total conversions)\n*   **Low Quality Fit (model unreliable for budget allocation):**\n    *   **Demand Gen + P-Max:** R² too low (0.439); need ≥0.5 for reliable saturation curve.\n    *   **Paid Social:** R² too low (0.372) and alpha (1.962) suggests increasing returns, which is economically implausible for advertising.\n    *   **Video/CTV/OTT/TV:** R² too low (0.040) and only 20 paired days of data (need ≥30 for robust fit).\n*   **Spend with no conversions (likely awareness or naming mismatch):**\n    *   Online Audio ($122,049 total spend)\n    *   Print ($10,902 total spend)\n    *   OOH ($203,890 total spend)"
+        },
+        "events": [
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, build a saturation model for next 100k investment",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-8c2956f8-610b-4504-91e9-855710ffc279",
+            "author": "user",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {},
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "8b417061-d5ec-419c-9b5b-b607afb5ceaa",
+            "timestamp": 1778841593.817685
+          },
+          {
+            "model_version": null,
+            "content": null,
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-8c2956f8-610b-4504-91e9-855710ffc279",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "database_settings": {},
+                "client_lock": "NPI",
+                "client_id": "NPI",
+                "_sql_retry_count": 0,
+                "_seen_hashes": [],
+                "_chart_steps_done": 0,
+                "_multi_step_mode": false,
+                "_last_user_question": "For NPI, build a saturation model for next 100k investment",
+                "LOCKED_CLIENT": "NPI",
+                "routed_table_id": "performance",
+                "routed_table_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+                "table_enabled": true,
+                "channel_column": "Channel",
+                "kpi_column": "Conversions",
+                "client_column": "Client",
+                "channel_taxonomy": {
+                  "organic": [
+                    "Organic Search",
+                    "Organic Social",
+                    "Organic Video",
+                    "Direct",
+                    "Referral",
+                    "Email"
+                  ],
+                  "paid": [
+                    "Paid Social",
+                    "Paid Search",
+                    "Search",
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max",
+                    "Display",
+                    "OTT",
+                    "CTV",
+                    "Linear TV",
+                    "Online Video",
+                    "Paid Video",
+                    "Video",
+                    "OOH",
+                    "Print",
+                    "Online Audio"
+                  ],
+                  "awareness": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT",
+                    "Online Audio",
+                    "Online Video",
+                    "Paid Video",
+                    "Video",
+                    "OOH",
+                    "Print"
+                  ],
+                  "direct_response": [
+                    "Search",
+                    "Paid Search",
+                    "Email",
+                    "Shopping"
+                  ],
+                  "mid_funnel": [
+                    "Paid Social",
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max"
+                  ],
+                  "tv": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT"
+                  ],
+                  "social": [
+                    "Paid Social",
+                    "Organic Social"
+                  ],
+                  "search": [
+                    "Paid Search",
+                    "Search",
+                    "Organic Search"
+                  ]
+                },
+                "duality": {
+                  "has_duality": true,
+                  "spend_rows_filter": "Cost > 0",
+                  "conv_rows_filter": "Conversions > 0",
+                  "note": "Spend rows have Conversions=0; conv rows have Cost=0. Use FULL OUTER JOIN."
+                },
+                "unification_map": {
+                  "Paid Search": [
+                    "Search",
+                    "Paid Search"
+                  ],
+                  "Demand Gen + P-Max": [
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max"
+                  ],
+                  "Paid Social": [
+                    "Paid Social"
+                  ],
+                  "Video/CTV/OTT/TV": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT",
+                    "Online Video",
+                    "Paid Video",
+                    "Video"
+                  ]
+                },
+                "applicable_rules": [
+                  "always_filter_by_client",
+                  "always_use_date_range_filter",
+                  "never_select_star_without_limit",
+                  "use_safe_divide_for_ratios",
+                  "blended_cpa_use_unified_cte",
+                  "ranking_use_unified_cte",
+                  "channel_mix_use_unified_cte",
+                  "volatility_use_cv_not_stddev",
+                  "organic_efficiency_use_organic_filter",
+                  "tv_halo_use_correlation",
+                  "forecast_aggregate_to_weekly_for_chart",
+                  "always_resolve_channel_terms_via_taxonomy"
+                ],
+                "matched_keywords": [
+                  "saturation"
+                ],
+                "routing_confidence": "low",
+                "available_models_summary": "📋 Available models for NPI (35 total):\nLocation: `nc-ai-chatbot.astrobot_bqml_models.<model_name>`\n\n🔮 FORECASTING (ARIMA_PLUS):\n  • arima_npi_all_conversions\n  • npi_arima_conversions\n  • npi_arima_revenue\n  • npi_arima_search_sessions\n  • npi_arima_spend\n\n🌳 BOOSTED TREE (BOOSTED_TREE_REGRESSOR):\n  • npi_boosted_conversions\n  • npi_boosted_conversions_daily\n\n🔵 CLUSTERING (KMEANS):\n  • npi_campaign_clusters\n\n📈 LINEAR PREDICTION (LINEAR_REGRESSION):\n  • npi_conversions_by_channel_impact\n  • npi_conversions_saturation\n  • npi_conversions_saturation_agg\n  • npi_conversions_saturation_aggregated\n  • npi_conversions_saturation_daily\n  • npi_conversions_saturation_v2\n  • npi_linear_clicks_from_cost_ctv\n  • npi_linear_clicks_from_cost_demandgen\n  • npi_linear_clicks_from_cost_display\n  • npi_linear_clicks_from_cost_paidsearch\n  • npi_linear_clicks_from_cost_paidsocial\n  • npi_linear_clicks_from_cost_performancemax\n  • npi_linear_clicks_from_cost_search\n  • npi_linear_clicks_from_cost_video\n  • npi_linear_conversions_demand_gen\n  • npi_linear_conversions_performance_max\n  • npi_linear_conversions_search\n  • npi_linear_conversions_social\n  • npi_linear_cost\n  • npi_linear_cost_v2\n  • npi_social_conversions_cost_linear_reg\n  • npi_social_search_conversions_lr\n  • npi_total_conversions_vs_spend_lr\n  • npi_transactions_saturation\n  • npi_transactions_saturation_agg\n  • npi_transactions_saturation_v2\n\n🎯 CLASSIFICATION (LOGISTIC_REGRESSION):\n  • npi_campaign_classifier\n\nUSAGE: Use EXACT names above. If a needed model is missing,\noffer to train a new one with CREATE OR REPLACE MODEL syntax.",
+                "_models_listed_for": "NPI"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "4798c19e-b4f7-4497-9b8b-3c97cdfd4fc8",
+            "timestamp": 1778841594.2878177
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-58e5909a-028b-4015-b574-8b36bd34f615",
+                    "args": {
+                      "query": "Build a saturation model for NPI with $100k investment. Use the deterministic compute_saturation_curve tool."
+                    },
+                    "name": "call_bigquery_agent",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "Cq8CAY89a19wTuhS-olm0VnrEIlRWTraJSUK9Y2zOd6BHC0jOswjOHoSApz4vW9P5km903tM6eNjl_BBXD-pM-tBZ0rRLkK6wsdVrlcd-LsGsuTpVAPNxmb8wnT0P5-etsSXz4-ZHEl2JxhFMKz6vWDLiPuehuNDNGe3hK8HmPQ2Oko2Q15v3Hu_HQfs2-l_i1slJahg--UstCNc8MvGBW9D4q1S_gNzGFNbDbAiKibrYrscOqvLKoK5pmqK4XB-lEvDYj_p7M2kCcm5eCzxAiRmx_HnKU0FKVt0bEUWexiGq5yQI7orinYwWHN66EVMjgUr_E8859PfMXygIlr7IUcdB8m-yBONRYpsspFzYn9lPnkH2FwaUOi_yTA06RwvX0XvkmZli2SRes9Kj9bJ85y8",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "633a5168-a14e-438f-90df-acfdc44632a9"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 32,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 32
+                }
+              ],
+              "prompt_token_count": 7978,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 7978
+                }
+              ],
+              "thoughts_token_count": 64,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 8074,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.34258711338043213,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-8c2956f8-610b-4504-91e9-855710ffc279",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "633a5168-a14e-438f-90df-acfdc44632a9"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": [],
+            "branch": null,
+            "id": "cd32b949-74ca-414c-b897-7afd8cc566a2",
+            "timestamp": 1778841594.350299
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-58e5909a-028b-4015-b574-8b36bd34f615",
+                    "name": "call_bigquery_agent",
+                    "response": {
+                      "result": "The saturation model for NPI has been built.\n\n**Recommended Allocation for $100,000 Investment:**\n\n*   **Paid Search:** $100,000\n*   **Expected Monthly Conversions (from this allocation):** 19,135\n\n**Details for Paid Search:**\n\n*   **Current Average Daily Conversions:** 934.73\n*   **Current Average Daily Spend:** $5,183.83\n*   **Current Conversions per Dollar:** 0.18\n*   **Fit Quality (R²):** 0.865 (indicating a good fit)\n*   **Saturation Alpha:** 0.8634\n*   **Number of Paired Observations:** 364\n\n**Channels Excluded from Allocation (and why):**\n\n*   **Conversions with no spend (likely organic or attribution-only):**\n    *   Direct (9,893 total conversions)\n    *   Organic Search (64,885 total conversions)\n    *   Organic Social (361,233 total conversions)\n    *   Paid Other (76,497 total conversions)\n    *   Referral (8,302 total conversions)\n    *   Unassigned (233,112 total conversions)\n    *   Display (63 total conversions)\n    *   Email (3,535 total conversions)\n    *   Organic Video (31 total conversions)\n    *   Organic Shopping (4 total conversions)\n*   **Low Quality Fit (model unreliable for budget allocation):**\n    *   **Demand Gen + P-Max:** R² too low (0.439); need ≥0.5 for reliable saturation curve.\n    *   **Paid Social:** R² too low (0.372) and alpha (1.962) suggests increasing returns, which is economically implausible for advertising.\n    *   **Video/CTV/OTT/TV:** R² too low (0.040) and only 20 paired days of data (need ≥30 for robust fit).\n*   **Spend with no conversions (likely awareness or naming mismatch):**\n    *   Online Audio ($122,049 total spend)\n    *   Print ($10,902 total spend)\n    *   OOH ($203,890 total spend)"
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-8c2956f8-610b-4504-91e9-855710ffc279",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "_last_bq_hash": "aad7fee2",
+                "_retry_count": 0,
+                "__llm_request_key__": "58f67d88-aaad-4a80-956d-f8055c1a5eef",
+                "last_bq_result": "The saturation model for NPI has been built.\n\n**Recommended Allocation for $100,000 Investment:**\n\n*   **Paid Search:** $100,000\n*   **Expected Monthly Conversions (from this allocation):** 19,135\n\n**Details for Paid Search:**\n\n*   **Current Average Daily Conversions:** 934.73\n*   **Current Average Daily Spend:** $5,183.83\n*   **Current Conversions per Dollar:** 0.18\n*   **Fit Quality (R²):** 0.865 (indicating a good fit)\n*   **Saturation Alpha:** 0.8634\n*   **Number of Paired Observations:** 364\n\n**Channels Excluded from Allocation (and why):**\n\n*   **Conversions with no spend (likely organic or attribution-only):**\n    *   Direct (9,893 total conversions)\n    *   Organic Search (64,885 total conversions)\n    *   Organic Social (361,233 total conversions)\n    *   Paid Other (76,497 total conversions)\n    *   Referral (8,302 total conversions)\n    *   Unassigned (233,112 total conversions)\n    *   Display (63 total conversions)\n    *   Email (3,535 total conversions)\n    *   Organic Video (31 total conversions)\n    *   Organic Shopping (4 total conversions)\n*   **Low Quality Fit (model unreliable for budget allocation):**\n    *   **Demand Gen + P-Max:** R² too low (0.439); need ≥0.5 for reliable saturation curve.\n    *   **Paid Social:** R² too low (0.372) and alpha (1.962) suggests increasing returns, which is economically implausible for advertising.\n    *   **Video/CTV/OTT/TV:** R² too low (0.040) and only 20 paired days of data (need ≥30 for robust fit).\n*   **Spend with no conversions (likely awareness or naming mismatch):**\n    *   Online Audio ($122,049 total spend)\n    *   Print ($10,902 total spend)\n    *   OOH ($203,890 total spend)",
+                "bigquery_query_result": "The saturation model for NPI has been built.\n\n**Recommended Allocation for $100,000 Investment:**\n\n*   **Paid Search:** $100,000\n*   **Expected Monthly Conversions (from this allocation):** 19,135\n\n**Details for Paid Search:**\n\n*   **Current Average Daily Conversions:** 934.73\n*   **Current Average Daily Spend:** $5,183.83\n*   **Current Conversions per Dollar:** 0.18\n*   **Fit Quality (R²):** 0.865 (indicating a good fit)\n*   **Saturation Alpha:** 0.8634\n*   **Number of Paired Observations:** 364\n\n**Channels Excluded from Allocation (and why):**\n\n*   **Conversions with no spend (likely organic or attribution-only):**\n    *   Direct (9,893 total conversions)\n    *   Organic Search (64,885 total conversions)\n    *   Organic Social (361,233 total conversions)\n    *   Paid Other (76,497 total conversions)\n    *   Referral (8,302 total conversions)\n    *   Unassigned (233,112 total conversions)\n    *   Display (63 total conversions)\n    *   Email (3,535 total conversions)\n    *   Organic Video (31 total conversions)\n    *   Organic Shopping (4 total conversions)\n*   **Low Quality Fit (model unreliable for budget allocation):**\n    *   **Demand Gen + P-Max:** R² too low (0.439); need ≥0.5 for reliable saturation curve.\n    *   **Paid Social:** R² too low (0.372) and alpha (1.962) suggests increasing returns, which is economically implausible for advertising.\n    *   **Video/CTV/OTT/TV:** R² too low (0.040) and only 20 paired days of data (need ≥30 for robust fit).\n*   **Spend with no conversions (likely awareness or naming mismatch):**\n    *   Online Audio ($122,049 total spend)\n    *   Print ($10,902 total spend)\n    *   OOH ($203,890 total spend)"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "57154fe4-a18d-45fc-8767-9d82a66857ba",
+            "timestamp": 1778841606.3279932
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "**Result:**\n\n**Saturation Model for NPI with $100,000 Investment**\n\n| Metric                                  | Value         |\n|:----------------------------------------|--------------:|\n| Recommended Allocation (Paid Search)    |    $100,000   |\n| Expected Monthly Conversions            |     19,135    |\n\n**Details for Paid Search:**\n\n| Metric                          | Value      |\n|:--------------------------------|-----------:|\n| Current Average Daily Conversions | 934.73     |\n| Current Average Daily Spend     | $5,183.83  |\n| Current Conversions per Dollar  | 0.18       |\n| Fit Quality (R²)                | 0.865      |\n| Saturation Alpha                | 0.8634     |\n| Number of Paired Observations   | 364        |\n\n**Channels Excluded from Allocation:**\n\n*   **Conversions with no spend (likely organic or attribution-only):**\n    *   Direct (9,893 total conversions)\n    *   Organic Search (64,885 total conversions)\n    *   Organic Social (361,233 total conversions)\n    *   Paid Other (76,497 total conversions)\n    *   Referral (8,302 total conversions)\n    *   Unassigned (233,112 total conversions)\n    *   Display (63 total conversions)\n    *   Email (3,535 total conversions)\n    *   Organic Video (31 total conversions)\n    *   Organic Shopping (4 total conversions)\n*   **Low Quality Fit (model unreliable for budget allocation):**\n    *   Demand Gen + P-Max: R² too low (0.439); need ≥0.5 for reliable saturation curve.\n    *   Paid Social: R² too low (0.372) and alpha (1.962) suggests increasing returns, which is economically implausible for advertising.\n    *   Video/CTV/OTT/TV: R² too low (0.040) and only 20 paired days of data (need ≥30 for robust fit).\n*   **Spend with no conversions (likely awareness or naming mismatch):**\n    *   Online Audio ($122,049 total spend)\n    *   Print ($10,902 total spend)\n    *   OOH ($203,890 total spend)\n\n**Explanation:**\n1.  A saturation model was built for NPI to determine the optimal allocation for a $100,000 investment.\n2.  The model recommends allocating the entire $100,000 to Paid Search, which is projected to yield 19,135 monthly conversions.\n3.  Detailed metrics for Paid Search, including current performance and model fit quality, are provided.\n4.  Several channels were excluded from the allocation due to either having conversions with no associated spend (indicating organic or attribution-only channels), a low-quality model fit (making them unreliable for budget allocation), or spend with no conversions (suggesting awareness-focused channels or naming mismatches).",
+                  "thought": null,
+                  "thought_signature": "CoMDAY89a1-GMxSrqpiatFxURFgws-lT_Tl9rvzuACS57yl49OrR3b9QVE3hBQTnUktWRcvYaldGeEmZZ3I0Ltdufe7RG9Dq8X5dLNHc_ayzDNp3ZypUNVM1hGwdbPKFPBvqxzGI-VNAiO-VOaU1YhbagN_Avxxv1vUGXtilgY2-OelttJ4zHQnKY-MvU4TEye5er39SFGqy-7c3q-a8IYDRMYTmAxhaqgWdY1Q4sfwJUCyU2i-yXjIIH69Jy1mTKFV-Ef3Ui85W5hBPucl3EisNquHBwKxOwT2QSjHlnXADv7FyReJ0u_34lZYSOej3uGUopeyE-Jkp_PXcnS_Ptbbjb_xnXrPuHG0jYCYeMIVXxWRWqjla-sq2RAhuAjcoeZqAEWPE4bK2pbkib0YtoeNlKoq5oQTFiEuEnbHdEmLWiWmZJ3pZfcsxN0U0IgtUy0yBnpUbNZEkZ-2KJgzOMERdANcv31u8GsRdOTVBCd9q-ddIw674ZU5XBEaxb_Kzbf1s_Apd",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "9c8b52bb-41d3-4736-847d-f79e3f137059"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 7696
+                }
+              ],
+              "cached_content_token_count": 7696,
+              "candidates_token_count": 712,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 712
+                }
+              ],
+              "prompt_token_count": 8618,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 8618
+                }
+              ],
+              "thoughts_token_count": 75,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 9405,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.06189914231889703,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-8c2956f8-610b-4504-91e9-855710ffc279",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "9c8b52bb-41d3-4736-847d-f79e3f137059"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "341b9531-1417-40a0-85f2-6cda41b3512b",
+            "timestamp": 1778841606.332667
+          },
+          {
+            "model_version": null,
+            "content": null,
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-8c2956f8-610b-4504-91e9-855710ffc279",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "_sql_retry_count": 0,
+                "_seen_hashes": [],
+                "_chart_steps_done": 0,
+                "_last_bq_hash": ""
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "4f914234-be18-4797-961a-281ea9778cbd",
+            "timestamp": 1778841611.5246599
+          }
+        ],
+        "last_update_time": 1778841611.5246599
+      },
+      "user_id": "eval_user"
+    }
+  ],
+  "creation_timestamp": 1778841611.534436
+}

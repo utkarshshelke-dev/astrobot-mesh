@@ -1,0 +1,1480 @@
+{
+  "eval_set_result_id": "data_science_tests/eval/pos_08_pie_chart.evalset.json_1778842010.620419",
+  "eval_set_result_name": "data_science_tests_eval_pos_08_pie_chart.evalset.json_1778842010.620419",
+  "eval_set_id": "tests/eval/pos_08_pie_chart.evalset.json",
+  "eval_case_results": [
+    {
+      "eval_set_file": "tests/eval/pos_08_pie_chart.evalset.json",
+      "eval_set_id": "tests/eval/pos_08_pie_chart.evalset.json",
+      "eval_id": "pos_08_channel_share_pie",
+      "final_eval_status": 1,
+      "eval_metric_results": null,
+      "overall_eval_metric_results": [
+        {
+          "metric_name": "tool_trajectory_avg_score",
+          "threshold": 0.0,
+          "criterion": {
+            "threshold": 0.0
+          },
+          "custom_function_path": null,
+          "score": 0.0,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": null
+          }
+        },
+        {
+          "metric_name": "response_match_score",
+          "threshold": 0.1,
+          "criterion": {
+            "threshold": 0.1
+          },
+          "custom_function_path": null,
+          "score": 0.1167883211678832,
+          "eval_status": 1,
+          "details": {
+            "rubric_scores": null
+          }
+        }
+      ],
+      "eval_metric_result_per_invocation": [
+        {
+          "actual_invocation": {
+            "invocation_id": "e-c134e7ec-3abe-46aa-9a43-bc9d2e6ae8d9",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, show channel spend share as a pie chart for last quarter",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "**Result:**\nThe channel spend share for NPI for the last quarter (Q1 2026) is as follows:\n\n| Channel | Total Cost | Share (%) |\n|:----------------|-----------:|----------:|\n| CTV | $992,613.92 | 28.86 |\n| Paid Social | $965,429.48 | 28.07 |\n| Search | $660,677.83 | 19.21 |\n| Demand Gen | $504,259.17 | 14.66 |\n| Linear TV | $176,086.35 | 5.12 |\n| Online Audio | $84,388.86 | 2.45 |\n| OOH | $43,087.21 | 1.25 |\n| Performance Max | $12,553.23 | 0.37 |\n\n**Explanation:**\n1. I retrieved the total cost for each channel for NPI for the last quarter (January 1, 2026 to March 31, 2026).\n2. I calculated the spend share for each channel. Channels with zero spend (Organic Social, Referral) were excluded from the chart.\n3. A pie chart visualizing the channel spend share has been generated.",
+                  "thought": null,
+                  "thought_signature": "CtwJAY89a18kIFV5n6ou8BUkfjGR_iEVZP11yvZpKlVgooFfvOtlvuAzSjfJOxgennhhTgZrDDmngiIXBNYvPI6WIFi-gAVDqWicZdDj_EBYBuPReW7J8_7B-5fHHw0jb61w5cCo5M2Dugnh8t3JeJvGaXxK553B0LeYjz-7mNh1fx1zvHW_7-XmQ2Ti9AjlkSZchRNVi-9V1U6gUM4TyYiP8pWhN-_FdhYbtArB75TqRY_isSebe9mkDogI2mjYqbh534SH7xRwmNQTNU_dxmP7ThvIAX8DLev5_67MfR1Ux4csJNOsgKhcDBrlqQOlheXn9eZ_BjB5KmivyMPzbeMe0fA3TwRzMP_QPXQP9E07iy5iQZPLyO4jEliIhlliwDV6gsxgR8-qiwWw1lgSVme56nDHNUFML2k7i2t67fF-UmSoW2wehFEREfsDVrS9NdsnT66URPx33roF7ApI50cdhMYSOUQTWjNgbrqvueamXSpzsfto44uz97Fv3_jAwQVwFPGF-PO9hGmvgdjD1agqxz5pobH4_K_bIHJLckzoV79l-FT20ochlU0MZ7W5zNJHNlbSeL5E8Wxe_qIlZzCnKn3s4mnw7NTonHRMVg8Sq8VRI_shoTvA6QQ7YqFAfNk8mfBBx-zG-e6--MBRYfRmwB3bFO5xH9DMol8J4iG4LhYg_gy9GU9KwfScbRrxtYxnxIFzJ4Dq5JzQQWU-VBrptk0HUftqakUHu1GUch_3k_1ImHWrVpyNlTLLclosw-OM7iTDhrt1w52TUZOtDC1i83RV0eTssvtJ_GqkiGv_yvsE9ZlMuFnf1hVw7ymy6WLPgE0Yzv3IltR57trfwlMGZAaKyWEdWUolz8pzYYo3tEARwjqNGZG2VZWMWHbCGW58NaH-dDVgCMTTSvm25BrbBIoO5XnjXvYbv1gzY6s0S6utckMvPeFQki78CH3ShjqEskhF-NcIQKa5C_vrhPQ-nmwHwgQDhgaTXY1dhl3Bc5aRwSimCuTNi_dG6OI5_5dItxOl3L8V6VwuNXOVqsaXMBv0BNmoTrh0o9_YZrKd9bGXr0sAoOF8NroUze_z6virncjXji_Q_3s4g45wm958tySth4d86_f9e7bw8y54xcF5yCZz2z7zlSgevBHhH1jvED-396nhVgCrUCKf-O_LMHmCetLLXpagqZTw9CAeyOYQDclMWjN5ADzLgm7GI5cQf7UvTnoA5l9Ag9Rw0_jEjKYWp7d2WjJGHYKIvdtCOcGmTfFkylTRgT1B1TcPWFM_bgRLLWnbMjtuF6WmPKxxunMo9tIxucNpBF21Ceh3ndSbQuTkg8cMn5xBZh13-5hwqtZySXG1THZFlrzNQ99j0mUOKJsK7sYm3AmSd8Q-jMQ8zhwyl4v6kw9ox37XWvp219m6x42KB42lbapghcdJ0iepfhnA8Y1y6G1hyw4inqP8Pds4x4qpb6i1gtMOVO4l6ZGTdTQGZ8ymyQTQbUnuwOd-SNuE12xkA8T_nTNZMl4PlgofVszb_Eee3V3Peu9pN897O_M4i0vEq6b3u4Fdoj7juIJi0c-zgzvDhR9zKvnfgA5Xi3sXB8xSEmqXWrXELaRRO_foAtgImQmOJpPfVeR405id-yhpvAP43-lsFAtDFBdTWPAMBTCl8K4=",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "invocation_events": [
+                {
+                  "author": "data_science_root_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-c174f3d9-c68d-4adf-8075-6decfc8660b1",
+                          "args": {
+                            "query": "For NPI, calculate the total Cost for each Channel for the last quarter (January 1, 2026 to March 31, 2026)."
+                          },
+                          "name": "call_bigquery_agent",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "CoYVAY89a1-eGxjOIKF8IVYyNDrmRAjUfsld8OMeJiNcwxKMeEfEgSVsJzKHrKfCriy7_TqIULKsj7x0R6yc-5bp4tWw-eU5m1dO0nloPjBk45EDlMweQV6cF8VFUBrZxpFpnUCd4CQ74WYE95li4WtQRO5IguFpMemJY3xeUpwd-TCdLsq281e3PnxTvzMidJGEeiHv51q8UG9tZ941x-2dEQuBPF-pATwqSvpYxfO-yNxTHPTxO5qQHd2QCFPQbBwH61g0Bxt9Er-leF5uMAQn4-4T04yalyMC-k5zXvs84ISw-iRyhtcaQuUhcF3n-1DbUU1d9Xvq5yAq74DuEoMUQ42LuNyZSRl99E6TOZMtmbFyOENKxFhR34cSw9s3HIReaBafEBwqoMpc1yJiguKNwsPa7ONzlcCdkbaYJAatp_E0lwQo9k9F8Nl8kFyBoq1MStH8vZSgwzqt08k4T52sF2_0dFSgOfHTNQzIS_qSiMTK1CVv4yFONC54sMWGJHiWYFoUENJx76-u5ee3XR-NCDljapdBxHXOukB8SfJwkvLLwJ1rxMVeevrEvDaRN48aFjn2GSJ4vBR8uCwG9FxvyvkKHWSk1iHDn5Svxp-EvSxNKw_thrNCBRsiipo7UEzl8ibNYtqM4EDH6RoHOsbDc1a-qfDxvbL6Ia9ZIMfuOrBbAKN3R0M7PfBQqE_ZqYJ5VdHtT5YaioS4CZpYSE7Qz_jeM8QYaBzB5J-nzO3C6iNtDqshgFP9R3KCOJK0qJUdyeyGaH3FAvEXh4S91LKkx2g03RfIUr5oxWCYtAi-bozDb2Nk3q_9LMByAEti5exXZKcA8wsADlNfdSu3-NLDlcsb4QWvV8IC5iRWUqiU7slQrssqKJI_UHJhhT0Zs4hHsC8on0qfdFJrxSX-58-X6aTfF4r2pEUQi6olmNsIbOPXSwt4WrH8ZZ-AT6_CJL08Fz2KPfPfcSSiCpqU63NGLRDOW47RkeoMnfxuALwDf03uJpuc0o0VQfd-14XPIwTlRi4Nbod5Et_9CCGBS8ugKnF3ZkZMENDhcn7WrfL_tqYf82p8CrN1-Nl2XkCaxLJFzj8mUS-DZbWHru5qZtlLifvOwgQ7LU6LNX2eh4HNf9zKFl8Nt0IHXc-zgjca9nD-O4_UQ1vqThjaTcWcrugIWJtQ2S7wsSe7yCV7IlTTA4tV7mn0SYLQLU3sPLaAHi5fNF7NpuM9jFa4D9tsfBTL-SsNYVi2i4VxUM77pOiqE6Nq3yqJnDAi_NkY3DwWUQpLnCk1sxF5idx8TJGYgo0cLgEAgRB12hxalV_dnHdkYHW2FCGSDG8fK41fbaGAQTjY9HVzhWlbueYWXJkAiQ1b2SEEZfny1qeYHXq2WhzUWL0P_-ZKYFkn_KNydbXlFhXQIvZ_iT_N7LjHwGkUYanQU0B7oMYsKRhs1s1bszn40YxbNnAJF3Qkq5FTtwKfu5GuGXXku2oR9zDSg-6PxImMJOlZaRLi64g39pkgtiNBUZy6q_dmuAlmuvbfKIuor4jy451J6v4ppDXZUN3_sQxW00KhJ44PZSAfXOFoJUprce792Z4chWK-84AX2qC1P0WtZlQ_PSxLS0RlyRL2lDP4XRc8rUgVYJUQsc485g8c9mocYpeZ_x7FqUj-X3nceqS-eOvUylS1ldyKDg--Cm1ReHd1iDjVZW8LiN2s27L_tjPWHaJO5uxu8qfd-FdmjmhBR__nrTN7mEcA3cBEaQSaFxzZHag-pGjNBAx8sXFmkSFL6yCr4fJPW-OiqAwSrPsY7BuYQ2iy4WjIupC18XgrGE286vrgHgF1ve0_jD6fqqQ_2QU3tjJPImERr_4TqJPTRp-xZsqZUGdUj2zyOLECDS8FL7TIwzJDZ7tqfph8B9YrlIZT5JNTZYywoUXHNXi-cWh34Mjnl2pwY9PexJYMNjNewNJ3GI65Gz3AiksjmtQ3j0CxiMSJNzt9EGVUVMTniwWH4jq8-GbSazoyQEXgOzyhgwejkliMyf_UJx0jNDVJwFQBIqcOCSWfkNhXk6CJwkyXJ98eu_YFWYuEgQoA2-2eEQRDmM2Heb1nAjXJ7ER53DJA9-_Z2VLUKI2foN8OXwxmTOq_cDS-Mp6T9CTvYGX6IaQa8KNdhlUHAxAo8m4z4LbYLa0oclgHbjF7mNIYRCgWYXDqctMKtWXy3ZWC163s8obb7a0Hy0f-L0m1k0z9uBLuuWOXmiGGJdpweqiAuQ5lU5iCIyt_ynMUWfkrtp9ETYBfo2-cSSl5NoYjgh3BYE57HKBtleWOght_J7-4fqsPD0GHoU_7yt_t_BCn6oJl6MGsJtKULx2B78MLxcE-uHqoV0OtmoBTonqZQ3UpndkL05y7NOA7MEKwF41_1GtqIaaloXbrujU-wgOgpGm82S7Klmqpcic6nNRyzicKK-xsfzOCQ0b0cvNof872HsPvquslckp2tGVk1mxcngHhYkAOmN24dHAb1NWUPSGh-g0E40ie_H5ZJ9Rt86bGHezKUWwuC7LdKThoBTP4b16s7T-LIDnS1n3Q2XZU-MJwu_r3UtejCYDa4q5mnorw_bFzNmAKQF1ePy4P2L840ij-u2-330t8XLgcben5X_rIGIcisOxxGS0NmN6R9DXprlm8IFnEveM-eJYETX5QC1_EiYdAQbSCnDe7azcKQRYO8iT0nPCaJnIJggogiWtcwFw7Qo1XB93lhHSvfedtPH-wReVOMTpteHxY7MgzAspFowpV9r_daicpPCUQONw-b1lcFZFl1RdPSDABO8LpcycTCxf-7dQxIRXMLwWNSx8UmpA91ir3rz5artPqsvI1b4_OLUvGcMJYhgRouyqshuD2UX37tnV2xkVFI6fkVXE5iiJqes9zSA2prFzpThyahaiDdrrpn6uWxe7Cj3KAJgk3M-a9dmNiTzMdfCckC87G9k8VypjpYRZSa-4rCt27soHJ7wRoOsMaXa8a-bns7--i9h8cleARTVU8BEFRr3-bcFeHuSoPgcIYnNmyhDLnqfJnKeSdLBCvAmVgL-w6WmS-RbMdXpyDzPmSiUjKtvgCbNoSddQJBQF5I6nXZNYuK5skNkJo40-iUXg6TghBZ45XVA0ooR7eS8VYAUIHFuToLuvsZWgUKmQKCxKVoAOqc_aHK63OrUDHv9SWjRszmd0SNgRozbnSNItFye6YubayUcZJkwxyFgbVn6mM0-_wd87HYL351-3aR6HH12OGMF4WIA4yreJ88unnNMpUfboq5TfuB96YGz2C6ssjFRokQ7K3mqM2l8FllGUxkewScjtWOAA3HD4rmPRE7izeMup0fxsQ5MUr2W7in_6zunV3Fwpp0pjMaVRW1Fb0DJUlbmB-tsdgo_tpi_yjqf8al32PkE_sM9fqI_YR2ZjaE6XKIzf0ePdORcnxFn8ZhJvnSV2OiX3wym-J-QtfyX84KIQc4bMU098fzd2UcdCpMpHqUZV3t8zsfVYHEI-uSOOIi7KR7nFhOOGdcN2kLACjHfhZBahN0s4sxGMQv4mD1t1TkpS9zLgKt8q4Rk5486p55yOn8AtNekMPdtx2TEwSjTPfW_0nRJtY",
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "data_science_root_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-c174f3d9-c68d-4adf-8075-6decfc8660b1",
+                          "name": "call_bigquery_agent",
+                          "response": {
+                            "result": "The total Cost for each Channel for NPI from January 1, 2026 to March 31, 2026 is as follows:\n\n| Channel           | Total Cost   |\n| :---------------- | :----------- |\n| CTV               | $992,613.92  |\n| Paid Social       | $965,429.48  |\n| Search            | $660,677.83  |\n| Demand Gen        | $504,259.17  |\n| Linear TV         | $176,086.35  |\n| Online Audio      | $84,388.86   |\n| OOH               | $43,087.21   |\n| Performance Max   | $12,553.23   |\n| Organic Social    | $0.00        |\n| Referral          | $0.00        |\n"
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                },
+                {
+                  "author": "data_science_root_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": {
+                          "id": "adk-b32dadc9-f385-4d71-bc36-daa5a2d95bc0",
+                          "args": {
+                            "analysis_request": "\nchart_type: \"pie\"\ntitle: \"NPI Channel Spend Share (Q1 2026)\"\ndata:\n  categories: [\"CTV\", \"Paid Social\", \"Search\", \"Demand Gen\", \"Linear TV\", \"Online Audio\", \"OOH\", \"Performance Max\"]\n  values: [28.86, 28.07, 19.21, 14.66, 5.12, 2.45, 1.25, 0.37]\n"
+                          },
+                          "name": "call_analytics_agent",
+                          "partial_args": null,
+                          "will_continue": null
+                        },
+                        "function_response": null,
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": "CtUQAY89a1_Z1UrVszCYYeluCvfH5lTULHRwxRhdy6pmW42jzJo2m_foxLVIyOMCwvYhb8J6EYhnYFdAtghEhImhaCi-SKtzJGytWDnFJgWbWYKodxPQUahOOjyNU15B05QwW4QpJdAp3_WpqEMiNoELchW_-h5JYMTXHqRwvllrkQXBAHkLCYQ-_N0iDHukowUmc3DozfJsMaR0cckXuZdLZIoz-KmysO5I2YsSk77iv9Fe7TYF9AAXagQ9tj6g6fYj7_osI1mlBSGrc4OAhyhRezZ56ERyxMtJAEJ8XALhHJN_tQwmW50dZvy8vQjbMA-oiWu9PdPmUZuio84fAv_iNI5j0wA3RSZfjBqVVUB-VZApigxcVHSu4A1fqqsaD1FZg_CLR2RSF6UuBcSUlfD10YchrbzjXTJNpkO86zGwW67ROE5qeLoPglFN-HL8ThGrrEdI7nyEgCCsO6eOWkWWHDo_HBzxxeJ1DrulYp9rWmQyAFEWV8DFv1Xhl3O8QsMN_X_DXoR-y7oX342BTnBxN5nHrks-WRT2ydJ_wjCAbed24k3_YKs6zFj-IUNZN_J1-OuJP5vUZoK4mXIUytjCyyZ_6RCm_Nsl2n-H7OaOF9sV9NIrKG4Qs6xUYoe36dvwEqtlLitCo3Xark-z9no5-wJRlpEQa7s-v-MDxh-q19-FJnuMzMSpHTJZgcwbF4hKkOAd6sxNXRkOAIynzsLvgTyOrmu_K2X7t5Jsjh5Ui9o9w970SuZ-Ip7czlkj5g76ASNMF9_vkI0T3OmGxsw8W31isSr46sSnr_iD431tyKxGYXaFkV9UxzzRbrPHJBwJzhNUsM9k0Exb14Rgq_0NGQo8XMvA1oEQLJJ8fuldgmtPLrVlU0pKLL8XE6HbcE7lI-g1eYfskdfGQKq1bhhuBvuCpWvxQw-z0keqab6KfjpIoKPkIasN9ZFgPyk7FY1ni8QWjpafTUVzXSZYlv9T5wXW-R-vNBgXgcD_UIWKTDf3bKOCi40lE2s1LHzFnDAAVhltm_sskVONJea62FiOs7isvo-UzrK-9QJYHSadb-8T18VqmRAsVBfONAjtqXNW19v3Ekps1znTY3mYfBx5g5b2y8-knLTBnW9siWjEPInmF44adN3bp60pVRck4ctYzdRPHvtqHzPuLy4fGthNLo9vxhcVkxsjSlxAyNnNXv-T41xjVqgAsqbrY7WIfCD6qtQgXuJyGXMopJhpKLeoCkDM8fFWZPpD3D-GbMnXDUiJd45Ley44t1fKaB8fPC-9zP81bCrJK_gIB8_xQQiMwGBB_XUFbIl4GJwvxTTRxvXjuQJ1hXeGkRujMn6_14mQMUaA17Byn6q4-R_Oor4iMcscfvLDMbNfFeQF7gg7VRCgojxee9C26GzXKC_JjP7Yh4K154VEqTMZ9kQwSMKueCA0cfQ0_xSMUZ3iFV59T355i3S0S75OrrM70niw8Jc6ZIgR9UtAz7SKTss3JlPdZfRogJA2FE9KWu4lYidm2w69P9SMORQgqiXH1vEjI4_Ol5MwVy8ekt3bJnmFkIWgGiI6xmRVmpbYGGbdGmMKM2HIUPqBh7OS6tJsz5KSiLQKWR6dXn1jeDVNiDCiD-W0QZsMnMQl0rWC9RrqmQfp2ZXnLAc_PuUWxV_3QF_obkhx62MClWLIMtBJtM8bi2wGhFFrXm7GHlqDh0y9-GW4nLSSJuUn-Uk54FNsqeKjzdh79cElX1lse0VeB5M5LPbO_Sw7tlnUuEtCHF9vDa6JdIdN_0l8knYJAmi5tiJMzSFI6okUbIFhq6KZBn7GQ29DIZ3LDglSaUgCQp4Mfwz749e6q-DqbTxGfD_Z3tLROdTT6duiEo-J0UJugO3OZIRL87DmFa5JWpFl-5g5l5GHoAUUVQQXQNFO8J88GOmXrNn0iEJiFrqBlHlYHruRMdktPgA3IjRRPAPsGpTqnYC57X6musBGIFRYB5KjuTYFijWchflrUe5-3Fxk_h6JGXUudZbmHVZfQ2V8Cg5NaPreTLtTETwQcjJ5UMlq8uVH2Kw_mnOLO9elfvMMx4c9-ElaYMi27U8xBY_SVffImAw283ufRG-9ECaiCjFojN_Spj4aO6y91ebbpvi-mSUZRg1_LsVwn4vh9Pp9yRlpxxFf4UKpFCd_rfFyx79E1sBMPGJ_3M5PYQUck59vmBpfcXfezYwFut27WPLl60m-pgV5aDRqp5zYDGpV8KlFtXkDtgpzHmjkfXwR_Cfh4AOdqlumSw_-3qwJ1TxGC8c5SaoL8uj-dEbbUGIvZb4KJnmH7wzD7K1f_0CtvI9fkUcrXZwnRx4La0p1rvQgFWTefOMhhVhYNCILo6LmDZiyRlYFV_Jsw07HvK_sQ-WnbJo3O56jtQ8I2t_z5kt4mbs564MUp_4gEL35QizUp-WX1bbkdhZ4mAPpufC-sLnNqoxsqk_jCGYCHntOKPP-AkI6Galfvhb2iJhDF0lEXMF8_312BaLzLBidPVQTYg25X8f57SrYT8lFjhTO2dcSQf8PkzQEQsPSD52PFGJh-eKp6PFbM2gSlTXTBUVw7gaohrnc3mFWwp_b4W-QXu-QwvUxxKtDXSdN5ni2MCRsDYTXne9DlJuBcGINwmgwYAJ8WVN884JY-GC8Y2d-yLCI-zpFjL-C7GyNTTX4H-5P36Wuvziunqp0csSbwGg-1NuGeMabY4UeOtRdCiHGWtj6XPjqbGK-JYe9P5bij8Br4BxDRo19FmG9F1xVx6ZYX6kqeDZ_w_92Yv5k77c8OtBdyH8DC0heF0kFIawt_yL5wvkyOW0_uC4HtrRItN8AyOjeNhhvGJFLt1-8eVEK",
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "model"
+                  }
+                },
+                {
+                  "author": "data_science_root_agent",
+                  "content": {
+                    "parts": [
+                      {
+                        "media_resolution": null,
+                        "code_execution_result": null,
+                        "executable_code": null,
+                        "file_data": null,
+                        "function_call": null,
+                        "function_response": {
+                          "will_continue": null,
+                          "scheduling": null,
+                          "parts": null,
+                          "id": "adk-b32dadc9-f385-4d71-bc36-daa5a2d95bc0",
+                          "name": "call_analytics_agent",
+                          "response": {
+                            "result": "Generated pie chart: NPI Channel Spend Share (Q1 2026)"
+                          }
+                        },
+                        "inline_data": null,
+                        "text": null,
+                        "thought": null,
+                        "thought_signature": null,
+                        "video_metadata": null,
+                        "tool_call": null,
+                        "tool_response": null,
+                        "part_metadata": null
+                      }
+                    ],
+                    "role": "user"
+                  }
+                }
+              ]
+            },
+            "creation_timestamp": 1778841983.0563157,
+            "rubrics": null,
+            "app_details": {
+              "agent_details": {
+                "data_science_root_agent": {
+                  "name": "data_science_root_agent",
+                  "instructions": "You are a Data Science and Analytics Multi Agent System.\nToday's date: 2026-05-15\n\n\n\n    📊 CHART_DATA_QUALITY — filter before plotting:\n    \n    Before sending data to call_analytics_agent, ALWAYS:\n    \n    1. REMOVE channels/categories with ALL zeros across ALL data points\n       - If \"Display\" has 0% cost AND 0% conversions in every month -> exclude it\n       - If a channel only has zero values, it adds noise, not information\n    \n    2. SEPARATE charts when data has mixed scales:\n       - Cost % chart: include only channels with cost > 0\n       - Conversion % chart: include only channels with conversions > 0\n       - Don't put both groups in one chart -- the result looks half-empty\n    \n    3. SANITY CHECK before calling analytics agent:\n       - The chart renderer AUTO-FILTERS all-zero rows and series.\n       - You can send the data AS-IS - the renderer handles sparsity.\n       - Only fall back to TEXT TABLE if the data is COMPLETELY EMPTY\n         (zero rows total, not just some zero values).\n       - DO NOT pre-filter aggressively. Trust the renderer.\n\n    4. The chart spec MUST have:\n       - chart_type: a string like \"bar\" / \"line\" / \"stacked_bar\"\n       - title: a string\n       - data: contains categories list + either values list (single\n         series) OR a series dict (multiple grouped series)\n       - When using grouped series, the data.series field is a MAP\n         from series-name to value-list, not a list of dicts.\n       - Matching array lengths: categories has N items, every series\n         value list has N items.\n    \n    EXAMPLE for \"channel mix peak vs trough\":\n    \n    BAD (what produces blank chart):\n    categories=[\"Demand Gen\",\"Paid Social\",\"Search\",\"Cross-network\",\"Direct\",\"Display\",...]\n    Sept_conv=[0.00, 5.23, 0.00, 11.76, 0.51, 0.00, 0.09, 3.39, 23.87, 0.00, ...]\n    -> Many zero rows, chart looks empty\n    \n    GOOD:\n    For Cost chart: filter to only channels where ANY month has Cost % > 0\n    categories=[\"Demand Gen\",\"Paid Social\",\"Performance Max\",\"Search\"]\n    Sept_cost=[6.71, 43.83, 3.40, 46.06]\n    Nov_cost =[20.13, 47.88, 4.11, 27.88]\n    Dec_cost =[21.21, 47.25, 1.00, 30.54]\n    \n    For Conversion chart: filter to only channels where ANY month has Conv % > 0\n    categories=[\"Cross-network\",\"Organic Search\",\"Organic Social\",\"Paid Other\",\"Paid Search\",\"Paid Social\",\"Unassigned\"]\n    Sept_conv=[11.76, 3.39, 23.87, 12.41, 17.27, 5.23, 25.30]\n    Nov_conv =[8.41, 2.93, 37.67, 3.34, 13.51, 9.71, 23.54]\n    Dec_conv =[11.03, 4.63, 12.32, 0.87, 18.48, 45.99, 5.72]\n    \n    Both charts have meaningful data and render properly.\n    \n\n\n    ══════════════════════════════════════════════════════════\n    🌊 SEASONAL_COMPARISON_HINT - for peak/trough questions\n    ══════════════════════════════════════════════════════════\n\n    If the user asks for \"peak vs trough\", \"Nov/Dec vs rest\", \"holiday\n    vs non-holiday\", \"seasonal mix shift\", or compares one time-slice\n    vs another:\n\n    DO NOT try to compute percentages yourself. Instead:\n\n    1. Call call_bigquery_agent with a clear NL request mentioning\n       \"peak vs trough\" or \"seasonal comparison\" - the BQ sub-agent\n       has a pre-built SQL pattern that returns peak_cost_pct,\n       trough_cost_pct, peak_conv_pct, trough_conv_pct in a single\n       query.\n\n    2. ONE BQ call returns all data needed for BOTH charts.\n\n    3. Pass that data to call_analytics_agent TWICE:\n       - Once with peak_cost_pct + trough_cost_pct  -> cost chart\n       - Once with peak_conv_pct + trough_conv_pct  -> conversion chart\n\n    4. Chart spec format - describe in words, NOT braces:\n       - chart_type is \"bar\"\n       - title is the chart title string\n       - data.categories is the list of channels\n       - data.series is a MAP (dict) where the keys are the two\n         labels \"Peak (Nov/Dec)\" and \"Trough (Jan-Oct)\" and each\n         value is the corresponding list of percentages.\n       - DO NOT pass series as a list of dicts. Pass it as a map.\n\n\n\n\n    ══════════════════════════════════════════════════════════\n    🚨 CLIENT LOCK — CHECK FIRST EVERY TIME\n    ══════════════════════════════════════════════════════════\n\n    STEP 1: Read state.LOCKED_CLIENT (or state.client_lock).\n\n    DECISION LOGIC:\n    - IF user message contains \"NPI\", \"Venetian\", or \"WinnDixie\":\n        → Lock to that client. Continue with their request.\n    - ELIF state.LOCKED_CLIENT exists:\n        → Session is locked. Use that client. NEVER re-ask \"which client\".\n    - ELSE:\n        → STOP. Output ONLY: \"Please specify which client: NPI, Venetian, or WinnDixie.\"\n        → DO NOT call any tools.\n\n    ONCE LOCKED:\n    - Never ask \"which client\" again in the same session.\n    - If user mentions a DIFFERENT client mid-session:\n        \"Session is locked to {state.LOCKED_CLIENT}.\n         Click + New Session to analyze a different client.\"\n\n    ══════════════════════════════════════════════════════════\n    DISABLED ACTION CHECK (cross-client wall)\n    ══════════════════════════════════════════════════════════\n\n    BEFORE calling any tools, check: state._disabled_table_message\n    IF state._disabled_table_message exists and is non-empty:\n        - STOP. Output ONLY the message from state._disabled_table_message.\n        - DO NOT call call_bigquery_agent.\n        - DO NOT call call_analytics_agent.\n        - DO NOT transfer to bq_ml_agent.\n\n    This is set by the cross-client wall when a session locked to one client\n    receives a question about a different client. The refusal message\n    explains the situation to the user.\n\n    ══════════════════════════════════════════════════════════\n    🎯 TABLE ROUTING (set by KnowledgeManager — already in state)\n    ══════════════════════════════════════════════════════════\n\n    The KnowledgeManager has already routed this question to the right table.\n    Read these state fields before generating SQL:\n    - state.routed_table_id        → which table to query (performance | pacing)\n    - state.routed_table_path      → fully-qualified path to use in FROM clause\n    - state.channel_column         → which column is the channel (Channel | GVMM_Channel)\n    - state.kpi_column             → primary KPI column (Conversions | KPI | ViVs)\n    - state.channel_taxonomy       → dict of category → list of channels\n    - state.applicable_rules       → list of rule_ids that apply\n    - state.duality                → {has_duality, spend_rows_filter, conv_rows_filter}\n\n    If state.routed_table_id == 'pacing':\n        → This is a budget/flight/pacing question\n        → Use GVMM_Channel for grouping, NOT Channel\n        → Exclude GVMM_Channel = 'DEFAULT' unless explicitly asked\n        → Apply pacing-specific rules (days remaining, forecast totals)\n\n    If state.routed_table_id == 'performance' (default):\n        → This is a performance/CPA/forecast/correlation question\n        → Use Channel for grouping\n        → If duality.has_duality, use FULL OUTER JOIN unified CTE pattern\n\n\n    ══════════════════════════════════════════════════════════\n    🔥 DUALITY ENFORCEMENT (read state.duality.has_duality)\n    ══════════════════════════════════════════════════════════\n\n    If state.duality.has_duality is True, Cost and Conversions\n    are on SEPARATE rows in the data. Spend rows have Cost > 0\n    and Conversions = 0; conversion rows have the inverse.\n\n    ANY analysis that needs BOTH Cost AND Conversions MUST\n    pre-aggregate using a unified CTE with FULL OUTER JOIN:\n\n      WITH spend AS (\n        SELECT Date, Channel, SUM(Cost) AS cost\n        FROM <table>\n        WHERE Client = '<client>' AND Cost > 0\n        GROUP BY Date, Channel\n      ),\n      conv AS (\n        SELECT Date, Channel, SUM(Conversions) AS conversions\n        FROM <table>\n        WHERE Client = '<client>' AND Conversions > 0\n        GROUP BY Date, Channel\n      )\n      SELECT\n        COALESCE(s.Date, c.Date) AS date,\n        COALESCE(s.Channel, c.Channel) AS channel,\n        COALESCE(s.cost, 0) AS cost,\n        COALESCE(c.conversions, 0) AS conversions\n      FROM spend s\n      FULL OUTER JOIN conv c USING (Date, Channel)\n\n    APPLIES TO: linear regression, saturation models, CPA,\n    ROAS, CORR(Cost, Conversions), efficiency analysis,\n    any cost-vs-conversion modeling.\n\n    NEVER train BQML models on raw per-row data when duality\n    is True — every row has either Cost or Conversions, never\n    both. Models trained on raw rows produce zero correlation\n    and useless predictions.\n\n    Pre-aggregate FIRST, then model on the aggregated dataset.\n\n\n\n    ══════════════════════════════════════════════════════════\n    📈 SATURATION & UNIFICATION — use existing tools, DO NOT rebuild\n    ══════════════════════════════════════════════════════════\n\n    A unification map ALREADY EXISTS and is APPLIED AUTOMATICALLY\n    by the saturation tool. You do NOT need to build one. You do NOT\n    need to draft SQL for it. You do NOT need to diagnose duality.\n\n    The system already handles all of this:\n      • channel_unification map lives in config v3\n      • compute_saturation_curve reads the map and applies CASE WHEN\n        BEFORE the FULL OUTER JOIN that aggregates spend ↔ conv\n      • Duality is resolved internally — spend rows + conv rows are\n        joined on (Date, unified_channel) automatically\n      • Channels that can't be modeled (awareness, organic, etc.) are\n        returned in the \"excluded\" field with reasons — this is BY DESIGN\n\n    ROUTING RULES — when user asks about saturation, allocation, or modeling:\n\n    Root agent ONLY has: call_bigquery_agent, call_analytics_agent.\n    The deterministic tools (compute_saturation_curve, train_saturation_model_bqml,\n    compute_channel_volatility, etc.) live inside the BigQuery SUB-AGENT.\n\n    To use them: invoke call_bigquery_agent with a clear natural-language\n    request. The sub-agent will internally select the right deterministic tool.\n\n    1. \"where should I spend\", \"next $X investment\", \"saturation curve\",\n       \"diminishing returns\", \"what's the saturation model\", \"allocation\"\n       → via call_bigquery_agent (BQ sub-agent owns this tool):\n         call_bigquery_agent(\n           \"Build a saturation model for [CLIENT] with $[BUDGET] investment. \"\n           \"Use the deterministic compute_saturation_curve tool.\"\n         )\n       → ~5 sec response with fitted channels + allocation + excluded list\n\n    2. \"train a saturation model\", \"build the model\", \"create the model\",\n       \"refresh the saturation model\"\n       → via call_bigquery_agent — use compute_saturation_curve (per-channel fits):\n         call_bigquery_agent(\n           \"Build a saturation model for [CLIENT]. \"\n           \"Use compute_saturation_curve and report fitted alpha/kappa/r-squared per channel.\"\n         )\n       → ~5 sec, returns per-channel fitted parameters\n       → Note: BQML-persisted training (train_saturation_model_bqml) is\n         currently disabled pending per-channel training architecture work.\n\n    NEVER:\n      • Draft your own unification SQL — the tool already has one\n      • Train BQML linear regression on raw row-level Cost vs Conversions\n        — that fails because of duality, which the tool already handles\n      • Tell the user \"we need to build a unification map\" — we have one\n      • Manually aggregate Cost and Conversions by Date+Channel in Python\n        — the tool's SQL does this server-side\n      • Diagnose duality as if it's new — the tool already reports\n        spend_only and conv_only channels in its \"excluded\" field\n\n    WHEN saturation results come back from the BQ sub-agent:\n\n      \"channels\": Ellipsis                ← These are FITTED. Show in main table.\n      \"excluded.spend_only\": [...]     ← These have spend but no conv (awareness,\n                                          OR a naming mismatch we haven't mapped).\n                                          Report under \"Excluded: awareness/unmapped.\"\n      \"excluded.conv_only\": [...]      ← Organic / attribution channels with no\n                                          spend. Report under \"Excluded: organic.\"\n      \"recommended_allocation\": Ellipsis  ← Use this for budget split. Don't recompute.\n      \"unification_map_used\": Ellipsis    ← Echo this so user sees which rules ran.\n\n    IF a channel the user expected appears in spend_only or conv_only:\n      → Tell the user the channel may need a unification rule update in config\n      → DO NOT try to fix it yourself or write your own SQL\n      → The fix is in ad_campaign_dataset_config_v3.json, not in this conversation\n\n\n    ══════════════════════════════════════════════════════════\n    📊 CHANNEL TAXONOMY (use exact names from state.channel_taxonomy)\n    ══════════════════════════════════════════════════════════\n\n    When user mentions a channel CATEGORY (organic, awareness, paid, etc),\n    DO NOT guess which channels belong to it.\n    USE state.channel_taxonomy[<category>] for the exact channel list.\n\n    Example:\n      User: \"Show me awareness spend\"\n      → Read state.channel_taxonomy[\"awareness\"]\n      → That gives the exact list: [\"Linear TV\", \"CTV\", \"OTT\", ...]\n      → Build SQL: WHERE Channel IN ('Linear TV', 'CTV', 'OTT', ...)\n\n    NEVER use:\n      - \"Linear TV\" alone when user said \"awareness\"\n      - \"OTT\" alone when user said \"TV\"\n      - \"DEFAULT\" when user said \"Direct\" (Direct is its own value)\n    ══════════════════════════════════════════════════════════\n    📊 CHART RENDERING — explicit user request ONLY\n    ══════════════════════════════════════════════════════════\n\n    DEFAULT BEHAVIOR: present results as text + markdown table.\n    DO NOT auto-render charts. DO NOT call call_analytics_agent\n    based on data shape or \"would look nice\" reasoning.\n\n    ONLY call call_analytics_agent when user EXPLICITLY says:\n      - \"chart\" / \"graph\" / \"plot\" / \"visualize\" / \"visualization\"\n      - Named type: \"bar chart\", \"line chart\", \"pie chart\",\n        \"heatmap\", \"scatter\", \"funnel\", \"waterfall\", \"treemap\",\n        \"gantt\", \"sankey\", \"bullet\", \"stacked bar\", \"histogram\"\n      - \"draw\" / \"render\" / \"diagram\"\n      - \"show as a chart\" / \"as a graph\" / \"make a chart\"\n\n    Words that DO NOT trigger charts (these are textual answers):\n      - \"show me\" / \"show\" (alone, without \"chart\")\n      - \"build\" / \"create\" / \"make\" / \"produce\" (without \"chart\")\n      - \"model\" / \"analyze\" / \"analyze\" / \"breakdown\" / \"report\"\n      - \"demonstrate\" / \"illustrate\"\n      - \"across channels\" / \"by channel\" (these are tables)\n      - Large/multidimensional data — text + table is fine\n\n    SPECIFIC EXAMPLES — text only, NO chart:\n      • \"build a saturation model for next $100k\"\n      • \"which channels are most volatile in cost\"\n      • \"top channels by spend last quarter\"\n      • \"compare CPA by partner\"\n      • \"what's the CPA across channels\"\n      • \"show me the channel mix\"\n\n    SPECIFIC EXAMPLES — chart REQUIRED:\n      • \"show a bar chart of CPA by channel\"\n      • \"plot monthly conversions\"\n      • \"visualize the saturation curve\"\n      • \"heatmap of correlation between Cost, Clicks\"\n      • \"channel mix as a pie chart\"\n\n    CHART COUNT RULE:\n      • User says \"chart\" / \"graph\" / \"plot\" (singular, no number) → render 1 chart\n      • User says \"2 charts\" / \"3 charts\" / \"side-by-side charts\" → render that many\n      • User says \"charts\" (plural, no number) → ask: \"How many charts would you like?\"\n      • User doesn't mention charts at all → render 0 charts (text/table only)\n\n      Never render more charts than the user explicitly requested.\n      Never render fewer charts than the user explicitly requested.\n\n    After producing a text answer, you MAY append:\n      \"Want this as a chart? Ask: 'show as a [bar/line/pie] chart'\"\n\n    When the user DOES explicitly ask for a chart:\n      1. call_bigquery_agent to fetch data\n      2. call_analytics_agent with the data + chart_type spec\n      3. Then write Result + Explanation\n\n    NEVER:\n      • Auto-render a chart that wasn't explicitly requested\n      • Describe what a chart WOULD look like — return text/table\n      • Render ASCII / Unicode charts inline\n\n        ══════════════════════════════════════════════════════════\n\n    If the user request involves ANY visualization word, you MUST call\n    call_analytics_agent with chart data. NO EXCEPTIONS.\n\n    Visualization triggers (case-insensitive):\n      chart, graph, plot, visualize, visualization, show me a, display a,\n      heatmap, scatter, bar, line, pie, histogram, dashboard\n\n    Workflow when triggered:\n      1. call_bigquery_agent to fetch the data\n      2. The BQ sub-agent will internally call select_chart_type() if no\n         explicit chart type was named — it returns chart_type + config\n      3. call_analytics_agent with the data + chart_type spec\n      4. ONLY THEN write Result + Explanation\n\n    NEVER:\n      • Output ONLY a markdown table when user asked for a chart\n      • Skip step 3 because \"the data is small\"\n      • Describe what a chart WOULD show — just render it\n      • Try to render charts inline via ASCII / Unicode\n\n    Chart type selection (when user didn't name one) is handled by\n    select_chart_type() — defers to data shape + question intent:\n      • time-series, 1 metric, ≥12 points → line\n      • time-series, ≤12 points → bar\n      • time-series, 2 metrics, different scales → dual-axis line\n      • 1 category + 1 metric → bar\n      • ≤8 categories + composition question → pie\n      • 2 categorical dimensions + 1 metric → heatmap (values, YlOrRd)\n      • Correlation matrix → heatmap (-1 to 1, RdYlGn)\n      • 2 numeric \"vs\"/correlation question → scatter\n      • single scalar → no chart, text only\n\n    When sending to call_analytics_agent:\n      • Pre-aggregate data (no raw rows from the database)\n      • Filter all-zero rows\n      • Cap to 30 categories or 5 series (top-N + \"Other\" if more)\n      • Keep payload under 4000 chars total\n      • Format: dict with chart_type, title, x_label, y_label, data fields\n\n\n    ══════════════════════════════════════════════════════════\n    🚫 ABSOLUTE_NO_EMBEDDED_CODE (critical, prevents crashes)\n    ══════════════════════════════════════════════════════════\n\n    NEVER include in call_analytics_agent or any function arg:\n    - Triple quotes\n    - Multi-line string literals\n    - Python loops (for, while)\n    - Function definitions\n    - List comprehensions\n    - import statements\n    - Variable assignments inside the call\n    - Any Python code\n\n    Function arguments MUST be:\n    - Single-line strings under 4000 chars\n    - Simple pre-computed values\n    - Just data, no logic\n\n    GOOD:\n      categories = [\"Paid Social\", \"Demand Gen\", \"Paid Search\"]\n      values = [47.5, 28.3, 18.2]\n      call_analytics_agent(\"Bar chart. categories=\" + str(categories) +\n                           \" values=\" + str(values) +\n                           \" Title: NPI Cost % by Channel\")\n\n    ══════════════════════════════════════════════════════════\n    🔥 CHART RULES\n    ══════════════════════════════════════════════════════════\n\n    Before sending to call_analytics_agent:\n    1. REMOVE channels with all-zero values (filter at SQL level)\n    2. Keep arguments under 4000 chars total\n    3. Max 30 items per chart\n    4. Match array lengths (categories=10 → values=10)\n\n    Chart type selection:\n    - Correlation between 2 vars → SCATTER PLOT (most common)\n    - Time series of 2 vars → DUAL-AXIS LINE\n    - 5+ correlations → BAR of coefficients\n    - Matrix of pairwise → CORRELATION HEATMAP\n\n    Heatmap types:\n    - VALUE heatmap (raw counts): cmap=YlOrRd, fmt=comma\n    - CORRELATION heatmap ([-1,1]): cmap=RdYlGn, vmin=-1, vmax=1\n\n\n    ══════════════════════════════════════════════════════════\n    🎨 CHART ENFORCEMENT — non-negotiable\n    ══════════════════════════════════════════════════════════\n\n    If the user's question contains ANY of these words:\n      heatmap, chart, plot, graph, visualize, visualization,\n      bar chart, line chart, scatter, pie, histogram, correlation matrix\n\n    THEN the response MUST include a call to call_analytics_agent\n    after the data is fetched. NEVER output just a text table —\n    the user explicitly asked for a chart.\n\n    Order of operations:\n    1. call_bigquery_agent to fetch data\n    2. call_analytics_agent with the aggregated data\n    3. Then write Result + Explanation\n\n    If you skip step 2, you have failed the user request.\n\n\n    ══════════════════════════════════════════════════════════\n    💪 TRY_HARDER RULE\n    ══════════════════════════════════════════════════════════\n\n    For complex questions (lift, attribution, causality, MMM):\n    1. Translate vague terms using state.channel_taxonomy\n    2. Run the closest available analysis\n    3. Show whatever data IS available\n    4. State limitations AT THE END, not as an excuse to skip\n\n    Closest available:\n    - \"Lift\" → CORR(channel_spend, target_metric) by month\n    - \"Attribution\" → distribution of conversions by Channel\n    - \"Causality\" → CORR with disclaimer\n    - \"MMM\" → CORR matrix across all channels\n\n    NEVER return \"I cannot do this.\" ALWAYS RETURN DATA.\n\n    ══════════════════════════════════════════════════════════\n    📊 ALWAYS_SHOW_AVAILABLE_DATA\n    ══════════════════════════════════════════════════════════\n\n    BAD: \"There isn't enough data. Should I proceed?\"\n    GOOD: Show available data immediately. State limitation after.\n\n    Never ask permission to retrieve. Just retrieve and report.\n\n    ══════════════════════════════════════════════════════════\n    🎯 USE_AVAILABLE_MODELS_FIRST\n    ══════════════════════════════════════════════════════════\n\n    Before saying \"no model exists for X\":\n    1. Check state.available_models_summary\n    2. Match by keyword:\n       - \"conversions/transactions\" → arima_npi_all_conversions\n       - \"revenue\" → npi_arima_revenue\n       - \"spend\" → npi_arima_spend\n       - \"search sessions\" → npi_arima_search_sessions\n       - \"predict search conv\" → npi_linear_conversions_search\n       - \"predict social conv\" → npi_linear_conversions_social\n       - \"saturation\" → npi_conversions_saturation\n    3. Use the existing model with disclaimer if needed.\n    4. Transfer to bq_ml_agent for ML.FORECAST execution.\n\n    NEVER hardcode model names. ALWAYS use the live list.\n\n    ══════════════════════════════════════════════════════════\n    🔄 AUTO_RECOVERY FROM ZERO DATA\n    ══════════════════════════════════════════════════════════\n\n    If query returns 0 rows, automatically fix and re-run:\n\n    Transactions is ALWAYS zero. Auto-replace:\n      Transactions → Conversions (NPI) or KPI (Venetian, WinnDixie)\n\n    NC_Paid correct values: 'Paid' and 'Non Paid' (NOT 'Yes'/'No')\n\n    Status: 'Enabled' for active (NOT 'Active')\n\n    Date filters: if month returns nothing, check MIN/MAX date first.\n\n    Organic Efficiency pattern:\n      SUM(Conversions) AS Total_Conversions,\n      SUM(CASE WHEN NC_Paid = 'Paid' THEN Cost ELSE 0 END) AS Paid_Spend,\n      SAFE_DIVIDE(\n        SUM(Conversions),\n        NULLIF(SUM(CASE WHEN NC_Paid = 'Paid' THEN Cost ELSE 0 END), 0)\n      ) AS Organic_Efficiency_Score\n\n    NEVER ask user to fix the query. Just fix it and re-run.\n    Max 2 retries per query.\n\n    ══════════════════════════════════════════════════════════\n    🛠️ TOOLS AND SUB-AGENTS\n    ══════════════════════════════════════════════════════════\n\n    TOOLS:\n      call_bigquery_agent(query)    → SQL queries (pass natural language)\n      call_analytics_agent(request) → Charts (always pre-aggregated data)\n\n    SUB-AGENTS:\n      bq_ml_agent → clustering, forecasting, anomaly detection, training\n\n    ══════════════════════════════════════════════════════════\n    📋 EXECUTION ORDER\n    ══════════════════════════════════════════════════════════\n\n    Identify ALL tasks first:\n    - \"bar/line/plot/visualize\" → CHART\n    - \"scatter/predicted vs actual\" → SCATTER\n    - \"cluster/KMEANS/segment\" → ML\n    - \"forecast/ARIMA/predict\" → ML\n    - \"anomaly/unusual\" → ML\n    - data retrieval only → SQL\n\n    Multi-task order:\n    1. ALL chart tasks first (bigquery + analytics)\n    2. ALL scatter tasks next\n    3. ML tasks LAST (transfer to bq_ml_agent)\n\n    Example: \"bar chart, then scatter, then cluster\":\n    1. call_bigquery_agent (data)\n    2. call_analytics_agent (bar chart)\n    3. call_bigquery_agent (ML.PREDICT)\n    4. call_analytics_agent (scatter)\n    5. transfer_to_agent(bq_ml_agent) for clustering\n\n    NEVER transfer to bq_ml_agent first if there are chart steps.\n\n    ══════════════════════════════════════════════════════════\n    ⚠️ STRICT RULES\n    ══════════════════════════════════════════════════════════\n\n    1.  ALWAYS markdown tables with pipes |---|---|\n    2.  NEVER narrate before tool calls (no \"I will first...\")\n    3.  WAIT for ALL tools before generating final response\n    4.  NEVER write \"Result:\" until ALL tool calls done\n    5.  NEVER repeat same result section twice\n    6.  ONE final response per user request\n    7.  NEVER write SQL directly — always call_bigquery_agent\n    8.  NEVER write Python directly — always call_analytics_agent\n    9.  NEVER use call_analytics_agent without actual data values\n    10. ALWAYS use SAFE_DIVIDE for ratios\n    11. ONE client per session — never cross-client\n    12. Schema is in <DATASETS> tags — never ask db agent for schema\n\n    ══════════════════════════════════════════════════════════\n    📄 RESPONSE FORMAT\n    ══════════════════════════════════════════════════════════\n\n    **Result:**\n\n    [Title]\n\n    | Column         | Column      |\n    |:---------------|------------:|\n    | text value     |  $1,234.56  |\n\n    - Text → left align :---\n    - Numbers → right align ---:\n    - Dates → center align :---:\n    - Currency → $1,234.56\n    - Large numbers → 1,234,567\n    - Max 10 rows (then \"... and X more rows\")\n    - Cluster: 3-5 row summary only\n    - Predicted vs Actual: max 15 rows\n\n    **Explanation:**\n    1. Step one\n    2. Step two\n\n    **Graph:** (only if chart generated)\n\n    ══════════════════════════════════════════════════════════\n    \n    SCHEDULING/DELIVERY: Feature currently disabled.\n    If users ask about scheduling, inform them it is not available.\n    \n    ══════════════════════════════════════════════════════════\n\n    You work for NetConversion (netconversion.com) — marketing analytics\n    company. Primary product: Conversionomics ('CX').\n\n    Today's date: see global_instruction.\n\n    Current state shortcuts:\n    - LOCKED_CLIENT: {state.LOCKED_CLIENT}\n    - routed_table_id: {state.routed_table_id}\n    - routed_table_path: {state.routed_table_path}\n    - channel_column: {state.channel_column}\n    - kpi_column: {state.kpi_column}\n    - available_models_summary: {state.available_models_summary}\n\n    ANTI-SYCOPHANCY RULES (always apply):\n    - Always verify the user's premise. If the user asserts something\n      (for example \"Why did spend spike?\") but the data shows otherwise\n      (spend was flat), you MUST correct the user with the actual data.\n    - Zero or null is a valid result. If a BigQuery query returns no rows\n      or zero values, report that honestly. Do NOT invent data to fill\n      the gap or to appear helpful.\n    - Only report values present in the tool response. Never use industry\n      averages, benchmarks, or training-data estimates unless the user\n      explicitly asks for a benchmark comparison.\n    - If a tool returns an error or empty result, say so plainly. Do not\n      substitute a plausible-sounding number.\n\n    CHAIN OF VERIFICATION (always apply before responding):\n    Step 1 - DRAFT: After tool calls return, extract the raw numbers/values\n       from the tool response into a draft answer.\n    Step 2 - VERIFY: Before emitting the response, re-read the tool output\n       and check each number/value in your draft against it. If any number\n       in the draft does not appear verbatim in the tool output, remove it\n       or replace it with the actual value.\n    Step 3 - EMIT: Only output values that survived Step 2. If a value the\n       user asked about is not in the tool output, say so explicitly rather\n       than estimating.\n    \n<DATASETS>\n\n</DATASETS>\n\n\nYou are an agent. Your internal name is \"data_science_root_agent\".\n\n\nYou have a list of other agents to transfer to:\n\n\nAgent name: bq_ml_agent\nAgent description: \n\n\nIf you are the best to answer the question according to your description,\nyou can answer it.\n\nIf another agent is better for answering the question according to its\ndescription, call `transfer_to_agent` function to transfer the question to that\nagent. When transferring, do not generate any text other than the function\ncall.\n\n**NOTE**: the only available agents for `transfer_to_agent` function are\n`bq_ml_agent`.\n",
+                  "tool_declarations": [
+                    {
+                      "retrieval": null,
+                      "computer_use": null,
+                      "file_search": null,
+                      "google_search": null,
+                      "google_maps": null,
+                      "code_execution": null,
+                      "enterprise_web_search": null,
+                      "function_declarations": [
+                        {
+                          "description": "Transfer the question to another agent.\n\n  This tool hands off control to another agent when it's more suitable to\n  answer the user's question according to the agent's description.\n\n  Note:\n    For most use cases, you should use TransferToAgentTool instead of this\n    function directly. TransferToAgentTool provides additional enum constraints\n    that prevent LLMs from hallucinating invalid agent names.\n\n  Args:\n    agent_name: the agent name to transfer to.\n  ",
+                          "name": "transfer_to_agent",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "agent_name": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": [
+                                  "bq_ml_agent"
+                                ],
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "agent_name"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "NULL"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "Calls analytics sub-agent based on ANALYTICS_MODE.",
+                          "name": "call_analytics_agent",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "analysis_request": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "analysis_request"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        },
+                        {
+                          "description": "Calls the BigQuery sub-agent with retry on SQL errors.",
+                          "name": "call_bigquery_agent",
+                          "parameters": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": {
+                              "query": {
+                                "additional_properties": null,
+                                "defs": null,
+                                "ref": null,
+                                "any_of": null,
+                                "default": null,
+                                "description": null,
+                                "enum": null,
+                                "example": null,
+                                "format": null,
+                                "items": null,
+                                "max_items": null,
+                                "max_length": null,
+                                "max_properties": null,
+                                "maximum": null,
+                                "min_items": null,
+                                "min_length": null,
+                                "min_properties": null,
+                                "minimum": null,
+                                "nullable": null,
+                                "pattern": null,
+                                "properties": null,
+                                "property_ordering": null,
+                                "required": null,
+                                "title": null,
+                                "type": "STRING"
+                              }
+                            },
+                            "property_ordering": null,
+                            "required": [
+                              "query"
+                            ],
+                            "title": null,
+                            "type": "OBJECT"
+                          },
+                          "parameters_json_schema": null,
+                          "response": {
+                            "additional_properties": null,
+                            "defs": null,
+                            "ref": null,
+                            "any_of": null,
+                            "default": null,
+                            "description": null,
+                            "enum": null,
+                            "example": null,
+                            "format": null,
+                            "items": null,
+                            "max_items": null,
+                            "max_length": null,
+                            "max_properties": null,
+                            "maximum": null,
+                            "min_items": null,
+                            "min_length": null,
+                            "min_properties": null,
+                            "minimum": null,
+                            "nullable": null,
+                            "pattern": null,
+                            "properties": null,
+                            "property_ordering": null,
+                            "required": null,
+                            "title": null,
+                            "type": "STRING"
+                          },
+                          "response_json_schema": null,
+                          "behavior": null
+                        }
+                      ],
+                      "google_search_retrieval": null,
+                      "parallel_ai_search": null,
+                      "url_context": null,
+                      "mcp_servers": null
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "expected_invocation": {
+            "invocation_id": "1b10234b-791c-41d8-9f9b-16d194c2813d",
+            "user_content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, show channel spend share as a pie chart for last quarter",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "final_response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "pie chart channel share spend NPI last quarter",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "intermediate_data": {
+              "tool_uses": [],
+              "tool_responses": [],
+              "intermediate_responses": []
+            },
+            "creation_timestamp": 1778841982.5852294,
+            "rubrics": null,
+            "app_details": null
+          },
+          "eval_metric_results": [
+            {
+              "metric_name": "tool_trajectory_avg_score",
+              "threshold": 0.0,
+              "criterion": {
+                "threshold": 0.0
+              },
+              "custom_function_path": null,
+              "score": 0.0,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": null
+              }
+            },
+            {
+              "metric_name": "response_match_score",
+              "threshold": 0.1,
+              "criterion": {
+                "threshold": 0.1
+              },
+              "custom_function_path": null,
+              "score": 0.1167883211678832,
+              "eval_status": 1,
+              "details": {
+                "rubric_scores": null
+              }
+            }
+          ]
+        }
+      ],
+      "session_id": "___eval___session___1768875f-7c60-4e40-911d-cbba6c20b5c8",
+      "session_details": {
+        "id": "___eval___session___1768875f-7c60-4e40-911d-cbba6c20b5c8",
+        "app_name": "data_science",
+        "user_id": "eval_user",
+        "state": {
+          "database_settings": {},
+          "client_lock": "NPI",
+          "client_id": "NPI",
+          "_sql_retry_count": 0,
+          "_seen_hashes": [],
+          "_chart_steps_done": 0,
+          "_multi_step_mode": false,
+          "_last_user_question": "For NPI, show channel spend share as a pie chart for last quarter",
+          "LOCKED_CLIENT": "NPI",
+          "routed_table_id": "performance",
+          "routed_table_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+          "table_enabled": true,
+          "channel_column": "Channel",
+          "kpi_column": "Conversions",
+          "client_column": "Client",
+          "channel_taxonomy": {
+            "organic": [
+              "Organic Search",
+              "Organic Social",
+              "Organic Video",
+              "Direct",
+              "Referral",
+              "Email"
+            ],
+            "paid": [
+              "Paid Social",
+              "Paid Search",
+              "Search",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max",
+              "Display",
+              "OTT",
+              "CTV",
+              "Linear TV",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print",
+              "Online Audio"
+            ],
+            "awareness": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Audio",
+              "Online Video",
+              "Paid Video",
+              "Video",
+              "OOH",
+              "Print"
+            ],
+            "direct_response": [
+              "Search",
+              "Paid Search",
+              "Email",
+              "Shopping"
+            ],
+            "mid_funnel": [
+              "Paid Social",
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "tv": [
+              "Linear TV",
+              "CTV",
+              "OTT"
+            ],
+            "social": [
+              "Paid Social",
+              "Organic Social"
+            ],
+            "search": [
+              "Paid Search",
+              "Search",
+              "Organic Search"
+            ]
+          },
+          "duality": {
+            "has_duality": true,
+            "spend_rows_filter": "Cost > 0",
+            "conv_rows_filter": "Conversions > 0",
+            "note": "Spend rows have Conversions=0; conv rows have Cost=0. Use FULL OUTER JOIN."
+          },
+          "unification_map": {
+            "Paid Search": [
+              "Search",
+              "Paid Search"
+            ],
+            "Demand Gen + P-Max": [
+              "Cross-network",
+              "Demand Gen",
+              "Performance Max"
+            ],
+            "Paid Social": [
+              "Paid Social"
+            ],
+            "Video/CTV/OTT/TV": [
+              "Linear TV",
+              "CTV",
+              "OTT",
+              "Online Video",
+              "Paid Video",
+              "Video"
+            ]
+          },
+          "applicable_rules": [
+            "always_filter_by_client",
+            "always_use_date_range_filter",
+            "never_select_star_without_limit",
+            "use_safe_divide_for_ratios",
+            "blended_cpa_use_unified_cte",
+            "ranking_use_unified_cte",
+            "channel_mix_use_unified_cte",
+            "volatility_use_cv_not_stddev",
+            "organic_efficiency_use_organic_filter",
+            "tv_halo_use_correlation",
+            "forecast_aggregate_to_weekly_for_chart",
+            "always_resolve_channel_terms_via_taxonomy"
+          ],
+          "matched_keywords": [],
+          "routing_confidence": "default",
+          "available_models_summary": "📋 Available models for NPI (35 total):\nLocation: `nc-ai-chatbot.astrobot_bqml_models.<model_name>`\n\n🔮 FORECASTING (ARIMA_PLUS):\n  • arima_npi_all_conversions\n  • npi_arima_conversions\n  • npi_arima_revenue\n  • npi_arima_search_sessions\n  • npi_arima_spend\n\n🌳 BOOSTED TREE (BOOSTED_TREE_REGRESSOR):\n  • npi_boosted_conversions\n  • npi_boosted_conversions_daily\n\n🔵 CLUSTERING (KMEANS):\n  • npi_campaign_clusters\n\n📈 LINEAR PREDICTION (LINEAR_REGRESSION):\n  • npi_conversions_by_channel_impact\n  • npi_conversions_saturation\n  • npi_conversions_saturation_agg\n  • npi_conversions_saturation_aggregated\n  • npi_conversions_saturation_daily\n  • npi_conversions_saturation_v2\n  • npi_linear_clicks_from_cost_ctv\n  • npi_linear_clicks_from_cost_demandgen\n  • npi_linear_clicks_from_cost_display\n  • npi_linear_clicks_from_cost_paidsearch\n  • npi_linear_clicks_from_cost_paidsocial\n  • npi_linear_clicks_from_cost_performancemax\n  • npi_linear_clicks_from_cost_search\n  • npi_linear_clicks_from_cost_video\n  • npi_linear_conversions_demand_gen\n  • npi_linear_conversions_performance_max\n  • npi_linear_conversions_search\n  • npi_linear_conversions_social\n  • npi_linear_cost\n  • npi_linear_cost_v2\n  • npi_social_conversions_cost_linear_reg\n  • npi_social_search_conversions_lr\n  • npi_total_conversions_vs_spend_lr\n  • npi_transactions_saturation\n  • npi_transactions_saturation_agg\n  • npi_transactions_saturation_v2\n\n🎯 CLASSIFICATION (LOGISTIC_REGRESSION):\n  • npi_campaign_classifier\n\nUSAGE: Use EXACT names above. If a needed model is missing,\noffer to train a new one with CREATE OR REPLACE MODEL syntax.",
+          "_models_listed_for": "NPI",
+          "__llm_request_key__": "5796ed82-d03b-433d-847a-35ca11976764",
+          "_last_bq_hash": "",
+          "_retry_count": 0,
+          "bigquery_query_result": "The total Cost for each Channel for NPI from January 1, 2026 to March 31, 2026 is as follows:\n\n| Channel           | Total Cost   |\n| :---------------- | :----------- |\n| CTV               | $992,613.92  |\n| Paid Social       | $965,429.48  |\n| Search            | $660,677.83  |\n| Demand Gen        | $504,259.17  |\n| Linear TV         | $176,086.35  |\n| Online Audio      | $84,388.86   |\n| OOH               | $43,087.21   |\n| Performance Max   | $12,553.23   |\n| Organic Social    | $0.00        |\n| Referral          | $0.00        |\n",
+          "last_bq_result": "The total Cost for each Channel for NPI from January 1, 2026 to March 31, 2026 is as follows:\n\n| Channel           | Total Cost   |\n| :---------------- | :----------- |\n| CTV               | $992,613.92  |\n| Paid Social       | $965,429.48  |\n| Search            | $660,677.83  |\n| Demand Gen        | $504,259.17  |\n| Linear TV         | $176,086.35  |\n| Online Audio      | $84,388.86   |\n| OOH               | $43,087.21   |\n| Performance Max   | $12,553.23   |\n| Organic Social    | $0.00        |\n| Referral          | $0.00        |\n"
+        },
+        "events": [
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "For NPI, show channel spend share as a pie chart for last quarter",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-c134e7ec-3abe-46aa-9a43-bc9d2e6ae8d9",
+            "author": "user",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {},
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "9d30f6f8-a3d1-4522-b637-1ea6d217d819",
+            "timestamp": 1778841982.58805
+          },
+          {
+            "model_version": null,
+            "content": null,
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-c134e7ec-3abe-46aa-9a43-bc9d2e6ae8d9",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "database_settings": {},
+                "client_lock": "NPI",
+                "client_id": "NPI",
+                "_sql_retry_count": 0,
+                "_seen_hashes": [],
+                "_chart_steps_done": 0,
+                "_multi_step_mode": false,
+                "_last_user_question": "For NPI, show channel spend share as a pie chart for last quarter",
+                "LOCKED_CLIENT": "NPI",
+                "routed_table_id": "performance",
+                "routed_table_path": "nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+                "table_enabled": true,
+                "channel_column": "Channel",
+                "kpi_column": "Conversions",
+                "client_column": "Client",
+                "channel_taxonomy": {
+                  "organic": [
+                    "Organic Search",
+                    "Organic Social",
+                    "Organic Video",
+                    "Direct",
+                    "Referral",
+                    "Email"
+                  ],
+                  "paid": [
+                    "Paid Social",
+                    "Paid Search",
+                    "Search",
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max",
+                    "Display",
+                    "OTT",
+                    "CTV",
+                    "Linear TV",
+                    "Online Video",
+                    "Paid Video",
+                    "Video",
+                    "OOH",
+                    "Print",
+                    "Online Audio"
+                  ],
+                  "awareness": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT",
+                    "Online Audio",
+                    "Online Video",
+                    "Paid Video",
+                    "Video",
+                    "OOH",
+                    "Print"
+                  ],
+                  "direct_response": [
+                    "Search",
+                    "Paid Search",
+                    "Email",
+                    "Shopping"
+                  ],
+                  "mid_funnel": [
+                    "Paid Social",
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max"
+                  ],
+                  "tv": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT"
+                  ],
+                  "social": [
+                    "Paid Social",
+                    "Organic Social"
+                  ],
+                  "search": [
+                    "Paid Search",
+                    "Search",
+                    "Organic Search"
+                  ]
+                },
+                "duality": {
+                  "has_duality": true,
+                  "spend_rows_filter": "Cost > 0",
+                  "conv_rows_filter": "Conversions > 0",
+                  "note": "Spend rows have Conversions=0; conv rows have Cost=0. Use FULL OUTER JOIN."
+                },
+                "unification_map": {
+                  "Paid Search": [
+                    "Search",
+                    "Paid Search"
+                  ],
+                  "Demand Gen + P-Max": [
+                    "Cross-network",
+                    "Demand Gen",
+                    "Performance Max"
+                  ],
+                  "Paid Social": [
+                    "Paid Social"
+                  ],
+                  "Video/CTV/OTT/TV": [
+                    "Linear TV",
+                    "CTV",
+                    "OTT",
+                    "Online Video",
+                    "Paid Video",
+                    "Video"
+                  ]
+                },
+                "applicable_rules": [
+                  "always_filter_by_client",
+                  "always_use_date_range_filter",
+                  "never_select_star_without_limit",
+                  "use_safe_divide_for_ratios",
+                  "blended_cpa_use_unified_cte",
+                  "ranking_use_unified_cte",
+                  "channel_mix_use_unified_cte",
+                  "volatility_use_cv_not_stddev",
+                  "organic_efficiency_use_organic_filter",
+                  "tv_halo_use_correlation",
+                  "forecast_aggregate_to_weekly_for_chart",
+                  "always_resolve_channel_terms_via_taxonomy"
+                ],
+                "matched_keywords": [],
+                "routing_confidence": "default",
+                "available_models_summary": "📋 Available models for NPI (35 total):\nLocation: `nc-ai-chatbot.astrobot_bqml_models.<model_name>`\n\n🔮 FORECASTING (ARIMA_PLUS):\n  • arima_npi_all_conversions\n  • npi_arima_conversions\n  • npi_arima_revenue\n  • npi_arima_search_sessions\n  • npi_arima_spend\n\n🌳 BOOSTED TREE (BOOSTED_TREE_REGRESSOR):\n  • npi_boosted_conversions\n  • npi_boosted_conversions_daily\n\n🔵 CLUSTERING (KMEANS):\n  • npi_campaign_clusters\n\n📈 LINEAR PREDICTION (LINEAR_REGRESSION):\n  • npi_conversions_by_channel_impact\n  • npi_conversions_saturation\n  • npi_conversions_saturation_agg\n  • npi_conversions_saturation_aggregated\n  • npi_conversions_saturation_daily\n  • npi_conversions_saturation_v2\n  • npi_linear_clicks_from_cost_ctv\n  • npi_linear_clicks_from_cost_demandgen\n  • npi_linear_clicks_from_cost_display\n  • npi_linear_clicks_from_cost_paidsearch\n  • npi_linear_clicks_from_cost_paidsocial\n  • npi_linear_clicks_from_cost_performancemax\n  • npi_linear_clicks_from_cost_search\n  • npi_linear_clicks_from_cost_video\n  • npi_linear_conversions_demand_gen\n  • npi_linear_conversions_performance_max\n  • npi_linear_conversions_search\n  • npi_linear_conversions_social\n  • npi_linear_cost\n  • npi_linear_cost_v2\n  • npi_social_conversions_cost_linear_reg\n  • npi_social_search_conversions_lr\n  • npi_total_conversions_vs_spend_lr\n  • npi_transactions_saturation\n  • npi_transactions_saturation_agg\n  • npi_transactions_saturation_v2\n\n🎯 CLASSIFICATION (LOGISTIC_REGRESSION):\n  • npi_campaign_classifier\n\nUSAGE: Use EXACT names above. If a needed model is missing,\noffer to train a new one with CREATE OR REPLACE MODEL syntax.",
+                "_models_listed_for": "NPI"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "fbf240e0-c618-4c70-ae92-94b0ae7302c6",
+            "timestamp": 1778841983.0561304
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-c174f3d9-c68d-4adf-8075-6decfc8660b1",
+                    "args": {
+                      "query": "For NPI, calculate the total Cost for each Channel for the last quarter (January 1, 2026 to March 31, 2026)."
+                    },
+                    "name": "call_bigquery_agent",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "CoYVAY89a1-eGxjOIKF8IVYyNDrmRAjUfsld8OMeJiNcwxKMeEfEgSVsJzKHrKfCriy7_TqIULKsj7x0R6yc-5bp4tWw-eU5m1dO0nloPjBk45EDlMweQV6cF8VFUBrZxpFpnUCd4CQ74WYE95li4WtQRO5IguFpMemJY3xeUpwd-TCdLsq281e3PnxTvzMidJGEeiHv51q8UG9tZ941x-2dEQuBPF-pATwqSvpYxfO-yNxTHPTxO5qQHd2QCFPQbBwH61g0Bxt9Er-leF5uMAQn4-4T04yalyMC-k5zXvs84ISw-iRyhtcaQuUhcF3n-1DbUU1d9Xvq5yAq74DuEoMUQ42LuNyZSRl99E6TOZMtmbFyOENKxFhR34cSw9s3HIReaBafEBwqoMpc1yJiguKNwsPa7ONzlcCdkbaYJAatp_E0lwQo9k9F8Nl8kFyBoq1MStH8vZSgwzqt08k4T52sF2_0dFSgOfHTNQzIS_qSiMTK1CVv4yFONC54sMWGJHiWYFoUENJx76-u5ee3XR-NCDljapdBxHXOukB8SfJwkvLLwJ1rxMVeevrEvDaRN48aFjn2GSJ4vBR8uCwG9FxvyvkKHWSk1iHDn5Svxp-EvSxNKw_thrNCBRsiipo7UEzl8ibNYtqM4EDH6RoHOsbDc1a-qfDxvbL6Ia9ZIMfuOrBbAKN3R0M7PfBQqE_ZqYJ5VdHtT5YaioS4CZpYSE7Qz_jeM8QYaBzB5J-nzO3C6iNtDqshgFP9R3KCOJK0qJUdyeyGaH3FAvEXh4S91LKkx2g03RfIUr5oxWCYtAi-bozDb2Nk3q_9LMByAEti5exXZKcA8wsADlNfdSu3-NLDlcsb4QWvV8IC5iRWUqiU7slQrssqKJI_UHJhhT0Zs4hHsC8on0qfdFJrxSX-58-X6aTfF4r2pEUQi6olmNsIbOPXSwt4WrH8ZZ-AT6_CJL08Fz2KPfPfcSSiCpqU63NGLRDOW47RkeoMnfxuALwDf03uJpuc0o0VQfd-14XPIwTlRi4Nbod5Et_9CCGBS8ugKnF3ZkZMENDhcn7WrfL_tqYf82p8CrN1-Nl2XkCaxLJFzj8mUS-DZbWHru5qZtlLifvOwgQ7LU6LNX2eh4HNf9zKFl8Nt0IHXc-zgjca9nD-O4_UQ1vqThjaTcWcrugIWJtQ2S7wsSe7yCV7IlTTA4tV7mn0SYLQLU3sPLaAHi5fNF7NpuM9jFa4D9tsfBTL-SsNYVi2i4VxUM77pOiqE6Nq3yqJnDAi_NkY3DwWUQpLnCk1sxF5idx8TJGYgo0cLgEAgRB12hxalV_dnHdkYHW2FCGSDG8fK41fbaGAQTjY9HVzhWlbueYWXJkAiQ1b2SEEZfny1qeYHXq2WhzUWL0P_-ZKYFkn_KNydbXlFhXQIvZ_iT_N7LjHwGkUYanQU0B7oMYsKRhs1s1bszn40YxbNnAJF3Qkq5FTtwKfu5GuGXXku2oR9zDSg-6PxImMJOlZaRLi64g39pkgtiNBUZy6q_dmuAlmuvbfKIuor4jy451J6v4ppDXZUN3_sQxW00KhJ44PZSAfXOFoJUprce792Z4chWK-84AX2qC1P0WtZlQ_PSxLS0RlyRL2lDP4XRc8rUgVYJUQsc485g8c9mocYpeZ_x7FqUj-X3nceqS-eOvUylS1ldyKDg--Cm1ReHd1iDjVZW8LiN2s27L_tjPWHaJO5uxu8qfd-FdmjmhBR__nrTN7mEcA3cBEaQSaFxzZHag-pGjNBAx8sXFmkSFL6yCr4fJPW-OiqAwSrPsY7BuYQ2iy4WjIupC18XgrGE286vrgHgF1ve0_jD6fqqQ_2QU3tjJPImERr_4TqJPTRp-xZsqZUGdUj2zyOLECDS8FL7TIwzJDZ7tqfph8B9YrlIZT5JNTZYywoUXHNXi-cWh34Mjnl2pwY9PexJYMNjNewNJ3GI65Gz3AiksjmtQ3j0CxiMSJNzt9EGVUVMTniwWH4jq8-GbSazoyQEXgOzyhgwejkliMyf_UJx0jNDVJwFQBIqcOCSWfkNhXk6CJwkyXJ98eu_YFWYuEgQoA2-2eEQRDmM2Heb1nAjXJ7ER53DJA9-_Z2VLUKI2foN8OXwxmTOq_cDS-Mp6T9CTvYGX6IaQa8KNdhlUHAxAo8m4z4LbYLa0oclgHbjF7mNIYRCgWYXDqctMKtWXy3ZWC163s8obb7a0Hy0f-L0m1k0z9uBLuuWOXmiGGJdpweqiAuQ5lU5iCIyt_ynMUWfkrtp9ETYBfo2-cSSl5NoYjgh3BYE57HKBtleWOght_J7-4fqsPD0GHoU_7yt_t_BCn6oJl6MGsJtKULx2B78MLxcE-uHqoV0OtmoBTonqZQ3UpndkL05y7NOA7MEKwF41_1GtqIaaloXbrujU-wgOgpGm82S7Klmqpcic6nNRyzicKK-xsfzOCQ0b0cvNof872HsPvquslckp2tGVk1mxcngHhYkAOmN24dHAb1NWUPSGh-g0E40ie_H5ZJ9Rt86bGHezKUWwuC7LdKThoBTP4b16s7T-LIDnS1n3Q2XZU-MJwu_r3UtejCYDa4q5mnorw_bFzNmAKQF1ePy4P2L840ij-u2-330t8XLgcben5X_rIGIcisOxxGS0NmN6R9DXprlm8IFnEveM-eJYETX5QC1_EiYdAQbSCnDe7azcKQRYO8iT0nPCaJnIJggogiWtcwFw7Qo1XB93lhHSvfedtPH-wReVOMTpteHxY7MgzAspFowpV9r_daicpPCUQONw-b1lcFZFl1RdPSDABO8LpcycTCxf-7dQxIRXMLwWNSx8UmpA91ir3rz5artPqsvI1b4_OLUvGcMJYhgRouyqshuD2UX37tnV2xkVFI6fkVXE5iiJqes9zSA2prFzpThyahaiDdrrpn6uWxe7Cj3KAJgk3M-a9dmNiTzMdfCckC87G9k8VypjpYRZSa-4rCt27soHJ7wRoOsMaXa8a-bns7--i9h8cleARTVU8BEFRr3-bcFeHuSoPgcIYnNmyhDLnqfJnKeSdLBCvAmVgL-w6WmS-RbMdXpyDzPmSiUjKtvgCbNoSddQJBQF5I6nXZNYuK5skNkJo40-iUXg6TghBZ45XVA0ooR7eS8VYAUIHFuToLuvsZWgUKmQKCxKVoAOqc_aHK63OrUDHv9SWjRszmd0SNgRozbnSNItFye6YubayUcZJkwxyFgbVn6mM0-_wd87HYL351-3aR6HH12OGMF4WIA4yreJ88unnNMpUfboq5TfuB96YGz2C6ssjFRokQ7K3mqM2l8FllGUxkewScjtWOAA3HD4rmPRE7izeMup0fxsQ5MUr2W7in_6zunV3Fwpp0pjMaVRW1Fb0DJUlbmB-tsdgo_tpi_yjqf8al32PkE_sM9fqI_YR2ZjaE6XKIzf0ePdORcnxFn8ZhJvnSV2OiX3wym-J-QtfyX84KIQc4bMU098fzd2UcdCpMpHqUZV3t8zsfVYHEI-uSOOIi7KR7nFhOOGdcN2kLACjHfhZBahN0s4sxGMQv4mD1t1TkpS9zLgKt8q4Rk5486p55yOn8AtNekMPdtx2TEwSjTPfW_0nRJtY",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "c44b1fd3-2b1f-47dd-8a97-9032f24c0634"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": null,
+              "cached_content_token_count": null,
+              "candidates_token_count": 44,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 44
+                }
+              ],
+              "prompt_token_count": 7977,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 7977
+                }
+              ],
+              "thoughts_token_count": 776,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 8797,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -2.9697546525435015,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-c134e7ec-3abe-46aa-9a43-bc9d2e6ae8d9",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "c44b1fd3-2b1f-47dd-8a97-9032f24c0634"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": [],
+            "branch": null,
+            "id": "e069d166-bcc6-4fcb-aae7-5d5c2f117848",
+            "timestamp": 1778841983.1188977
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-c174f3d9-c68d-4adf-8075-6decfc8660b1",
+                    "name": "call_bigquery_agent",
+                    "response": {
+                      "result": "The total Cost for each Channel for NPI from January 1, 2026 to March 31, 2026 is as follows:\n\n| Channel           | Total Cost   |\n| :---------------- | :----------- |\n| CTV               | $992,613.92  |\n| Paid Social       | $965,429.48  |\n| Search            | $660,677.83  |\n| Demand Gen        | $504,259.17  |\n| Linear TV         | $176,086.35  |\n| Online Audio      | $84,388.86   |\n| OOH               | $43,087.21   |\n| Performance Max   | $12,553.23   |\n| Organic Social    | $0.00        |\n| Referral          | $0.00        |\n"
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-c134e7ec-3abe-46aa-9a43-bc9d2e6ae8d9",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "_last_bq_hash": "fc17df61",
+                "_retry_count": 0,
+                "__llm_request_key__": "e87e7a18-cdde-4c09-9f1d-7fd40c961dcd",
+                "bigquery_query_result": "The total Cost for each Channel for NPI from January 1, 2026 to March 31, 2026 is as follows:\n\n| Channel           | Total Cost   |\n| :---------------- | :----------- |\n| CTV               | $992,613.92  |\n| Paid Social       | $965,429.48  |\n| Search            | $660,677.83  |\n| Demand Gen        | $504,259.17  |\n| Linear TV         | $176,086.35  |\n| Online Audio      | $84,388.86   |\n| OOH               | $43,087.21   |\n| Performance Max   | $12,553.23   |\n| Organic Social    | $0.00        |\n| Referral          | $0.00        |\n",
+                "last_bq_result": "The total Cost for each Channel for NPI from January 1, 2026 to March 31, 2026 is as follows:\n\n| Channel           | Total Cost   |\n| :---------------- | :----------- |\n| CTV               | $992,613.92  |\n| Paid Social       | $965,429.48  |\n| Search            | $660,677.83  |\n| Demand Gen        | $504,259.17  |\n| Linear TV         | $176,086.35  |\n| Online Audio      | $84,388.86   |\n| OOH               | $43,087.21   |\n| Performance Max   | $12,553.23   |\n| Organic Social    | $0.00        |\n| Referral          | $0.00        |\n"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "5b1ef183-5469-4084-80b8-391ff9018eaa",
+            "timestamp": 1778841998.007022
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": {
+                    "id": "adk-b32dadc9-f385-4d71-bc36-daa5a2d95bc0",
+                    "args": {
+                      "analysis_request": "\nchart_type: \"pie\"\ntitle: \"NPI Channel Spend Share (Q1 2026)\"\ndata:\n  categories: [\"CTV\", \"Paid Social\", \"Search\", \"Demand Gen\", \"Linear TV\", \"Online Audio\", \"OOH\", \"Performance Max\"]\n  values: [28.86, 28.07, 19.21, 14.66, 5.12, 2.45, 1.25, 0.37]\n"
+                    },
+                    "name": "call_analytics_agent",
+                    "partial_args": null,
+                    "will_continue": null
+                  },
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": "CtUQAY89a1_Z1UrVszCYYeluCvfH5lTULHRwxRhdy6pmW42jzJo2m_foxLVIyOMCwvYhb8J6EYhnYFdAtghEhImhaCi-SKtzJGytWDnFJgWbWYKodxPQUahOOjyNU15B05QwW4QpJdAp3_WpqEMiNoELchW_-h5JYMTXHqRwvllrkQXBAHkLCYQ-_N0iDHukowUmc3DozfJsMaR0cckXuZdLZIoz-KmysO5I2YsSk77iv9Fe7TYF9AAXagQ9tj6g6fYj7_osI1mlBSGrc4OAhyhRezZ56ERyxMtJAEJ8XALhHJN_tQwmW50dZvy8vQjbMA-oiWu9PdPmUZuio84fAv_iNI5j0wA3RSZfjBqVVUB-VZApigxcVHSu4A1fqqsaD1FZg_CLR2RSF6UuBcSUlfD10YchrbzjXTJNpkO86zGwW67ROE5qeLoPglFN-HL8ThGrrEdI7nyEgCCsO6eOWkWWHDo_HBzxxeJ1DrulYp9rWmQyAFEWV8DFv1Xhl3O8QsMN_X_DXoR-y7oX342BTnBxN5nHrks-WRT2ydJ_wjCAbed24k3_YKs6zFj-IUNZN_J1-OuJP5vUZoK4mXIUytjCyyZ_6RCm_Nsl2n-H7OaOF9sV9NIrKG4Qs6xUYoe36dvwEqtlLitCo3Xark-z9no5-wJRlpEQa7s-v-MDxh-q19-FJnuMzMSpHTJZgcwbF4hKkOAd6sxNXRkOAIynzsLvgTyOrmu_K2X7t5Jsjh5Ui9o9w970SuZ-Ip7czlkj5g76ASNMF9_vkI0T3OmGxsw8W31isSr46sSnr_iD431tyKxGYXaFkV9UxzzRbrPHJBwJzhNUsM9k0Exb14Rgq_0NGQo8XMvA1oEQLJJ8fuldgmtPLrVlU0pKLL8XE6HbcE7lI-g1eYfskdfGQKq1bhhuBvuCpWvxQw-z0keqab6KfjpIoKPkIasN9ZFgPyk7FY1ni8QWjpafTUVzXSZYlv9T5wXW-R-vNBgXgcD_UIWKTDf3bKOCi40lE2s1LHzFnDAAVhltm_sskVONJea62FiOs7isvo-UzrK-9QJYHSadb-8T18VqmRAsVBfONAjtqXNW19v3Ekps1znTY3mYfBx5g5b2y8-knLTBnW9siWjEPInmF44adN3bp60pVRck4ctYzdRPHvtqHzPuLy4fGthNLo9vxhcVkxsjSlxAyNnNXv-T41xjVqgAsqbrY7WIfCD6qtQgXuJyGXMopJhpKLeoCkDM8fFWZPpD3D-GbMnXDUiJd45Ley44t1fKaB8fPC-9zP81bCrJK_gIB8_xQQiMwGBB_XUFbIl4GJwvxTTRxvXjuQJ1hXeGkRujMn6_14mQMUaA17Byn6q4-R_Oor4iMcscfvLDMbNfFeQF7gg7VRCgojxee9C26GzXKC_JjP7Yh4K154VEqTMZ9kQwSMKueCA0cfQ0_xSMUZ3iFV59T355i3S0S75OrrM70niw8Jc6ZIgR9UtAz7SKTss3JlPdZfRogJA2FE9KWu4lYidm2w69P9SMORQgqiXH1vEjI4_Ol5MwVy8ekt3bJnmFkIWgGiI6xmRVmpbYGGbdGmMKM2HIUPqBh7OS6tJsz5KSiLQKWR6dXn1jeDVNiDCiD-W0QZsMnMQl0rWC9RrqmQfp2ZXnLAc_PuUWxV_3QF_obkhx62MClWLIMtBJtM8bi2wGhFFrXm7GHlqDh0y9-GW4nLSSJuUn-Uk54FNsqeKjzdh79cElX1lse0VeB5M5LPbO_Sw7tlnUuEtCHF9vDa6JdIdN_0l8knYJAmi5tiJMzSFI6okUbIFhq6KZBn7GQ29DIZ3LDglSaUgCQp4Mfwz749e6q-DqbTxGfD_Z3tLROdTT6duiEo-J0UJugO3OZIRL87DmFa5JWpFl-5g5l5GHoAUUVQQXQNFO8J88GOmXrNn0iEJiFrqBlHlYHruRMdktPgA3IjRRPAPsGpTqnYC57X6musBGIFRYB5KjuTYFijWchflrUe5-3Fxk_h6JGXUudZbmHVZfQ2V8Cg5NaPreTLtTETwQcjJ5UMlq8uVH2Kw_mnOLO9elfvMMx4c9-ElaYMi27U8xBY_SVffImAw283ufRG-9ECaiCjFojN_Spj4aO6y91ebbpvi-mSUZRg1_LsVwn4vh9Pp9yRlpxxFf4UKpFCd_rfFyx79E1sBMPGJ_3M5PYQUck59vmBpfcXfezYwFut27WPLl60m-pgV5aDRqp5zYDGpV8KlFtXkDtgpzHmjkfXwR_Cfh4AOdqlumSw_-3qwJ1TxGC8c5SaoL8uj-dEbbUGIvZb4KJnmH7wzD7K1f_0CtvI9fkUcrXZwnRx4La0p1rvQgFWTefOMhhVhYNCILo6LmDZiyRlYFV_Jsw07HvK_sQ-WnbJo3O56jtQ8I2t_z5kt4mbs564MUp_4gEL35QizUp-WX1bbkdhZ4mAPpufC-sLnNqoxsqk_jCGYCHntOKPP-AkI6Galfvhb2iJhDF0lEXMF8_312BaLzLBidPVQTYg25X8f57SrYT8lFjhTO2dcSQf8PkzQEQsPSD52PFGJh-eKp6PFbM2gSlTXTBUVw7gaohrnc3mFWwp_b4W-QXu-QwvUxxKtDXSdN5ni2MCRsDYTXne9DlJuBcGINwmgwYAJ8WVN884JY-GC8Y2d-yLCI-zpFjL-C7GyNTTX4H-5P36Wuvziunqp0csSbwGg-1NuGeMabY4UeOtRdCiHGWtj6XPjqbGK-JYe9P5bij8Br4BxDRo19FmG9F1xVx6ZYX6kqeDZ_w_92Yv5k77c8OtBdyH8DC0heF0kFIawt_yL5wvkyOW0_uC4HtrRItN8AyOjeNhhvGJFLt1-8eVEK",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "d9c4159d-08b6-46c0-b5f2-d75c7608377a"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 7735
+                }
+              ],
+              "cached_content_token_count": 7735,
+              "candidates_token_count": 128,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 128
+                }
+              ],
+              "prompt_token_count": 9028,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 9028
+                }
+              ],
+              "thoughts_token_count": 939,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 10095,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.3227536380290985,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-c134e7ec-3abe-46aa-9a43-bc9d2e6ae8d9",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "d9c4159d-08b6-46c0-b5f2-d75c7608377a"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": [],
+            "branch": null,
+            "id": "11990801-4add-42f0-9363-dffe5c09a3c4",
+            "timestamp": 1778841998.0108702
+          },
+          {
+            "model_version": null,
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": {
+                    "will_continue": null,
+                    "scheduling": null,
+                    "parts": null,
+                    "id": "adk-b32dadc9-f385-4d71-bc36-daa5a2d95bc0",
+                    "name": "call_analytics_agent",
+                    "response": {
+                      "result": "Generated pie chart: NPI Channel Spend Share (Q1 2026)"
+                    }
+                  },
+                  "inline_data": null,
+                  "text": null,
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "user"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-c134e7ec-3abe-46aa-9a43-bc9d2e6ae8d9",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "e0189bb2-3599-4450-8666-5811e97a3a29"
+              },
+              "artifact_delta": {
+                "chart_1778842006_65f7d1.png": 0
+              },
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "ecccfed6-2a1c-462b-98f1-56a129e58ae3",
+            "timestamp": 1778842006.3200128
+          },
+          {
+            "model_version": "gemini-2.5-flash",
+            "content": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "**Result:**\nThe channel spend share for NPI for the last quarter (Q1 2026) is as follows:\n\n| Channel | Total Cost | Share (%) |\n|:----------------|-----------:|----------:|\n| CTV | $992,613.92 | 28.86 |\n| Paid Social | $965,429.48 | 28.07 |\n| Search | $660,677.83 | 19.21 |\n| Demand Gen | $504,259.17 | 14.66 |\n| Linear TV | $176,086.35 | 5.12 |\n| Online Audio | $84,388.86 | 2.45 |\n| OOH | $43,087.21 | 1.25 |\n| Performance Max | $12,553.23 | 0.37 |\n\n**Explanation:**\n1. I retrieved the total cost for each channel for NPI for the last quarter (January 1, 2026 to March 31, 2026).\n2. I calculated the spend share for each channel. Channels with zero spend (Organic Social, Referral) were excluded from the chart.\n3. A pie chart visualizing the channel spend share has been generated.",
+                  "thought": null,
+                  "thought_signature": "CtwJAY89a18kIFV5n6ou8BUkfjGR_iEVZP11yvZpKlVgooFfvOtlvuAzSjfJOxgennhhTgZrDDmngiIXBNYvPI6WIFi-gAVDqWicZdDj_EBYBuPReW7J8_7B-5fHHw0jb61w5cCo5M2Dugnh8t3JeJvGaXxK553B0LeYjz-7mNh1fx1zvHW_7-XmQ2Ti9AjlkSZchRNVi-9V1U6gUM4TyYiP8pWhN-_FdhYbtArB75TqRY_isSebe9mkDogI2mjYqbh534SH7xRwmNQTNU_dxmP7ThvIAX8DLev5_67MfR1Ux4csJNOsgKhcDBrlqQOlheXn9eZ_BjB5KmivyMPzbeMe0fA3TwRzMP_QPXQP9E07iy5iQZPLyO4jEliIhlliwDV6gsxgR8-qiwWw1lgSVme56nDHNUFML2k7i2t67fF-UmSoW2wehFEREfsDVrS9NdsnT66URPx33roF7ApI50cdhMYSOUQTWjNgbrqvueamXSpzsfto44uz97Fv3_jAwQVwFPGF-PO9hGmvgdjD1agqxz5pobH4_K_bIHJLckzoV79l-FT20ochlU0MZ7W5zNJHNlbSeL5E8Wxe_qIlZzCnKn3s4mnw7NTonHRMVg8Sq8VRI_shoTvA6QQ7YqFAfNk8mfBBx-zG-e6--MBRYfRmwB3bFO5xH9DMol8J4iG4LhYg_gy9GU9KwfScbRrxtYxnxIFzJ4Dq5JzQQWU-VBrptk0HUftqakUHu1GUch_3k_1ImHWrVpyNlTLLclosw-OM7iTDhrt1w52TUZOtDC1i83RV0eTssvtJ_GqkiGv_yvsE9ZlMuFnf1hVw7ymy6WLPgE0Yzv3IltR57trfwlMGZAaKyWEdWUolz8pzYYo3tEARwjqNGZG2VZWMWHbCGW58NaH-dDVgCMTTSvm25BrbBIoO5XnjXvYbv1gzY6s0S6utckMvPeFQki78CH3ShjqEskhF-NcIQKa5C_vrhPQ-nmwHwgQDhgaTXY1dhl3Bc5aRwSimCuTNi_dG6OI5_5dItxOl3L8V6VwuNXOVqsaXMBv0BNmoTrh0o9_YZrKd9bGXr0sAoOF8NroUze_z6virncjXji_Q_3s4g45wm958tySth4d86_f9e7bw8y54xcF5yCZz2z7zlSgevBHhH1jvED-396nhVgCrUCKf-O_LMHmCetLLXpagqZTw9CAeyOYQDclMWjN5ADzLgm7GI5cQf7UvTnoA5l9Ag9Rw0_jEjKYWp7d2WjJGHYKIvdtCOcGmTfFkylTRgT1B1TcPWFM_bgRLLWnbMjtuF6WmPKxxunMo9tIxucNpBF21Ceh3ndSbQuTkg8cMn5xBZh13-5hwqtZySXG1THZFlrzNQ99j0mUOKJsK7sYm3AmSd8Q-jMQ8zhwyl4v6kw9ox37XWvp219m6x42KB42lbapghcdJ0iepfhnA8Y1y6G1hyw4inqP8Pds4x4qpb6i1gtMOVO4l6ZGTdTQGZ8ymyQTQbUnuwOd-SNuE12xkA8T_nTNZMl4PlgofVszb_Eee3V3Peu9pN897O_M4i0vEq6b3u4Fdoj7juIJi0c-zgzvDhR9zKvnfgA5Xi3sXB8xSEmqXWrXELaRRO_foAtgImQmOJpPfVeR405id-yhpvAP43-lsFAtDFBdTWPAMBTCl8K4=",
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            },
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": "STOP",
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": {
+              "__llm_request_key__": "5796ed82-d03b-433d-847a-35ca11976764"
+            },
+            "usage_metadata": {
+              "cache_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 8723
+                }
+              ],
+              "cached_content_token_count": 8723,
+              "candidates_token_count": 317,
+              "candidates_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 317
+                }
+              ],
+              "prompt_token_count": 10119,
+              "prompt_tokens_details": [
+                {
+                  "modality": "TEXT",
+                  "token_count": 10119
+                }
+              ],
+              "thoughts_token_count": 408,
+              "tool_use_prompt_token_count": null,
+              "tool_use_prompt_tokens_details": null,
+              "total_token_count": 10844,
+              "traffic_type": "ON_DEMAND"
+            },
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": -0.15435470917999555,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-c134e7ec-3abe-46aa-9a43-bc9d2e6ae8d9",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "__llm_request_key__": "5796ed82-d03b-433d-847a-35ca11976764"
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "f5ea5e41-0f03-43dc-8819-b71998d61e0e",
+            "timestamp": 1778842006.3248324
+          },
+          {
+            "model_version": null,
+            "content": null,
+            "grounding_metadata": null,
+            "partial": null,
+            "turn_complete": null,
+            "finish_reason": null,
+            "error_code": null,
+            "error_message": null,
+            "interrupted": null,
+            "custom_metadata": null,
+            "usage_metadata": null,
+            "live_session_resumption_update": null,
+            "live_session_id": null,
+            "go_away": null,
+            "input_transcription": null,
+            "output_transcription": null,
+            "avg_logprobs": null,
+            "logprobs_result": null,
+            "cache_metadata": null,
+            "citation_metadata": null,
+            "interaction_id": null,
+            "invocation_id": "e-c134e7ec-3abe-46aa-9a43-bc9d2e6ae8d9",
+            "author": "data_science_root_agent",
+            "actions": {
+              "skip_summarization": null,
+              "state_delta": {
+                "_sql_retry_count": 0,
+                "_seen_hashes": [],
+                "_chart_steps_done": 0,
+                "_last_bq_hash": ""
+              },
+              "artifact_delta": {},
+              "transfer_to_agent": null,
+              "escalate": null,
+              "requested_auth_configs": {},
+              "requested_tool_confirmations": {},
+              "compaction": null,
+              "end_of_agent": null,
+              "agent_state": null,
+              "rewind_before_invocation_id": null,
+              "render_ui_widgets": null
+            },
+            "long_running_tool_ids": null,
+            "branch": null,
+            "id": "91e6524d-63a1-4d7b-92aa-6330925f2515",
+            "timestamp": 1778842010.6103299
+          }
+        ],
+        "last_update_time": 1778842010.6103299
+      },
+      "user_id": "eval_user"
+    }
+  ],
+  "creation_timestamp": 1778842010.620419
+}

@@ -1,0 +1,191 @@
+2026-05-15 10:48:59,041 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-15 10:49:05,998 - WARNING - tools.py:180 - config_writer not available in tools: No module named 'lib'
+2026-05-15 10:49:05,998 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-15 10:49:05,998 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-15 10:49:05,999 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-15 10:49:06,002 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-15 10:49:06,002 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-15 10:49:06,003 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-15 10:49:06,003 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-15 10:49:06,003 - INFO - agent.py:339 - 📍 KM routed 'For NPI, train a saturation model using BQML...' → table=performance (confidence=low)
+2026-05-15 10:49:06,626 - INFO - tools.py:363 - Found 35 models for NPI
+2026-05-15 10:49:06,626 - INFO - agent.py:354 - 📋 Models listed for NPI: 1601 chars
+2026-05-15 10:49:06,860 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:49:08,913 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:49:08,914 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-15 10:49:08,915 - INFO - agent.py:489 - Tokens: In=7974, Out=34
+2026-05-15 10:49:08,916 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-15 10:49:08,917 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-15 10:49:09,027 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:49:10,486 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:49:10,498 - INFO - tools.py:1118 - compute_saturation_curve: aggregating for NPI, 4 unification rules, lookback=12mo
+2026-05-15 10:49:14,743 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:49:19,569 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:49:19,571 - INFO - runners.py:1611 - Closing runner...
+2026-05-15 10:49:19,571 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-15 10:49:19,571 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-15 10:49:19,571 - INFO - runners.py:1619 - Runner closed.
+2026-05-15 10:49:19,674 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:49:24,178 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:49:24,179 - INFO - agent.py:489 - Tokens: In=8641, Out=601
+2026-05-15 10:49:24,181 - INFO - runners.py:1611 - Closing runner...
+2026-05-15 10:49:24,181 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-15 10:49:24,181 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-15 10:49:24,181 - INFO - runners.py:1619 - Runner closed.
+2026-05-15 10:49:24,185 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-15 10:49:24,191 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_11_bqml_train.evalset.json_1778842164.191592.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_11_bqml_train.evalset.json:
+  Tests passed: 0
+  Tests failed: 1
+********************************************************************
+Eval Set Id: tests/eval/pos_11_bqml_train.evalset.json
+Eval Id: pos_11_bqml_train
+Overall Eval Status: FAILED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: FAILED, Score: 0.0462046204620462, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+------------------------+-----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                 | expected_response     | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+========================+=======================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, train a       | BQML saturation model | **Result:**  **NPI        |                       | id='adk-5f7ce46d-6a16-47e | Status: PASSED, Score:      | Status: FAILED, Score: |
+|    | saturation model using | trained NPI Paid      | Saturation Model          |                       | d-8445-                   | 0.0                         | 0.0462046204620462     |
+|    | BQML                   | Search Paid Social    | Results**  | Channel      |                       | aa4e9c271d04'             |                             |                        |
+|    |                        |                       | | R-squared |             |                       | args={'query': 'Build a   |                             |                        |
+|    |                        |                       | Alpha (saturation         |                       | saturation model for NPI. |                             |                        |
+|    |                        |                       | exponent) | Kappa         |                       | Use                       |                             |                        |
+|    |                        |                       | (efficiency constant) |   |                       | compute_saturation_curve  |                             |                        |
+|    |                        |                       | |:-------------           |                       | and report                |                             |                        |
+|    |                        |                       | |----------:|------------ |                       | fitted                    |                             |                        |
+|    |                        |                       | ---------------           |                       | alpha/kappa/r-squared per |                             |                        |
+|    |                        |                       | -:|---------------------- |                       | channel.'} name='call_big |                             |                        |
+|    |                        |                       | ------:| | Paid           |                       | query_agent'              |                             |                        |
+|    |                        |                       | Search  |     0.865 |     |                       | partial_args=None         |                             |                        |
+|    |                        |                       | 0.8634 |                  |                       | will_continue=None        |                             |                        |
+|    |                        |                       | 0.5795 |                  |                       |                           |                             |                        |
+|    |                        |                       | **Excluded Channels (with |                       |                           |                             |                        |
+|    |                        |                       | reasons):**  *            |                       |                           |                             |                        |
+|    |                        |                       | **Demand Gen + P-Max:**   |                       |                           |                             |                        |
+|    |                        |                       | *                         |                       |                           |                             |                        |
+|    |                        |                       | R-squared: 0.439 (too     |                       |                           |                             |                        |
+|    |                        |                       | low, needs ≥0.5           |                       |                           |                             |                        |
+|    |                        |                       | for reliable curve)     * |                       |                           |                             |                        |
+|    |                        |                       | Alpha:                    |                       |                           |                             |                        |
+|    |                        |                       | 0.5881     *   Kappa:     |                       |                           |                             |                        |
+|    |                        |                       | 6.735     *               |                       |                           |                             |                        |
+|    |                        |                       | *Note: Fit completed but  |                       |                           |                             |                        |
+|    |                        |                       | failed quality            |                       |                           |                             |                        |
+|    |                        |                       | gates. Math is unreliable |                       |                           |                             |                        |
+|    |                        |                       | for budget                |                       |                           |                             |                        |
+|    |                        |                       | allocation. Investigate   |                       |                           |                             |                        |
+|    |                        |                       | data quality or           |                       |                           |                             |                        |
+|    |                        |                       | use a different           |                       |                           |                             |                        |
+|    |                        |                       | functional form (e.g.,    |                       |                           |                             |                        |
+|    |                        |                       | Adstock + Hill).*  *      |                       |                           |                             |                        |
+|    |                        |                       | **Paid Social:**          |                       |                           |                             |                        |
+|    |                        |                       | *   R-squared: 0.372 (too |                       |                           |                             |                        |
+|    |                        |                       | low, needs                |                       |                           |                             |                        |
+|    |                        |                       | ≥0.5 for reliable curve)  |                       |                           |                             |                        |
+|    |                        |                       | *   Alpha:                |                       |                           |                             |                        |
+|    |                        |                       | 1.9618 (≥1, suggests      |                       |                           |                             |                        |
+|    |                        |                       | increasing returns,       |                       |                           |                             |                        |
+|    |                        |                       | which is economically     |                       |                           |                             |                        |
+|    |                        |                       | implausible for           |                       |                           |                             |                        |
+|    |                        |                       | advertising)     *        |                       |                           |                             |                        |
+|    |                        |                       | Kappa: 0     *            |                       |                           |                             |                        |
+|    |                        |                       | *Note: Fit completed but  |                       |                           |                             |                        |
+|    |                        |                       | failed quality            |                       |                           |                             |                        |
+|    |                        |                       | gates. Math is unreliable |                       |                           |                             |                        |
+|    |                        |                       | for budget                |                       |                           |                             |                        |
+|    |                        |                       | allocation. Investigate   |                       |                           |                             |                        |
+|    |                        |                       | data quality or           |                       |                           |                             |                        |
+|    |                        |                       | use a different           |                       |                           |                             |                        |
+|    |                        |                       | functional form (e.g.,    |                       |                           |                             |                        |
+|    |                        |                       | Adstock + Hill).*  *      |                       |                           |                             |                        |
+|    |                        |                       | **Video/CTV/OTT/TV:**     |                       |                           |                             |                        |
+|    |                        |                       | *   R-squared:            |                       |                           |                             |                        |
+|    |                        |                       | 0.04 (too low, needs ≥0.5 |                       |                           |                             |                        |
+|    |                        |                       | for reliable              |                       |                           |                             |                        |
+|    |                        |                       | curve)     *   Alpha:     |                       |                           |                             |                        |
+|    |                        |                       | 0.0507     *              |                       |                           |                             |                        |
+|    |                        |                       | Kappa: 44.5917     *      |                       |                           |                             |                        |
+|    |                        |                       | *Note: Fit                |                       |                           |                             |                        |
+|    |                        |                       | completed but failed      |                       |                           |                             |                        |
+|    |                        |                       | quality gates. Only       |                       |                           |                             |                        |
+|    |                        |                       | 20 paired days; need ≥30  |                       |                           |                             |                        |
+|    |                        |                       | for robust                |                       |                           |                             |                        |
+|    |                        |                       | fit.*  *   **Conversions  |                       |                           |                             |                        |
+|    |                        |                       | Only (no                  |                       |                           |                             |                        |
+|    |                        |                       | spend):** Direct, Organic |                       |                           |                             |                        |
+|    |                        |                       | Search,                   |                       |                           |                             |                        |
+|    |                        |                       | Organic Social, Paid      |                       |                           |                             |                        |
+|    |                        |                       | Other, Referral,          |                       |                           |                             |                        |
+|    |                        |                       | Unassigned, Display,      |                       |                           |                             |                        |
+|    |                        |                       | Email, Organic            |                       |                           |                             |                        |
+|    |                        |                       | Video, Organic Shopping.  |                       |                           |                             |                        |
+|    |                        |                       | *   *Note:                |                       |                           |                             |                        |
+|    |                        |                       | These channels had        |                       |                           |                             |                        |
+|    |                        |                       | conversions but no        |                       |                           |                             |                        |
+|    |                        |                       | recorded spend, making    |                       |                           |                             |                        |
+|    |                        |                       | saturation                |                       |                           |                             |                        |
+|    |                        |                       | modeling inapplicable.*   |                       |                           |                             |                        |
+|    |                        |                       | *   **Spend               |                       |                           |                             |                        |
+|    |                        |                       | Only (no conversions):**  |                       |                           |                             |                        |
+|    |                        |                       | Online Audio,             |                       |                           |                             |                        |
+|    |                        |                       | Print, OOH.     *         |                       |                           |                             |                        |
+|    |                        |                       | *Note: These              |                       |                           |                             |                        |
+|    |                        |                       | channels had spend but no |                       |                           |                             |                        |
+|    |                        |                       | recorded                  |                       |                           |                             |                        |
+|    |                        |                       | conversions, making       |                       |                           |                             |                        |
+|    |                        |                       | saturation modeling       |                       |                           |                             |                        |
+|    |                        |                       | inapplicable. They are    |                       |                           |                             |                        |
+|    |                        |                       | likely awareness          |                       |                           |                             |                        |
+|    |                        |                       | or have a naming          |                       |                           |                             |                        |
+|    |                        |                       | mismatch.*                |                       |                           |                             |                        |
+|    |                        |                       | **Explanation:** 1.  A    |                       |                           |                             |                        |
+|    |                        |                       | saturation model          |                       |                           |                             |                        |
+|    |                        |                       | was built for NPI using   |                       |                           |                             |                        |
+|    |                        |                       | the                       |                       |                           |                             |                        |
+|    |                        |                       | `compute_saturation_curve |                       |                           |                             |                        |
+|    |                        |                       | ` tool. 2.  The           |                       |                           |                             |                        |
+|    |                        |                       | model successfully fitted |                       |                           |                             |                        |
+|    |                        |                       | for 'Paid                 |                       |                           |                             |                        |
+|    |                        |                       | Search' with an R-squared |                       |                           |                             |                        |
+|    |                        |                       | of 0.865,                 |                       |                           |                             |                        |
+|    |                        |                       | indicating a good fit. 3. |                       |                           |                             |                        |
+|    |                        |                       | Several                   |                       |                           |                             |                        |
+|    |                        |                       | channels were excluded    |                       |                           |                             |                        |
+|    |                        |                       | from the                  |                       |                           |                             |                        |
+|    |                        |                       | saturation model due to   |                       |                           |                             |                        |
+|    |                        |                       | low R-squared             |                       |                           |                             |                        |
+|    |                        |                       | values, economically      |                       |                           |                             |                        |
+|    |                        |                       | implausible alpha         |                       |                           |                             |                        |
+|    |                        |                       | values, insufficient      |                       |                           |                             |                        |
+|    |                        |                       | data, or having           |                       |                           |                             |                        |
+|    |                        |                       | either spend without      |                       |                           |                             |                        |
+|    |                        |                       | conversions or            |                       |                           |                             |                        |
+|    |                        |                       | conversions without       |                       |                           |                             |                        |
+|    |                        |                       | spend.                    |                       |                           |                             |                        |
++----+------------------------+-----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

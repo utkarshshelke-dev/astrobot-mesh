@@ -1,0 +1,94 @@
+2026-05-15 10:57:37,549 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-15 10:57:44,658 - WARNING - tools.py:180 - config_writer not available in tools: No module named 'lib'
+2026-05-15 10:57:44,658 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-15 10:57:44,658 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-15 10:57:44,659 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-15 10:57:44,661 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-15 10:57:44,661 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-15 10:57:44,662 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-15 10:57:44,663 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-15 10:57:44,663 - INFO - agent.py:339 - 📍 KM routed 'For NPI, what is the blended CPA by channel over t...' → table=performance (confidence=low)
+2026-05-15 10:57:45,327 - INFO - tools.py:363 - Found 35 models for NPI
+2026-05-15 10:57:45,327 - INFO - agent.py:354 - 📋 Models listed for NPI: 1601 chars
+2026-05-15 10:57:45,519 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:57:48,558 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:57:48,559 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-15 10:57:48,560 - INFO - agent.py:489 - Tokens: In=7984, Out=61
+2026-05-15 10:57:48,561 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-15 10:57:48,562 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-15 10:57:48,674 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:57:53,438 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:57:56,418 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:57:57,764 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:57:57,767 - INFO - runners.py:1611 - Closing runner...
+2026-05-15 10:57:57,767 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-15 10:57:57,767 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-15 10:57:57,767 - INFO - runners.py:1619 - Runner closed.
+2026-05-15 10:57:57,867 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:58:00,076 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:58:00,077 - INFO - agent.py:489 - Tokens: In=8526, Out=109
+2026-05-15 10:58:00,079 - INFO - runners.py:1611 - Closing runner...
+2026-05-15 10:58:00,079 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-15 10:58:00,079 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-15 10:58:00,079 - INFO - runners.py:1619 - Runner closed.
+2026-05-15 10:58:00,082 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-15 10:58:00,084 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_13_chase_sql_cpa.evalset.json_1778842680.0847142.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_13_chase_sql_cpa.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval/pos_13_chase_sql_cpa.evalset.json
+Eval Id: pos_13_chase_sql_cpa
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.16438356164383564, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+--------------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                   | expected_response        | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+==========================+==========================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, what is the     | CPA cost per acquisition | **Result:**  The blended  |                       | id='adk-1eac0511-eb2c-442 | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | blended CPA by           | channel NPI              | CPA by Channel            |                       | 8-8cba-                   | 0.0                         | 0.16438356164383564    |
+|    | channel over the last 90 | SAFE_DIVIDE ranked       | for NPI over the last 90  |                       | b1247e5624f4'             |                             |                        |
+|    | days ranked              |                          | days, ranked              |                       | args={'query': 'For NPI,  |                             |                        |
+|    | best to worst            |                          | from best to worst, is:   |                       | calculate the blended CPA |                             |                        |
+|    |                          |                          | | Channel                 |                       | (Cost /                   |                             |                        |
+|    |                          |                          | | CPA        |            |                       | Conversions) by Channel   |                             |                        |
+|    |                          |                          | |:-------------|--------- |                       | over the last 90          |                             |                        |
+|    |                          |                          | --:| | Paid               |                       | days. Rank the results    |                             |                        |
+|    |                          |                          | Social  | 3.01       |    |                       | from best (lowest         |                             |                        |
+|    |                          |                          | **Explanation:**          |                       | CPA) to worst (highest    |                             |                        |
+|    |                          |                          | 1. The blended CPA was    |                       | CPA). Account for         |                             |                        |
+|    |                          |                          | calculated by             |                       | data duality where Cost   |                             |                        |
+|    |                          |                          | dividing the total cost   |                       | and Conversions           |                             |                        |
+|    |                          |                          | by the total              |                       | might be on separate      |                             |                        |
+|    |                          |                          | conversions for each      |                       | rows.'}                   |                             |                        |
+|    |                          |                          | channel over the          |                       | name='call_bigquery_agent |                             |                        |
+|    |                          |                          | last 90 days. 2. The      |                       | '                         |                             |                        |
+|    |                          |                          | results are ranked        |                       | partial_args=None         |                             |                        |
+|    |                          |                          | from the best (lowest     |                       | will_continue=None        |                             |                        |
+|    |                          |                          | CPA) to the worst         |                       |                           |                             |                        |
+|    |                          |                          | (highest CPA).            |                       |                           |                             |                        |
++----+--------------------------+--------------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+

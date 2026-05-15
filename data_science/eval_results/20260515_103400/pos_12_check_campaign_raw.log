@@ -1,0 +1,111 @@
+2026-05-15 10:49:48,305 - INFO - utils.py:164 - NumExpr defaulting to 4 threads.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/metric_evaluator_registry.py:112: UserWarning: [EXPERIMENTAL] MetricEvaluatorRegistry: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  metric_evaluator_registry = MetricEvaluatorRegistry()
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/local_eval_service.py:124: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider: UserSimulatorProvider = UserSimulatorProvider(),
+2026-05-15 10:49:55,356 - WARNING - tools.py:180 - config_writer not available in tools: No module named 'lib'
+2026-05-15 10:49:55,356 - INFO - agent.py:76 - ✅ Global NaN/Infinity JSON sanitizer installed
+2026-05-15 10:49:55,357 - WARNING - agent.py:530 - DATASET_CONFIG_FILE not set
+2026-05-15 10:49:55,357 - INFO - agent.py:571 - CODE_INTERPRETER_EXTENSION_NAME not set — running without VertexAiCodeExecutor. Python analytics will still work via call_analytics_agent (data interpreter tools).
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:914: UserWarning: [EXPERIMENTAL] UserSimulatorProvider: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  user_simulator_provider = UserSimulatorProvider(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py:937: UserWarning: [EXPERIMENTAL] LocalEvalService: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  eval_service = LocalEvalService(
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/user_simulator_provider.py:77: UserWarning: [EXPERIMENTAL] StaticUserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  return StaticUserSimulator(static_conversation=eval_case.conversation)
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/evaluation/simulation/static_user_simulator.py:39: UserWarning: [EXPERIMENTAL] UserSimulator: This feature is experimental and may change or be removed in future versions without notice. It may introduce breaking changes at any time.
+  super().__init__(
+2026-05-15 10:49:55,359 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-15 10:49:55,360 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+2026-05-15 10:49:55,360 - INFO - agent.py:259 - Session initialized — awaiting client selection
+2026-05-15 10:49:55,361 - INFO - agent.py:315 - 🔒 Session LOCKED to client: NPI
+2026-05-15 10:49:55,361 - INFO - agent.py:339 - 📍 KM routed 'For NPI, show campaign performance for Brand Aware...' → table=performance (confidence=low)
+2026-05-15 10:49:56,285 - INFO - tools.py:363 - Found 35 models for NPI
+2026-05-15 10:49:56,285 - INFO - agent.py:354 - 📋 Models listed for NPI: 1601 chars
+2026-05-15 10:49:56,472 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:49:59,052 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:49:59,053 - WARNING - types.py:7999 - Warning: there are non-text parts in the response: ['function_call'], returning concatenated text result from text parts. Check the full candidates.content.parts accessor to get the full model response.
+2026-05-15 10:49:59,054 - INFO - agent.py:489 - Tokens: In=7975, Out=41
+2026-05-15 10:49:59,055 - INFO - plugin_manager.py:104 - Plugin 'request_intercepter_plugin' registered.
+2026-05-15 10:49:59,056 - INFO - plugin_manager.py:104 - Plugin 'ensure_retry_options' registered.
+/home/utkarsh_shelke/.local/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.GOOGLE_TOOL is enabled.
+  check_feature_enabled()
+2026-05-15 10:49:59,168 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:50:05,386 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:50:05,499 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:50:10,010 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:50:12,390 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:50:15,851 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:50:15,853 - INFO - runners.py:1611 - Closing runner...
+2026-05-15 10:50:15,853 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-15 10:50:15,853 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-15 10:50:15,853 - INFO - runners.py:1619 - Runner closed.
+2026-05-15 10:50:15,955 - INFO - google_llm.py:208 - Sending out request, model: gemini-2.5-flash, backend: GoogleLLMVariant.VERTEX_AI, stream: False
+2026-05-15 10:50:18,798 - INFO - google_llm.py:276 - Response received from the model.
+2026-05-15 10:50:18,800 - INFO - agent.py:489 - Tokens: In=8511, Out=222
+2026-05-15 10:50:18,801 - INFO - runners.py:1611 - Closing runner...
+2026-05-15 10:50:18,802 - INFO - runners.py:1587 - Closing toolset: BigQueryToolset
+2026-05-15 10:50:18,802 - INFO - runners.py:1590 - Successfully closed toolset: BigQueryToolset
+2026-05-15 10:50:18,802 - INFO - runners.py:1619 - Runner closed.
+2026-05-15 10:50:18,805 - INFO - rouge_scorer.py:83 - Using default tokenizer.
+2026-05-15 10:50:18,808 - INFO - local_eval_set_results_manager.py:61 - Writing eval result to file: /home/utkarsh_shelke/astrobot_mesh/data_science/.adk/eval_history/data_science_tests_eval_pos_12_check_campaign.evalset.json_1778842218.8081598.evalset_result.json
+Using evaluation criteria: criteria={'tool_trajectory_avg_score': 0.0, 'response_match_score': 0.1} custom_metrics=None user_simulator_config=None
+*********************************************************************
+Eval Run Summary
+tests/eval/pos_12_check_campaign.evalset.json:
+  Tests passed: 1
+  Tests failed: 0
+********************************************************************
+Eval Set Id: tests/eval/pos_12_check_campaign.evalset.json
+Eval Id: pos_12_check_campaign
+Overall Eval Status: PASSED
+---------------------------------------------------------------------
+Metric: tool_trajectory_avg_score, Status: PASSED, Score: 0.0, Threshold: 0.0
+---------------------------------------------------------------------
+Metric: response_match_score, Status: PASSED, Score: 0.1818181818181818, Threshold: 0.1
+---------------------------------------------------------------------
+Invocation Details:
++----+---------------------------+----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+|    | prompt                    | expected_response    | actual_response           | expected_tool_calls   | actual_tool_calls         | tool_trajectory_avg_score   | response_match_score   |
++====+===========================+======================+===========================+=======================+===========================+=============================+========================+
+|  0 | For NPI, show campaign    | NPI campaign Brand   | **Result:**  **NPI Brand  |                       | id='adk-d21f617e-0270-4cf | Status: PASSED, Score:      | Status: PASSED, Score: |
+|    | performance for           | Awareness spend cost | Awareness                 |                       | 1-84fb-                   | 0.0                         | 0.1818181818181818     |
+|    | Brand Awareness campaigns | conversions channel  | Campaign Performance (Q1  |                       | b76e24133b11'             |                             |                        |
+|    | last quarter              | performance          | 2026)**  |                |                       | args={'query': 'For NPI,  |                             |                        |
+|    |                           |                      | Channel      | Cost       |                       | show campaign performance |                             |                        |
+|    |                           |                      | |                         |                       | for Brand                 |                             |                        |
+|    |                           |                      | Conversions | CPA   |     |                       | Awareness campaigns for   |                             |                        |
+|    |                           |                      | |:-------------|--        |                       | last quarter (Q1          |                             |                        |
+|    |                           |                      | ------------:|----------- |                       | 2026). Include Cost,      |                             |                        |
+|    |                           |                      | -:|:------| |             |                       | Conversions, and          |                             |                        |
+|    |                           |                      | CTV          |            |                       | CPA by channel.'}         |                             |                        |
+|    |                           |                      | $992,613.92   | 0         |                       | name='call_bigquery_agent |                             |                        |
+|    |                           |                      | | -     | | Linear TV     |                       | '                         |                             |                        |
+|    |                           |                      | | $176,086.35             |                       | partial_args=None         |                             |                        |
+|    |                           |                      | | 0           | -     | | |                       | will_continue=None        |                             |                        |
+|    |                           |                      | Online Audio |            |                       |                           |                             |                        |
+|    |                           |                      | $84,388.86    | 0         |                       |                           |                             |                        |
+|    |                           |                      | | -     | |               |                       |                           |                             |                        |
+|    |                           |                      | OOH          | $43,087.21 |                       |                           |                             |                        |
+|    |                           |                      | | 0                       |                       |                           |                             |                        |
+|    |                           |                      | | -     | | OTT           |                       |                           |                             |                        |
+|    |                           |                      | | $0.00                   |                       |                           |                             |                        |
+|    |                           |                      | | 0           | -     |   |                       |                           |                             |                        |
+|    |                           |                      | **Explanation:** 1. The   |                       |                           |                             |                        |
+|    |                           |                      | campaign                  |                       |                           |                             |                        |
+|    |                           |                      | performance for Brand     |                       |                           |                             |                        |
+|    |                           |                      | Awareness channels        |                       |                           |                             |                        |
+|    |                           |                      | for NPI during Q1 2026    |                       |                           |                             |                        |
+|    |                           |                      | was retrieved. 2.         |                       |                           |                             |                        |
+|    |                           |                      | The data shows that there |                       |                           |                             |                        |
+|    |                           |                      | were no                   |                       |                           |                             |                        |
+|    |                           |                      | conversions recorded for  |                       |                           |                             |                        |
+|    |                           |                      | any of the                |                       |                           |                             |                        |
+|    |                           |                      | Brand Awareness channels  |                       |                           |                             |                        |
+|    |                           |                      | during this               |                       |                           |                             |                        |
+|    |                           |                      | period, resulting in an   |                       |                           |                             |                        |
+|    |                           |                      | undefined CPA.            |                       |                           |                             |                        |
++----+---------------------------+----------------------+---------------------------+-----------------------+---------------------------+-----------------------------+------------------------+
+
+
+
