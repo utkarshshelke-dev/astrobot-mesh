@@ -298,14 +298,12 @@ def return_instructions_root(
 
     2. "train a saturation model", "build the model", "create the model",
        "refresh the saturation model"
-       → via call_bigquery_agent — use compute_saturation_curve (per-channel fits):
+       → via call_bigquery_agent (BQ sub-agent owns this tool):
          call_bigquery_agent(
-           "Build a saturation model for [CLIENT]. "
-           "Use compute_saturation_curve and report fitted alpha/kappa/r-squared per channel."
+           "Train a saturation model for [CLIENT]. "
+           "Use train_saturation_model_bqml."
          )
-       → ~5 sec, returns per-channel fitted parameters
-       → Note: BQML-persisted training (train_saturation_model_bqml) is
-         currently disabled pending per-channel training architecture work.
+       → ~30-60 sec, creates persisted BQML model
 
     NEVER:
       • Draft your own unification SQL — the tool already has one

@@ -155,18 +155,12 @@ Renderer auto-filters all-zero rows. You do NOT need to pre-filter.
 
 
 ──────────────────────────────────────────────────────────
-Saturation requests → use compute_saturation_curve
+BQML model training → MUST use train_saturation_model_bqml
 ──────────────────────────────────────────────────────────
-The deterministic in-memory tool fits per-channel log-log curves correctly.
-Train/build/refresh saturation requests route to compute_saturation_curve,
-not BQML training. BQML-persisted saturation models are currently disabled
-pending per-channel training architecture work.
-
-Phrases handled by compute_saturation_curve:
+Phrases that MANDATE this tool:
   - "train a saturation model"
   - "build the model" / "create the model"
   - "refresh the model" / "retrain"
-  - "saturation curve" / "diminishing returns" / "where should I spend"
 
 ──────────────────────────────────────────────────────────
 CHART TYPE selection (when ambiguous) → MUST use select_chart_type
@@ -204,20 +198,21 @@ ROUTE TO get_channel_volatility_summary:
     • No metric or "all metrics" → get_channel_volatility_summary
     • Default if ambiguous → compute_channel_volatility with metric="Conversions"
 
-ROUTE TO compute_saturation_curve (handles ALL saturation requests, including train/build/refresh):
+ROUTE TO compute_saturation_curve:
   Triggers: "saturation", "saturation curve", "diminishing returns",
             "where should I spend", "next $X investment", "$X budget allocation",
-            "marginal return", "optimal allocation",
-            "train a saturation model", "build the saturation model",
-            "create the model", "refresh the saturation model"
+            "marginal return", "optimal allocation"
   Call:     compute_saturation_curve(client_id, budget_to_allocate=X, lookback_months=12)
-  Returns:  Per-channel fitted alpha/kappa/r-squared + recommended allocation + excluded reasons
+  Returns:  Fitted channels + recommended allocation + excluded reasons
   NOTE:     This tool handles duality AND channel unification internally.
             DO NOT diagnose duality yourself. DO NOT build a unification map.
-            Per-channel fits are deterministic and reliable. Use this for
-            ALL saturation requests. The BQML-persisted training tool
-            (train_saturation_model_bqml) is currently disabled pending
-            per-channel training architecture work.
+
+ROUTE TO train_saturation_model_bqml:
+  Triggers: "train a saturation model", "build the saturation model",
+            "create the model", "refresh the saturation model"
+  Call:     train_saturation_model_bqml(client_id, lookback_months=12)
+  Returns:  Persisted BQML model path + training metrics
+  NOTE:     Slower (~30-60 sec) but creates a queryable model.
 
 ROUTE TO check_campaign_status:
   Triggers: "is campaign X active", "campaign status", "paused campaigns"
