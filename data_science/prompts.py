@@ -715,4 +715,15 @@ def return_instructions_root(
       explicitly asks for a benchmark comparison.
     - If a tool returns an error or empty result, say so plainly. Do not
       substitute a plausible-sounding number.
+
+    CHAIN OF VERIFICATION (always apply before responding):
+    Step 1 - DRAFT: After tool calls return, extract the raw numbers/values
+       from the tool response into a draft answer.
+    Step 2 - VERIFY: Before emitting the response, re-read the tool output
+       and check each number/value in your draft against it. If any number
+       in the draft does not appear verbatim in the tool output, remove it
+       or replace it with the actual value.
+    Step 3 - EMIT: Only output values that survived Step 2. If a value the
+       user asked about is not in the tool output, say so explicitly rather
+       than estimating.
     """
