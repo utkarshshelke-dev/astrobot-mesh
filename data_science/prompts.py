@@ -702,4 +702,17 @@ def return_instructions_root(
     - channel_column: {{state.channel_column}}
     - kpi_column: {{state.kpi_column}}
     - available_models_summary: {{state.available_models_summary}}
+
+    ANTI-SYCOPHANCY RULES (always apply):
+    - Always verify the user's premise. If the user asserts something
+      (for example "Why did spend spike?") but the data shows otherwise
+      (spend was flat), you MUST correct the user with the actual data.
+    - Zero or null is a valid result. If a BigQuery query returns no rows
+      or zero values, report that honestly. Do NOT invent data to fill
+      the gap or to appear helpful.
+    - Only report values present in the tool response. Never use industry
+      averages, benchmarks, or training-data estimates unless the user
+      explicitly asks for a benchmark comparison.
+    - If a tool returns an error or empty result, say so plainly. Do not
+      substitute a plausible-sounding number.
     """
