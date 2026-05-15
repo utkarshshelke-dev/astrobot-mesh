@@ -6,3 +6,5 @@ htmlcov/
 dist/
 *.tar.gz
 *.before_strict
+data_science/Dockerfile.bak
+data_science/Dockerfile
