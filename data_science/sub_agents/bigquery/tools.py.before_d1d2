@@ -165,44 +165,11 @@ logger = logging.getLogger(__name__)
 
 _PROJECT_ID = os.getenv("BQ_DATA_PROJECT_ID", "nc-ai-chatbot")
 
-def _build_client_table_map() -> dict:
-    """
-    Build the client -> performance-table-path map.
-    Prefers config v3 (loaded by KnowledgeManager) so adding clients
-    is a config edit, not a code edit. Falls back to the hardcoded
-    dict if config load fails for any reason.
-    """
-    hardcoded_fallback = {
-        "NPI":       f"{_PROJECT_ID}.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
-        "Venetian":  f"{_PROJECT_ID}.Astrobot_Venetian.sample_astrobot_venetian_nc360_dashboard",
-        "WinnDixie": f"{_PROJECT_ID}.Astrobot_WinnDixie.sample_astrobot_wd_nc360_dashboard",
-    }
-    try:
-        try:
-            from data_science.utils.knowledge_manager import manager as km
-        except ImportError:
-            from ...utils.knowledge_manager import manager as km
-        cfg = getattr(km, "_config", None) or {}
-        datasets = cfg.get("datasets", [])
-        if not datasets:
-            return hardcoded_fallback
-        result = {}
-        for d in datasets:
-            cid = d.get("client_id")
-            if not cid:
-                continue
-            for t in d.get("tables", []):
-                if t.get("table_id") == "performance":
-                    path = t.get("table_full_path")
-                    if path:
-                        result[cid] = path
-                    break
-        return result if result else hardcoded_fallback
-    except Exception:
-        return hardcoded_fallback
-
-
-_CLIENT_TABLE_MAP = _build_client_table_map()
+_CLIENT_TABLE_MAP = {
+    "NPI":       f"{_PROJECT_ID}.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
+    "Venetian":  f"{_PROJECT_ID}.Astrobot_Venetian.sample_astrobot_venetian_nc360_dashboard",
+    "WinnDixie": f"{_PROJECT_ID}.Astrobot_WinnDixie.sample_astrobot_wd_nc360_dashboard",
+}
 
 # Known Channel values in the dashboard (from NC360 taxonomy).
 # Used in pivot CTEs — add/remove as needed per client.
@@ -239,24 +206,7 @@ def _sanitize_json(obj):
     return obj
 
 
-def _get_table(client_id: str, tool_context=None) -> str | None:
-    """
-    Resolve the BigQuery table path for a query.
-
-    Priority:
-      1. state.routed_table_path  (per-question routing from KnowledgeManager)
-      2. _CLIENT_TABLE_MAP[client_id]  (client default = performance table)
-
-    Callers should pass tool_context whenever available. The no-arg form
-    is kept for legacy callers like get_database_settings (startup load).
-    """
-    if tool_context is not None:
-        try:
-            routed = tool_context.state.get("routed_table_path")
-            if routed:
-                return routed
-        except Exception:
-            pass
+def _get_table(client_id: str) -> str | None:
     return _CLIENT_TABLE_MAP.get(client_id)
 
 
@@ -438,7 +388,7 @@ def bigquery_nl2sql(question: str, tool_context: ToolContext) -> dict:
       - Filter by Channel using WHERE Channel = '...' or GROUP BY Channel
     """
     client_id = tool_context.state.get("client_id", "NPI")
-    table     = _get_table(client_id, tool_context)
+    table     = _get_table(client_id)
     if not table:
         return _unknown_client(client_id)
 
@@ -473,7 +423,7 @@ def check_campaign_status(campaign_name: str, tool_context: ToolContext) -> dict
         campaign_name: Full or partial campaign name to look up.
     """
     client_id = tool_context.state.get("client_id", "NPI")
-    table     = _get_table(client_id, tool_context)
+    table     = _get_table(client_id)
     if not table:
         return _unknown_client(client_id)
 
@@ -518,7 +468,7 @@ def get_pacing_sql(tool_context: ToolContext) -> dict:
     - MTD spend by channel.
     """
     client_id = tool_context.state.get("client_id", "NPI")
-    table     = _get_table(client_id, tool_context)
+    table     = _get_table(client_id)
     if not table:
         return _unknown_client(client_id)
 
@@ -590,7 +540,7 @@ def get_channel_efficiency_sql(tool_context: ToolContext) -> dict:
     - How are channels performing?
     """
     client_id = tool_context.state.get("client_id", "NPI")
-    table     = _get_table(client_id, tool_context)
+    table     = _get_table(client_id)
     if not table:
         return _unknown_client(client_id)
 
@@ -638,7 +588,7 @@ def get_correlation_sql(tool_context: ToolContext) -> dict:
     - Correlation analysis between spend and outcomes.
     """
     client_id = tool_context.state.get("client_id", "NPI")
-    table     = _get_table(client_id, tool_context)
+    table     = _get_table(client_id)
     if not table:
         return _unknown_client(client_id)
 
@@ -691,7 +641,7 @@ def get_cpa_monthly_sql(tool_context: ToolContext) -> dict:
     - Most cost-efficient channel for conversions.
     """
     client_id = tool_context.state.get("client_id", "NPI")
-    table     = _get_table(client_id, tool_context)
+    table     = _get_table(client_id)
     if not table:
         return _unknown_client(client_id)
 
@@ -746,7 +696,7 @@ def get_saturation_sql(channel: str, tool_context: ToolContext) -> dict:
         channel: Exact Channel value e.g. 'Search', 'Social', 'Display'
     """
     client_id = tool_context.state.get("client_id", "NPI")
-    table     = _get_table(client_id, tool_context)
+    table     = _get_table(client_id)
     if not table:
         return _unknown_client(client_id)
 
@@ -795,7 +745,7 @@ def get_channel_efficiency_rank_sql(tool_context: ToolContext) -> dict:
     - Budget reallocation recommendation.
     """
     client_id = tool_context.state.get("client_id", "NPI")
-    table     = _get_table(client_id, tool_context)
+    table     = _get_table(client_id)
     if not table:
         return _unknown_client(client_id)
 

@@ -28,7 +28,6 @@ def route_question_to_table(
       - matched_keywords: list[str]
       - confidence: 'high' | 'medium' | 'low' | 'default'
     """
-    config = config or load_config_v3()
     client = get_client(client_id, config)
     q_lower = question.lower().strip()
     # Tokenize to handle "budget is remaining" → matches "budget remaining"
@@ -46,13 +45,7 @@ def route_question_to_table(
 
     scored = []
     for table in client["tables"]:
-        per_table_kw = table.get("applicable_questions", [])
-        global_kw = (
-            config.get("_global_table_types", {})
-            .get(table.get("table_id", ""), {})
-            .get("keywords", [])
-        )
-        keywords = list({*per_table_kw, *global_kw})
+        keywords = table.get("applicable_questions", [])
         matched = [kw for kw in keywords if keyword_matches(kw, q_lower, q_tokens)]
         if matched:
             scored.append((table, matched, len(matched)))

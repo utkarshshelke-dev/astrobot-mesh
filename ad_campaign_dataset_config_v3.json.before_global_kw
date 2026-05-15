@@ -367,46 +367,5 @@
       "never_select_star_without_limit": "Use specific columns and LIMIT if exploratory",
       "use_safe_divide_for_ratios": "Use SAFE_DIVIDE() to prevent divide-by-zero errors"
     }
-  },
-  "_global_table_types": {
-    "pacing": {
-      "keywords": [
-        "pacing",
-        "budget",
-        "budget_total",
-        "forecast_total",
-        "budget remaining",
-        "forecast remaining",
-        "burn rate",
-        "underpacing",
-        "overpacing",
-        "on pace",
-        "over budget",
-        "under budget",
-        "days remaining",
-        "month-end forecast",
-        "will we hit budget",
-        "geo budget",
-        "partner budget",
-        "budget flag",
-        "projected spend"
-      ]
-    },
-    "performance": {
-      "keywords": [
-        "cpa",
-        "roas",
-        "ctr",
-        "cpc",
-        "cvr",
-        "conversions",
-        "channel efficiency",
-        "top channels",
-        "correlation",
-        "saturation",
-        "diminishing returns",
-        "halo"
-      ]
-    }
   }
 }

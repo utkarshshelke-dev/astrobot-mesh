@@ -217,10 +217,7 @@
             "days remaining",
             "budget flag",
             "projected spend",
-            "will we hit budget",
-            "budget",
-            "budget_total",
-            "forecast_total"
+            "will we hit budget"
           ],
           "_channel_taxonomy_note": "Pacing table uses GVMM_Channel (normalized). 'DEFAULT' = test/unmapped partners - exclude from analyses."
         }
@@ -356,7 +353,7 @@
       "tv_halo_use_correlation": "TV halo questions use Pearson correlation between TV spend and Search/Direct conversions",
       "forecast_aggregate_to_weekly_for_chart": "Daily forecast arrays exceed chart limits; aggregate to weekly before charting",
       "always_resolve_channel_terms_via_taxonomy": "When user mentions 'awareness', 'organic', 'paid', etc., look up the actual channel list from channel_taxonomy. Never guess.",
-      "pacing_use_days_remaining_for_projections": "For 'will we hit budget?' questions, use Forecast_Total_Last_7_Days × Days_Remaining",
+      "pacing_use_days_remaining_for_projections": "For 'will we hit budget?' questions, use Forecast_Total_Last_7_Days \u00d7 Days_Remaining",
       "flag_status_check_first": "Before reporting pacing, check Budget_Flag column for status",
       "ignore_default_channel_unless_explicit": "GVMM_Channel='DEFAULT' is unmapped/test data; exclude unless user explicitly asks about test partners",
       "use_GVMM_Channel_not_Budget_Channel_for_grouping": "When grouping pacing data, use GVMM_Channel (normalized) not Budget_Channel (raw)",
@@ -366,47 +363,6 @@
       "always_use_date_range_filter": "Never scan full table; always include WHERE Date >= ...",
       "never_select_star_without_limit": "Use specific columns and LIMIT if exploratory",
       "use_safe_divide_for_ratios": "Use SAFE_DIVIDE() to prevent divide-by-zero errors"
-    }
-  },
-  "_global_table_types": {
-    "pacing": {
-      "keywords": [
-        "pacing",
-        "budget",
-        "budget_total",
-        "forecast_total",
-        "budget remaining",
-        "forecast remaining",
-        "burn rate",
-        "underpacing",
-        "overpacing",
-        "on pace",
-        "over budget",
-        "under budget",
-        "days remaining",
-        "month-end forecast",
-        "will we hit budget",
-        "geo budget",
-        "partner budget",
-        "budget flag",
-        "projected spend"
-      ]
-    },
-    "performance": {
-      "keywords": [
-        "cpa",
-        "roas",
-        "ctr",
-        "cpc",
-        "cvr",
-        "conversions",
-        "channel efficiency",
-        "top channels",
-        "correlation",
-        "saturation",
-        "diminishing returns",
-        "halo"
-      ]
     }
   }
 }
