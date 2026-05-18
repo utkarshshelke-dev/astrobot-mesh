@@ -18,6 +18,7 @@ RUN pip install \
       "google-cloud-storage" \
       "google-cloud-logging" \
       "google-cloud-bigquery" \
+      "google-cloud-firestore>=2.16.0" \
       "python-dotenv>=1.0.1" \
       "immutabledict>=4.2.1" \
       "sqlglot>=26.10.1" \
@@ -55,6 +56,7 @@ ENV BQ_DATA_PROJECT_ID=nc-ai-chatbot
 ENV GOOGLE_CLOUD_LOCATION=us-central1
 ENV GOOGLE_GENAI_USE_VERTEXAI=true
 ENV DATASET_CONFIG_FILE_V3=/workspace/ad_campaign_dataset_config_v3.json
+ENV USE_FIRESTORE_CONFIG=true
 
 CMD adk web \
     --host 0.0.0.0 \
