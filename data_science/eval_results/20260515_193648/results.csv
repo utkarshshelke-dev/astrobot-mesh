@@ -1,0 +1,1 @@
+timestamp,test_name,category,eval_id,prompt,agent_response,tools_called,tool_count,duration_sec,tool_trajectory_score,response_match_score,verdict,expected_outcome,peak_mem_mb,figures_leaked,gc_objects_delta,leak_score,judge_verdict,judge_hallucination,judge_quality,judge_reason,error_summary

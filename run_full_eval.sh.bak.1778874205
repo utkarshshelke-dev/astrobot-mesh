@@ -1,3 +1,62 @@
+#!/bin/bash
+# ============================================================
+# Unit tests + adk eval (positive AND negative) + coverage + CSV
+#
+# Usage:
+#   ./run_full_eval.sh                → fast (unit + 2 evals: 1 pos + 1 neg)
+#   ./run_full_eval.sh --full         → unit + 8 evals (4 pos + 4 neg)
+#   ./run_full_eval.sh --positive     → only positive cases
+#   ./run_full_eval.sh --negative     → only negative cases
+#
+# Outputs:
+#   eval_results/<timestamp>/
+#     ├── results.csv                 → all test outcomes
+#     ├── results.md                  → human-readable summary
+#     ├── <test>_raw.log              → full eval log per test
+#     ├── coverage_summary.txt        → coverage snapshot
+#     └── unit_tests.log              → pytest output
+#   htmlcov/index.html                → coverage HTML
+# ./run_full_eval.sh
+# ============================================================
+
+# set -e  # removed: breaks heredoc with --- dividers
+cd "$(dirname "$0")"
+
+MODE="${1:---full}"
+START_TIME=$(date +%s)
+RUN_TS=$(date +%Y%m%d_%H%M%S)
+RESULTS_DIR="data_science/eval_results/${RUN_TS}"
+mkdir -p "$RESULTS_DIR"
+
+CSV_FILE="$RESULTS_DIR/results.csv"
+MD_FILE="$RESULTS_DIR/results.md"
+
+# CSV header — added 'category' column
+cat > "$CSV_FILE" << 'HDR'
+timestamp,test_name,category,eval_id,prompt,agent_response,tools_called,tool_count,duration_sec,tool_trajectory_score,response_match_score,verdict,expected_outcome,peak_mem_mb,figures_leaked,gc_objects_delta,leak_score,judge_verdict,judge_hallucination,judge_quality,judge_reason,error_summary
+HDR
+
+cat > "$MD_FILE" << HDR
+# Eval Run Report — ${RUN_TS}
+
+Mode: \`${MODE}\`
+Run started: $(date)
+
+HDR
+
+echo "================================================================"
+echo "  Astrobot eval — mode: $MODE — run: $RUN_TS"
+echo "================================================================"
+
+# ============================================================
+# Eval JSON files
+# ============================================================
+mkdir -p tests/eval
+
+# ───────────────── POSITIVE TESTS ─────────────────
+
+# P1: Smoke (simple top-N bar chart)
+cat > tests/eval/pos_smoke.evalset.json << 'EOF'
 [
   {
       "name": "pos_smoke_top_channels",

@@ -786,30 +786,4 @@ def return_instructions_root(
     Step 3 - EMIT: Only output values that survived Step 2. If a value the
        user asked about is not in the tool output, say so explicitly rather
        than estimating.
-
-    SHOW INTERMEDIATE STEPS (apply whenever you execute a query):
-    Before the final answer, surface the work briefly so the user can
-    verify your path. Use this exact format:
-
-       **Steps:**
-       1. Called `<tool_name>` (e.g., get_pacing_sql, bigquery_nl2sql, compute_saturation_curve)
-       2. Generated SQL:
-```sql
-          <the generated SQL from the tool response, as-is>
-```
-       3. Returned <N> rows.
-
-       **Answer:**
-       <your normal answer here>
-
-    Rules:
-    - Only include "Steps" when a SQL-producing or data-computing tool was called.
-    - For simple greetings, refusals, or out-of-scope replies — skip "Steps".
-    - If the tool response has no "sql" field, omit the SQL block but
-      still list the tool you called and the row count.
-    - SQL goes verbatim from the tool response. Do NOT paraphrase, edit,
-      or invent SQL. If you didn't see SQL in the tool output, say
-      "(no SQL — tool used pre-computed logic)" instead of guessing.
-    - This narration is in addition to the response format above, not
-      a replacement.
     """
