@@ -18,6 +18,7 @@ from typing import Optional
 
 _CONFIG_CACHE = None
 _CONFIG_PATH_USED = None
+_CONFIG_BACKEND_USED = None  # 'file' or 'firestore'
 
 
 def _resolve_config_path(path: Optional[str] = None) -> str:
@@ -47,24 +48,118 @@ def _resolve_config_path(path: Optional[str] = None) -> str:
 
 
 def load_config_v3(path: Optional[str] = None, force_reload: bool = False) -> dict:
-    """Load v3 config. Cached unless force_reload=True."""
-    global _CONFIG_CACHE, _CONFIG_PATH_USED
-    resolved = _resolve_config_path(path)
+    """Load v3 config. Cached unless force_reload=True.
 
-    if not force_reload and _CONFIG_CACHE is not None and _CONFIG_PATH_USED == resolved:
-        return _CONFIG_CACHE
+    Backend selected by env var USE_FIRESTORE_CONFIG:
+      true  -> read from ds_agent_* Firestore collections
+      unset/false -> read from JSON file (existing behavior)
 
-    with open(resolved) as f:
-        _CONFIG_CACHE = json.load(f)
-    _CONFIG_PATH_USED = resolved
+    Both backends return the same dict shape, so all downstream callers
+    work unchanged. Cache is keyed by (backend, path).
+    """
+    global _CONFIG_CACHE, _CONFIG_PATH_USED, _CONFIG_BACKEND_USED
+
+    use_firestore = os.getenv("USE_FIRESTORE_CONFIG", "").lower() == "true"
+    backend = "firestore" if use_firestore else "file"
+
+    # Cache hit: same backend, and (for file) same path
+    if not force_reload and _CONFIG_CACHE is not None and _CONFIG_BACKEND_USED == backend:
+        if backend == "file":
+            resolved = _resolve_config_path(path)
+            if _CONFIG_PATH_USED == resolved:
+                return _CONFIG_CACHE
+        else:
+            return _CONFIG_CACHE
+
+    if use_firestore:
+        _CONFIG_CACHE = _load_from_firestore()
+        _CONFIG_PATH_USED = None
+    else:
+        _CONFIG_CACHE = _load_from_file(path)
+    _CONFIG_BACKEND_USED = backend
     return _CONFIG_CACHE
 
 
+def _load_from_file(path: Optional[str] = None) -> dict:
+    """Read v3 config from JSON file. Existing behavior, unchanged."""
+    global _CONFIG_PATH_USED
+    resolved = _resolve_config_path(path)
+    with open(resolved) as f:
+        data = json.load(f)
+    _CONFIG_PATH_USED = resolved
+    return data
+
+
 def reset_config_cache():
-    """Clear cached config. Useful for tests."""
-    global _CONFIG_CACHE, _CONFIG_PATH_USED
+    """Clear cached config. Useful for tests + after config writes."""
+    global _CONFIG_CACHE, _CONFIG_PATH_USED, _CONFIG_BACKEND_USED
     _CONFIG_CACHE = None
     _CONFIG_PATH_USED = None
+    _CONFIG_BACKEND_USED = None
+
+
+def _load_from_firestore() -> dict:
+    """Read v3 config from Firestore (ds_agent_* collections).
+
+    Layout:
+      ds_agent_app_config/dataset_config_v3
+         -> _schema_version, _description, _global_rules, _global_table_types, client_ids
+      ds_agent_datasets/<client_id>
+         -> client_id, channel_unification, _meta (internal, stripped)
+      ds_agent_datasets/<client_id>/tables/<table_id>
+         -> full per-table dict
+
+    Returns the same shape as _load_from_file().
+    """
+    # Lazy imports - only when firestore backend is active
+    from google.cloud import firestore as _firestore
+    from data_science.utils.firestore_constants import (
+        DS_AGENT_APP_CONFIG_COLLECTION,
+        DS_AGENT_DATASETS_COLLECTION,
+        DATASET_CONFIG_DOC_ID,
+        TABLES_SUBCOLLECTION,
+    )
+
+    project = os.getenv("GOOGLE_CLOUD_PROJECT", "nc-ai-chatbot")
+    database = os.getenv("FIRESTORE_DB", "(default)")
+    fs = _firestore.Client(project=project, database=database)
+
+    app_doc = (
+        fs.collection(DS_AGENT_APP_CONFIG_COLLECTION)
+          .document(DATASET_CONFIG_DOC_ID)
+          .get()
+    )
+    if not app_doc.exists:
+        raise RuntimeError(
+            "Firestore config missing at "
+            + DS_AGENT_APP_CONFIG_COLLECTION + "/" + DATASET_CONFIG_DOC_ID
+            + ". Run: python deployment/migrate_dataset_config_to_firestore.py"
+        )
+    app_data = app_doc.to_dict()
+    client_ids = app_data.get("client_ids", [])
+
+    datasets = []
+    for cid in client_ids:
+        client_ref = fs.collection(DS_AGENT_DATASETS_COLLECTION).document(cid)
+        client_doc = client_ref.get()
+        if not client_doc.exists:
+            continue  # index out of sync; skip this client
+        client_data = client_doc.to_dict()
+        client_data.pop("_meta", None)  # strip internal tracking
+
+        tables = []
+        for tdoc in client_ref.collection(TABLES_SUBCOLLECTION).stream():
+            tables.append(tdoc.to_dict())
+        client_data["tables"] = tables
+        datasets.append(client_data)
+
+    return {
+        "_schema_version": app_data.get("_schema_version"),
+        "_description": app_data.get("_description"),
+        "_global_rules": app_data.get("_global_rules", []),
+        "_global_table_types": app_data.get("_global_table_types", []),
+        "datasets": datasets,
+    }
 
 
 # -------- Client and table lookup --------
