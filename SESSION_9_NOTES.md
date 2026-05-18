@@ -96,3 +96,23 @@ Reconcile pyproject.toml vs Dockerfile | 30 min | Low
 - Find ALL hardcoded model references across tools.py, prompts.py, agent.py
 - Test new-client BQML doesn't try to use NPI models
 - Real architectural piece, deserves dedicated block
+
+## Firestore console UX (discussed end of session)
+
+User raised: clients/reviewers shouldn't need 4-level drill to see
+"which rules apply to NPI's performance table." Data exists at
+ds_agent_datasets/NPI/tables/performance with all 8 rules + channel_taxonomy
++ channel_unification, but reaching it from the console is friction.
+
+Plus the rule TEXT (what each rule_id means) is in a separate collection
+(ds_agent_app_config/dataset_config_v3._global_rules.rule_definitions).
+
+Tomorrow — pick one:
+A. FIRESTORE_LAYOUT.md documentation only (~30 min). Cheapest. UX unchanged.
+B. De-normalize: store rules as [{id, description}] inline per table doc
+   (~2-3 hours). Single-doc review in console. Trade-off: rule definitions
+   duplicated across table docs.
+C. Build a small admin web page joining Firestore data per table
+   (~5-10 hours). Best UX, most work.
+
+Default if user doesn't pick: A.
