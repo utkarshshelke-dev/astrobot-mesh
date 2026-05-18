@@ -272,18 +272,6 @@ def return_instructions_bqml() -> str:
     
     🔮 FORECASTING (ARIMA_PLUS):
     - npi_arima_spend            → Daily SPEND forecast
-    # ─────────────────────────────────────────────────────────────────
-    # MODELS RETIRED (deleted from BQML on May 19, 2026):
-    # - npi_arima_revenue: NPI dashboard view has no Revenue column.
-    #   NPI is a tourism client (Nassau Paradise Island); revenue lives in
-    #   downstream hotel booking systems, not in the ad data view.
-    #   Closest proxy was Sales_Hotel_Linkouts (a click-out count), which
-    #   would be misleading to call "revenue". Retired entirely.
-    # - npi_arima_search_sessions: schema has no Search_Sessions column.
-    #   Sessions exists but is not channel-filtered. Search is a small
-    #   fraction of NPI traffic. Retired entirely.
-    # Models removed via: bq rm -f -m nc-ai-chatbot:astrobot_bqml_models.<name>
-    # ─────────────────────────────────────────────────────────────────
     - npi_arima_revenue          → DEPRECATED (source Revenue column missing — stale July 2025)
     - arima_npi_all_conversions  → All CONVERSIONS forecast
     - npi_arima_search_sessions  → DEPRECATED (source Search_Sessions column missing — stale June 2025)
