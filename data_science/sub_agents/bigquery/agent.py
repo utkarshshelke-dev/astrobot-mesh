@@ -96,7 +96,6 @@ bigquery_agent = LlmAgent(
         tools.train_arima_model_bqml,
         tools.train_saturation_model_bqml,
         tools.propose_new_table,
-        tools.propose_new_table,
         tools.select_chart_type,
         tools.get_pacing_sql,
         tools.get_channel_efficiency_sql,
