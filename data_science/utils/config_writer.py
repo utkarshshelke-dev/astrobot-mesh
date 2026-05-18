@@ -477,6 +477,101 @@ def _prune_backups(config_path: Path) -> None:
             pass
 
 
+def _firestore_commit(proposed_config: dict) -> str:
+    """Write proposed_config to Firestore (ds_agent_* collections).
+
+    Inverse of channel_resolver._load_from_firestore. Writes:
+      ds_agent_app_config/dataset_config_v3 (globals + client_ids index)
+      ds_agent_datasets/<client_id>          (client metadata + channel_unification)
+      ds_agent_datasets/<client_id>/tables/<table_id>  (per-table dicts)
+
+    Uses a Firestore batched write for atomicity (single network round-trip,
+    all-or-nothing semantics within the batch).
+
+    Resets channel_resolver._CONFIG_CACHE after write so subsequent
+    load_config_v3() calls see the new state.
+
+    Returns:
+        Short audit message (e.g. "firestore: wrote 1 app_config + 3 clients + 6 tables")
+    """
+    from datetime import datetime, timezone
+    from google.cloud import firestore as _firestore
+    from data_science.utils.firestore_constants import (
+        DS_AGENT_APP_CONFIG_COLLECTION,
+        DS_AGENT_DATASETS_COLLECTION,
+        DATASET_CONFIG_DOC_ID,
+        TABLES_SUBCOLLECTION,
+    )
+
+    project = os.getenv("GOOGLE_CLOUD_PROJECT", "nc-ai-chatbot")
+    database = os.getenv("FIRESTORE_DB", "(default)")
+    fs = _firestore.Client(project=project, database=database)
+
+    now_iso = datetime.now(timezone.utc).isoformat()
+
+    datasets = proposed_config.get("datasets", [])
+    client_ids = [d["client_id"] for d in datasets if d.get("client_id")]
+
+    batch = fs.batch()
+    n_app, n_clients, n_tables = 0, 0, 0
+
+    # 1. App config doc — globals + client index
+    app_ref = (
+        fs.collection(DS_AGENT_APP_CONFIG_COLLECTION)
+          .document(DATASET_CONFIG_DOC_ID)
+    )
+    batch.set(app_ref, {
+        "_schema_version": proposed_config.get("_schema_version"),
+        "_description": proposed_config.get("_description"),
+        "_global_rules": proposed_config.get("_global_rules", []),
+        "_global_table_types": proposed_config.get("_global_table_types", []),
+        "client_ids": client_ids,
+        "last_updated": now_iso,
+    }, merge=True)
+    n_app = 1
+
+    # 2. Per-client docs + 3. Per-table subcollection docs
+    for ds in datasets:
+        cid = ds.get("client_id")
+        if not cid:
+            continue
+        tables = ds.get("tables", [])
+
+        # Client doc (strip tables — they go to subcollection)
+        client_payload = {
+            "client_id": cid,
+            "channel_unification": ds.get("channel_unification", {}),
+            "_meta": {
+                "table_count": len(tables),
+                "last_updated": now_iso,
+            },
+        }
+        client_ref = fs.collection(DS_AGENT_DATASETS_COLLECTION).document(cid)
+        batch.set(client_ref, client_payload, merge=True)
+        n_clients += 1
+
+        # Table docs in subcollection
+        for tbl in tables:
+            table_id = tbl.get("table_id")
+            if not table_id:
+                continue
+            table_ref = client_ref.collection(TABLES_SUBCOLLECTION).document(table_id)
+            batch.set(table_ref, tbl, merge=True)
+            n_tables += 1
+
+    # Commit the batch atomically (single network call)
+    batch.commit()
+
+    # Reset read-side cache so subsequent load_config_v3() picks up changes
+    try:
+        from data_science.lib.channel_resolver import reset_config_cache
+        reset_config_cache()
+    except Exception:
+        pass  # never let cache-reset failure break the write
+
+    return f"firestore: wrote {n_app} app_config + {n_clients} clients + {n_tables} tables"
+
+
 def _atomic_commit(proposed_config: dict, config_path: Path) -> str:
     """
     Backup the current real config, atomically replace it with proposed_config,
@@ -760,8 +855,11 @@ def confirm_change(
         })
         return result
 
-    # Gate 3 — atomic commit.
-    backup_path = _atomic_commit(proposed, cfg_path)
+    # Gate 3 — atomic commit. Backend selected by USE_FIRESTORE_CONFIG.
+    if os.getenv("USE_FIRESTORE_CONFIG", "").lower() == "true":
+        backup_path = _firestore_commit(proposed)
+    else:
+        backup_path = _atomic_commit(proposed, cfg_path)
     _audit(cfg_path, {
         "phase": "confirm", "token": token, "confirmed_by": confirmed_by,
         "diff_summary": diff_summary, "result": "committed",
@@ -881,7 +979,11 @@ def rollback(
         })
         return result
 
-    new_backup = _atomic_commit(backup_config, cfg_path)
+    # Backend selected by USE_FIRESTORE_CONFIG (rollback path).
+    if os.getenv("USE_FIRESTORE_CONFIG", "").lower() == "true":
+        new_backup = _firestore_commit(backup_config)
+    else:
+        new_backup = _atomic_commit(backup_config, cfg_path)
     _audit(cfg_path, {
         "phase": "rollback", "backup_path": backup_path,
         "confirmed_by": confirmed_by, "result": "committed",
