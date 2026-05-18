@@ -74,3 +74,25 @@ Read in this order:
 3. Pick from "Outstanding" — recommend #2 (BQML smoke test, easiest win)
    then #3 (intermediate steps), then #1 (list tables diagnostic).
    Skip #4 until teammate grants IAM.
+
+## Time estimates for outstanding work (added end of session)
+
+Item | Time | Priority
+-----|------|----
+list_tables_for_client tool + prompt rule | 30 min | High (tonight's confusion)
+BQML smoke test (item 4) | 15 min | High (quick win)
+Intermediate steps visual check (item 5) | 10 min | Medium
+BQML hardcoding refactor (new — surfaced in session 9) | 3-4 hours | Medium (architectural)
+Code hygiene (dup write_to_config_directly, etc) | 1 hour | Low
+Reconcile pyproject.toml vs Dockerfile | 30 min | Low
+
+**Recommendation for tomorrow:**
+- Start with 3 quick wins (~55 min total)
+- If 4+ fresh hours remaining, do BQML refactor
+- Otherwise defer BQML to next session
+
+**BQML refactor scope:**
+- Make model inventory dynamic (read from BQ at boot vs hardcoded list)
+- Find ALL hardcoded model references across tools.py, prompts.py, agent.py
+- Test new-client BQML doesn't try to use NPI models
+- Real architectural piece, deserves dedicated block
