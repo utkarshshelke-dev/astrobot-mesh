@@ -53,6 +53,7 @@ Tools:
 """
 
 from google.adk.tools import ToolContext
+from ...lib.channel_resolver import get_client_filter_value
 
 
 # Module-level cache (was missing — caused NameError when called outside agent context)
@@ -488,6 +489,7 @@ def bigquery_nl2sql(question: str, tool_context: ToolContext) -> dict:
       - Filter by Channel using WHERE Channel = '...' or GROUP BY Channel
     """
     client_id = tool_context.state.get("client_id", "NPI")
+    client_filter = tool_context.state.get("client_filter_value", client_id)
     table     = _get_table(client_id, tool_context)
     if not table:
         return _unknown_client(client_id)
@@ -523,6 +525,7 @@ def check_campaign_status(campaign_name: str, tool_context: ToolContext) -> dict
         campaign_name: Full or partial campaign name to look up.
     """
     client_id = tool_context.state.get("client_id", "NPI")
+    client_filter = tool_context.state.get("client_filter_value", client_id)
     table     = _get_table(client_id, tool_context)
     if not table:
         return _unknown_client(client_id)
@@ -568,6 +571,7 @@ def get_pacing_sql(tool_context: ToolContext) -> dict:
     - MTD spend by channel.
     """
     client_id = tool_context.state.get("client_id", "NPI")
+    client_filter = tool_context.state.get("client_filter_value", client_id)
     table     = _get_table(client_id, tool_context)
     if not table:
         return _unknown_client(client_id)
@@ -640,6 +644,7 @@ def get_channel_efficiency_sql(tool_context: ToolContext) -> dict:
     - How are channels performing?
     """
     client_id = tool_context.state.get("client_id", "NPI")
+    client_filter = tool_context.state.get("client_filter_value", client_id)
     table     = _get_table(client_id, tool_context)
     if not table:
         return _unknown_client(client_id)
@@ -688,6 +693,7 @@ def get_correlation_sql(tool_context: ToolContext) -> dict:
     - Correlation analysis between spend and outcomes.
     """
     client_id = tool_context.state.get("client_id", "NPI")
+    client_filter = tool_context.state.get("client_filter_value", client_id)
     table     = _get_table(client_id, tool_context)
     if not table:
         return _unknown_client(client_id)
@@ -741,6 +747,7 @@ def get_cpa_monthly_sql(tool_context: ToolContext) -> dict:
     - Most cost-efficient channel for conversions.
     """
     client_id = tool_context.state.get("client_id", "NPI")
+    client_filter = tool_context.state.get("client_filter_value", client_id)
     table     = _get_table(client_id, tool_context)
     if not table:
         return _unknown_client(client_id)
@@ -796,6 +803,7 @@ def get_saturation_sql(channel: str, tool_context: ToolContext) -> dict:
         channel: Exact Channel value e.g. 'Search', 'Social', 'Display'
     """
     client_id = tool_context.state.get("client_id", "NPI")
+    client_filter = tool_context.state.get("client_filter_value", client_id)
     table     = _get_table(client_id, tool_context)
     if not table:
         return _unknown_client(client_id)
@@ -845,6 +853,7 @@ def get_channel_efficiency_rank_sql(tool_context: ToolContext) -> dict:
     - Budget reallocation recommendation.
     """
     client_id = tool_context.state.get("client_id", "NPI")
+    client_filter = tool_context.state.get("client_filter_value", client_id)
     table     = _get_table(client_id, tool_context)
     if not table:
         return _unknown_client(client_id)
@@ -926,6 +935,8 @@ def compute_channel_volatility(
     Returns:
         dict with status, channels (list of channel/cv dicts sorted by cv desc), error.
     """
+    # Resolve SQL filter value (e.g. "SEG" for WinnDixie, else client_id)
+    client_filter = get_client_filter_value(client_id)
     try:
         from google.cloud import bigquery
     except ImportError:
@@ -962,7 +973,7 @@ def compute_channel_volatility(
         f"         SUM({metric}) AS value "
         f"  FROM `{table_name}` "
         f"  WHERE Date >= DATE_SUB(CURRENT_DATE(), INTERVAL {lookback_months} MONTH) "
-        f"    AND Client = '{client_id}' "
+        f"    AND Client = '{client_filter}' "
         f"    AND {metric} > 0 "
         f"  GROUP BY month, Channel "
         f") "
@@ -1112,6 +1123,8 @@ def compute_saturation_curve(
     Use for: "saturation", "budget allocation", "next $X investment",
              "diminishing returns", "where should I spend"
     """
+    # Resolve SQL filter value (e.g. "SEG" for WinnDixie, else client_id)
+    client_filter = get_client_filter_value(client_id)
     try:
         from google.cloud import bigquery
     except ImportError:
@@ -1136,7 +1149,7 @@ def compute_saturation_curve(
         Cost,
         Conversions
       FROM `{table_path}`
-      WHERE Client = '{client_id}'
+      WHERE Client = '{client_filter}'
         AND Date >= DATE_SUB(CURRENT_DATE(), INTERVAL {lookback_months} MONTH)
         AND Channel IS NOT NULL
     ),
@@ -1509,6 +1522,8 @@ def train_arima_model_bqml(
       when the view only has Cost/Conversions/Clicks/Sessions), training fails.
       Check the source schema first via _list_columns().
     """
+    # Resolve SQL filter value (e.g. "SEG" for WinnDixie, else client_id)
+    client_filter = get_client_filter_value(client_id)
     try:
         from google.cloud import bigquery
     except ImportError:
@@ -1571,7 +1586,7 @@ def train_arima_model_bqml(
     count_sql = f"""
     SELECT COUNT(*) AS n
     FROM `{table_path}`
-    WHERE Client = '{client_id}'
+    WHERE Client = '{client_filter}'
       AND Date >= DATE_SUB(CURRENT_DATE(), INTERVAL {lookback_months} MONTH)
       AND `{actual_column}` IS NOT NULL
     """
@@ -1605,7 +1620,7 @@ def train_arima_model_bqml(
       Date,
       SUM(`{actual_column}`) AS daily_value
     FROM `{table_path}`
-    WHERE Client = '{client_id}'
+    WHERE Client = '{client_filter}'
       AND Date >= DATE_SUB(CURRENT_DATE(), INTERVAL {lookback_months} MONTH)
       AND `{actual_column}` IS NOT NULL
     GROUP BY Date
@@ -1708,6 +1723,8 @@ def train_saturation_model_bqml(
     Use for: "train a saturation model", "create saturation model",
              "build the model", "refresh the model"
     """
+    # Resolve SQL filter value (e.g. "SEG" for WinnDixie, else client_id)
+    client_filter = get_client_filter_value(client_id)
     import warnings
     warnings.warn(
         "train_saturation_model_bqml is deprecated due to a shared-slope bug "
@@ -1766,7 +1783,7 @@ def train_saturation_model_bqml(
         Cost,
         Conversions
       FROM `{table_path}`
-      WHERE Client = '{client_id}'
+      WHERE Client = '{client_filter}'
         AND Date >= DATE_SUB(CURRENT_DATE(), INTERVAL {lookback_months} MONTH)
         AND Channel IS NOT NULL
     ),
@@ -1814,7 +1831,7 @@ def train_saturation_model_bqml(
         Cost,
         Conversions
       FROM `{table_path}`
-      WHERE Client = '{client_id}'
+      WHERE Client = '{client_filter}'
         AND Date >= DATE_SUB(CURRENT_DATE(), INTERVAL {lookback_months} MONTH)
         AND Channel IS NOT NULL
     ),
