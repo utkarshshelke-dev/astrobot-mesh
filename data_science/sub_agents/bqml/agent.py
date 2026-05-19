@@ -157,6 +157,13 @@ def bqml_before_agent_callback(callback_context: CallbackContext) -> None:
     """
     state = callback_context.state
     client_id = state.get("client_id") or state.get("LOCKED_CLIENT") or state.get("client_lock")
+    # Populate lowercase variant for SQL template substitution (e.g. "NPI" → "npi")
+    if client_id:
+        state["client_lower"] = client_id.lower()
+        state["LOCKED_CLIENT_LOWER"] = client_id.lower()
+    else:
+        state["client_lower"] = ""
+        state["LOCKED_CLIENT_LOWER"] = ""
 
     if not client_id:
         # No client locked — neutral placeholder so prompt still resolves

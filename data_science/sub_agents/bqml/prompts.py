@@ -98,7 +98,7 @@ def return_instructions_bqml() -> str:
       CASE WHEN Cost > 0 THEN 'has_spend' ELSE 'zero_spend' END AS spend_status,
       CASE WHEN Conversions > 0 THEN 'has_conv' ELSE 'zero_conv' END AS conv_status,
       COUNT(*) AS row_count
-    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
+    FROM `<project>.Astrobot_{state.LOCKED_CLIENT}.vw_astrobot_{state.client_lower}_nc360_dashboard`
     GROUP BY 1, 2
     
     INTERPRET RESULTS:
@@ -116,7 +116,7 @@ def return_instructions_bqml() -> str:
         SUM(Conversions) AS conv,
         SUM(Clicks) AS clicks,
         SUM(Impressions) AS impressions
-      FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
+      FROM `<project>.Astrobot_{state.LOCKED_CLIENT}.vw_astrobot_{state.client_lower}_nc360_dashboard`
       WHERE Channel IN ('Social', 'Search', 'Demand Gen', 'Performance Max')
       GROUP BY Date, Channel
     )
@@ -273,7 +273,7 @@ def return_instructions_bqml() -> str:
       Clicks,
       LN(Clicks + 1) AS log_clicks,
       Conversions
-    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
+    FROM `<project>.Astrobot_{state.LOCKED_CLIENT}.vw_astrobot_{state.client_lower}_nc360_dashboard`
     WHERE Cost > 0
 ```
     
@@ -345,37 +345,26 @@ def return_instructions_bqml() -> str:
     
     The SQL templates below use placeholder syntax. When YOU emit SQL:
     
-    - Replace `<client>` with the locked client identifier (e.g. NPI, Venetian, WinnDixie)
-    - Replace `<client_lower>` with lowercase version (npi, venetian, winndixie)
-    - Replace `<project>` with the BQ project (auto-substituted at runtime)
-    - `{bqml_ds}` is auto-substituted at runtime (= astrobot_bqml_models)
+    - {state.LOCKED_CLIENT} resolves to the locked client identifier (e.g. NPI, Venetian, WinnDixie)
+    - {state.client_lower} resolves to the lowercase version (npi, venetian, winndixie)
+    - {bqml_ds} is auto-substituted at runtime (= astrobot_bqml_models)
     
-    NEVER emit SQL containing literal `<client>`, `<client_lower>`, or `<project>` —
-    those are NOT real values. Always substitute with the current session\'s
-    locked client info from state.LOCKED_CLIENT.
+    These {state.X} substitutions happen AUTOMATICALLY at runtime — do not
+    try to substitute them yourself. The SQL you emit will contain the
+    correctly resolved values.
     
-    ══════════════════════════════════════════════════════════
-    SQL TEMPLATES — PLACEHOLDER NOTATION
-    ══════════════════════════════════════════════════════════
+    NEVER emit SQL containing literal "{state.LOCKED_CLIENT}", "{state.client_lower}"
+    or "<client>", "<client_lower>" — if you see those strings appearing in your
+    generated SQL, something is wrong with state propagation.
     
-    The SQL templates below use placeholder syntax. When YOU emit SQL:
-    
-    - Replace `<client>` with the locked client identifier (e.g. NPI, Venetian, WinnDixie)
-    - Replace `<client_lower>` with lowercase version (npi, venetian, winndixie)
-    - Replace `<project>` with the BQ project (auto-substituted at runtime)
-    - `{bqml_ds}` is auto-substituted at runtime (= astrobot_bqml_models)
-    
-    NEVER emit SQL containing literal `<client>`, `<client_lower>`, or `<project>` —
-    those are NOT real values. Always substitute with the current session\'s
-    locked client info from state.LOCKED_CLIENT.
-    
+
 
     ══════════════════════════════════════════════════════════
     KMEANS CLUSTERING
     ══════════════════════════════════════════════════════════
 
     TRAIN:
-    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.<client_lower>_campaign_clusters`
+    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.{state.client_lower}_campaign_clusters`
     OPTIONS (
         model_type           = 'KMEANS',
         num_clusters         = 4,
@@ -389,7 +378,7 @@ def return_instructions_bqml() -> str:
         SUM(Conversions) AS Total_Conversions,
         SUM(ViVs)        AS Total_ViVs,
         SUM(Sessions)    AS Total_Sessions
-    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
+    FROM `<project>.Astrobot_{state.LOCKED_CLIENT}.vw_astrobot_{state.client_lower}_nc360_dashboard`
     WHERE Cost > 0
     GROUP BY Campaign, Channel;
 
@@ -397,13 +386,13 @@ def return_instructions_bqml() -> str:
     SELECT Campaign, Channel, CENTROID_ID AS Cluster,
            Total_Cost, Total_Clicks, Total_Conversions
     FROM ML.PREDICT(
-        MODEL `<project>.{bqml_ds}.<client_lower>_campaign_clusters`,
+        MODEL `<project>.{bqml_ds}.{state.client_lower}_campaign_clusters`,
         (SELECT Campaign, Channel,
                 SUM(Cost) AS Total_Cost, SUM(Clicks) AS Total_Clicks,
                 SUM(Impressions) AS Total_Impressions,
                 SUM(Conversions) AS Total_Conversions,
                 SUM(ViVs) AS Total_ViVs, SUM(Sessions) AS Total_Sessions
-         FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
+         FROM `<project>.Astrobot_{state.LOCKED_CLIENT}.vw_astrobot_{state.client_lower}_nc360_dashboard`
          WHERE Cost > 0 GROUP BY Campaign, Channel)
     )
     ORDER BY Cluster, Total_Cost DESC;
@@ -421,7 +410,7 @@ def return_instructions_bqml() -> str:
     ══════════════════════════════════════════════════════════
 
     TRAIN:
-    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.<client_lower>_arima_spend`
+    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.{state.client_lower}_arima_spend`
     OPTIONS (
         model_type                = 'ARIMA_PLUS',
         time_series_timestamp_col = 'Date',
@@ -432,7 +421,7 @@ def return_instructions_bqml() -> str:
         clean_spikes_and_dips     = TRUE
     ) AS
     SELECT Date, SUM(Cost) AS Total_Cost
-    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
+    FROM `<project>.Astrobot_{state.LOCKED_CLIENT}.vw_astrobot_{state.client_lower}_nc360_dashboard`
     WHERE Cost > 0 GROUP BY Date ORDER BY Date;
 
     FORECAST:
@@ -441,7 +430,7 @@ def return_instructions_bqml() -> str:
            ROUND(prediction_interval_lower_bound, 2) AS Lower_Bound,
            ROUND(prediction_interval_upper_bound, 2) AS Upper_Bound
     FROM ML.FORECAST(
-        MODEL `<project>.{bqml_ds}.<client_lower>_arima_spend`,
+        MODEL `<project>.{bqml_ds}.{state.client_lower}_arima_spend`,
         STRUCT(14 AS horizon, 0.9 AS confidence_level)
     ) ORDER BY Forecast_Date;
 
@@ -452,29 +441,29 @@ def return_instructions_bqml() -> str:
     ══════════════════════════════════════════════════════════
 
     TRAIN:
-    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.<client_lower>_linear_cost`
+    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.{state.client_lower}_linear_cost`
     OPTIONS (
         model_type        = 'LINEAR_REG',
         input_label_cols  = ['Cost'],
         data_split_method = 'AUTO_SPLIT'
     ) AS
     SELECT Cost, Clicks, Impressions, ViVs, Sessions, Conversions
-    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
+    FROM `<project>.Astrobot_{state.LOCKED_CLIENT}.vw_astrobot_{state.client_lower}_nc360_dashboard`
     WHERE Cost > 0 AND Clicks IS NOT NULL;
 
     EVALUATE:
     SELECT ROUND(mean_absolute_error,4) AS MAE,
            ROUND(mean_squared_error,4)  AS MSE,
            ROUND(r2_score,4)            AS R2
-    FROM ML.EVALUATE(MODEL `<project>.{bqml_ds}.<client_lower>_linear_cost`);
+    FROM ML.EVALUATE(MODEL `<project>.{bqml_ds}.{state.client_lower}_linear_cost`);
 
     PREDICT:
     SELECT Campaign, Channel,
            ROUND(predicted_Cost,2) AS Predicted_Cost,
            ROUND(Cost,2)           AS Actual_Cost
     FROM ML.PREDICT(
-        MODEL `<project>.{bqml_ds}.<client_lower>_linear_cost`,
-        (SELECT * FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
+        MODEL `<project>.{bqml_ds}.{state.client_lower}_linear_cost`,
+        (SELECT * FROM `<project>.Astrobot_{state.LOCKED_CLIENT}.vw_astrobot_{state.client_lower}_nc360_dashboard`
          WHERE Cost > 0 LIMIT 50)
     ) ORDER BY predicted_Cost DESC;
 
@@ -487,10 +476,10 @@ def return_instructions_bqml() -> str:
 
     If ARIMA model exists:
     SELECT * FROM ML.DETECT_ANOMALIES(
-        MODEL `<project>.{bqml_ds}.<client_lower>_arima_spend`,
+        MODEL `<project>.{bqml_ds}.{state.client_lower}_arima_spend`,
         STRUCT(0.9 AS anomaly_prob_threshold),
         (SELECT Date, SUM(Cost) AS Total_Cost
-         FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
+         FROM `<project>.Astrobot_{state.LOCKED_CLIENT}.vw_astrobot_{state.client_lower}_nc360_dashboard`
          GROUP BY Date)
     ) WHERE is_anomaly = TRUE ORDER BY anomaly_probability DESC;
 
@@ -499,7 +488,7 @@ def return_instructions_bqml() -> str:
            (Total_Cost - AVG(Total_Cost) OVER()) /
            NULLIF(STDDEV(Total_Cost) OVER(), 0) AS z_score
     FROM (SELECT Date, SUM(Cost) AS Total_Cost
-          FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
+          FROM `<project>.Astrobot_{state.LOCKED_CLIENT}.vw_astrobot_{state.client_lower}_nc360_dashboard`
           GROUP BY Date)
     HAVING ABS(z_score) > 2.5 ORDER BY z_score DESC;
 
