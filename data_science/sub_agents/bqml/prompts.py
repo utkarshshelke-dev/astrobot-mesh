@@ -7,7 +7,7 @@ def return_instructions_bqml() -> str:
     project  = os.getenv("BQ_DATA_PROJECT_ID", "nc-ai-chatbot")
     bqml_ds  = os.getenv("BQML_DATASET_ID",    "astrobot_bqml_models")
 
-    return f"""
+    template = """
 
 
 
@@ -266,187 +266,7 @@ def return_instructions_bqml() -> str:
     SELECT * FROM ML.FEATURE_INFO(MODEL `nc-ai-chatbot.astrobot_bqml_models.<model_name>`)
 ```
     
-    📋 NPI MODELS REGISTRY (UPDATED — USE EXACT NAMES):
-    
-    Location: `nc-ai-chatbot.astrobot_bqml_models.<model_name>`
-    
-    🔮 FORECASTING (ARIMA_PLUS):
-    - npi_arima_spend            → Daily SPEND forecast
-    # ─────────────────────────────────────────────────────────────────
-    # MODELS RETIRED (deleted from BQML on May 19, 2026):
-    # - npi_arima_revenue: NPI dashboard view has no Revenue column.
-    #   NPI is a tourism client (Nassau Paradise Island); revenue lives in
-    #   downstream hotel booking systems, not in the ad data view.
-    #   Closest proxy was Sales_Hotel_Linkouts (a click-out count), which
-    #   would be misleading to call "revenue". Retired entirely.
-    # - npi_arima_search_sessions: schema has no Search_Sessions column.
-    #   Sessions exists but is not channel-filtered. Search is a small
-    #   fraction of NPI traffic. Retired entirely.
-    # Models removed via: bq rm -f -m nc-ai-chatbot:astrobot_bqml_models.<name>
-    # ─────────────────────────────────────────────────────────────────
-    - npi_arima_revenue          → DEPRECATED (source Revenue column missing — stale July 2025)
-    - arima_npi_all_conversions  → All CONVERSIONS forecast
-    - npi_arima_search_sessions  → DEPRECATED (source Search_Sessions column missing — stale June 2025)
-    
-    📈 PREDICTION (LINEAR_REGRESSION):
-    - npi_linear_cost                          → Predict COST
-    - npi_linear_cost_v2                       → Predict COST (improved)
-    - npi_conversions_saturation               → SATURATION curve
-    - npi_linear_conversions_search            → Search CONVERSIONS
-    - npi_linear_conversions_social            → Social CONVERSIONS
-    - npi_linear_conversions_demand_gen        → Demand Gen CONVERSIONS
-    - npi_linear_conversions_performance_max   → P-Max CONVERSIONS
-    - npi_social_conversions_cost_linear_reg   → Social conv from cost
-    - npi_social_search_conversions_lr         → Social→Search lift
-    
-    🌳 BOOSTED TREE:
-    - npi_boosted_conversions    → Conversions (more accurate)
-    
-    🎯 CLASSIFICATION:
-    - npi_campaign_classifier    → Campaign type prediction
-    
-    🔵 CLUSTERING:
-    - npi_campaign_clusters      → KMEANS clusters
-    
-    USAGE GUIDE:
-    
-    "forecast conversions"      → arima_npi_all_conversions
-    "forecast revenue"          → DO NOT USE (npi_arima_revenue is DEPRECATED, source column missing)
-    "forecast spend"            → npi_arima_spend
-    "predict cost"              → npi_linear_cost (or _v2)
-    "predict search conv"       → npi_linear_conversions_search
-    "predict social conv"       → npi_linear_conversions_social
-    "saturation curve"          → npi_conversions_saturation
-    "social to search lift"     → npi_social_search_conversions_lr
-    "cluster campaigns"         → npi_campaign_clusters
-    "campaign classification"   → npi_campaign_classifier
-    "best conversions model"    → npi_boosted_conversions
-    
-    🚫 IF MODEL DOESN'T MATCH:
-    Don't invent names. Either:
-    1. Use closest match with disclaimer
-    2. Train a new model with: 
-       CREATE OR REPLACE MODEL `nc-ai-chatbot.astrobot_bqml_models.<descriptive_name>`
-       OPTIONS(...) AS SELECT ...
-    
-    🚫 NEVER hallucinate model names like:
-    - npi_arima_conversions (use arima_npi_all_conversions)
-    - npi_forecast_revenue (use npi_arima_revenue)
-    - npi_kmeans (use npi_campaign_clusters)
-    
-    🔧 AUTO_TRAIN_FALLBACK (when requested model doesn't exist) 🔧
-    
-    Before calling ML.FORECAST or ML.PREDICT, VERIFY the model exists:
-    
-    Step 1 — Check existing models for NPI in `nc-ai-chatbot.astrobot_bqml_models`:
-    
-    EXISTING MODELS:
-    ✅ npi_arima_spend         (ARIMA_PLUS — daily SPEND forecast)
-    ✅ npi_linear_cost         (LINEAR_REG — predict Cost)
-    ✅ npi_campaign_clusters   (KMEANS — campaign clustering)
-    
-    Step 2 — IF the user wants a forecast/prediction that needs a model NOT in the list:
-    
-    🚫 DO NOT invent a model name (e.g., arima_npi_all_conversions doesn't exist!)
-    🚫 DO NOT call ML.FORECAST on a non-existent model
-    
-    ✅ DO ask user clearly:
-       "NPI doesn't have a pre-trained model for [conversions/revenue/etc.].
-        Available models are:
-        - npi_arima_spend (forecasts daily SPEND)
-        - npi_linear_cost (predicts Cost)
-        - npi_campaign_clusters (KMEANS)
-        
-        Would you like me to:
-        (a) Use spend forecast as a proxy
-        (b) Train a new model now (takes ~30 seconds)
-        
-        Which option do you prefer?"
-    
-    Step 3 — IF user agrees to train (option b), use this template:
-    
-    For ARIMA forecasting Conversions:
-```sql
-    CREATE OR REPLACE MODEL `nc-ai-chatbot.astrobot_bqml_models.npi_arima_conversions`
-    OPTIONS(
-      model_type = 'ARIMA_PLUS',
-      time_series_timestamp_col = 'Date',
-      time_series_data_col = 'Conversions'
-    ) AS
-    SELECT 
-      Date, 
-      SUM(Conversions) AS Conversions
-    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
-    WHERE Conversions IS NOT NULL AND Date IS NOT NULL
-    GROUP BY Date
-```
-    
-    For ARIMA forecasting Revenue:
-```sql
-    CREATE OR REPLACE MODEL `nc-ai-chatbot.astrobot_bqml_models.npi_arima_revenue`
-    OPTIONS(model_type='ARIMA_PLUS', time_series_timestamp_col='Date', 
-            time_series_data_col='Revenue') AS
-    SELECT Date, SUM(Revenue) AS Revenue
-    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
-    WHERE Date IS NOT NULL GROUP BY Date
-```
-    
-    For LINEAR_REG predicting Conversions from spend features:
-```sql
-    CREATE OR REPLACE MODEL `nc-ai-chatbot.astrobot_bqml_models.npi_linear_conversions`
-    OPTIONS(model_type='LINEAR_REG', input_label_cols=['Conversions']) AS
-    SELECT Cost, Clicks, Impressions, Sessions, Conversions
-    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
-    WHERE Cost > 0 AND Conversions IS NOT NULL
-```
-    
-    Step 4 — After training succeeds, run ML.FORECAST or ML.PREDICT on the new model.
-    
-    Step 5 — State result + caveats:
-    "Trained npi_arima_conversions on multi-year data. Forecast below.
-    ⚠️ Caveat: Only 30 days of training data — wide confidence intervals expected."
-    
-
-    🚫 NEVER USE these (they don't exist):
-    - arima_npi_all_conversions ❌
-    - npi_arima_conversions ❌
-    - npi_conversion_forecast ❌
-    - any name with "_all_" or different prefix
-    
-    IF user asks for forecast that doesn't have a matching model:
-    
-    Option A — Use closest existing model with disclaimer:
-    "NPI has npi_arima_spend (forecasts daily SPEND, not conversions).
-    For conversion forecasts, no pre-trained model exists.
-    Should I:
-    (a) Show spend forecast as proxy (spend often correlates with conversions)
-    (b) Train a new ARIMA_PLUS model on conversions (~30s)"
-    
-    Option B — Train a new model on the fly (if user agrees):
-    CREATE MODEL IF NOT EXISTS `nc-ai-chatbot.astrobot_bqml_models.npi_arima_conversions`
-    OPTIONS(model_type='ARIMA_PLUS', time_series_timestamp_col='Date',
-            time_series_data_col='Conversions') AS
-    SELECT Date, SUM(Conversions) AS Conversions
-    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
-    WHERE Conversions IS NOT NULL
-    GROUP BY Date
-    
-    Then run ML.FORECAST on the new model.
-    
-    DO NOT call ML.FORECAST on a model that doesn't exist — verify name first.
-    
-    You are a BigQuery ML expert for NetConversion ad campaign analytics.
-    You train ML models, forecast spend, detect anomalies, and cluster campaigns.
-
-    PROJECT:      <project>
-    BQML DATASET: {bqml_ds}
-
-    CLIENT TABLES (always use sample_ tables):
-      NPI       → `<project>.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`
-      Venetian  → `<project>.Astrobot_Venetian.sample_astrobot_venetian_nc360_dashboard`
-      WinnDixie → `<project>.Astrobot_WinnDixie.sample_astrobot_wd_nc360_dashboard`
-
-    ALL MODELS STORED IN: `<project>.{bqml_ds}`
+    {client_models_inventory}
 
     ══════════════════════════════════════════════════════════
     INTELLIGENT MODEL SELECTION
@@ -690,3 +510,4 @@ def return_instructions_bqml() -> str:
 
     NEVER dump campaign-level rows back to root.
 """
+    return template.replace("{project}", project).replace("{bqml_ds}", bqml_ds)

@@ -139,10 +139,105 @@ async def call_analytics_for_visualization(
 
 
 
+
+def bqml_before_agent_callback(callback_context: CallbackContext) -> None:
+    """Populate state[\'client_models_inventory\'] for prompt injection.
+
+    Runs before the bqml LLM is called. Discovers BQML models for the
+    currently-locked client, validates the 5 high-traffic production models,
+    and formats the result as an LLM-readable text block. The block replaces
+    what was hardcoded in prompts.py lines 269-450 — the agent now sees
+    current reality (no stale model names, degenerate models flagged).
+
+    State keys populated:
+      - client_models_inventory: formatted text block for {state.X} substitution
+
+    If no client is locked, falls back to a neutral placeholder so the prompt
+    template still resolves cleanly.
+    """
+    state = callback_context.state
+    client_id = state.get("client_id") or state.get("LOCKED_CLIENT") or state.get("client_lock")
+
+    if not client_id:
+        # No client locked — neutral placeholder so prompt still resolves
+        state["client_models_inventory"] = (
+            "(No client locked yet. Once the user identifies a client, the "
+            "BQML inventory will populate here dynamically.)"
+        )
+        return
+
+    try:
+        from data_science.lib.bqml_registry import (
+            discover_client_models, evaluate_model_health,
+            format_inventory_for_prompt,
+        )
+        from data_science.lib.channel_resolver import load_config_v3
+
+        models_raw = discover_client_models(client_id)
+
+        # Validate the 5 high-traffic production models for NPI; for others,
+        # we have nothing tagged as production yet so skip validation to keep
+        # callback fast. Phase D will extend this.
+        PROD_NAMES = {
+            "npi_arima_spend", "arima_npi_all_conversions",
+            "npi_conversions_saturation", "npi_linear_cost",
+            "npi_campaign_clusters",
+        }
+
+        models_with_health = []
+        for m in models_raw:
+            entry = {
+                "model_name": m.model_name,
+                "model_full_path": m.model_full_path,
+                "model_type": m.model_type,
+                "created": m.created,
+            }
+            if m.model_name in PROD_NAMES:
+                h = evaluate_model_health(m.model_full_path, m.model_type)
+                entry["verdict"] = h["verdict"]
+                entry["reasons"] = h["reasons"]
+            else:
+                entry["verdict"] = "unvalidated"
+                entry["reasons"] = []
+            models_with_health.append(entry)
+
+        # Pull table paths for this client from Firestore config
+        table_paths = {}
+        try:
+            cfg = load_config_v3()
+            for d in cfg.get("datasets", []):
+                if d.get("client_id") == client_id:
+                    for t in d.get("tables", []):
+                        tid = t.get("table_id")
+                        tfp = t.get("table_full_path")
+                        if tid and tfp:
+                            table_paths[tid] = tfp
+                    break
+        except Exception as e:
+            _logger.debug(f"Could not load table_paths for {client_id}: {e}")
+
+        inventory_text = format_inventory_for_prompt(
+            client_id, models_with_health, table_paths
+        )
+        state["client_models_inventory"] = inventory_text
+        _logger.info(
+            f"bqml_before_agent_callback: populated inventory for {client_id} "
+            f"({len(models_with_health)} models)"
+        )
+    except Exception as e:
+        _logger.warning(f"bqml_before_agent_callback failed for {client_id}: {e}")
+        # Failure mode: clean placeholder so prompt still resolves
+        state["client_models_inventory"] = (
+            f"(BQML inventory unavailable for {client_id} — registry error: "
+            f"{str(e)[:120]})"
+        )
+
+
 root_agent = Agent(
     model=os.getenv("BQML_AGENT_MODEL", "gemini-2.5-flash"),
     name="bq_ml_agent",
     instruction=return_instructions_bqml(),
+    before_agent_callback=bqml_before_agent_callback,
     after_model_callback=bqml_after_model_callback,
     tools=[
         bq_execute_sql,
