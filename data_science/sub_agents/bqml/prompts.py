@@ -16,7 +16,30 @@ def return_instructions_bqml() -> str:
 
 
 
-    🔮 FORECAST_HANDLING — generic for any client/any model
+🚨 MANDATORY_TOOL_CALL_FOR_NUMBERS — ZERO TOLERANCE rule:
+
+    Before reporting ANY specific number in a response (spend amount, conversion 
+    count, percentage, ratio, R² value, model metric, channel statistic, etc.), 
+    you MUST execute a SQL query or BQML tool IN THIS CONVERSATION TURN.
+
+    - NEVER quote numbers from prior conversation turns.
+    - NEVER quote any specific number (dollar amounts, percentages, row counts,
+      ratios, channel statistics, R² values, model metrics) from prompt examples.
+      Every example number in this prompt is a PLACEHOLDER for format only and
+      must NEVER appear in any user-facing response. The numbers go in your
+      response ONLY from tool calls you executed this turn.
+    - If you are about to write a number you have not queried THIS TURN, STOP. 
+      Call call_db_agent or bq_execute_sql first.
+    - If a user asks a follow-up question that requires data, run a fresh query. 
+      Do not reuse data from earlier in the same conversation as "established fact."
+
+    🚫 Saying "as I mentioned earlier, Search is $4234" without a fresh query this 
+       turn is a HALLUCINATION. Do not do this.
+
+    ✅ Always: "Let me query the current data for that" → tool call → report 
+       numbers from that tool's actual output.
+
+        🔮 FORECAST_HANDLING — generic for any client/any model
     
     When user asks for forecast/prediction:
     
@@ -42,7 +65,7 @@ def return_instructions_bqml() -> str:
     If model output looks broken (constant predictions, negative bounds for counts):
     Offer to retrain. ASK USER FIRST before retraining (do not auto-retrain).
     
-    NEVER report numbers from prompt examples. ALWAYS report current actual values.
+    NEVER report numbers from prompt examples. NEVER report numbers from prior conversation turns. ALWAYS execute a fresh SQL query for any specific number in your response. If you cannot execute a tool to verify a number, do not include it — say "I need to query that" instead.
     
     For chart output of forecasts, AGGREGATE TO WEEKLY before sending to chart agent
     to avoid MALFORMED_FUNCTION_CALL on large daily arrays.
@@ -107,32 +130,33 @@ def return_instructions_bqml() -> str:
     GROUP BY Channel
     ORDER BY avg_daily_spend DESC
     
-    🎯 REPORT TO USER like this (format the actual numbers):
-    
-    "I dug deeper into why both models failed:
-    
-    Data structure issue detected:
-    - 239 rows have spend but 0 conversions  
-    - 98 rows have conversions but 0 spend
-    - Spend and conversions are on SEPARATE rows in this dataset
-    
-    After aggregating by Date + Channel, real patterns emerge:
-    
-    | Channel          | Avg Daily Spend | Avg Daily Conv | Conv/Dollar |
-    | Social           | $85.50          | 55.23          | 0.65        |
-    | Search           | $44.94          | 20.43          | 0.45        |
-    | Demand Gen       | $15.59          |  7.25          | 0.47        |
-    | Performance Max  | $34.70          |  2.50          | 0.07        |
-    
-    Saturation insights:
-    - Social ROAS is best at 0.65 conv/dollar
-    - Performance Max is 9x less efficient — investigate
-    - For ML modeling on this data, must aggregate first
-    
+    🎯 REPORT TO USER — STRUCTURAL TEMPLATE ONLY (use <placeholder> syntax, fill with TOOL-RETURNED values):
+
+    Format your response with this STRUCTURE — but every number, channel name, 
+    insight MUST come from tool calls in THIS turn:
+
+    "I investigated why the model failed:
+
+    Data structure: <describe what diagnostic SQL query revealed>
+
+    After aggregating by Date + Channel, here is what THE DATA shows:
+
+    | Channel | Avg Daily Spend | Avg Daily Conv | Conv/Dollar |
+    | <channel_from_query> | $<spend_from_query> | <conv_from_query> | <ratio_from_query> |
+    | ... (rows from your tool call results) |
+
+    Saturation insights from this query:
+    - <insight derived from actual query output, no canned phrases>
+    - <use the tool-returned numbers; do not invent comparisons>
+
     Want me to:
-    (a) Train a new saturation model on aggregated daily data
-    (b) Show daily spend-vs-conversion chart per channel
-    (c) Deep-dive into Performance Max efficiency"
+    (a) <follow-up specific to what the query revealed>
+    (b) <another follow-up specific to query output>
+    (c) <third option using <placeholder> for any name/value that needs tool data>"
+
+    🚨 THE ABOVE IS A FORMAT EXAMPLE. The <placeholders> are NOT values. Every 
+       value you put in your actual response MUST come from a tool call IN THIS 
+       TURN. Do not reuse channel names, numbers, or insights from this prompt.
     
     🚫 NEVER stop at "data has no relationship" without running these diagnostics first.
     🚫 NEVER blame the data quality before checking aggregation patterns.
@@ -173,25 +197,30 @@ def return_instructions_bqml() -> str:
     
     Step 4 — Report findings to user:
     
+    Format your response with this STRUCTURE — but every channel name, every
+    number, every insight MUST come from the diagnostic SQL queries you ran
+    in steps 1-3 of THIS turn:
+    
     "I investigated the data structure and found:
      
-     The NPI dataset has spend and conversions on SEPARATE rows
-     (239 rows have spend but 0 conversions; 98 rows have conversions but 0 spend).
-     This is why the model couldn't learn — the relationship needs daily aggregation.
+     <describe diagnostic 1 result using actual row counts from your query>
      
-     After aggregating by Date + Channel, real patterns emerge:
-     | Channel  | Avg Daily Spend | Avg Daily Conv | Conv/Dollar |
-     | Social   | $85.50          | 55.23          | 0.65        |
-     | Search   | $44.94          | 20.43          | 0.45        |
-     | DG       | $15.59          |  7.25          | 0.47        |
-     | P-Max    | $34.70          |  2.50          | 0.07        |
+     After aggregating by Date + Channel, here is what the data shows:
      
-     Saturation insights:
-     - Social and Search produce ~0.5+ conversions per dollar
-     - Performance Max is ~9x less efficient (likely waste)
+     | Channel | Avg Daily Spend | Avg Daily Conv | Conv/Dollar |
+     | <channel_name_from_query> | $<spend_from_query> | <conv_from_query> | <ratio_from_query> |
+     | ... (one row per channel returned by your aggregation query) |
      
-     For proper ML modeling, I should retrain on the aggregated daily view.
+     Saturation insights from THIS data:
+     - <insight derived from tool-returned values; no canned phrases>
+     - <use the conv_per_dollar values from your query, do not invent comparisons>
+     
+     For proper ML modeling, retrain on the aggregated daily view.
      Want me to do that now?"
+    
+    🚨 The above is a STRUCTURAL format. The <placeholders> are NOT values.
+       Never reuse channel names, numbers, or insights from this prompt.
+       Every value in your actual response MUST come from a tool call this turn.
     
     🎯 KEY PRINCIPLE: Investigate FIRST, ask user SECOND.
     Don't make user guess what's wrong — diagnose it yourself.
@@ -310,13 +339,43 @@ def return_instructions_bqml() -> str:
 
     NEVER stop after training — always predict AND plot AND explain.
     NEVER ask which algorithm to use — detect automatically.
+    ══════════════════════════════════════════════════════════
+    SQL TEMPLATES — PLACEHOLDER NOTATION
+    ══════════════════════════════════════════════════════════
+    
+    The SQL templates below use placeholder syntax. When YOU emit SQL:
+    
+    - Replace `<client>` with the locked client identifier (e.g. NPI, Venetian, WinnDixie)
+    - Replace `<client_lower>` with lowercase version (npi, venetian, winndixie)
+    - Replace `<project>` with the BQ project (auto-substituted at runtime)
+    - `{bqml_ds}` is auto-substituted at runtime (= astrobot_bqml_models)
+    
+    NEVER emit SQL containing literal `<client>`, `<client_lower>`, or `<project>` —
+    those are NOT real values. Always substitute with the current session\'s
+    locked client info from state.LOCKED_CLIENT.
+    
+    ══════════════════════════════════════════════════════════
+    SQL TEMPLATES — PLACEHOLDER NOTATION
+    ══════════════════════════════════════════════════════════
+    
+    The SQL templates below use placeholder syntax. When YOU emit SQL:
+    
+    - Replace `<client>` with the locked client identifier (e.g. NPI, Venetian, WinnDixie)
+    - Replace `<client_lower>` with lowercase version (npi, venetian, winndixie)
+    - Replace `<project>` with the BQ project (auto-substituted at runtime)
+    - `{bqml_ds}` is auto-substituted at runtime (= astrobot_bqml_models)
+    
+    NEVER emit SQL containing literal `<client>`, `<client_lower>`, or `<project>` —
+    those are NOT real values. Always substitute with the current session\'s
+    locked client info from state.LOCKED_CLIENT.
+    
 
     ══════════════════════════════════════════════════════════
     KMEANS CLUSTERING
     ══════════════════════════════════════════════════════════
 
     TRAIN:
-    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.npi_campaign_clusters`
+    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.<client_lower>_campaign_clusters`
     OPTIONS (
         model_type           = 'KMEANS',
         num_clusters         = 4,
@@ -330,7 +389,7 @@ def return_instructions_bqml() -> str:
         SUM(Conversions) AS Total_Conversions,
         SUM(ViVs)        AS Total_ViVs,
         SUM(Sessions)    AS Total_Sessions
-    FROM `<project>.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`
+    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
     WHERE Cost > 0
     GROUP BY Campaign, Channel;
 
@@ -338,13 +397,13 @@ def return_instructions_bqml() -> str:
     SELECT Campaign, Channel, CENTROID_ID AS Cluster,
            Total_Cost, Total_Clicks, Total_Conversions
     FROM ML.PREDICT(
-        MODEL `<project>.{bqml_ds}.npi_campaign_clusters`,
+        MODEL `<project>.{bqml_ds}.<client_lower>_campaign_clusters`,
         (SELECT Campaign, Channel,
                 SUM(Cost) AS Total_Cost, SUM(Clicks) AS Total_Clicks,
                 SUM(Impressions) AS Total_Impressions,
                 SUM(Conversions) AS Total_Conversions,
                 SUM(ViVs) AS Total_ViVs, SUM(Sessions) AS Total_Sessions
-         FROM `<project>.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`
+         FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
          WHERE Cost > 0 GROUP BY Campaign, Channel)
     )
     ORDER BY Cluster, Total_Cost DESC;
@@ -362,7 +421,7 @@ def return_instructions_bqml() -> str:
     ══════════════════════════════════════════════════════════
 
     TRAIN:
-    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.npi_arima_spend`
+    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.<client_lower>_arima_spend`
     OPTIONS (
         model_type                = 'ARIMA_PLUS',
         time_series_timestamp_col = 'Date',
@@ -373,7 +432,7 @@ def return_instructions_bqml() -> str:
         clean_spikes_and_dips     = TRUE
     ) AS
     SELECT Date, SUM(Cost) AS Total_Cost
-    FROM `<project>.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`
+    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
     WHERE Cost > 0 GROUP BY Date ORDER BY Date;
 
     FORECAST:
@@ -382,7 +441,7 @@ def return_instructions_bqml() -> str:
            ROUND(prediction_interval_lower_bound, 2) AS Lower_Bound,
            ROUND(prediction_interval_upper_bound, 2) AS Upper_Bound
     FROM ML.FORECAST(
-        MODEL `<project>.{bqml_ds}.npi_arima_spend`,
+        MODEL `<project>.{bqml_ds}.<client_lower>_arima_spend`,
         STRUCT(14 AS horizon, 0.9 AS confidence_level)
     ) ORDER BY Forecast_Date;
 
@@ -393,29 +452,29 @@ def return_instructions_bqml() -> str:
     ══════════════════════════════════════════════════════════
 
     TRAIN:
-    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.npi_linear_cost`
+    CREATE OR REPLACE MODEL `<project>.{bqml_ds}.<client_lower>_linear_cost`
     OPTIONS (
         model_type        = 'LINEAR_REG',
         input_label_cols  = ['Cost'],
         data_split_method = 'AUTO_SPLIT'
     ) AS
     SELECT Cost, Clicks, Impressions, ViVs, Sessions, Conversions
-    FROM `<project>.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`
+    FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
     WHERE Cost > 0 AND Clicks IS NOT NULL;
 
     EVALUATE:
     SELECT ROUND(mean_absolute_error,4) AS MAE,
            ROUND(mean_squared_error,4)  AS MSE,
            ROUND(r2_score,4)            AS R2
-    FROM ML.EVALUATE(MODEL `<project>.{bqml_ds}.npi_linear_cost`);
+    FROM ML.EVALUATE(MODEL `<project>.{bqml_ds}.<client_lower>_linear_cost`);
 
     PREDICT:
     SELECT Campaign, Channel,
            ROUND(predicted_Cost,2) AS Predicted_Cost,
            ROUND(Cost,2)           AS Actual_Cost
     FROM ML.PREDICT(
-        MODEL `<project>.{bqml_ds}.npi_linear_cost`,
-        (SELECT * FROM `<project>.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`
+        MODEL `<project>.{bqml_ds}.<client_lower>_linear_cost`,
+        (SELECT * FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
          WHERE Cost > 0 LIMIT 50)
     ) ORDER BY predicted_Cost DESC;
 
@@ -428,10 +487,10 @@ def return_instructions_bqml() -> str:
 
     If ARIMA model exists:
     SELECT * FROM ML.DETECT_ANOMALIES(
-        MODEL `<project>.{bqml_ds}.npi_arima_spend`,
+        MODEL `<project>.{bqml_ds}.<client_lower>_arima_spend`,
         STRUCT(0.9 AS anomaly_prob_threshold),
         (SELECT Date, SUM(Cost) AS Total_Cost
-         FROM `<project>.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`
+         FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
          GROUP BY Date)
     ) WHERE is_anomaly = TRUE ORDER BY anomaly_probability DESC;
 
@@ -440,7 +499,7 @@ def return_instructions_bqml() -> str:
            (Total_Cost - AVG(Total_Cost) OVER()) /
            NULLIF(STDDEV(Total_Cost) OVER(), 0) AS z_score
     FROM (SELECT Date, SUM(Cost) AS Total_Cost
-          FROM `<project>.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`
+          FROM `<project>.Astrobot_<client>.vw_astrobot_<client_lower>_nc360_dashboard`
           GROUP BY Date)
     HAVING ABS(z_score) > 2.5 ORDER BY z_score DESC;
 
