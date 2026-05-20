@@ -95,12 +95,25 @@ def _enforce_arg_size(arg_str):
 _PROJECT_ID = os.getenv("BQ_DATA_PROJECT_ID", "nc-ai-chatbot")
 _MAX_SQL_RETRIES = 3
 
-# Fallback table map if KM unavailable
-_CLIENT_TABLE_MAP = {
-    "NPI":       f"{_PROJECT_ID}.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard",
-    "Venetian":  f"{_PROJECT_ID}.Astrobot_Venetian.sample_astrobot_venetian_nc360_dashboard",
-    "WinnDixie": f"{_PROJECT_ID}.Astrobot_WinnDixie.sample_astrobot_wd_nc360_dashboard",
-}
+# Fallback table map if KM unavailable — loaded dynamically from config
+def _build_client_table_map() -> dict:
+    """Build fallback table map from Firestore/JSON config at runtime."""
+    try:
+        from data_science.lib.channel_resolver import load_config_v3
+        cfg = load_config_v3()
+        result = {}
+        for d in cfg.get("datasets", []):
+            cid = d.get("client_id")
+            for t in d.get("tables", []):
+                if t.get("table_id") == "performance":
+                    path = t.get("table_full_path")
+                    if cid and path:
+                        result[cid] = path
+        return result
+    except Exception as e:
+        _logger.warning(f"Could not build client table map from config: {e}")
+        return {}
+_CLIENT_TABLE_MAP = _build_client_table_map()
 
 # Metric hints for the BQ sub-agent
 _CHASE_SQL_METRIC_MAP = {
@@ -165,15 +178,19 @@ def _detect_client_from_text(text: str) -> Optional[str]:
             if client_id.lower() in text_low:
                 return client_id
 
-    if "npi" in text_low or "nassau" in text_low or "paradise island" in text_low:
-        return "NPI"
-    if "venetian" in text_low:
-        return "Venetian"
-    if (
-        "winndixie" in text_low or "winn dixie" in text_low
-        or "winn-dixie" in text_low or "seg" in text_low
-    ):
-        return "WinnDixie"
+    # Fallback: try config-loaded client list when KM unavailable
+    try:
+        from data_science.lib.channel_resolver import load_config_v3 as _lcv3
+        for d in _lcv3().get("datasets", []):
+            cid = d.get("client_id", "")
+            if cid and cid.lower() in text_low:
+                return cid
+            # Check aliases from client config if present
+            for alias in d.get("aliases", []):
+                if alias.lower() in text_low:
+                    return cid
+    except Exception:
+        pass
     return None
 
 
@@ -396,7 +413,11 @@ def before_agent_callback(
     # AC-5 STATE LOCK CHECK — use callback_context.state directly (not ctx)
     locked_cid = state.get("client_lock") or state.get("LOCKED_CLIENT")
     if locked_cid and user_text:
-        all_clients = ["NPI", "Venetian", "WinnDixie"]
+        try:
+            from data_science.lib.channel_resolver import load_config_v3 as _lcv3
+            all_clients = [d.get("client_id") for d in _lcv3().get("datasets", []) if d.get("client_id")]
+        except Exception:
+            all_clients = list(_CLIENT_TABLE_MAP.keys())
         question_lower = user_text.lower()
         for other in all_clients:
             if other.lower() == locked_cid.lower():
@@ -500,7 +521,7 @@ def before_tool_callback(
 ) -> Optional[dict]:
     """Inject hints, validate SQL, guard argument sizes."""
     state = tool_context.state
-    client_id = state.get("client_id") or state.get("client_lock", "NPI")
+    client_id = state.get("client_id") or state.get("client_lock") or state.get("LOCKED_CLIENT")
     tool_name = getattr(tool, "name", None) or getattr(tool, "__name__", str(tool))
 
     # ── Inject hints for call_bigquery_agent ──

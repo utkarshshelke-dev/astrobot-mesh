@@ -29,10 +29,9 @@ For ALL BigQuery operations:
 When generating SQL, every table reference MUST be of the form:
   `nc-ai-chatbot.<dataset>.<table>`
 
-Examples (use these exact paths):
-  `nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard`
-  `nc-ai-chatbot.Astrobot_Venetian.sample_astrobot_venetian_nc360_dashboard`
-  `nc-ai-chatbot.Astrobot_WinnDixie.sample_astrobot_wd_nc360_dashboard`
+Example (use state.routed_table_path — never construct manually):
+  `nc-ai-chatbot.<dataset>.<view_name>`
+  Always read from state.routed_table_path — never guess or construct table paths.
 
 ══════════════════════════════════════════════════════════
 
@@ -236,7 +235,7 @@ CHASE-SQL handles NL→SQL translation natively. Your job is to give it the
 right context. Read these state fields BEFORE generating SQL:
 
   state.LOCKED_CLIENT       → e.g., 'NPI' — required in WHERE clause
-  state.routed_table_path   → e.g., 'nc-ai-chatbot.Astrobot_NPI.vw_astrobot_npi_nc360_dashboard'
+  state.routed_table_path   → fully-qualified BQ path for the locked client's performance table
                               → use this for the FROM clause
   state.channel_column      → 'Channel' (performance table) or 'GVMM_Channel' (pacing table)
                               → use this for GROUP BY and WHERE Channel = ...

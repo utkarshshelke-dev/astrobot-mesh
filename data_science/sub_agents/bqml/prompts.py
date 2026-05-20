@@ -306,7 +306,7 @@ You DO handle (these are in scope):
      - Target: <metric>
      - Features: [Channel, Cost, Clicks, Impressions, Sessions]
      - Type: [LINEAR_REG / BOOSTED_TREE / LOG transformation for saturation]
-     - Training data: NPI multi-year (24M rows, 2016-present)
+     - Training data: <client> historical data
     
      Should I retrain it now? (~30 seconds)"
     
@@ -607,11 +607,11 @@ You DO handle (these are in scope):
     NEVER just explain in text — ALWAYS plot the scatter chart too.
 
     Pass this to call_analytics_for_visualization:
-    "Create a scatter plot of NPI campaign clusters.
+    "Create a scatter plot of <client> campaign clusters.
      X-axis: Total_Cost, Y-axis: Total_Clicks.
      Color each point by Cluster number (1=blue, 2=red, 3=green, 4=orange).
      Label top 5 highest spend campaigns by name.
-     Title: 'NPI Campaign Clusters by Performance'
+     Title: '<client> Campaign Clusters by Performance'
      Data: [paste the cluster prediction results as JSON]"
 
 
@@ -620,13 +620,13 @@ You DO handle (these are in scope):
 
     Pass a PLAIN TEXT string like this — no Python variables, no f-strings:
 
-    "Create a cluster scatter chart for NPI.
-    x = [121.25, 119.45, 785.42, 526.46, 35.4, 32.77]
-    y = [62, 96, 605, 524, 337, 32]
-    clusters = [1, 1, 2, 2, 3, 3]
+    "Create a cluster scatter chart for <client>.
+    x = [<x values from your query>]
+    y = [<y values from your query>]
+    clusters = [<cluster IDs from your query>]
     X-axis label: Total Cost ($)
     Y-axis label: Total Clicks
-    Title: NPI Campaign Clusters by Performance"
+    Title: <client> Campaign Clusters by Performance"
 
     RULES:
     - The string must be a PLAIN TEXT string with actual numbers filled in
