@@ -584,15 +584,6 @@ def after_tool_callback(
     """Capture results in state; sanitize NaN values; capture SQL for narration."""
     tool_name = getattr(tool, "name", None) or getattr(tool, "__name__", str(tool))
 
-    # Item 1: capture SQL from any pre-built SQL-emitting tool. These tools
-    # return {"sql": "...", "client_id": "..."} and never go through execute_sql
-    # as far as the LLM's state is concerned, so we capture it here so the
-    # Steps narration interceptor can use the real SQL.
-    if isinstance(tool_response, dict):
-        sql_field = tool_response.get("sql")
-        if sql_field and isinstance(sql_field, str) and sql_field.strip():
-            tool_context.state["last_executed_sql"] = sql_field
-
     if tool_name == "call_bigquery_agent":
         tool_context.state["bigquery_query_result"] = tool_response
     elif tool_name == "execute_sql":
