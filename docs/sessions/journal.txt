@@ -1,0 +1,53 @@
+# Astrobot Mesh — Session Journal
+# 
+# One short entry per session. Full transcripts in /mnt/transcripts/.
+# Detailed resume docs in docs/sessions/YYYY-MM-DD/.
+# Last-on-top.
+
+═══════════════════════════════════════════════════════════════
+Session 10 — Wed May 20, 2026 (~10 hours, cap extended 8→12)
+═══════════════════════════════════════════════════════════════
+Transcript: /mnt/transcripts/2026-05-20-* 
+Resume doc: docs/sessions/2026-05-20/session-10-resume-doc.md
+
+Outcome: 5 verified wins shipped + 6 items deferred to future sessions.
+
+Wins (in production v4-00008-vjh):
+  b43e136 WinnDixie filter routing (SEG mapping) + W6 introspector refactor
+  7becfea Fix-T state substitution for SQL templates ({state.X} pattern)
+  c8fe4e6 Phase H anti-hallucination (3 edits to bqml/prompts.py)
+  2320df2 BEF dynamic BQML discovery + health validation
+  011c3ba 4 BQML/analysis tool regression fixes (client_filter scoping)
+
+Remaining (8-13h, see resume doc for detail):
+  1. Long-session drift (2-3h, architectural)
+  2. Model name hallucination (1-2h)
+  3. Chart viz intermittent failure (1-2h investigation)
+  4. Saturation tool 1-row issue (1-2h)
+  5. Phase D train-from-scratch (2-3h, blocked by 1)
+  6. Phase G e2e tests (1h)
+
+Meta: 5+ scope surprises, 2 wrong diagnostic calls at hour 6+, multiple
+cap extensions. Confirmed via H1 fresh-session test that Phase H + Fix-T
+DO work in new sessions — earlier failure reads were testing contaminated
+sessions. Don't repeat this confusion: fresh incognito session is required
+for verification.
+
+Suggested ordering for Session 11: Item 6 (tests, ~1h) first for safety
+net, then Items 2/4 (smaller prompt fixes), then Items 3/1 (investigation
++ architectural), then Item 5 (new feature, biggest).
+
+═══════════════════════════════════════════════════════════════
+Session 9 — Tue May 19, 2026 (Firestore migration + v4 deploy)
+═══════════════════════════════════════════════════════════════
+Transcript: /mnt/transcripts/2026-05-19-*
+(Resume doc was inline in compaction summary; no separate file.)
+
+Outcome: Firestore migration F1-F8 complete. v4 deployed to Cloud Run.
+21 commits on v3-dev. Outstanding items at session end included WinnDixie
+filter bug (resolved in Session 10), Venetian/WinnDixie pacing IAM grant
+blocker, Firestore UX/admin-UI consideration, list_tables tool.
+
+═══════════════════════════════════════════════════════════════
+Earlier sessions: see git log + /mnt/transcripts/ for chronology
+═══════════════════════════════════════════════════════════════
