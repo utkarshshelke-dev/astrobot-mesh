@@ -433,7 +433,11 @@ def before_agent_callback(
                     f"AC-5 WALLED-GARDEN: refused cross-client question. "
                     f"locked={locked_cid}, requested={other}"
                 )
-                return None
+                # Return a hard block — returning Content stops the agent from running
+                return types.Content(
+                    role="model",
+                    parts=[types.Part(text=refusal_msg)]
+                )
 
     locked_cid = state.get("client_lock")
 
