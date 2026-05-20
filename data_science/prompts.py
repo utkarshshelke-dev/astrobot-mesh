@@ -795,7 +795,7 @@ def return_instructions_root(
        1. Called `<tool_name>` (e.g., get_pacing_sql, bigquery_nl2sql, compute_saturation_curve)
        2. Generated SQL:
 ```sql
-{{state.last_executed_sql}}
+{{last_executed_sql}}
 ```
        3. Returned <N> rows.
 
@@ -805,7 +805,7 @@ def return_instructions_root(
     Rules:
     - Only include "Steps" when a SQL-producing or data-computing tool was called.
     - For simple greetings, refusals, or out-of-scope replies — skip "Steps".
-    - The SQL block uses {{state.last_executed_sql}} which is populated
+    - The SQL block uses {{last_executed_sql}} which is populated
       automatically by the after_tool_callback with the EXACT SQL that ran
       against BigQuery. Do NOT paraphrase, rewrite, or invent table names.
       If the substituted value is empty (a pre-computed tool with no SQL),
