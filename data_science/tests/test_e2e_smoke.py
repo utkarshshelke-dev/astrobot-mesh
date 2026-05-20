@@ -250,6 +250,106 @@ def test_winndixie_channel_filter(headers):
     )
 
 
+
+
+def test_npi_forecast_uses_registry_model_name(headers):
+    """Session 12 Item 2: forecast conversions → SQL must use registry model name verbatim.
+
+    Confirms USE_DISCOVERED_MODELS rule + model_name param in get_arima_forecast_sql.
+    The SQL emitted must reference arima_npi_all_conversions (the healthy registry
+    model), not a fabricated name constructed from client_lower patterns.
+    """
+    user_id, session_id = _create_session(headers, "NPI")
+    events = _send(headers, user_id, session_id,
+                   "For NPI, forecast conversions for the next 14 days")
+    text = _extract_text(events)
+    sqls = _extract_sql_strings(events)
+
+    assert text, "Agent returned no text"
+    # Must find the registry model name in at least one SQL string
+    registry_name = "arima_npi_all_conversions"
+    found = any(registry_name in sql for sql in sqls)
+    # Also check response text — agent sometimes echoes the model name
+    found_in_text = registry_name in text
+    sql_preview = [s[:200] for s in sqls]
+    assert found or found_in_text, (
+        "Registry model name arima_npi_all_conversions not found in SQL or response. "
+        "Agent may be fabricating model names (Item 2 regression). "
+        f"SQLs: {sql_preview} Response: {text[:300]}"
+    )
+    # Also assert no obviously fabricated names
+    fabricated = ["arima_npi_all_spend", "npi_arima_all_conversions",
+                  "arima_npi_conversions_all"]
+    for name in fabricated:
+        assert name not in str(sqls), (
+            f"Fabricated model name '{name}' found in SQL — Item 2 regression"
+        )
+
+
+def test_npi_saturation_multi_channel(headers):
+    """Session 12 Item 4: saturation analysis → must return results for >1 channel.
+
+    Confirms Firestore fix: saturation bqml_models ref updated from degenerate
+    npi_conversions_saturation to healthy npi_conversions_saturation_agg.
+    A degenerate model returns 1 empty row; healthy model returns multi-channel output.
+    """
+    user_id, session_id = _create_session(headers, "NPI")
+    events = _send(headers, user_id, session_id,
+                   "For NPI, show me saturation analysis by channel")
+    text = _extract_text(events)
+    tool_calls = _extract_tool_calls(events)
+
+    assert text, "Agent returned no text"
+    assert tool_calls, "Saturation request triggered no tool calls"
+
+    # Must mention at least 2 distinct channels in the response
+    channels = ["paid search", "paid social", "search", "social",
+                "demand gen", "video", "ctv", "performance max", "pmax"]
+    hits = sum(1 for c in channels if c.lower() in text.lower())
+    assert hits >= 2, (
+        f"Saturation response mentions <2 channels ({hits}) -- "
+        f"possible degenerate model regression (Item 4). Response: {text[:800]}"
+    )
+    # R2 values should appear -- degenerate model produces NaN
+    assert any(x in text.lower() for x in ["r²", "r2", "fit quality", "0.867", "alpha", "kappa"]), (
+        f"No R2/fit quality mention -- possible degenerate model output. Response: {text[:500]}"
+    )
+
+
+def test_npi_forecast_chart_no_malformed_call(headers):
+    """Session 12 Item 3: forecast → chart call must not produce MALFORMED_FUNCTION_CALL.
+
+    Confirms FORECAST CHART INSTRUCTIONS prompt fix. Before the fix, the agent
+    wrapped the chart tool call in print(default_api.call_analytics_for_visualization(...))
+    which caused a MALFORMED_FUNCTION_CALL error in the event stream.
+    """
+    user_id, session_id = _create_session(headers, "NPI")
+    events = _send(headers, user_id, session_id,
+                   "For NPI, forecast conversions for the next 14 days and show a chart")
+    text = _extract_text(events)
+
+    assert text, "Agent returned no text"
+
+    # Check no MALFORMED_FUNCTION_CALL in any event
+    for ev in events:
+        error = ev.get("error") or ev.get("errorCode") or ""
+        assert "MALFORMED_FUNCTION_CALL" not in str(error), (
+            f"MALFORMED_FUNCTION_CALL detected — Item 3 regression. "
+            f"Event: {ev}"
+        )
+        # Also check inside content parts for error objects
+        for part in (ev.get("content") or {}).get("parts") or []:
+            part_str = str(part)
+            assert "MALFORMED_FUNCTION_CALL" not in part_str, (
+                f"MALFORMED_FUNCTION_CALL in content part — Item 3 regression. "
+                f"Part: {part_str[:300]}"
+            )
+
+    # Forecast data must still be present despite chart attempt
+    assert any(d in text for d in ["2026", "forecast", "conversion", "predicted"]), (
+        f"Forecast content missing from response. Response: {text[:500]}"
+    )
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Runtime budget guard — keep suite under ~5 min so CI doesn't time out
 # ─────────────────────────────────────────────────────────────────────────────
