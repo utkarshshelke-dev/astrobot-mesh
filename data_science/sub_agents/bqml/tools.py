@@ -171,6 +171,7 @@ def get_arima_forecast_sql(
     channel: str = "ALL",
     metric: str = "Cost",
     horizon_days: int = _ARIMA_HORIZON,
+    model_name: str = "",
 ) -> str:
     """
     Generates ML.FORECAST SQL for the next horizon_days days.
@@ -181,12 +182,18 @@ def get_arima_forecast_sql(
         channel:      Channel filter used during training.
         metric:       Metric that was modelled.
         horizon_days: Number of days to forecast (default: 14).
+        model_name:   Exact model name from registry (preferred). Overrides
+                      the constructed name when provided. Pass the name
+                      returned by check_bq_models() for this client.
 
     Returns:
         BQML ML.FORECAST SQL string.
     """
-    slug      = _re.sub(r"[^a-z0-9]", "_", (channel or "all").lower())
-    model_ref = f"`{_data_project}.{_bqml_dataset}.arima_{client_id.lower()}_{slug}_{metric.lower()}`"
+    if model_name:
+        model_ref = f"`{_data_project}.{_bqml_dataset}.{model_name}`"
+    else:
+        slug      = _re.sub(r"[^a-z0-9]", "_", (channel or "all").lower())
+        model_ref = f"`{_data_project}.{_bqml_dataset}.arima_{client_id.lower()}_{slug}_{metric.lower()}`"
 
     return f"""
 SELECT
