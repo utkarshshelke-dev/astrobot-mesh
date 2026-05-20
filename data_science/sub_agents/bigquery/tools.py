@@ -504,6 +504,8 @@ def bigquery_nl2sql(question: str, tool_context: ToolContext) -> dict:
         "instruction": (
             f"Generate BigQuery SQL for: {question}\n"
             f"Table: `{table}`\n"
+            f"MANDATORY: include WHERE Client = '{client_filter}' in every query "
+            f"(this is the actual DB value for this client — do not substitute).\n"
             f"Rules: SUM+GROUP BY | SAFE_DIVIDE(x,NULLIF(y,0)) for ratios | "
             f"IFNULL(...,0) on every metric | CORR() must use IFNULL(CORR(...),0) | "
             f"Date column = Date (DATE type)"

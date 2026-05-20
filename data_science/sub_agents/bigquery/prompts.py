@@ -420,8 +420,8 @@ ambiguous — call the tool. It's deterministic and predictable.
 
 - NEVER query a table other than state.routed_table_path
 - NEVER include Client filter for any client other than state.LOCKED_CLIENT
-  (in SQL use state.LOCKED_CLIENT_FILTER — the actual DB value; for some
-  clients this differs from LOCKED_CLIENT, e.g. WinnDixie -> 'SEG')
+  (in SQL use state.LOCKED_CLIENT_FILTER — the actual DB value passed via
+  the tool's instruction string; never hardcode a literal client identifier)
 - NEVER write Channel = 'DEFAULT' (use 'Direct' instead)
 - NEVER raw STDDEV() for volatility (use CV = STDDEV/AVG via deterministic tool)
 - NEVER train BQML linear regression on raw Cost↔Conversions rows when
