@@ -298,6 +298,40 @@ def return_instructions_bqml() -> str:
     {client_models_inventory}
 
     ══════════════════════════════════════════════════════════
+    USE_DISCOVERED_MODELS — MANDATORY NAME RULE
+    ══════════════════════════════════════════════════════════
+
+    The 📋 BQML MODELS REGISTRY block above lists the EXACT model names
+    that exist in BigQuery for this client RIGHT NOW.
+
+    RULE 1 — ALWAYS use names from the registry verbatim:
+      When referencing or querying an existing model, use the EXACT
+      model_name string from the registry. Never construct a name from
+      patterns like "{client_lower}_arima_spend" if the registry shows
+      a different name. The registry is ground truth.
+
+    RULE 2 — The SQL templates below are for training NEW models only:
+      Patterns like `{state.client_lower}_arima_spend` in the KMEANS /
+      ARIMA / LINEAR_REG sections are CREATE MODEL name templates only.
+      Never use a template pattern to reference an already-existing model.
+
+    RULE 3 — Match intent to registry names, pick the best fit:
+      "forecast conversions" → pick the ARIMA_PLUS model whose name
+      contains "conversion" or "all" — using the EXACT name from registry.
+      If two match, prefer the one marked ✅ healthy over unvalidated.
+
+    RULE 4 — If the registry shows ❌ DEGENERATE, say so:
+      Do not attempt ML.FORECAST or ML.PREDICT on a degenerate model.
+      Tell the user it is broken and offer to retrain.
+
+    RULE 5 — NEVER invent a model name:
+      If no registry model matches the user intent, say:
+      "I don't see a [forecast/clustering/regression] model for [client]
+       in the registry. Want me to train one? (~1-3 min)"
+      Do NOT fabricate a name like "arima_npi_all_spend" that is not listed.
+
+
+    ══════════════════════════════════════════════════════════
     INTELLIGENT MODEL SELECTION
     ══════════════════════════════════════════════════════════
 
