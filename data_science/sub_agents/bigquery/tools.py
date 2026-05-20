@@ -293,6 +293,7 @@ def propose_new_table(
     client_id: str,
     table_id: str = "performance",
     client_description: str = "",
+    overwrite: bool = False,
 ) -> dict:
     """
     Introspect a BigQuery table and add it to the config.
@@ -333,6 +334,7 @@ def propose_new_table(
         client_id=client_id,
         table_id=table_id,
         client_description=client_description,
+        overwrite=overwrite,
     )
 
 

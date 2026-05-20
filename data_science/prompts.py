@@ -589,8 +589,30 @@ def return_instructions_root(
       call_analytics_agent(request) → Charts (always pre-aggregated data)
 
     SUB-AGENTS:
-      bq_ml_agent → ARIMA forecasting, KMEANS clustering, anomaly
-                    detection, and BQML training for those model types only.
+      bq_ml_agent → ARIMA forecasting (ML.FORECAST on EXISTING models),
+                    KMEANS clustering, anomaly detection.
+
+    ARIMA MODEL TRAINING (creating a NEW model) goes through
+    call_bigquery_agent, NOT bq_ml_agent. The BigQuery sub-agent has
+    train_arima_model_bqml. Triggers:
+      • "train an ARIMA model" / "build a forecast model"
+      • "create a new ARIMA model for X"
+      • "refresh the forecast model"
+    Routing: call_bigquery_agent with a request that says
+    "use train_arima_model_bqml" — do NOT call the tool by name from
+    the root agent, you do not have it.
+    🚫 NEVER call train_arima_model, train_arima_model_bqml, or any
+    train_* tool directly. These tools DO NOT EXIST on the root agent.
+    The ONLY tools available to the root agent are:
+    call_bigquery_agent, call_analytics_agent, transfer_to_agent,
+    list_tables_for_client. Any other tool call will FAIL.
+
+    ARIMA FORECASTING (using an EXISTING model) goes through bq_ml_agent.
+    Triggers:
+      • "forecast NPI conversions for the next 4 weeks"
+      • "predict next month's spend"
+      • "run the forecast model"
+    Routing: transfer_to_agent(bq_ml_agent).
 
     NEVER transfer to bq_ml_agent for:
       • Saturation / diminishing returns / saturation curve
