@@ -488,7 +488,10 @@ def bigquery_nl2sql(question: str, tool_context: ToolContext) -> dict:
       - Never SELECT * without LIMIT
       - Filter by Channel using WHERE Channel = '...' or GROUP BY Channel
     """
-    client_id = tool_context.state.get("client_id", "NPI")
+    client_id = tool_context.state.get("client_id") or tool_context.state.get("client_lock")
+    if not client_id:
+        return {"error": "No client locked. Please specify a client first."}
+    kpi_col = tool_context.state.get("kpi_column") or "Conversions"
     client_filter = tool_context.state.get("client_filter_value", client_id)
     table     = _get_table(client_id, tool_context)
     if not table:
