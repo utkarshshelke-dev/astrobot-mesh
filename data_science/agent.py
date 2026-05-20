@@ -351,6 +351,8 @@ def before_agent_callback(
         state["database_settings"] = _database_settings
         state["client_lock"] = None
         state["client_id"] = None
+        state["LOCKED_CLIENT_FILTER"] = None
+        state["client_filter_value"] = None
         state["_sql_retry_count"] = 0
         state["_seen_hashes"] = []
         _logger.info("Session initialized — awaiting client selection")
@@ -417,6 +419,14 @@ def before_agent_callback(
     if not locked_cid and detected_cid:
         state["client_lock"] = detected_cid
         state["client_id"] = detected_cid
+        # Also resolve and store the SQL filter value (e.g. "SEG" for WinnDixie)
+        try:
+            from .lib.channel_resolver import get_client_filter_value
+            _filter_val = get_client_filter_value(detected_cid)
+        except Exception:
+            _filter_val = detected_cid
+        state["client_filter_value"] = _filter_val
+        state["LOCKED_CLIENT_FILTER"] = _filter_val
         state["LOCKED_CLIENT"] = detected_cid
         locked_cid = detected_cid
         _logger.info(f"🔒 Session LOCKED to client: {detected_cid}")
@@ -436,6 +446,14 @@ def before_agent_callback(
     if locked_cid:
         state["LOCKED_CLIENT"] = locked_cid
         state["client_id"] = locked_cid
+        # Also resolve and store the SQL filter value (e.g. "SEG" for WinnDixie)
+        try:
+            from .lib.channel_resolver import get_client_filter_value
+            _filter_val = get_client_filter_value(locked_cid)
+        except Exception:
+            _filter_val = locked_cid
+        state["client_filter_value"] = _filter_val
+        state["LOCKED_CLIENT_FILTER"] = _filter_val
 
     # ── 4. KnowledgeManager context injection ──
     if _KM_AVAILABLE and km is not None and locked_cid and user_text:
@@ -695,6 +713,70 @@ def _build_code_executor():
         return None
 
 
+def list_tables_for_client(client_id: str) -> dict:
+    """List all tables configured for a given client.
+
+    Use this when the user asks what tables exist for a client (e.g.
+    "what tables does NPI have", "list tables for Venetian"). This reads
+    from KnowledgeManager directly — does NOT query BigQuery — so it
+    returns the agent's actual routing table set, not just whatever
+    BQ INFORMATION_SCHEMA happens to have.
+
+    Args:
+      client_id: The client identifier (e.g. "NPI", "Venetian", "WinnDixie").
+
+    Returns:
+      {
+        "status": "ok" | "error",
+        "client_id": str,
+        "tables": list[dict],   # [{table_id, table_full_path, enabled, _purpose}, ...]
+        "table_count": int,
+        "message": str,
+      }
+    """
+    if not _KM_AVAILABLE:
+        return {
+            "status": "error",
+            "client_id": client_id,
+            "tables": [],
+            "table_count": 0,
+            "message": "KnowledgeManager unavailable.",
+        }
+    try:
+        table_ids = km.list_tables(client_id)
+    except Exception as e:
+        return {
+            "status": "error",
+            "client_id": client_id,
+            "tables": [],
+            "table_count": 0,
+            "message": f"Failed to list tables for {client_id}: {e}",
+        }
+
+    # Get full details for each table from the config
+    tables_detail = []
+    for tid in table_ids:
+        try:
+            t = km.get_table(client_id, tid) or {}
+            tables_detail.append({
+                "table_id": t.get("table_id", tid),
+                "table_full_path": t.get("table_full_path"),
+                "enabled": t.get("enabled", True),  # default True if not set
+                "_purpose": t.get("_purpose", ""),
+            })
+        except Exception:
+            tables_detail.append({"table_id": tid, "table_full_path": None,
+                                  "enabled": None, "_purpose": ""})
+
+    return {
+        "status": "ok",
+        "client_id": client_id,
+        "tables": tables_detail,
+        "table_count": len(tables_detail),
+        "message": f"{client_id} has {len(tables_detail)} table(s).",
+    }
+
+
 def get_root_agent() -> LlmAgent:
     """Construct the root LlmAgent with all callbacks wired in."""
     kwargs = dict(
@@ -706,7 +788,7 @@ def get_root_agent() -> LlmAgent:
             f"Today's date: {date.today()}"
         ),
         sub_agents=[bqml_agent],
-        tools=[call_analytics_agent, call_bigquery_agent],
+        tools=[call_analytics_agent, call_bigquery_agent, list_tables_for_client],
         before_agent_callback=before_agent_callback,
         after_agent_callback=after_agent_callback,
         before_tool_callback=before_tool_callback,

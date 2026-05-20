@@ -279,13 +279,13 @@ Any SQL that needs BOTH metrics together MUST use a unified CTE with FULL OUTER 
   WITH spend AS (
     SELECT Date, {state.channel_column} AS channel, SUM(Cost) AS cost
     FROM `{state.routed_table_path}`
-    WHERE Client = '{state.LOCKED_CLIENT}' AND Cost > 0
+    WHERE Client = '{state.LOCKED_CLIENT_FILTER}' AND Cost > 0
     GROUP BY Date, channel
   ),
   conv AS (
     SELECT Date, {state.channel_column} AS channel, SUM(Conversions) AS conv
     FROM `{state.routed_table_path}`
-    WHERE Client = '{state.LOCKED_CLIENT}' AND Conversions > 0
+    WHERE Client = '{state.LOCKED_CLIENT_FILTER}' AND Conversions > 0
     GROUP BY Date, channel
   )
   SELECT
@@ -420,6 +420,8 @@ ambiguous — call the tool. It's deterministic and predictable.
 
 - NEVER query a table other than state.routed_table_path
 - NEVER include Client filter for any client other than state.LOCKED_CLIENT
+  (in SQL use state.LOCKED_CLIENT_FILTER — the actual DB value; for some
+  clients this differs from LOCKED_CLIENT, e.g. WinnDixie -> 'SEG')
 - NEVER write Channel = 'DEFAULT' (use 'Direct' instead)
 - NEVER raw STDDEV() for volatility (use CV = STDDEV/AVG via deterministic tool)
 - NEVER train BQML linear regression on raw Cost↔Conversions rows when

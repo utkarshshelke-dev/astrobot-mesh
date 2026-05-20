@@ -177,6 +177,29 @@ def get_client(client_id: str, config: Optional[dict] = None) -> dict:
     return client
 
 
+def get_client_filter_value(client_id: str, config = None) -> str:
+    """Return the value to put in SQL WHERE Client = '...' for this client_id.
+
+    Some clients have BQ data where the Client column value differs from
+    their logical client_id. Example: WinnDixie's BQ data uses Client='SEG'.
+    This helper reads `client_filter_value` from the client config (Firestore
+    field on the client doc) and falls back to client_id when unset.
+
+    This is the ONE place that decides "what value goes in the SQL WHERE
+    clause" — so adding a new mismatched client requires only setting one
+    field in Firestore, no code changes.
+
+    Args:
+      client_id: Logical client identifier (NPI, Venetian, WinnDixie, ...).
+      config:    Optional pre-loaded config dict (else load_config_v3 is called).
+
+    Returns:
+      The string to use in SQL: e.g. "SEG" for WinnDixie, "NPI" for NPI.
+    """
+    client = get_client(client_id, config)
+    return client.get("client_filter_value", client_id)
+
+
 def get_table(client_id: str, table_id: str = "performance", config: Optional[dict] = None) -> dict:
     """Return table config for a given client+table_id."""
     client = get_client(client_id, config)

@@ -538,49 +538,23 @@ def write_to_config_directly(
     config_path: str = None,
 ) -> dict:
     """
-    Local-only direct-write path. Introspects a table, then appends the result
-    to ad_campaign_dataset_config_v3.json on disk. NO approval gate.
-
-    Safety:
-      - Refuses if client+table already exist (additive only)
-      - Backs up config before write
-      - Validates JSON after write; restores backup on failure
-      - Resets KnowledgeManager cache
-
-    NOT safe for Cloud Run deployment (filesystem is ephemeral).
-    For local dev / demo only.
+    Introspect a table and route the write through config_writer.propose_change
+    + confirm_change. This means the write goes through whichever backend
+    config_writer is configured for — JSON file (local dev) or Firestore
+    (when USE_FIRESTORE_CONFIG=true, e.g. Cloud Run production).
 
     Returns:
       {
         "status": "added" | "exists" | "error",
         "message": "<human-readable>",
         "table_block": {...},      # what was added/would be added
-        "backup_path": "..."        # if write happened
+        "backup_path": "..."        # commit identifier from the backend
       }
+
+    Safe for both local dev (writes JSON) and Cloud Run (writes Firestore).
+    Idempotent: refuses to add if client+table already exist.
     """
-    import datetime
-    import shutil
-
-    # Locate config
-    if config_path is None:
-        env_path = os.getenv("DATASET_CONFIG_FILE_V3")
-        if env_path:
-            config_path = env_path
-        else:
-            candidates = [
-                "/app/ad_campaign_dataset_config_v3.json",
-                os.path.expanduser("~/astrobot_mesh/ad_campaign_dataset_config_v3.json"),
-                "./ad_campaign_dataset_config_v3.json",
-            ]
-            for c in candidates:
-                if os.path.exists(c):
-                    config_path = c
-                    break
-        if not config_path:
-            return {"status": "error",
-                    "message": "Could not locate ad_campaign_dataset_config_v3.json"}
-
-    # Introspect
+    # 1. Introspect the table
     try:
         result = introspect_table(table_full_path, client_id, table_id)
         block = result["table_block"]
@@ -588,22 +562,31 @@ def write_to_config_directly(
         return {"status": "error",
                 "message": f"Introspection failed: {e}"}
 
-    # Load current config
+    # 2. Detect client_filter_value if BQ data uses a different Client value
+    client_column = block.get("client_column") or "Client"
+    detected_filter = _detect_client_filter_value(
+        table_full_path, client_column, client_id
+    )
+
+    # 3. Load current config (via the same backend reads use)
     try:
-        with open(config_path, "r", encoding="utf-8") as f:
-            config = json.load(f)
+        from data_science.lib.channel_resolver import load_config_v3
+    except ImportError:
+        from lib.channel_resolver import load_config_v3
+    try:
+        config = load_config_v3(force_reload=True)
     except Exception as e:
         return {"status": "error",
-                "message": f"Could not read config: {e}"}
+                "message": f"Could not load current config: {e}"}
 
-    # Find or create client
+    # 4. Check if client exists
     existing_ds = next(
         (d for d in config.get("datasets", []) if d.get("client_id") == client_id),
         None,
     )
 
+    # 5. Idempotency: if table already exists, no-op
     if existing_ds is not None:
-        # Client exists — check if table_id already there
         if any(t.get("table_id") == table_id for t in existing_ds.get("tables", [])):
             return {
                 "status": "exists",
@@ -613,217 +596,118 @@ def write_to_config_directly(
                 ),
                 "table_block": block,
             }
-        existing_ds.setdefault("tables", []).append(block)
-        action = f"Added table {table_id!r} to existing client {client_id!r}"
-    else:
-        # New client
-        new_dataset = {
-            "client_id": client_id,
-            "name": f"Astrobot_{client_id}",
-            "description": client_description or f"Auto-introspected client {client_id}",
-            "default_metric": block["kpi_column"],
-            "default_lookback_months": 12,
-            "tables": [block],
-        }
-        config.setdefault("datasets", []).append(new_dataset)
-        action = f"Added new client {client_id!r} with table {table_id!r}"
 
-    # Backup
-    stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    backup_path = f"{config_path}.before_agent_write_{stamp}"
+    # 6. Build the change dict for propose_change
     try:
-        shutil.copy2(config_path, backup_path)
-    except Exception as e:
-        return {"status": "error",
-                "message": f"Could not back up config: {e}"}
-
-    # Write
-    try:
-        tmp_path = config_path + ".tmp"
-        with open(tmp_path, "w", encoding="utf-8") as f:
-            json.dump(config, f, indent=2)
-        # Validate by re-reading
-        with open(tmp_path, "r", encoding="utf-8") as f:
-            json.load(f)
-        # Atomic replace
-        os.replace(tmp_path, config_path)
-    except Exception as e:
-        # Restore backup
-        shutil.copy2(backup_path, config_path)
-        return {"status": "error",
-                "message": f"Write failed (backup restored): {e}",
-                "backup_path": backup_path}
-
-    # Reset KnowledgeManager cache
-    try:
-        from data_science.lib.channel_resolver import reset_config_cache
-        reset_config_cache()
-    except Exception:
-        pass
-
-    notes = block.get("_introspection_notes", {})
-    return {
-        "status": "added",
-        "message": (
-            f"{action}. Config updated.\n"
-            f"Auto-classified channels: {notes.get('auto_classified_channels', 0)}.\n"
-            f"Unmapped channels: {len(notes.get('unmapped_channels', []))}.\n"
-            f"Rules attached: {len(block.get('rules', []))}.\n"
-            f"Please review {os.path.basename(config_path)} and refine taxonomy/rules as needed.\n"
-            f"Backup at: {backup_path}"
-        ),
-        "table_block": block,
-        "backup_path": backup_path,
-    }
-
-
-
-def write_to_config_directly(
-    table_full_path: str,
-    client_id: str,
-    table_id: str = "performance",
-    client_description: str = "",
-    config_path: str = None,
-) -> dict:
-    """
-    Local-only direct-write path. Introspects a table, then appends the result
-    to ad_campaign_dataset_config_v3.json on disk. NO approval gate.
-
-    Safety:
-      - Refuses if client+table already exist (additive only)
-      - Backs up config before write
-      - Validates JSON after write; restores backup on failure
-      - Resets KnowledgeManager cache
-
-    NOT safe for Cloud Run deployment (filesystem is ephemeral).
-    For local dev / demo only.
-
-    Returns:
-      {
-        "status": "added" | "exists" | "error",
-        "message": "<human-readable>",
-        "table_block": {...},      # what was added/would be added
-        "backup_path": "..."        # if write happened
-      }
-    """
-    import datetime
-    import shutil
-
-    # Locate config
-    if config_path is None:
-        env_path = os.getenv("DATASET_CONFIG_FILE_V3")
-        if env_path:
-            config_path = env_path
-        else:
-            candidates = [
-                "/app/ad_campaign_dataset_config_v3.json",
-                os.path.expanduser("~/astrobot_mesh/ad_campaign_dataset_config_v3.json"),
-                "./ad_campaign_dataset_config_v3.json",
-            ]
-            for c in candidates:
-                if os.path.exists(c):
-                    config_path = c
-                    break
-        if not config_path:
-            return {"status": "error",
-                    "message": "Could not locate ad_campaign_dataset_config_v3.json"}
-
-    # Introspect
-    try:
-        result = introspect_table(table_full_path, client_id, table_id)
-        block = result["table_block"]
-    except Exception as e:
-        return {"status": "error",
-                "message": f"Introspection failed: {e}"}
-
-    # Load current config
-    try:
-        with open(config_path, "r", encoding="utf-8") as f:
-            config = json.load(f)
-    except Exception as e:
-        return {"status": "error",
-                "message": f"Could not read config: {e}"}
-
-    # Find or create client
-    existing_ds = next(
-        (d for d in config.get("datasets", []) if d.get("client_id") == client_id),
-        None,
-    )
+        from data_science.utils.config_writer import propose_change, confirm_change
+    except ImportError:
+        from utils.config_writer import propose_change, confirm_change
 
     if existing_ds is not None:
-        # Client exists — check if table_id already there
-        if any(t.get("table_id") == table_id for t in existing_ds.get("tables", [])):
-            return {
-                "status": "exists",
-                "message": (
-                    f"Table {table_id!r} already exists for client {client_id!r}. "
-                    f"No write performed."
-                ),
-                "table_block": block,
-            }
-        existing_ds.setdefault("tables", []).append(block)
+        # Client exists -> add a new table to it
+        change = {
+            "op": "add_table",
+            "client_id": client_id,
+            "table_block": block,
+        }
         action = f"Added table {table_id!r} to existing client {client_id!r}"
     else:
-        # New client
-        new_dataset = {
+        # New client -> add the client with its first table
+        dataset_block = {
             "client_id": client_id,
             "name": f"Astrobot_{client_id}",
             "description": client_description or f"Auto-introspected client {client_id}",
-            "default_metric": block["kpi_column"],
+            "default_metric": block.get("kpi_column", "Conversions"),
             "default_lookback_months": 12,
             "tables": [block],
         }
-        config.setdefault("datasets", []).append(new_dataset)
+        # Inject client_filter_value if a mismatch was detected
+        if detected_filter:
+            dataset_block["client_filter_value"] = detected_filter
+        change = {
+            "op": "add_client",
+            "client_id": client_id,
+            "dataset": dataset_block,
+        }
         action = f"Added new client {client_id!r} with table {table_id!r}"
+        if detected_filter:
+            action += f" (auto-detected client_filter_value={detected_filter!r})"
 
-    # Backup
-    stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    backup_path = f"{config_path}.before_agent_write_{stamp}"
-    try:
-        shutil.copy2(config_path, backup_path)
-    except Exception as e:
-        return {"status": "error",
-                "message": f"Could not back up config: {e}"}
+    # 7. Propose -> Confirm
+    propose_result = propose_change(change)
+    if propose_result.get("status") != "pending":
+        return {
+            "status": "error",
+            "message": (
+                f"propose_change rejected: gate={propose_result.get('gate_failed')}, "
+                f"errors={propose_result.get('errors')}"
+            ),
+            "table_block": block,
+        }
+    token = propose_result.get("token")
+    if not token:
+        return {
+            "status": "error",
+            "message": "propose_change returned no token",
+            "table_block": block,
+        }
 
-    # Write
-    try:
-        tmp_path = config_path + ".tmp"
-        with open(tmp_path, "w", encoding="utf-8") as f:
-            json.dump(config, f, indent=2)
-        # Validate by re-reading
-        with open(tmp_path, "r", encoding="utf-8") as f:
-            json.load(f)
-        # Atomic replace
-        os.replace(tmp_path, config_path)
-    except Exception as e:
-        # Restore backup
-        shutil.copy2(backup_path, config_path)
-        return {"status": "error",
-                "message": f"Write failed (backup restored): {e}",
-                "backup_path": backup_path}
-
-    # Reset KnowledgeManager cache
-    try:
-        from data_science.lib.channel_resolver import reset_config_cache
-        reset_config_cache()
-    except Exception:
-        pass
+    confirm_result = confirm_change(token, confirmed_by="write_to_config_directly")
+    if confirm_result.get("status") != "committed":
+        return {
+            "status": "error",
+            "message": (
+                f"confirm_change failed: gate={confirm_result.get('gate_failed')}, "
+                f"errors={confirm_result.get('errors')}"
+            ),
+            "table_block": block,
+        }
 
     notes = block.get("_introspection_notes", {})
     return {
         "status": "added",
         "message": (
-            f"{action}. Config updated.\n"
+            f"{action}. Config updated via config_writer.\n"
             f"Auto-classified channels: {notes.get('auto_classified_channels', 0)}.\n"
             f"Unmapped channels: {len(notes.get('unmapped_channels', []))}.\n"
             f"Rules attached: {len(block.get('rules', []))}.\n"
-            f"Please review {os.path.basename(config_path)} and refine taxonomy/rules as needed.\n"
-            f"Backup at: {backup_path}"
+            f"Backup/commit ref: {confirm_result.get('backup_path', 'n/a')}"
         ),
         "table_block": block,
-        "backup_path": backup_path,
+        "backup_path": confirm_result.get("backup_path"),
     }
 
+
+def _detect_client_filter_value(table_full_path: str, client_column: str, client_id: str):
+    """Query BQ to see if the actual Client column value differs from client_id.
+
+    Returns the filter value string if it should be set (i.e., exactly 1 distinct
+    value AND that value != client_id). Returns None if values match, multiple
+    distinct values exist, or the query fails.
+
+    Used during auto-onboarding to handle clients like WinnDixie where the BQ
+    data has Client='SEG' but the logical client_id is 'WinnDixie'.
+    """
+    try:
+        from google.cloud import bigquery
+        project = os.getenv("BQ_DATA_PROJECT_ID", "nc-ai-chatbot")
+        bq = bigquery.Client(project=project)
+        sql = (
+            f"SELECT DISTINCT `{client_column}` AS v "
+            f"FROM `{table_full_path}` "
+            f"WHERE `{client_column}` IS NOT NULL "
+            f"LIMIT 5"
+        )
+        rows = list(bq.query(sql).result())
+        if len(rows) == 1:
+            actual = rows[0]["v"]
+            if actual is not None and str(actual) != client_id:
+                return str(actual)
+    except Exception as e:
+        logger.warning(
+            f"client_filter_value auto-detect failed for {table_full_path}: {e}"
+        )
+    return None
 
 
 def _dataset_exists(project: str, dataset_id: str) -> bool:

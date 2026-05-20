@@ -299,13 +299,13 @@ def return_instructions_root(
       WITH spend AS (
         SELECT Date, Channel, SUM(Cost) AS cost
         FROM <table>
-        WHERE Client = '<client>' AND Cost > 0
+        WHERE Client = '<client_filter_value>' AND Cost > 0
         GROUP BY Date, Channel
       ),
       conv AS (
         SELECT Date, Channel, SUM(Conversions) AS conversions
         FROM <table>
-        WHERE Client = '<client>' AND Conversions > 0
+        WHERE Client = '<client_filter_value>' AND Conversions > 0
         GROUP BY Date, Channel
       )
       SELECT
