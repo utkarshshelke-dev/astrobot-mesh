@@ -56,17 +56,22 @@ def _discover_bq_clients() -> dict:
         datasets = list(bq.list_datasets(project=_PROJECT))
         for ds in datasets:
             ds_id = ds.dataset_id
+            # Check 1: dataset name must start with Astrobot_
             if not ds_id.startswith(_DATASET_PREFIX):
                 continue
             client_id = _client_id_from_dataset(ds_id)
             tables = {}
             for t in bq.list_tables(f"{_PROJECT}.{ds_id}"):
-                # Map view names to table_ids
+                # Check 2: view name must match vw_astrobot_* or sample_astrobot_*
+                # This filters out test tables, raw tables, temp tables etc.
                 table_id = _guess_table_id(t.table_id)
                 if table_id:
                     tables[table_id] = f"{_PROJECT}.{ds_id}.{t.table_id}"
+            # Only register if at least one valid astrobot view exists
             if tables:
                 result[client_id] = tables
+            else:
+                logger.debug(f"Skipping {ds_id} — no vw_astrobot_* views found")
     except Exception as e:
         logger.error(f"BQ scan failed: {e}")
     return result
@@ -75,17 +80,18 @@ def _discover_bq_clients() -> dict:
 def _guess_table_id(table_name: str) -> Optional[str]:
     """
     Map BQ view name to logical table_id.
-    vw_astrobot_npi_nc360_dashboard → performance
-    vw_astrobot_wd_nc360_budget → pacing
-    sample_* → performance
+    Only register views matching vw_astrobot_* or sample_astrobot_* patterns.
+    Returns None for non-standard tables (test tables, temp tables, etc.)
     """
     name = table_name.lower()
+    # Only process astrobot views — ignore test tables, raw tables, etc.
+    if not (name.startswith("vw_astrobot_") or name.startswith("sample_astrobot_")):
+        return None
     if "budget" in name or "pacing" in name:
         return "pacing"
     if "dashboard" in name or "performance" in name or "sample" in name:
         return "performance"
-    # Unknown — use the view name as table_id
-    return table_name
+    return None
 
 
 def _get_firestore_clients() -> dict:

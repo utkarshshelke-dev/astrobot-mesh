@@ -1,0 +1,4 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-f', 'Dockerfile.sync', '-t', 'gcr.io/nc-ai-chatbot/astrobot-sync-webhook:latest', '.']
+images: ['gcr.io/nc-ai-chatbot/astrobot-sync-webhook:latest']
