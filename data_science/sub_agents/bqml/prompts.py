@@ -470,6 +470,30 @@ def return_instructions_bqml() -> str:
 
     PLOT: line chart with confidence interval shading
 
+    FORECAST CHART INSTRUCTIONS — how to call call_analytics_for_visualization:
+    Pass a PLAIN TEXT string with actual values from your query results.
+    NO Python syntax, NO print(), NO default_api wrapper, NO function calls.
+
+    Format your string like this (replace <placeholders> with real values from tool output):
+
+    "Create a line chart for <client> <metric> forecast.
+    dates = [<comma-separated forecast dates from your ML.FORECAST result>]
+    values = [<comma-separated predicted values from your ML.FORECAST result>]
+    lower = [<comma-separated lower bounds from your ML.FORECAST result>]
+    upper = [<comma-separated upper bounds from your ML.FORECAST result>]
+    X-axis label: Date
+    Y-axis label: Predicted <metric>
+    Title: <client> <metric> Forecast - Next <N> Days
+    Chart type: line with confidence interval shading"
+
+    RULES:
+    - Call call_analytics_for_visualization DIRECTLY — never wrap in print() or default_api
+    - Every value must come from your ML.FORECAST tool output this turn
+    - NO hardcoded numbers, NO example values — use actual query results
+    - NO Python code, NO variables, NO f-strings, NO function wrappers of any kind
+    - Include ALL forecast rows from your query result
+    - Round numbers to 2 decimal places
+
     ══════════════════════════════════════════════════════════
     LINEAR REGRESSION
     ══════════════════════════════════════════════════════════
