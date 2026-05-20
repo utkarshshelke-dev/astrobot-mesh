@@ -1135,6 +1135,14 @@ def compute_saturation_curve(
     """
     # Resolve SQL filter value (e.g. "SEG" for WinnDixie, else client_id)
     client_filter = get_client_filter_value(client_id)
+    # Resolve kpi column — varies per client (Conversions, transactions, KPI, etc.)
+    try:
+        from data_science.lib.channel_resolver import get_table as _get_table
+        _tbl = _get_table(client_id, "performance")
+        kpi_col = _tbl.get("kpi_column") or "Conversions"
+    except Exception:
+        kpi_col = "Conversions"
+    _logger.info(f"compute_saturation_curve: kpi_col={kpi_col!r} for {client_id}")
     try:
         from google.cloud import bigquery
     except ImportError:
