@@ -61,3 +61,13 @@ Key findings:
   - Sub-agent state propagates via state_delta but AFTER AgentTool returns (next-turn visibility only)
   - Item 9 prompt substitution caused WinnDixie data regression — abandoned
 Backlog: Items 1-tail/9-tail, 2, 3, 4, 5, 8, 10. See session-11-resume-doc.md
+
+2026-05-20 — Session 11 ended
+Production: astrobot-ds-v4-00022-mey (item1d)
+Shipped: Items 6, 7a, 7b, 1-partial (post-model interceptor as dormant infrastructure)
+Key findings:
+  - ADK substitution requires {X} not {state.X} — entire codebase uses wrong form (Item 10)
+  - LlmResponse.content.parts not .candidates (existing dedup code has been dead)
+  - Sub-agent state propagates via state_delta but AFTER AgentTool returns (next-turn visibility only)
+  - Item 9 prompt substitution caused WinnDixie data regression — abandoned
+Backlog: Items 1-tail/9-tail, 2, 3, 4, 5, 8, 10. See session-11-resume-doc.md
