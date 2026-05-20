@@ -677,21 +677,21 @@ def after_model_callback(
     real_sql = state.get("last_executed_sql", "")
     if real_sql and isinstance(real_sql, str) and real_sql.strip():
         try:
-            if llm_response.candidates:
-                for cand in llm_response.candidates:
-                    if cand.content and cand.content.parts:
-                        for part in cand.content.parts:
-                            if hasattr(part, "text") and part.text:
-                                new_text, n_repl = _replace_fabricated_sql_in_text(
-                                    part.text, real_sql
-                                )
-                                if n_repl > 0:
-                                    _logger.info(
-                                        f"Steps SQL replacement: swapped {n_repl} "
-                                        f"fabricated SQL block(s) with real SQL "
-                                        f"({len(real_sql)} chars)"
-                                    )
-                                    part.text = new_text
+            # LlmResponse (ADK wrapper) has .content directly, not .candidates
+            content = getattr(llm_response, "content", None)
+            if content and getattr(content, "parts", None):
+                for part in content.parts:
+                    if hasattr(part, "text") and part.text:
+                        new_text, n_repl = _replace_fabricated_sql_in_text(
+                            part.text, real_sql
+                        )
+                        if n_repl > 0:
+                            _logger.info(
+                                f"Steps SQL replacement: swapped {n_repl} "
+                                f"fabricated SQL block(s) with real SQL "
+                                f"({len(real_sql)} chars)"
+                            )
+                            part.text = new_text
         except Exception as e:
             _logger.warning(f"Steps SQL replacement failed (response untouched): {e}")
 
