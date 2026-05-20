@@ -227,7 +227,6 @@ def test_npi_saturation_calls_tool(headers):
     assert "$44.94" not in text, "Worked-example number $44.94 leaked — Phase H regression"
 
 
-@pytest.mark.skip(reason="Pending Item 7b: NL2SQL path does not consume client_filter_value from state. Firestore fix (Item 7a) verified but insufficient. Forced SQL with Client=TWDC returns 34 rows.")
 def test_winndixie_channel_filter(headers):
     """Smoke 5: WinnDixie 'spend by channel last quarter' → multiple channel rows.
 
