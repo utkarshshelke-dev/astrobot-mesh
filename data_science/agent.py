@@ -581,8 +581,17 @@ def after_tool_callback(
     tool_context: ToolContext,
     tool_response: Any,
 ) -> Any:
-    """Capture results in state; sanitize NaN values."""
+    """Capture results in state; sanitize NaN values; capture SQL for narration."""
     tool_name = getattr(tool, "name", None) or getattr(tool, "__name__", str(tool))
+
+    # Item 1: capture SQL from any pre-built SQL-emitting tool. These tools
+    # return {"sql": "...", "client_id": "..."} and never go through execute_sql
+    # as far as the LLM's state is concerned, so we capture it here so the
+    # Steps narration interceptor can use the real SQL.
+    if isinstance(tool_response, dict):
+        sql_field = tool_response.get("sql")
+        if sql_field and isinstance(sql_field, str) and sql_field.strip():
+            tool_context.state["last_executed_sql"] = sql_field
 
     if tool_name == "call_bigquery_agent":
         tool_context.state["bigquery_query_result"] = tool_response
@@ -607,11 +616,48 @@ def after_tool_callback(
     return None
 
 
+# Item 1: Steps narration SQL replacement.
+# Matches a "Steps:" / "**Steps:**" header followed by a "Generated SQL:" line
+# followed by a fenced code block (```sql ... ``` or ``` ... ```).
+# Captures the fenced SQL so we can swap it with state["last_executed_sql"].
+_STEPS_SQL_RE = re.compile(
+    r"(?P<prefix>(?:\*\*Steps:?\*\*|Steps:).*?(?:Generated SQL|generated SQL)[:\s]*\n+)"
+    r"```(?:sql)?\s*\n"
+    r"(?P<sql>.*?)\n"
+    r"```",
+    re.DOTALL | re.IGNORECASE,
+)
+
+
+def _replace_fabricated_sql_in_text(text: str, real_sql: str) -> tuple[str, int]:
+    """Swap any SQL block inside a Steps section with the real SQL from state.
+
+    Args:
+        text: LLM response text
+        real_sql: state["last_executed_sql"] value (must be non-empty)
+    Returns:
+        (modified_text, n_replacements)
+    """
+    n = 0
+    def _repl(m: re.Match) -> str:
+        nonlocal n
+        llm_sql = m.group("sql").strip()
+        real = real_sql.strip()
+        # Only replace if they actually differ (post-strip).
+        if llm_sql == real:
+            return m.group(0)
+        n += 1
+        prefix = m.group("prefix")
+        return f"{prefix}```sql\n{real}\n```"
+    new_text = _STEPS_SQL_RE.sub(_repl, text)
+    return new_text, n
+
+
 def after_model_callback(
     callback_context: CallbackContext,
     llm_response: Any,
 ) -> Optional[Any]:
-    """Log token usage. Block duplicate text responses."""
+    """Log tokens; replace fabricated SQL in Steps blocks; block duplicate responses."""
     state = callback_context.state
 
     # Log tokens
@@ -624,6 +670,30 @@ def after_model_callback(
             )
     except Exception:
         pass
+
+    # ── Item 1: Steps narration SQL replacement ──
+    # Only runs if state has a real SQL to inject. State-empty case = rule (α),
+    # leave the LLM block alone (first-turn safety).
+    real_sql = state.get("last_executed_sql", "")
+    if real_sql and isinstance(real_sql, str) and real_sql.strip():
+        try:
+            if llm_response.candidates:
+                for cand in llm_response.candidates:
+                    if cand.content and cand.content.parts:
+                        for part in cand.content.parts:
+                            if hasattr(part, "text") and part.text:
+                                new_text, n_repl = _replace_fabricated_sql_in_text(
+                                    part.text, real_sql
+                                )
+                                if n_repl > 0:
+                                    _logger.info(
+                                        f"Steps SQL replacement: swapped {n_repl} "
+                                        f"fabricated SQL block(s) with real SQL "
+                                        f"({len(real_sql)} chars)"
+                                    )
+                                    part.text = new_text
+        except Exception as e:
+            _logger.warning(f"Steps SQL replacement failed (response untouched): {e}")
 
     # ── Duplicate response suppression ──
     # If the agent emits the same text twice in one turn (once before chart,
