@@ -57,6 +57,14 @@ def store_results_in_context(
     # We are setting a state for the data science agent to be able to use the
     # sql query results as context
     if tool.name == ADK_BUILTIN_BQ_EXECUTE_SQL_TOOL:
+        # Item 9: capture the actual SQL passed to execute_sql so the root
+        # agent's "Steps:" narration shows real SQL instead of LLM-paraphrased
+        # table names. Previously the LLM had to recall SQL from its own
+        # context window, which led to fabricated paths.
+        sql_arg = args.get("query") or args.get("sql") or ""
+        if sql_arg:
+            tool_context.state["last_executed_sql"] = sql_arg
+
         if tool_response["status"] == "SUCCESS":
             # Sanitize NaN/Infinity values for JSON compatibility
             sanitized_rows = tools._sanitize_json(tool_response["rows"])

@@ -587,6 +587,13 @@ def after_tool_callback(
     if tool_name == "call_bigquery_agent":
         tool_context.state["bigquery_query_result"] = tool_response
     elif tool_name == "execute_sql":
+        # Item 9: mirror SQL capture at root layer (defense in depth — the
+        # sub-agent callback also writes this; root layer write makes the
+        # field reliably readable from the root prompt's state substitution).
+        sql_arg = args.get("query") or args.get("sql") or ""
+        if sql_arg:
+            tool_context.state["last_executed_sql"] = sql_arg
+
         if isinstance(tool_response, dict) and tool_response.get("status") == "SUCCESS":
             rows = tool_response.get("rows")
             if rows:

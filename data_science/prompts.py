@@ -795,7 +795,7 @@ def return_instructions_root(
        1. Called `<tool_name>` (e.g., get_pacing_sql, bigquery_nl2sql, compute_saturation_curve)
        2. Generated SQL:
 ```sql
-          <the generated SQL from the tool response, as-is>
+{{state.last_executed_sql}}
 ```
        3. Returned <N> rows.
 
@@ -805,11 +805,11 @@ def return_instructions_root(
     Rules:
     - Only include "Steps" when a SQL-producing or data-computing tool was called.
     - For simple greetings, refusals, or out-of-scope replies — skip "Steps".
-    - If the tool response has no "sql" field, omit the SQL block but
-      still list the tool you called and the row count.
-    - SQL goes verbatim from the tool response. Do NOT paraphrase, edit,
-      or invent SQL. If you didn't see SQL in the tool output, say
-      "(no SQL — tool used pre-computed logic)" instead of guessing.
+    - The SQL block uses {{state.last_executed_sql}} which is populated
+      automatically by the after_tool_callback with the EXACT SQL that ran
+      against BigQuery. Do NOT paraphrase, rewrite, or invent table names.
+      If the substituted value is empty (a pre-computed tool with no SQL),
+      write "(no SQL — tool used pre-computed logic)" instead.
     - This narration is in addition to the response format above, not
       a replacement.
     """
